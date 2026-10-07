@@ -128,7 +128,7 @@
     <!-- Header -->
     <header id="siteHeader" class="sticky top-0 z-50 header-blur">
         <div class="max-w-7xl mx-auto px-5 sm:px-6 h-[72px] flex items-center justify-between gap-4">
-            <a href="index.html" class="flex items-center gap-3 shrink-0">
+            <a href="index.html" class="flex items-center gap-3 min-w-0">
                 <span class="w-9 h-9 rounded-xl flex items-center justify-center font-display font-bold text-ink" style="background: linear-gradient(135deg,#34d399,#38bdf8);">MF</span>
                 <span class="leading-tight">
                     <span class="block font-display font-semibold">Marcelo Fernandes</span>
@@ -169,10 +169,9 @@
             </nav>
 
             <div class="flex items-center gap-2">
-                <a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="btn btn-primary !py-2.5 !px-4 text-sm">
+                <a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="btn btn-primary !py-2.5 !px-3 sm:!px-4 text-sm" aria-label="Conversar no WhatsApp">
                     <svg class="w-4 h-4" aria-hidden="true" focusable="false" data-icon="message-circle"class="lucide lucide-message-circle"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>
                     <span class="hidden sm:inline">Conversar agora</span>
-                    <span class="sm:hidden">WhatsApp</span>
                 </a>
                 <button id="menuBtn" class="lg:hidden p-2.5 rounded-xl border border-white/10 text-slate-300" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
                     <svg class="w-5 h-5" aria-hidden="true" focusable="false" data-icon="menu"class="lucide lucide-menu"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
@@ -199,11 +198,11 @@
 
     <main>
         <!-- Hero -->
-        <section class="ac-cloud relative px-5 sm:px-6 pt-10 md:pt-12 pb-6 max-w-7xl mx-auto">
+        <section class="ac-cloud relative px-5 sm:px-6 pt-10 md:pt-12 pb-10 md:pb-14 max-w-7xl mx-auto">
             <div class="page-glow"></div>
             <nav class="crumbs mb-8" aria-label="Você está em"><a href="index.html">Início</a><span>/</span><span class="text-slate-300">Contato</span></nav>
             <div class="max-w-3xl">
-                <div class="reveal inline-flex items-center gap-2.5 panel rounded-full pl-3 pr-4 py-1.5 mb-7">
+                <div class="reveal flex w-fit items-center gap-2.5 panel rounded-full pl-3 pr-4 py-1.5 mb-7">
                     <span class="status-dot"></span>
                     <span class="text-sm text-slate-300">Disponível para novos projetos</span>
                 </div>
@@ -215,7 +214,7 @@
                 </p>
             </div>
 
-            <div class="reveal grid grid-cols-2 lg:grid-cols-4 gap-px rounded-3xl overflow-hidden border border-white/[0.08] bg-white/[0.08] mt-12" data-delay="3">
+            <div class="reveal grid grid-cols-2 lg:grid-cols-4 gap-px rounded-3xl overflow-hidden border border-white/[0.08] bg-white/[0.08] mt-10" data-delay="3">
                 <div class="bg-ink/95 p-6"><p class="font-display text-3xl font-bold text-ai-color">1h</p><p class="text-sm text-slate-400 mt-1">Resposta rápida</p></div>
                 <div class="bg-ink/95 p-6"><p class="font-display text-3xl font-bold text-cloud-color">100%</p><p class="text-sm text-slate-400 mt-1">Orçamentos grátis</p></div>
                 <div class="bg-ink/95 p-6"><p class="font-display text-3xl font-bold text-dev-color">24/7</p><p class="text-sm text-slate-400 mt-1">WhatsApp</p></div>
@@ -224,7 +223,7 @@
         </section>
 
         <!-- Formulário + contato direto -->
-        <section id="contato" class="py-8 md:py-12 px-5 sm:px-6 max-w-7xl mx-auto">
+        <section id="contato" class="py-10 md:py-14 px-5 sm:px-6 max-w-7xl mx-auto">
             <div class="grid lg:grid-cols-[1.25fr_1fr] gap-6 items-start">
                 <form data-whatsapp class="reveal panel rounded-[2rem] p-6 md:p-10">
                     <h2 class="text-3xl font-bold mb-2">Envie sua mensagem</h2>
@@ -285,7 +284,7 @@
         </section>
 
         <!-- Mapa -->
-        <section class="py-8 md:py-12 px-5 sm:px-6 max-w-7xl mx-auto">
+        <section class="py-10 md:py-14 px-5 sm:px-6 max-w-7xl mx-auto">
             <div class="reveal panel rounded-[2rem] overflow-hidden">
                 <div class="p-6 md:p-8 flex items-center justify-between gap-4">
                     <h2 class="text-2xl font-bold">Onde me encontrar</h2>
@@ -296,7 +295,7 @@
         </section>
 
         <!-- FAQ -->
-        <section id="faq" class="py-8 md:py-12 px-5 sm:px-6 max-w-7xl mx-auto">
+        <section id="faq" class="py-10 md:py-14 px-5 sm:px-6 max-w-7xl mx-auto">
             <div class="grid lg:grid-cols-[1fr_1.6fr] gap-10">
                 <div class="reveal">
                     <span class="eyebrow mb-4">FAQ</span>
@@ -312,7 +311,7 @@
         </section>
 
         <!-- CTA final -->
-        <section class="py-8 md:py-12 px-5 sm:px-6 max-w-7xl mx-auto">
+        <section class="py-10 md:py-14 px-5 sm:px-6 max-w-7xl mx-auto">
             <div class="reveal relative panel rounded-[2rem] p-8 md:p-14 overflow-hidden text-center">
                 <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-3xl opacity-30 pointer-events-none" style="background: radial-gradient(circle, rgba(52,211,153,.5), rgba(56,189,248,.3) 40%, transparent 70%);"></div>
                 <blockquote class="relative text-3xl md:text-4xl font-display font-bold leading-tight mb-4 max-w-3xl mx-auto">“Cada conversa pode se transformar em um <span class="grad-brand">grande projeto</span>.”</blockquote>
@@ -326,8 +325,8 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-white/5 mt-8">
-        <div class="max-w-7xl mx-auto px-5 sm:px-6 py-14">
+    <footer class="border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 pt-10 md:pt-14 pb-10">
             <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
                 <div>
                     <a href="index.html" class="flex items-center gap-3 mb-4">

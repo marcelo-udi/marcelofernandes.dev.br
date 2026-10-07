@@ -130,7 +130,7 @@
     <!-- Header -->
     <header id="siteHeader" class="sticky top-0 z-50 header-blur">
         <div class="max-w-7xl mx-auto px-5 sm:px-6 h-[72px] flex items-center justify-between gap-4">
-            <a href="index.html" class="flex items-center gap-3 shrink-0">
+            <a href="index.html" class="flex items-center gap-3 min-w-0">
                 <span class="w-9 h-9 rounded-xl flex items-center justify-center font-display font-bold text-ink" style="background: linear-gradient(135deg,#34d399,#38bdf8);">MF</span>
                 <span class="leading-tight">
                     <span class="block font-display font-semibold">Marcelo Fernandes</span>
@@ -171,10 +171,9 @@
             </nav>
 
             <div class="flex items-center gap-2">
-                <a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="btn btn-primary !py-2.5 !px-4 text-sm">
+                <a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="btn btn-primary !py-2.5 !px-3 sm:!px-4 text-sm" aria-label="Conversar no WhatsApp">
                     <svg class="w-4 h-4" aria-hidden="true" focusable="false" data-icon="message-circle"class="lucide lucide-message-circle"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>
                     <span class="hidden sm:inline">Conversar agora</span>
-                    <span class="sm:hidden">WhatsApp</span>
                 </a>
                 <button id="menuBtn" class="lg:hidden p-2.5 rounded-xl border border-white/10 text-slate-300" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
                     <svg class="w-5 h-5" aria-hidden="true" focusable="false" data-icon="menu"class="lucide lucide-menu"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
@@ -201,12 +200,12 @@
 
     <main>
         <!-- Hero -->
-        <section class="ac-dev relative px-5 sm:px-6 pt-10 md:pt-12 pb-10 max-w-7xl mx-auto">
+        <section class="ac-dev relative px-5 sm:px-6 pt-10 md:pt-12 pb-10 md:pb-14 max-w-7xl mx-auto">
             <div class="page-glow"></div>
             <nav class="crumbs mb-8" aria-label="Você está em"><a href="index.html">Início</a><span>/</span><span class="text-slate-300">Desenvolvimento de Software</span></nav>
 
             <div class="max-w-4xl">
-                <div class="reveal inline-flex items-center gap-2.5 panel rounded-full pl-3 pr-4 py-1.5 mb-7">
+                <div class="reveal flex w-fit items-center gap-2.5 panel rounded-full pl-3 pr-4 py-1.5 mb-7">
                     <svg class="w-4 h-4 text-dev-color" aria-hidden="true" focusable="false" data-icon="code-2"class="lucide lucide-code-xml"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg>
                     <span class="text-sm text-slate-300">Transformação digital com software</span>
                 </div>
@@ -486,8 +485,8 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-white/5 mt-8">
-        <div class="max-w-7xl mx-auto px-5 sm:px-6 py-14">
+    <footer class="border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 pt-10 md:pt-14 pb-10">
             <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
                 <div>
                     <a href="index.html" class="flex items-center gap-3 mb-4">

@@ -100,7 +100,7 @@ h1, h2, h3, h4, .font-display { font-family: 'Space Grotesk', 'Inter', sans-seri
 .tag-dev   { --accent: 251,191,36; }
 
 .eyebrow {
-    display: inline-flex; align-items: center; gap: .5rem;
+    display: flex; width: fit-content; align-items: center; gap: .5rem;
     font-family: 'Fira Code', monospace; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase;
     color: var(--muted);
 }
