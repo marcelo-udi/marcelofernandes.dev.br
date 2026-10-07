@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YEVQZCLHG4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date());
+      gtag('config', 'G-YEVQZCLHG4');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href="https://marcelofernandes.dev.br/computacao-em-nuvem">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Marcelo Fernandes">
+    <meta property="og:image:alt" content="Marcelo Fernandes - Especialista em Computação em Nuvem">
+    <meta name="twitter:site" content="@marcelodev">
+    <meta name="twitter:creator" content="@marcelodev">
+    <meta name="twitter:image:alt" content="Especialista em Cloud Computing - Soluções Escaláveis">
+    
+    <title>Computação em Nuvem | Marcelo Fernandes - Especialista em Cloud Solutions</title>
+    <meta name="description" content="Transforme seu negócio com arquiteturas em nuvem escaláveis. Especialista em AWS, Azure, Google Cloud, Kubernetes e soluções serverless.">
+    <meta name="keywords" content="computação em nuvem, cloud computing, AWS, Azure, Google Cloud, Kubernetes, Docker, serverless, migração cloud, arquitetura cloud">
+    
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+
+    <meta name="theme-color" content="#050a17">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tw-config.js"></script>
+    <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+    <div class="bg-aurora"></div>
+    <div class="bg-grid"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header -->
+    <header id="siteHeader" class="sticky top-0 z-50 header-blur">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 h-[72px] flex items-center justify-between gap-4">
+            <a href="index.html" class="flex items-center gap-3 shrink-0">
+                <span class="w-9 h-9 rounded-xl flex items-center justify-center font-display font-bold text-ink" style="background: linear-gradient(135deg,#34d399,#38bdf8);">MF</span>
+                <span class="leading-tight">
+                    <span class="block font-display font-semibold">Marcelo Fernandes</span>
+                    <span class="block text-xs text-slate-500">AI & Cloud Solutions</span>
+                </span>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8 text-[15px]" aria-label="Principal">
+                <a href="index.html#servicos" class="nav-link">Serviços</a>
+                <div class="dropdown relative">
+                    <button class="nav-link flex items-center gap-1" aria-haspopup="true">
+                        Especialidades <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="ia.html" class="dropdown-item">
+                            <i data-lucide="brain" class="w-5 h-5 text-ai-color mt-0.5"></i>
+                            <span><span class="block text-white font-medium">Inteligência Artificial</span><span class="block text-xs text-slate-400">ML, NLP, visão e IA generativa</span></span>
+                        </a>
+                        <a href="cloud.html" class="dropdown-item" aria-current="page">
+                            <i data-lucide="cloud" class="w-5 h-5 text-cloud-color mt-0.5"></i>
+                            <span><span class="block text-white font-medium">Computação em Nuvem</span><span class="block text-xs text-slate-400">AWS, Azure, Kubernetes</span></span>
+                        </a>
+                        <a href="software.html" class="dropdown-item">
+                            <i data-lucide="code-2" class="w-5 h-5 text-dev-color mt-0.5"></i>
+                            <span><span class="block text-white font-medium">Desenvolvimento de Software</span><span class="block text-xs text-slate-400">Web, mobile, APIs e automação</span></span>
+                        </a>
+                        <div class="my-1.5 mx-3 h-px bg-white/[0.07]"></div>
+                        <a href="site_institucional.html" class="dropdown-item !py-2"><i data-lucide="layout-template" class="w-4 h-4 text-dev-color mt-0.5"></i><span class="text-sm text-slate-200">Sites & lojas virtuais</span></a>
+                        <a href="automacao_relatorios.html" class="dropdown-item !py-2"><i data-lucide="bar-chart-3" class="w-4 h-4 text-ai-color mt-0.5"></i><span class="text-sm text-slate-200">Automação & Power BI</span></a>
+                        <a href="manutencao_servidores.html" class="dropdown-item !py-2"><i data-lucide="server" class="w-4 h-4 text-cloud-color mt-0.5"></i><span class="text-sm text-slate-200">Servidores Linux</span></a>
+                        <a href="seguranca_cibernetica.html" class="dropdown-item !py-2"><i data-lucide="shield-check" class="w-4 h-4 text-violet-400 mt-0.5"></i><span class="text-sm text-slate-200">Cibersegurança & LGPD</span></a>
+                    </div>
+                </div>
+                <a href="index.html#projetos" class="nav-link">Projetos</a>
+                <a href="index.html#sobre" class="nav-link">Sobre</a>
+                <a href="https://marcelofernandes.dev.br/blog" target="_blank" rel="noopener noreferrer" class="nav-link">Blog</a>
+                <a href="contato.html" class="nav-link">Contato</a>
+            </nav>
+
+            <div class="flex items-center gap-2">
+                <a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="btn btn-primary !py-2.5 !px-4 text-sm">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span class="hidden sm:inline">Conversar agora</span>
+                    <span class="sm:hidden">WhatsApp</span>
+                </a>
+                <button id="menuBtn" class="lg:hidden p-2.5 rounded-xl border border-white/10 text-slate-300" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu mobile -->
+        <nav id="mobileMenu" class="lg:hidden hidden border-t border-white/5 px-5 pb-6 pt-2 max-h-[80vh] overflow-y-auto" aria-label="Menu mobile">
+            <a href="index.html#servicos" class="block py-3 text-slate-300 border-b border-white/5">Serviços</a>
+            <a href="ia.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="brain" class="w-4 h-4 text-ai-color"></i>Inteligência Artificial</a>
+            <a href="cloud.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5" aria-current="page"><i data-lucide="cloud" class="w-4 h-4 text-cloud-color"></i>Computação em Nuvem</a>
+            <a href="software.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="code-2" class="w-4 h-4 text-dev-color"></i>Desenvolvimento de Software</a>
+            <a href="site_institucional.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="layout-template" class="w-4 h-4 text-dev-color"></i>Sites & lojas virtuais</a>
+            <a href="automacao_relatorios.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="bar-chart-3" class="w-4 h-4 text-ai-color"></i>Automação & Power BI</a>
+            <a href="manutencao_servidores.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="server" class="w-4 h-4 text-cloud-color"></i>Servidores Linux</a>
+            <a href="seguranca_cibernetica.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="shield-check" class="w-4 h-4 text-violet-400"></i>Cibersegurança & LGPD</a>
+            <a href="index.html#projetos" class="block py-3 text-slate-300 border-b border-white/5">Projetos</a>
+            <a href="index.html#sobre" class="block py-3 text-slate-300 border-b border-white/5">Sobre</a>
+            <a href="https://marcelofernandes.dev.br/blog" target="_blank" rel="noopener noreferrer" class="block py-3 text-slate-300 border-b border-white/5">Blog</a>
+            <a href="contato.html" class="block py-3 text-slate-300">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="ac-cloud relative px-5 sm:px-6 pt-12 md:pt-16 pb-16 max-w-7xl mx-auto">
+            <div class="page-glow"></div>
+            <nav class="crumbs mb-10" aria-label="Você está em"><a href="index.html">Início</a><span>/</span><span class="text-slate-300">Computação em Nuvem</span></nav>
+
+            <div class="max-w-4xl">
+                <div class="reveal inline-flex items-center gap-2.5 panel rounded-full pl-3 pr-4 py-1.5 mb-7">
+                    <i data-lucide="badge-check" class="w-4 h-4 text-cloud-color"></i>
+                    <span class="text-sm text-slate-300">Especialista certificado em cloud</span>
+                </div>
+                <h1 class="reveal text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-7xl font-bold mb-6" data-delay="1">
+                    Computação <span class="grad-accent">em nuvem</span>
+                </h1>
+                <p class="reveal text-lg md:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed" data-delay="2">
+                    Arquiteturas escaláveis, seguras e otimizadas. Migração, otimização de custos e soluções serverless
+                    para empresas que buscam inovação e eficiência.
+                </p>
+                <div class="reveal flex flex-col sm:flex-row gap-3" data-delay="3">
+                    <a href="#contato" class="btn btn-primary"><i data-lucide="calculator" class="w-5 h-5"></i>Simular economia</a>
+                    <a href="#servicos" class="btn btn-ghost">Serviços cloud <i data-lucide="arrow-down" class="w-4 h-4"></i></a>
+                </div>
+            </div>
+
+            <div class="reveal panel rounded-3xl mt-16 grid grid-cols-2 lg:grid-cols-4 divide-white/[0.06] lg:divide-x" data-delay="3">
+                <div class="p-6 md:p-8"><p class="stat-num">60%</p><p class="text-sm text-slate-400 mt-2">Redução de custos</p></div>
+                <div class="p-6 md:p-8"><p class="stat-num">99,9%</p><p class="text-sm text-slate-400 mt-2">Disponibilidade</p></div>
+                <div class="p-6 md:p-8"><p class="stat-num">100+</p><p class="text-sm text-slate-400 mt-2">Projetos cloud</p></div>
+                <div class="p-6 md:p-8"><p class="stat-num">3+</p><p class="text-sm text-slate-400 mt-2">Provedores certificados</p></div>
+            </div>
+        </section>
+
+        <!-- O que é -->
+        <section id="o-que-e" class="ac-cloud py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                <div class="reveal">
+                    <span class="eyebrow mb-4">Conceito</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">O que é <span class="grad-accent">computação em nuvem</span>?</h2>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-10">
+                        É a entrega de serviços de computação — servidores, armazenamento, bancos de dados, rede, software,
+                        análise e inteligência — pela internet, oferecendo inovação mais rápida, recursos flexíveis e economia de escala.
+                    </p>
+                    <div class="rounded-3xl bg-ink/70 border border-white/[0.08] p-6">
+                        <div class="text-sm font-medium mb-5">Modelos de serviço</div>
+                        <div class="space-y-2.5">
+                            <div class="node px-5 py-4 flex items-center justify-between mx-0" style="border-color: rgba(14,165,233,.5); background: rgba(14,165,233,.08)"><span class="font-display font-bold text-cloud-color">SaaS</span><span class="text-sm text-slate-400">Software as a Service</span></div>
+                            <div class="node px-5 py-4 flex items-center justify-between sm:mx-4" style="border-color: rgba(14,165,233,.3); background: rgba(14,165,233,.05)"><span class="font-display font-bold text-sky-300">PaaS</span><span class="text-sm text-slate-400">Platform as a Service</span></div>
+                            <div class="node px-5 py-4 flex items-center justify-between sm:mx-8"><span class="font-display font-bold text-slate-300">IaaS</span><span class="text-sm text-slate-400">Infrastructure as a Service</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal panel rounded-3xl p-8" data-delay="1">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3"><i data-lucide="zap" class="w-6 h-6 text-cloud-color"></i>Por que migrar para a nuvem?</h3>
+                    <ul class="check-list">
+                        <li>Redução de custos com infraestrutura</li>
+                        <li>Escalabilidade instantânea</li>
+                        <li>Alta disponibilidade e resiliência</li>
+                        <li>Segurança de nível empresarial</li>
+                        <li>Inovação contínua com novas tecnologias</li>
+                        <li>Trabalho remoto e colaboração facilitada</li>
+                    </ul>
+                    <div class="mt-8 rounded-2xl p-5 border border-cloud-color/25 bg-cloud-color/[0.06] text-slate-300">
+                        <span class="block text-xs font-mono uppercase tracking-wider text-cloud-color mb-1.5">Fato rápido</span>
+                        Empresas que migram para a nuvem reduzem custos de TI em até <strong class="text-white">40%</strong> e aumentam a produtividade em <strong class="text-white">30%</strong>.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Serviços -->
+        <section id="servicos" class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="eyebrow mb-4">Serviços</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Serviços de <span class="grad-cloud">cloud computing</span></h2>
+                <p class="text-slate-400 text-lg">Soluções completas para sua jornada na nuvem.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-5">
+                <article class="reveal card cloud panel rounded-3xl p-8 flex flex-col"><span class="icon-tile mb-6"><i data-lucide="plane-takeoff" class="w-6 h-6"></i></span><h3 class="text-2xl font-bold mb-3">Consultoria & migração</h3><p class="text-slate-400 leading-relaxed mb-8">Análise completa, planejamento estratégico e migração segura de infraestruturas on-premise para a nuvem com mínimo downtime.</p><div class="mt-auto flex flex-wrap gap-2"><span class="tag tag-cloud">Análise TCO/ROI</span><span class="tag tag-cloud">Estratégia cloud</span><span class="tag tag-cloud">Migração 6R</span><span class="tag tag-cloud">Cloud Foundation</span></div></article>
+                <article class="reveal card cloud panel rounded-3xl p-8 flex flex-col" data-delay="1"><span class="icon-tile mb-6"><i data-lucide="layers" class="w-6 h-6"></i></span><h3 class="text-2xl font-bold mb-3">Arquitetura & DevOps</h3><p class="text-slate-400 leading-relaxed mb-8">Arquiteturas cloud-native, DevOps, pipelines de CI/CD e infraestrutura como código (IaC).</p><div class="mt-auto flex flex-wrap gap-2"><span class="tag tag-cloud">Microservices</span><span class="tag tag-cloud">Kubernetes</span><span class="tag tag-cloud">Terraform</span><span class="tag tag-cloud">CI/CD</span><span class="tag tag-cloud">Serverless</span></div></article>
+                <article class="reveal card cloud panel rounded-3xl p-8 flex flex-col" data-delay="2"><span class="icon-tile mb-6"><i data-lucide="shield" class="w-6 h-6"></i></span><h3 class="text-2xl font-bold mb-3">Otimização & segurança</h3><p class="text-slate-400 leading-relaxed mb-8">Otimização contínua de custos, governança, segurança e conformidade em múltiplas clouds.</p><div class="mt-auto flex flex-wrap gap-2"><span class="tag tag-cloud">FinOps</span><span class="tag tag-cloud">Cost Optimization</span><span class="tag tag-cloud">Security Hub</span><span class="tag tag-cloud">Compliance</span><span class="tag tag-cloud">Backup/DR</span></div></article>
+            </div>
+        </section>
+
+        <!-- Benefícios -->
+        <section id="beneficios" class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="eyebrow mb-4">Benefícios</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Benefícios da <span class="grad-cloud">nuvem</span></h2>
+                <p class="text-slate-400 text-lg">Transformação digital com resultados mensuráveis.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <article class="reveal card cloud panel rounded-3xl p-7"><span class="icon-tile mb-5"><i data-lucide="dollar-sign" class="w-6 h-6"></i></span><h3 class="text-lg font-bold mb-2">Redução de custos</h3><p class="text-sm text-slate-400 leading-relaxed">Pague apenas pelo que usar, elimine custos de hardware e mantenha-se no modelo OPEX.</p></article>
+                <article class="reveal card cloud panel rounded-3xl p-7" data-delay="1"><span class="icon-tile mb-5"><i data-lucide="activity" class="w-6 h-6"></i></span><h3 class="text-lg font-bold mb-2">Escalabilidade</h3><p class="text-sm text-slate-400 leading-relaxed">Aumente ou diminua a capacidade em minutos para atender à demanda do negócio.</p></article>
+                <article class="reveal card cloud panel rounded-3xl p-7" data-delay="2"><span class="icon-tile mb-5"><i data-lucide="lock" class="w-6 h-6"></i></span><h3 class="text-lg font-bold mb-2">Segurança</h3><p class="text-sm text-slate-400 leading-relaxed">Proteção de dados com criptografia, controle de acesso e conformidade regulatória.</p></article>
+                <article class="reveal card cloud panel rounded-3xl p-7" data-delay="3"><span class="icon-tile mb-5"><i data-lucide="zap" class="w-6 h-6"></i></span><h3 class="text-lg font-bold mb-2">Inovação</h3><p class="text-sm text-slate-400 leading-relaxed">Acesso às tecnologias mais recentes, como IA, machine learning e IoT.</p></article>
+            </div>
+
+            <div class="reveal panel rounded-3xl mt-8 overflow-hidden">
+                <div class="p-6 md:p-8 border-b border-white/[0.06]"><h3 class="text-2xl font-bold">On-premise vs. cloud</h3></div>
+                <div class="overflow-x-auto">
+                    <table class="table-dark min-w-[600px]">
+                        <thead><tr><th class="pl-6 md:pl-8">Fator</th><th>Infraestrutura on-premise</th><th class="pr-6 md:pr-8">Computação em nuvem</th></tr></thead>
+                        <tbody>
+                            <tr><td class="pl-6 md:pl-8 text-white font-medium">Custo inicial</td><td>Alto investimento em hardware</td><td class="pr-6 md:pr-8 text-cloud-color">Sem custo inicial significativo</td></tr>
+                            <tr><td class="pl-6 md:pl-8 text-white font-medium">Escalabilidade</td><td>Limitada, leva semanas/meses</td><td class="pr-6 md:pr-8 text-cloud-color">Ilimitada, em minutos</td></tr>
+                            <tr><td class="pl-6 md:pl-8 text-white font-medium">Manutenção</td><td>Complexa e custosa</td><td class="pr-6 md:pr-8 text-cloud-color">Gerenciada pelo provedor</td></tr>
+                            <tr><td class="pl-6 md:pl-8 text-white font-medium">Segurança</td><td>Responsabilidade total da empresa</td><td class="pr-6 md:pr-8 text-cloud-color">Compartilhada com o provedor</td></tr>
+                            <tr><td class="pl-6 md:pl-8 text-white font-medium border-b-0">Inovação</td><td class="border-b-0">Atualizações manuais e lentas</td><td class="pr-6 md:pr-8 text-cloud-color border-b-0">Atualizações automáticas e contínuas</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tecnologias -->
+        <section id="tecnologias" class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="eyebrow mb-4">Tecnologias</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Multi-cloud <span class="grad-cloud">na prática</span></h2>
+                <p class="text-slate-400 text-lg">Especialista em múltiplos provedores e tecnologias.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-5 mb-5">
+                <article class="reveal card panel rounded-3xl p-8" style="--accent:251,146,60"><span class="font-mono text-sm text-orange-400">AWS</span><h3 class="text-xl font-bold mt-2 mb-1">Amazon Web Services</h3><p class="text-xs uppercase tracking-wider text-slate-500 mb-4">Líder de mercado</p><p class="text-slate-400 leading-relaxed mb-6">Mais de 200 serviços completos de datacenters em todo o mundo.</p><div class="flex flex-wrap gap-2"><span class="tag" style="--accent:251,146,60">EC2</span><span class="tag" style="--accent:251,146,60">S3</span><span class="tag" style="--accent:251,146,60">Lambda</span><span class="tag" style="--accent:251,146,60">RDS</span><span class="tag" style="--accent:251,146,60">EKS</span><span class="tag" style="--accent:251,146,60">CloudFront</span></div></article>
+                <article class="reveal card panel rounded-3xl p-8" data-delay="1" style="--accent:56,189,248"><span class="font-mono text-sm text-sky-400">Azure</span><h3 class="text-xl font-bold mt-2 mb-1">Microsoft Azure</h3><p class="text-xs uppercase tracking-wider text-slate-500 mb-4">Integração Microsoft</p><p class="text-slate-400 leading-relaxed mb-6">Plataforma de nuvem para empresas com foco em integração corporativa.</p><div class="flex flex-wrap gap-2"><span class="tag tag-cloud">Virtual Machines</span><span class="tag tag-cloud">Blob Storage</span><span class="tag tag-cloud">Functions</span><span class="tag tag-cloud">SQL Database</span><span class="tag tag-cloud">AKS</span><span class="tag tag-cloud">DevOps</span></div></article>
+                <article class="reveal card panel rounded-3xl p-8" data-delay="2" style="--accent:248,113,113"><span class="font-mono text-sm text-red-400">GCP</span><h3 class="text-xl font-bold mt-2 mb-1">Google Cloud Platform</h3><p class="text-xs uppercase tracking-wider text-slate-500 mb-4">Inovação em IA/ML</p><p class="text-slate-400 leading-relaxed mb-6">Infraestrutura de alto desempenho com foco em data analytics e machine learning.</p><div class="flex flex-wrap gap-2"><span class="tag" style="--accent:248,113,113">Compute Engine</span><span class="tag" style="--accent:248,113,113">Cloud Storage</span><span class="tag" style="--accent:248,113,113">BigQuery</span><span class="tag" style="--accent:248,113,113">GKE</span><span class="tag" style="--accent:248,113,113">AI Platform</span></div></article>
+            </div>
+            <div class="reveal panel rounded-3xl p-6 md:p-8">
+                <h3 class="text-lg font-bold mb-6">Ferramentas DevOps & containers</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div class="svc-link"><i data-lucide="package" class="w-5 h-5 text-cloud-color"></i>Docker</div>
+                    <div class="svc-link"><i data-lucide="box" class="w-5 h-5 text-cloud-color"></i>Kubernetes</div>
+                    <div class="svc-link"><i data-lucide="file-code-2" class="w-5 h-5 text-violet-400"></i>Terraform</div>
+                    <div class="svc-link"><i data-lucide="git-branch" class="w-5 h-5 text-orange-400"></i>GitLab CI/CD</div>
+                    <div class="svc-link"><i data-lucide="github" class="w-5 h-5 text-slate-300"></i>GitHub Actions</div>
+                    <div class="svc-link"><i data-lucide="settings" class="w-5 h-5 text-red-400"></i>Ansible</div>
+                    <div class="svc-link"><i data-lucide="gauge" class="w-5 h-5 text-orange-400"></i>Prometheus</div>
+                    <div class="svc-link"><i data-lucide="activity" class="w-5 h-5 text-dev-color"></i>Grafana</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos -->
+        <section id="projetos" class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="eyebrow mb-4">Projetos</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Projetos em <span class="grad-cloud">cloud</span></h2>
+                <p class="text-slate-400 text-lg">Casos reais de transformação digital na nuvem.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-5">
+                <article class="reveal card cloud panel rounded-3xl overflow-hidden flex flex-col">
+                    <div class="terminal-bar"><span class="dot bg-red-400/80"></span><span class="dot bg-yellow-400/80"></span><span class="dot bg-green-400/80"></span><span class="ml-2 text-xs text-slate-500 font-mono">migration_aws.yml</span></div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="flex gap-2 mb-5"><span class="tag tag-cloud">Migração cloud</span><span class="tag" style="--accent:251,146,60">AWS</span></div>
+                        <h3 class="text-2xl font-bold mb-3">Migração de e-commerce para AWS</h3>
+                        <p class="text-slate-400 leading-relaxed mb-8">Migração completa de infraestrutura on-premise para AWS com arquitetura serverless.</p>
+                        <div class="grid grid-cols-2 gap-6 mb-8"><div><p class="font-display text-4xl font-bold text-cloud-color">-65%</p><p class="text-sm text-slate-400 mt-1">custos</p></div><div><p class="font-display text-4xl font-bold text-cloud-color">+300%</p><p class="text-sm text-slate-400 mt-1">performance</p></div></div>
+                        <div class="flex flex-wrap gap-2 mb-8"><span class="tag tag-cloud">EC2 Auto Scaling</span><span class="tag tag-cloud">RDS</span><span class="tag tag-cloud">CloudFront</span><span class="tag tag-cloud">Lambda</span><span class="tag tag-cloud">Terraform</span></div>
+                        <div class="mt-auto pt-6 border-t border-white/[0.06] flex items-center gap-2 text-sm text-slate-400"><i data-lucide="clock" class="w-4 h-4"></i>3 meses · Economia de R$ 120 mil/ano</div>
+                    </div>
+                </article>
+                <article class="reveal card cloud panel rounded-3xl overflow-hidden flex flex-col" data-delay="1">
+                    <div class="terminal-bar"><span class="dot bg-red-400/80"></span><span class="dot bg-yellow-400/80"></span><span class="dot bg-green-400/80"></span><span class="ml-2 text-xs text-slate-500 font-mono">kubernetes_cluster.yml</span></div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="flex gap-2 mb-5"><span class="tag tag-cloud">Kubernetes</span><span class="tag tag-cloud">Azure</span></div>
+                        <h3 class="text-2xl font-bold mb-3">Plataforma Kubernetes multi-cloud</h3>
+                        <p class="text-slate-400 leading-relaxed mb-8">Plataforma Kubernetes gerenciada rodando em múltiplas clouds, garantindo alta disponibilidade e reduzindo o vendor lock-in.</p>
+                        <div class="grid grid-cols-2 gap-6 mb-8"><div><p class="font-display text-4xl font-bold text-cloud-color">99,95%</p><p class="text-sm text-slate-400 mt-1">uptime</p></div><div><p class="font-display text-4xl font-bold text-cloud-color">2</p><p class="text-sm text-slate-400 mt-1">clouds em produção</p></div></div>
+                        <div class="flex flex-wrap gap-2 mb-8"><span class="tag tag-cloud">AKS</span><span class="tag tag-cloud">EKS</span><span class="tag tag-cloud">Helm</span><span class="tag tag-cloud">Prometheus</span><span class="tag tag-cloud">Istio</span></div>
+                        <div class="mt-auto pt-6 border-t border-white/[0.06] flex items-center gap-2 text-sm text-slate-400"><i data-lucide="clock" class="w-4 h-4"></i>4 meses · 99,95% de uptime</div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Jornada -->
+        <section id="jornada" class="ac-cloud py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="eyebrow mb-4">Processo</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Jornada para <span class="grad-cloud">a nuvem</span></h2>
+                <p class="text-slate-400 text-lg">Processo estruturado de migração e transformação.</p>
+            </div>
+            <ol class="grid sm:grid-cols-2 lg:grid-cols-3 gap-px rounded-3xl overflow-hidden border border-white/[0.08] bg-white/[0.08]">
+                <li class="reveal bg-ink/95 p-8"><span class="font-mono text-sm text-cloud-color">01</span><h3 class="text-xl font-bold mt-4 mb-2">Avaliação & planejamento</h3><p class="text-slate-400">Análise do ambiente atual, definição de estratégia cloud e cálculo de ROI/TCO.</p></li>
+                <li class="reveal bg-ink/95 p-8" data-delay="1"><span class="font-mono text-sm text-cloud-color">02</span><h3 class="text-xl font-bold mt-4 mb-2">Prova de conceito (PoC)</h3><p class="text-slate-400">Implementação piloto para validar tecnologia, performance e custos.</p></li>
+                <li class="reveal bg-ink/95 p-8" data-delay="2"><span class="font-mono text-sm text-cloud-color">03</span><h3 class="text-xl font-bold mt-4 mb-2">Fundação cloud</h3><p class="text-slate-400">Configuração de VPC, segurança, governança e landing zone.</p></li>
+                <li class="reveal bg-ink/95 p-8"><span class="font-mono text-sm text-cloud-color">04</span><h3 class="text-xl font-bold mt-4 mb-2">Migração</h3><p class="text-slate-400">Transferência de workloads usando a metodologia 6R (Rehost, Replatform etc.).</p></li>
+                <li class="reveal bg-ink/95 p-8" data-delay="1"><span class="font-mono text-sm text-cloud-color">05</span><h3 class="text-xl font-bold mt-4 mb-2">Otimização</h3><p class="text-slate-400">Ajuste fino de performance, segurança e custos. Implementação de FinOps.</p></li>
+                <li class="reveal bg-ink/95 p-8" data-delay="2"><span class="font-mono text-sm text-cloud-color">06</span><h3 class="text-xl font-bold mt-4 mb-2">Operação & inovação</h3><p class="text-slate-400">Monitoramento contínuo e aproveitamento de novas tecnologias cloud.</p></li>
+            </ol>
+        </section>
+
+        <!-- Contato -->
+        <section id="contato" class="ac-cloud py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="relative panel rounded-[2rem] p-8 md:p-14 overflow-hidden">
+                <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-3xl opacity-30 pointer-events-none" style="background: radial-gradient(circle, rgba(56,189,248,.55), rgba(129,140,248,.3) 40%, transparent 70%);"></div>
+                <div class="relative grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                    <div class="reveal">
+                        <span class="eyebrow mb-4">Contato</span>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6">Pronto para subir <span class="grad-cloud">para a nuvem</span>?</h2>
+                        <p class="text-slate-400 text-lg mb-10 leading-relaxed">Agende uma consultoria gratuita e descubra como a computação em nuvem pode transformar seu negócio, reduzir custos e acelerar a inovação.</p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><i data-lucide="phone" class="w-4 h-4 text-ai-color"></i>(34) 99892-8444</a>
+                            <a href="mailto:cloud@marcelofernandes.dev.br" class="btn btn-ghost"><i data-lucide="mail" class="w-4 h-4 text-cloud-color"></i>cloud@marcelofernandes.dev.br</a>
+                        </div>
+                        <p class="text-sm text-slate-500 mt-4 flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4"></i>Seg–Sex: 8h às 18h</p>
+                    </div>
+
+                    <form data-whatsapp data-assunto="Diagnóstico Cloud" class="reveal rounded-3xl p-6 md:p-8 border border-white/[0.08] bg-ink/60" data-delay="1">
+                        <h3 class="text-2xl font-bold mb-2">Solicitar diagnóstico cloud</h3>
+                        <p class="text-slate-400 mb-8">Descreva seu ambiente atual e seus objetivos. Você recebe uma análise preliminar de viabilidade e economia em até 48h.</p>
+                        <div class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <label class="block"><span class="block text-sm text-slate-400 mb-1.5">Nome</span><input name="nome" type="text" required placeholder="Seu nome" class="field"></label>
+                                <label class="block"><span class="block text-sm text-slate-400 mb-1.5">Empresa</span><input name="empresa" type="text" placeholder="Nome da empresa" class="field"></label>
+                            </div>
+                            <label class="block"><span class="block text-sm text-slate-400 mb-1.5">Provedor de interesse</span>
+                                <select name="interesse" class="field">
+                                    <option value="">Selecione</option><option>Amazon Web Services (AWS)</option><option>Microsoft Azure</option><option>Google Cloud Platform</option><option>Multi-cloud / a definir</option>
+                                </select>
+                            </label>
+                            <label class="block"><span class="block text-sm text-slate-400 mb-1.5">Ambiente e objetivos</span><textarea name="mensagem" required rows="4" placeholder="Como é sua infraestrutura hoje e o que você quer alcançar?" class="field resize-none"></textarea></label>
+                            <button type="submit" class="btn btn-primary w-full"><i data-lucide="cloud" class="w-5 h-5"></i>Solicitar diagnóstico gratuito</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 mt-8">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 py-14">
+            <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+                <div>
+                    <a href="index.html" class="flex items-center gap-3 mb-4">
+                        <span class="w-9 h-9 rounded-xl flex items-center justify-center font-display font-bold text-ink" style="background: linear-gradient(135deg,#34d399,#38bdf8);">MF</span>
+                        <span class="leading-tight">
+                            <span class="block font-display font-semibold">Marcelo Fernandes</span>
+                            <span class="block text-xs text-slate-500">AI & Cloud Specialist</span>
+                        </span>
+                    </a>
+                    <p class="text-sm text-slate-500 max-w-xs leading-relaxed">IA, cloud e software sob medida para empresas que querem crescer com tecnologia.</p>
+                    <div class="flex gap-2 mt-6">
+                        <!-- TODO: trocar "#" pelos perfis reais -->
+                        <a href="#" aria-label="LinkedIn" class="p-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/25 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" aria-label="GitHub" class="p-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/25 transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                        <a href="mailto:contato@marcelofernandes.dev.br" aria-label="E-mail" class="p-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/25 transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-sm font-semibold mb-4">Especialidades</h2>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="ia.html" class="text-slate-400 hover:text-white transition-colors">Inteligência Artificial</a></li>
+                        <li><a href="cloud.html" class="text-slate-400 hover:text-white transition-colors">Computação em Nuvem</a></li>
+                        <li><a href="software.html" class="text-slate-400 hover:text-white transition-colors">Desenvolvimento de Software</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-sm font-semibold mb-4">Serviços</h2>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="site_institucional.html" class="text-slate-400 hover:text-white transition-colors">Sites & lojas virtuais</a></li>
+                        <li><a href="automacao_relatorios.html" class="text-slate-400 hover:text-white transition-colors">Automação & Power BI</a></li>
+                        <li><a href="manutencao_servidores.html" class="text-slate-400 hover:text-white transition-colors">Servidores Linux</a></li>
+                        <li><a href="seguranca_cibernetica.html" class="text-slate-400 hover:text-white transition-colors">Cibersegurança & LGPD</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-sm font-semibold mb-4">Contato</h2>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">(34) 99892-8444</a></li>
+                        <li><a href="mailto:contato@marcelofernandes.dev.br" class="text-slate-400 hover:text-white transition-colors break-all">contato@marcelofernandes.dev.br</a></li>
+                        <li><a href="https://marcelofernandes.dev.br/blog" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-white/5 text-sm text-slate-600">
+                © <span id="year">2026</span> Marcelo Fernandes. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/site.js"></script>
+</body>
+</html>

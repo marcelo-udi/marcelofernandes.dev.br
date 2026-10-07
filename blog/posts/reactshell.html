@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React2Shell: Vulnerabilidade Crítica no React | TechDirect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset e configurações gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Cabeçalho */
+        header {
+            border-bottom: 1px solid #eaeaea;
+            padding: 25px 0;
+            margin-bottom: 30px;
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+        }
+
+        .logo p {
+            font-size: 12px;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .logo span {
+            color: #0066cc;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #0066cc;
+        }
+
+        /* Conteúdo Principal */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        /* Post Principal */
+        .main-post {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+
+        .post-header {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .post-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .post-meta {
+            display: flex;
+            color: #777;
+            font-size: 11px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .post-category {
+            background-color: #fff0f0;
+            color: #d63031;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        .post-content {
+            font-size: 13.5px;
+            color: #444;
+        }
+
+        .post-content h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 25px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .post-content h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2d3436;
+            margin: 20px 0 10px;
+        }
+
+        .post-content p {
+            margin-bottom: 15px;
+        }
+
+        .post-content ul, .post-content ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .post-content li {
+            margin-bottom: 8px;
+        }
+
+        /* Destaques e Alertas */
+        .alert-critical {
+            background-color: #fff5f5;
+            border-left: 4px solid #d63031;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .alert-info {
+            background-color: #f0f7ff;
+            border-left: 4px solid #0066cc;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .highlight-box {
+            background-color: #f8f9fa;
+            border: 1px solid #eaeaea;
+            border-radius: 6px;
+            padding: 18px;
+            margin: 20px 0;
+        }
+
+        .cve-badge {
+            display: inline-block;
+            background-color: #d63031;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .cvss-score {
+            display: inline-block;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .code-block {
+            background-color: #2d3436;
+            color: #dfe6e9;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 12.5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            font-size: 13px;
+        }
+
+        .sidebar-widget {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+
+        .widget-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .widget-list {
+            list-style: none;
+        }
+
+        .widget-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .widget-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .widget-list a {
+            text-decoration: none;
+            color: #444;
+            transition: color 0.2s;
+            display: block;
+        }
+
+        .widget-list a:hover {
+            color: #0066cc;
+        }
+
+        .widget-list .date {
+            font-size: 11px;
+            color: #888;
+            margin-top: 3px;
+        }
+
+        /* Rodapé */
+        footer {
+            border-top: 1px solid #eaeaea;
+            padding: 30px 0;
+            margin-top: 30px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .footer-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-left: 20px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #666;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #0066cc;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            width: 100%;
+            font-size: 11px;
+            color: #888;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            nav li {
+                margin-left: 0;
+                margin-right: 20px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .footer-links {
+                margin-top: 15px;
+            }
+            
+            .footer-links li {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+        }
+
+        /* Elementos específicos */
+        .veredito {
+            font-weight: 700;
+            color: #d63031;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #ddd;
+        }
+
+        .destaque-numero {
+            background-color: #0066cc;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #888;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .stats span {
+            display: flex;
+            align-items: center;
+        }
+
+        .stats i {
+            margin-right: 5px;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background-color: #f0f7ff;
+            color: #0066cc;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .affected-list {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1>Blog<span> Marcelo Fernandes</span></h1>
+                <p>Tecnologia • segurança da informação.</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Segurança</a></li>
+                    <li><a href="#">Vulnerabilidades</a></li>
+                    <li><a href="#">React</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Conteúdo Principal -->
+        <main>
+            <article class="main-post">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <span><i class="far fa-calendar"></i> 06/12/2025</span>
+                        <span><i class="far fa-clock"></i> 4 min leitura</span>
+                        <span class="post-category">VULNERABILIDADE CRÍTICA</span>
+                    </div>
+                    <h1 class="post-title">React2Shell: Falha Crítica no React Adicionada ao Catálogo KEV da CISA Após Exploração Ativa</h1>
+                    <div class="post-meta">
+                        <span><i class="fas fa-user-edit"></i> Por: Ravie Lakshmanan</span>
+                        <span><i class="fas fa-shield-alt"></i> Categoria: Segurança / Gerenciamento de Patches</span>
+                    </div>
+                </div>
+
+                <div class="post-content">
+                    <div class="alert-critical">
+                        <p><strong><i class="fas fa-exclamation-triangle"></i> CRÍTICO:</strong> A vulnerabilidade CVE-2025-55182 (React2Shell) possui pontuação CVSS 10.0 e está sendo ativamente explorada. Atualize suas aplicações React imediatamente.</p>
+                    </div>
+
+                    <p>A Agência de Segurança de Infraestrutura e Cibersegurança dos EUA (CISA) adicionou formalmente uma falha de segurança crítica que afeta os React Server Components (RSC) ao seu catálogo de Vulnerabilidades Exploradas Conhecidas (KEV) após relatos de exploração ativa em ambiente real.</p>
+
+                    <p>A vulnerabilidade, <span class="cve-badge">CVE-2025-55182</span> <span class="cvss-score">CVSS 10.0</span>, refere-se a um caso de execução remota de código (RCE) que pode ser acionada por um atacante não autenticado sem exigir nenhuma configuração especial. É também rastreada como <strong>React2Shell</strong>.</p>
+
+                    <div class="highlight-box">
+                        <p>"Os React Server Components da Meta contêm uma vulnerabilidade de execução remota de código que poderia permitir a execução remota de código não autenticada explorando uma falha em como o React decodifica os payloads enviados para os endpoints da Função do Servidor React", disse a CISA em um comunicado.</p>
+                    </div>
+
+                    <h2>Análise Técnica da Vulnerabilidade</h2>
+                    
+                    <p>O problema decorre da <strong>desserialização insegura</strong> no protocolo Flight da biblioteca, que o React usa para comunicação entre servidor e cliente. Isso leva a um cenário onde um atacante remoto não autenticado pode executar comandos arbitrários no servidor enviando solicitações HTTP especialmente criadas.</p>
+
+                    <div class="alert-info">
+                        <p><strong><i class="fas fa-quote-left"></i> Martin Zugec, diretor de soluções técnicas da Bitdefender:</strong> "O processo de converter texto em objetos é amplamente considerado uma das classes mais perigosas de vulnerabilidades de software. A vulnerabilidade React2Shell reside no pacote <code>react-server</code>, especificamente em como ele analisa as referências de objeto durante a desserialização."</p>
+                    </div>
+
+                    <h2>Versões Corrigidas</h2>
+                    
+                    <p>A vulnerabilidade foi corrigida nas seguintes versões das bibliotecas React:</p>
+                    
+                    <div class="affected-list">
+                        <p><strong>Versões corrigidas:</strong> 19.0.1, 19.1.2, 19.2.1</p>
+                        <ul>
+                            <li><code>react-server-dom-webpack</code></li>
+                            <li><code>react-server-dom-parcel</code></li>
+                            <li><code>react-server-dom-turbopack</code></li>
+                        </ul>
+                    </div>
+
+                    <h3>Frameworks Impactados</h3>
+                    
+                    <p>Algumas das estruturas downstream que dependem do React também são afetadas:</p>
+                    
+                    <div class="code-block">
+// Frameworks vulneráveis ao React2Shell
+- Next.js
+- React Router
+- Waku
+- Parcel
+- Vite
+- RedwoodSDK
+                    </div>
+
+                    <h2>Exploração Ativa Confirmada</h2>
+                    
+                    <p>O desenvolvimento ocorre depois que a Amazon relatou que observou tentativas de ataques originadas de infraestrutura associada a grupos de hacking chineses como <strong>Earth Lamia</strong> e <strong>Jackpot Panda</strong> dentro de horas da divulgação pública da falha.</p>
+
+                    <p><strong>Coalition, Fastly, GreyNoise, VulnCheck e Wiz</strong> também relataram ver esforços de exploração direcionados à falha, indicando que <strong>múltiplos atores de ameaças</strong> estão envolvidos em ataques oportunistas.</p>
+
+                    <div class="highlight-box">
+                        <h3><i class="fas fa-chart-line"></i> Dados de Exposição</h3>
+                        <p>De acordo com dados da plataforma Censys, existem aproximadamente <strong>2.15 milhões de instâncias</strong> de serviços voltados para a internet que podem ser afetados por esta vulnerabilidade.</p>
+                    </div>
+
+                    <h2>Táticas dos Ataques Observados</h2>
+                    
+                    <p>Alguns dos ataques observados envolvem:</p>
+                    
+                    <ol>
+                        <li><strong>Implantação de mineradores de criptomoeda</strong></li>
+                        <li>Execução de comandos PowerShell "cheap math" para verificar exploração bem-sucedida</li>
+                        <li>Execução de comandos para baixar <em>in-memory downloaders</em></li>
+                        <li>Recuperação de payloads adicionais de servidores remotos</li>
+                    </ol>
+
+                    <h3>Observações da Palo Alto Networks Unit 42</h3>
+                    
+                    <p>Em declaração ao The Hacker News, a Palo Alto Networks Unit 42 confirmou <strong>mais de 30 organizações afetadas</strong> em diversos setores, com atividades consistentes com o grupo chinês <strong>UNC5174 (CL-STA-1015)</strong>.</p>
+
+                    <div class="code-block">
+"Observamos varredura para RCE vulnerável, atividades de reconhecimento, 
+tentativa de roubo de arquivos de configuração e credenciais da AWS, 
+bem como instalação de downloaders para recuperar payloads da 
+infraestrutura de comando e controle do atacante."
+
+- Justin Moore, gerente sênior de pesquisa de inteligência 
+  de ameaças da Palo Alto Networks Unit 42
+                    </div>
+
+                    <h2>Recomendações de Mitigação</h2>
+                    
+                    <div class="alert-critical">
+                        <p><strong><i class="fas fa-sync-alt"></i> AÇÃO IMEDIATA REQUERIDA:</strong></p>
+                        <ol>
+                            <li>Atualize todas as bibliotecas React para as versões corrigidas (19.0.1, 19.1.2 ou 19.2.1)</li>
+                            <li>Verifique se frameworks dependentes (Next.js, React Router, etc.) estão atualizados</li>
+                            <li>Monitore logs para tentativas de exploração do CVE-2025-55182</li>
+                            <li>Agencias federais dos EUA têm até 26/12/2025 para aplicar patches (BOD 22-01)</li>
+                        </ol>
+                    </div>
+
+                    <h3>Responsável pela Descoberta</h3>
+                    
+                    <p>O pesquisador de segurança <strong>Lachlan Davidson</strong>, que descobriu e reportou a falha, liberou múltiplos exploits de prova de conceito (PoC). Outro PoC funcional foi publicado pelo pesquisador taiwanês <strong>maple3142</strong> no GitHub.</p>
+
+                    <div class="veredito">
+                        <p><strong>VEREDITO:</strong> React2Shell é uma vulnerabilidade crítica (CVSS 10.0) com exploração ativa confirmada. Todas as organizações utilizando React Server Components devem priorizar a aplicação dos patches imediatamente. A janela entre divulgação e exploração foi de horas, não dias.</p>
+                    </div>
+
+                    <div class="tag-list">
+                        <span class="tag">react</span>
+                        <span class="tag">cve-2025-55182</span>
+                        <span class="tag">react2shell</span>
+                        <span class="tag">rce</span>
+                        <span class="tag">cisa</span>
+                        <span class="tag">kev</span>
+                        <span class="tag">vulnerabilidade</span>
+                        <span class="tag">segurança</span>
+                        <span class="tag">nextjs</span>
+                    </div>
+
+                    <div class="stats">
+                        <span><i class="far fa-eye"></i> 3.2k visualizações</span>
+                        <span><i class="far fa-comment"></i> 47 comentários</span>
+                        <span><i class="fas fa-share-alt"></i> 128 compartilhamentos</span>
+                        <span><i class="fas fa-fire-alt"></i> ALTA GRAVIDADE</span>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Vulnerabilidades Recentes</h3>
+                <ul class="widget-list">
+                    <li>
+                        <a href="#">Log4Shell 2.0: Nova Falha em Log4j</a>
+                        <div class="date">02/12/2025 • CVSS 9.8</div>
+                    </li>
+                    <li>
+                        <a href="#">Zero-Day no Windows 11 Explorer</a>
+                        <div class="date">28/11/2025 • CVSS 8.8</div>
+                    </li>
+                    <li>
+                        <a href="#">Falha de Auth no OAuth 2.0</a>
+                        <div class="date">25/11/2025 • CVSS 7.5</div>
+                    </li>
+                    <li>
+                        <a href="#">RCE no Docker Desktop</a>
+                        <div class="date">20/11/2025 • CVSS 8.2</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">CVSS 10.0 - Críticas</h3>
+                <ul class="widget-list">
+                    <li>
+                        <a href="#">CVE-2024-6387: RCE no OpenSSH</a>
+                        <div class="date">Jul/2024 • Regressão</div>
+                    </li>
+                    <li>
+                        <a href="#">CVE-2024-3400: PAN-OS</a>
+                        <div class="date">Abr/2024 • Exploit Público</div>
+                    </li>
+                    <li>
+                        <a href="#">CVE-2023-34362: MOVEit</a>
+                        <div class="date">Jun/2023 • Cl0p Ransomware</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Recursos React</h3>
+                <ul class="widget-list">
+                    <li><a href="#">Guia de Migração React 19</a></li>
+                    <li><a href="#">Server Components vs Client</a></li>
+                    <li><a href="#">Next.js 15 Security</a></li>
+                    <li><a href="#">Patch Notes 19.2.1</a></li>
+                    <li><a href="#">React Security Checklist</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Alertas CISA KEV</h3>
+                <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Vulnerabilidades com exploração ativa conhecida:</p>
+                <ul class="widget-list">
+                    <li><a href="#">CVE-2025-55182 - React2Shell</a></li>
+                    <li><a href="#">CVE-2025-49097 - Windows Win32k</a></li>
+                    <li><a href="#">CVE-2025-48597 - VMware Aria</a></li>
+                    <li><a href="#">CVE-2025-37986 - Fortinet</a></li>
+                </ul>
+                <p style="font-size: 11px; color: #888; margin-top: 10px;">Fonte: CISA KEV Catalog</p>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">TechDirect</div>
+            <ul class="footer-links">
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Política de Privacidade</a></li>
+                <li><a href="#">Termos de Uso</a></li>
+                <li><a href="#">Reportar Vulnerabilidade</a></li>
+            </ul>
+            <div class="copyright">
+                TechDirect © 2025 • Segurança direta ao ponto • Este artigo é informativo. Consulte fontes oficiais para orientações de segurança.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Destaque para conteúdo crítico
+        document.addEventListener('DOMContentLoaded', function() {
+            // Adicionar classe de alerta para elementos importantes
+            const criticalElements = document.querySelectorAll('.alert-critical, .cve-badge, .cvss-score');
+            
+            criticalElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.transition = 'transform 0.2s';
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+            
+            // Adicionar tooltip para CVSS
+            const cvssScore = document.querySelector('.cvss-score');
+            if (cvssScore) {
+                cvssScore.title = 'CVSS 10.0 = Crítico (Máxima gravidade)';
+            }
+            
+            // Simular contador de visualizações
+            const viewsElement = document.querySelector('.stats span:nth-child(1)');
+            if (viewsElement) {
+                const currentViews = 3200;
+                viewsElement.innerHTML = `<i class="far fa-eye"></i> ${currentViews.toLocaleString()} visualizações`;
+            }
+        });
+    </script>
+</body>
+</html>

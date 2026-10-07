@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Implementar Zero Trust com Shared Signals Framework | Blog Marcelo Fernandes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset e configurações gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Cabeçalho */
+        header {
+            border-bottom: 1px solid #eaeaea;
+            padding: 25px 0;
+            margin-bottom: 30px;
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+        }
+
+        .logo p {
+            font-size: 12px;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .logo span {
+            color: #0066cc;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #0066cc;
+        }
+
+        /* Conteúdo Principal */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        /* Post Principal */
+        .main-post {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+
+        .post-header {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .post-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .post-meta {
+            display: flex;
+            color: #777;
+            font-size: 11px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .post-category {
+            background-color: #0066cc;
+            color: white;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        .post-content {
+            font-size: 13.5px;
+            color: #444;
+        }
+
+        .post-content h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 25px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .post-content h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2d3436;
+            margin: 20px 0 10px;
+        }
+
+        .post-content h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #444;
+            margin: 15px 0 8px;
+        }
+
+        .post-content p {
+            margin-bottom: 15px;
+        }
+
+        .post-content ul, .post-content ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .post-content li {
+            margin-bottom: 8px;
+        }
+
+        /* Destaques e Alertas */
+        .alert-success {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .alert-warning {
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .alert-info {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .highlight-box {
+            background-color: #f8f9fa;
+            border: 1px solid #eaeaea;
+            border-radius: 6px;
+            padding: 18px;
+            margin: 20px 0;
+        }
+
+        .framework-badge {
+            display: inline-block;
+            background-color: #0066cc;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .code-block {
+            background-color: #2d3436;
+            color: #dfe6e9;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 12.5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            font-size: 13px;
+        }
+
+        .sidebar-widget {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+
+        .widget-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .widget-list {
+            list-style: none;
+        }
+
+        .widget-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .widget-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .widget-list a {
+            text-decoration: none;
+            color: #444;
+            transition: color 0.2s;
+            display: block;
+        }
+
+        .widget-list a:hover {
+            color: #0066cc;
+        }
+
+        .widget-list .date {
+            font-size: 11px;
+            color: #888;
+            margin-top: 3px;
+        }
+
+        /* Rodapé */
+        footer {
+            border-top: 1px solid #eaeaea;
+            padding: 30px 0;
+            margin-top: 30px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .footer-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-left: 20px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #666;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #0066cc;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            width: 100%;
+            font-size: 11px;
+            color: #888;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            nav li {
+                margin-left: 0;
+                margin-right: 20px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .footer-links {
+                margin-top: 15px;
+            }
+            
+            .footer-links li {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+        }
+
+        /* Elementos específicos */
+        .veredito {
+            font-weight: 700;
+            color: #2d3436;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 2px solid #4caf50;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .destaque-numero {
+            background-color: #0066cc;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #888;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .stats span {
+            display: flex;
+            align-items: center;
+        }
+
+        .stats i {
+            margin-right: 5px;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background-color: #f0f7ff;
+            color: #0066cc;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .requirements-list {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            background-color: #6c5ce7;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 10px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .workflow-step {
+            background-color: #fff;
+            border: 1px solid #eaeaea;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            position: relative;
+            padding-left: 45px;
+        }
+
+        .workflow-step::before {
+            content: counter(step);
+            counter-increment: step;
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            background-color: #0066cc;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .workflow-container {
+            counter-reset: step;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1>Blog<span> Marcelo Fernandes</span></h1>
+                <p>Tecnologia sem rodeios • Fontes pequenas, ideias grandes</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Zero Trust</a></li>
+                    <li><a href="#">IAM</a></li>
+                    <li><a href="#">Segurança</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Conteúdo Principal -->
+        <main>
+            <article class="main-post">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <span><i class="far fa-calendar"></i> 09/12/2025</span>
+                        <span><i class="far fa-clock"></i> 6 min leitura</span>
+                        <span class="post-category">ZERO TRUST / AUTOMAÇÃO</span>
+                    </div>
+                    <h1 class="post-title">How to Streamline Zero Trust Using the Shared Signals Framework</h1>
+                    <div class="post-meta">
+                        <span><i class="fas fa-user-edit"></i> Por: The Hacker News</span>
+                        <span><i class="fas fa-shield-alt"></i> Categoria: Zero Trust / Security Automation</span>
+                    </div>
+                </div>
+
+                <div class="post-content">
+                    <div class="alert-warning">
+                        <p><strong><i class="fas fa-chart-bar"></i> DADO CRÍTICO:</strong> 88% das organizações admitem ter enfrentado desafios significativos na implementação de Zero Trust devido à falta de interoperabilidade entre ferramentas de segurança (Accenture).</p>
+                    </div>
+
+                    <p>Zero Trust ajuda as organizações a reduzir sua superfície de ataque e responder a ameaças mais rapidamente, mas muitas ainda lutam para implementá-lo porque suas ferramentas de segurança não compartilham sinais de forma confiável. Quando os produtos não conseguem se comunicar, as decisões de acesso em tempo real falham.</p>
+
+                    <div class="highlight-box">
+                        <p><i class="fas fa-quote-left"></i> O <strong>Shared Signals Framework (SSF)</strong> visa corrigir isso com uma maneira padronizada de trocar eventos de segurança. No entanto, a adoção é desigual. Por exemplo, o Kolide Device Trust atualmente não suporta SSF.</p>
+                    </div>
+
+                    <p>Scott Bean, Engenheiro Sênior de IAM e Segurança na MongoDB, propôs uma maneira de resolver o problema, dando às equipes uma forma fácil e intuitiva de operacionalizar o SSF em todo o seu ambiente.</p>
+
+                    <p>Neste guia, compartilharemos uma visão geral do fluxo de trabalho, além de instruções passo a passo para colocá-lo em funcionamento.</p>
+
+                    <h2>O Problema - Ferramentas de IAM não suportam SSF</h2>
+                    
+                    <p>Um requisito fundamental do Zero Trust são sinais contínuos e confiáveis sobre a postura do usuário e do dispositivo. Mas muitas ferramentas não suportam SSF para o Continuous Access Evaluation Protocol (CAEP), dificultando o compartilhamento ou ação com base nesses sinais.</p>
+
+                    <div class="alert-info">
+                        <h4><i class="fas fa-exclamation-circle"></i> Desafios Comuns:</h4>
+                        <ol>
+                            <li><strong>Ferramentas não possuem suporte nativo ao SSF</strong></li>
+                            <li><strong>Sinais exigem enriquecimento ou correlação</strong></li>
+                            <li><strong>Gerenciamento de endpoints SSF e tratamento de tokens adicionam sobrecarga</strong></li>
+                        </ol>
+                    </div>
+
+                    <p>Sem essa interoperabilidade, as organizações lutam para aplicar políticas consistentes — e em casos como o Kolide Device Trust, eventos críticos do dispositivo nunca alcançam sistemas como o Okta.</p>
+
+                    <h2>A Solução - Um Transmissor SSF que Transforma Problemas do Kolide em Eventos CAEP</h2>
+                    
+                    <p>Como o SSF é construído sobre requisições HTTPS, o padrão OpenID funciona com a Ação HTTP do Tines.</p>
+
+                    <p>Scott desenvolveu um novo fluxo de trabalho integrando o Kolide Device Trust com o Tines, permitindo que ele envie sinais SSF para o Okta. Se um dispositivo estiver fora de conformidade, o Kolide envia uma mensagem para o fluxo de trabalho via webhook. O Tines enriquece o sinal, garante que possa ser vinculado a um usuário, constrói um Security Event Token (SET) e, em seguida, o envia para o Okta.</p>
+
+                    <div class="code-block">
+// Estrutura do Security Event Token (SET)
+{
+  "iss": "https://ssf-transmitter.example.com",
+  "iat": 1639951200,
+  "jti": "urn:uuid:a5f0b8c1-d4e5-f6a7-b8c9-d0e1f2a3b4c5",
+  "aud": "https://example.okta.com",
+  "events": {
+    "https://schemas.openid.net/secevent/caep/event-type/device-compliance-change": {
+      "subject": {
+        "format": "email",
+        "email": "user@example.com"
+      },
+      "device_id": "device-12345",
+      "compliance_status": "non-compliant",
+      "reason": "disk_encryption_disabled"
+    }
+  }
+}
+                    </div>
+
+                    <p>Dessa forma, o Tines atua como o tecido conjuntivo que faz o SSF funcionar em todo o ambiente de TI distribuído, mesmo que ferramentas individuais não suportem nativamente o padrão.</p>
+
+                    <div class="requirements-list">
+                        <h4><i class="fas fa-tools"></i> O que o Tines pode fazer:</h4>
+                        <ul>
+                            <li>Receber sinais do Kolide (e ferramentas semelhantes) via webhook quando um dispositivo se torna fora de conformidade</li>
+                            <li>Enriquecer e correlacionar esses sinais (ex: mapear dispositivo para usuário)</li>
+                            <li>Gerar e assinar SETs que atendem à especificação SSF</li>
+                            <li>Entregá-los ao Okta (e outros provedores de identidade) para aplicar Zero Trust</li>
+                            <li>Hospedar endpoints de metadados SSF necessários usando prefixos de caminho de API, dando aos sistemas consumidores um local compatível com os padrões para buscar chaves e descriptografar tokens</li>
+                        </ul>
+                    </div>
+
+                    <h3>Visão Geral do Fluxo de Trabalho</h3>
+                    
+                    <div class="alert-success">
+                        <p><strong><i class="fas fa-check-circle"></i> Benefícios:</strong> Tudo isso torna a aplicação do Zero Trust mais rápida, confiável e muito mais fácil de operacionalizar. As equipes de TI são capacitadas com avaliação de risco contínua e em tempo real dos dispositivos, resposta mais rápida a ameaças e orquestração de políticas mais flexível.</p>
+                    </div>
+
+                    <h4>Ferramentas Necessárias:</h4>
+                    <div class="tag-list">
+                        <span class="tech-badge">Tines</span>
+                        <span class="tech-badge">Kolide</span>
+                        <span class="tech-badge">Okta</span>
+                        <span class="tech-badge">SSF</span>
+                        <span class="tech-badge">CAEP</span>
+                    </div>
+
+                    <div class="workflow-container">
+                        <div class="workflow-step">
+                            <h4>1. Gerar e Armazenar Chaves de Assinatura SET</h4>
+                            <p>As SETs são JSON Web Tokens assinados. O fluxo cria um par de chaves RSA e o converte para o formato JWK, publicando a chave pública para os receptores SSF validarem as assinaturas SET.</p>
+                            <div class="code-block">
+# Gerar par de chaves RSA
+openssl genrsa -out private.key 2048
+openssl rsa -in private.key -pubout -out public.key
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <h4>2. Expor API do Transmissor SSF</h4>
+                            <p>Os receptores SSF (como Okta) precisam de endpoints específicos: <code>.well-known/sse-configuration</code> e um endpoint JWK que expõe a chave pública.</p>
+                            <div class="code-block">
+// Endpoint .well-known/sse-configuration
+{
+  "issuer": "https://ssf-transmitter.example.com",
+  "jwks_uri": "https://ssf-transmitter.example.com/jwks",
+  "delivery_methods_supported": ["https://schemas.openid.net/secevent/risc/delivery-method/push"],
+  "critical_subject_members": ["email"]
+}
+                            </div>
+                        </div>
+
+                        <div class="workflow-step">
+                            <h4>3. Criar, Assinar e Enviar SETs a partir de Eventos do Kolide</h4>
+                            <p>Recebe eventos de problemas do Kolide via webhook, busca metadados do dispositivo e usuário, constrói um SET para um evento de alteração de conformidade do dispositivo e assina o token com a chave privada.</p>
+                            <div class="code-block">
+# Webhook do Kolide para o Tines
+POST https://tines-instance.example.com/webhook/kolide
+Content-Type: application/json
+X-Kolide-Signature: {signature}
+
+{
+  "event": "device.compliance_change",
+  "device_id": "device-12345",
+  "user_email": "user@example.com",
+  "status": "non-compliant",
+  "reason": "os_version_outdated"
+}
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Credenciais Necessárias</h3>
+                    
+                    <div class="requirements-list">
+                        <ul>
+                            <li><strong>Tines API Key:</strong> Escopo "Team" com função "Editor"</li>
+                            <li><strong>Kolide API Key:</strong> Apenas leitura</li>
+                            <li><strong>Kolide Webhook Signing Secret:</strong> Para validação de webhooks</li>
+                            <li><strong>Domínio Okta:</strong> exemplo.okta.com, exemplo.oktapreview.com ou domínio personalizado</li>
+                        </ul>
+                    </div>
+
+                    <h3>Registrando o Transmissor no Okta</h3>
+                    
+                    <p>Uma vez que a API esteja ativa, as equipes podem registrar um novo receptor SSF no Okta em:</p>
+                    
+                    <div class="code-block">
+Security → Device Integrations → Receive shared signals
+                    </div>
+
+                    <p>E criar um novo stream usando a URL da API e o novo endpoint <code>.well-known</code>.</p>
+
+                    <h2>Por que Isso é Importante para Zero Trust</h2>
+                    
+                    <p>A implementação bem-sucedida do Zero Trust requer:</p>
+                    
+                    <ol>
+                        <li><strong>Sinais Contínuos:</strong> Monitoramento constante da postura de segurança</li>
+                        <li><strong>Decisões em Tempo Real:</strong> Acesso baseado no contexto atual, não em credenciais estáticas</li>
+                        <li><strong>Orquestração Automática:</strong> Resposta automática a mudanças no nível de risco</li>
+                    </ol>
+
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-lightbulb"></i> Caso de Uso Real:</h4>
+                        <p>Quando um funcionário tenta acessar um recurso crítico usando um dispositivo sem criptografia de disco, o Kolide detecta, envia para o Tines via webhook, que enriquece com informações do usuário, cria um SET e envia para o Okta, que imediatamente revoga o acesso até que o dispositivo seja corrigido.</p>
+                    </div>
+
+                    <h3>Considerações de Implementação</h3>
+                    
+                    <div class="alert-warning">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Pontos de Atenção:</h4>
+                        <ul>
+                            <li><strong>Gerenciamento de Chaves:</strong> Rotação regular de chaves de assinatura SET</li>
+                            <li><strong>Logging e Auditoria:</strong> Log completo de todos os eventos SSF</li>
+                            <li><strong>Resiliência:</strong> Tratamento adequado de falhas de rede</li>
+                            <li><strong>Conformidade:</strong> Atenção a requisitos regulatórios como GDPR, HIPAA</li>
+                        </ul>
+                    </div>
+
+                    <div class="veredito">
+                        <p><strong>VEREDITO:</strong> O Shared Signals Framework representa um avanço crucial na implementação prática do Zero Trust. Ao resolver o problema de interoperabilidade entre ferramentas de segurança através de uma abordagem baseada em padrões abertos, organizações podem finalmente alcançar a visão de acesso contínuo avaliado e adaptativo. A solução apresentada por Scott Bean usando Tines como middleware SSF fornece um caminho prático e escalável para organizações que lutam com a fragmentação de seus ecossistemas de segurança.</p>
+                    </div>
+
+                    <div class="tag-list">
+                        <span class="tag">zero-trust</span>
+                        <span class="tag">shared-signals-framework</span>
+                        <span class="tag">ssf</span>
+                        <span class="tag">caep</span>
+                        <span class="tag">iam</span>
+                        <span class="tag">identity-management</span>
+                        <span class="tag">tines</span>
+                        <span class="tag">kolide</span>
+                        <span class="tag">okta</span>
+                        <span class="tag">automation</span>
+                        <span class="tag">security</span>
+                    </div>
+
+                    <div class="stats">
+                        <span><i class="far fa-eye"></i> 1.9k visualizações</span>
+                        <span><i class="far fa-comment"></i> 22 comentários</span>
+                        <span><i class="fas fa-share-alt"></i> 45 compartilhamentos</span>
+                        <span><i class="fas fa-bookmark"></i> ALTA RELEVÂNCIA</span>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Zero Trust & IAM</h3>
+                <ul class="widget-list">
+                    <li>
+                        <a href="#">Zero Trust: Implementação Prática</a>
+                        <div class="date">05/12/2025 • Guia</div>
+                    </li>
+                    <li>
+                        <a href="#">BeyondCorp vs Zero Trust</a>
+                        <div class="date">02/12/2025 • Comparativo</div>
+                    </li>
+                    <li>
+                        <a href="#">IAM Moderno: Novas Abordagens</a>
+                        <div class="date">28/11/2025 • Arquitetura</div>
+                    </li>
+                    <li>
+                        <a href="#">PAM em Ambientes Cloud</a>
+                        <div class="date">25/11/2025 • Segurança</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Frameworks de Segurança</h3>
+                <ul class="widget-list">
+                    <li><a href="#">MITRE ATT&CK: Aplicações Práticas</a></li>
+                    <li><a href="#">NIST CSF 2.0: Novidades</a></li>
+                    <li><a href="#">ISO 27001:2025 Updates</a></li>
+                    <li><a href="#">CIS Controls v8</a></li>
+                    <li><a href="#">OWASP ASVS</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Automação & SOAR</h3>
+                <ul class="widget-list">
+                    <li><a href="#">SOAR vs SIEM vs XDR</a></li>
+                    <li><a href="#">Automação de Resposta a Incidentes</a></li>
+                    <li><a href="#">Tines: Casos de Uso Avançados</a></li>
+                    <li><a href="#">Splunk Phantom: Integrações</a></li>
+                    <li><a href="#">Microsoft Sentinel Playbooks</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Padrões Abertos</h3>
+                <ul class="widget-list">
+                    <li><a href="#">OAuth 2.1: O que há de novo</a></li>
+                    <li><a href="#">OpenID Connect vs SAML</a></li>
+                    <li><a href="#">SCIM 2.0: Provisionamento</a></li>
+                    <li><a href="#">JWT vs PASETO</a></li>
+                    <li><a href="#">FAPI 2.0 Security Profile</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">BlogMarceloFernandes</div>
+            <ul class="footer-links">
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Política de Privacidade</a></li>
+                <li><a href="#">Termos de Uso</a></li>
+                <li><a href="#">Consultoria</a></li>
+            </ul>
+            <div class="copyright">
+                Blog Marcelo Fernandes © 2025 • Tecnologia explicada sem floreios • Fontes pequenas, conteúdo direto<br>
+                Baseado em artigo original do The Hacker News. Consulte fontes oficiais para implementação.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Funcionalidades interativas
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tooltips para badges técnicos
+            const techBadges = document.querySelectorAll('.tech-badge');
+            
+            const techTooltips = {
+                'Tines': 'Plataforma de automação e orquestração de workflows',
+                'Kolide': 'Solução de Device Trust e monitoramento de postura',
+                'Okta': 'Plataforma de gerenciamento de identidade',
+                'SSF': 'Shared Signals Framework - Padrão para compartilhamento de sinais de segurança',
+                'CAEP': 'Continuous Access Evaluation Protocol - Protocolo de avaliação contínua de acesso'
+            };
+            
+            techBadges.forEach(badge => {
+                const techName = badge.textContent.trim();
+                if (techTooltips[techName]) {
+                    badge.title = techTooltips[techName];
+                    badge.style.cursor = 'help';
+                }
+            });
+            
+            // Expandir/collapsar blocos de código
+            const codeBlocks = document.querySelectorAll('.code-block');
+            codeBlocks.forEach(block => {
+                const pre = block.querySelector('pre');
+                if (pre && pre.scrollHeight > 200) {
+                    const button = document.createElement('button');
+                    button.innerHTML = '<i class="fas fa-expand-alt"></i>';
+                    button.style.cssText = `
+                        position: absolute;
+                        top: 5px;
+                        right: 5px;
+                        background: #444;
+                        color: white;
+                        border: none;
+                        border-radius: 3px;
+                        padding: 2px 6px;
+                        font-size: 10px;
+                        cursor: pointer;
+                        z-index: 10;
+                    `;
+                    button.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        if (block.style.maxHeight) {
+                            block.style.maxHeight = '';
+                            button.innerHTML = '<i class="fas fa-expand-alt"></i>';
+                        } else {
+                            block.style.maxHeight = 'none';
+                            button.innerHTML = '<i class="fas fa-compress-alt"></i>';
+                        }
+                    });
+                    
+                    block.style.position = 'relative';
+                    block.appendChild(button);
+                }
+            });
+            
+            // Simular contador de visualizações
+            const viewsElement = document.querySelector('.stats span:nth-child(1)');
+            if (viewsElement) {
+                const currentViews = 1900;
+                viewsElement.innerHTML = `<i class="far fa-eye"></i> ${currentViews.toLocaleString()} visualizações`;
+            }
+            
+            // Navegação por seções
+            const headers = document.querySelectorAll('.post-content h2, .post-content h3');
+            if (headers.length > 0) {
+                const navWidget = document.createElement('div');
+                navWidget.className = 'sidebar-widget';
+                navWidget.innerHTML = `
+                    <h3 class="widget-title">Neste Artigo</h3>
+                    <ul class="widget-list" id="article-nav">
+                        ${Array.from(headers).map((h, i) => `
+                            <li><a href="#section-${i}" onclick="scrollToSection('${h.id || `section-${i}`}')">${h.textContent}</a></li>
+                        `).join('')}
+                    </ul>
+                `;
+                
+                document.querySelector('.sidebar').prepend(navWidget);
+                
+                headers.forEach((h, i) => {
+                    if (!h.id) h.id = `section-${i}`;
+                });
+                
+                window.scrollToSection = function(id) {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                };
+            }
+            
+            // Realçar termos importantes
+            const importantTerms = ['SSF', 'CAEP', 'SET', 'Zero Trust', 'Tines', 'Kolide', 'Okta'];
+            importantTerms.forEach(term => {
+                const regex = new RegExp(`\\b${term}\\b`, 'gi');
+                document.body.innerHTML = document.body.innerHTML.replace(
+                    regex, 
+                    match => `<span class="highlight-term" style="background-color: #e3f2fd; padding: 0 2px; border-radius: 2px;">${match}</span>`
+                );
+            });
+        });
+    </script>
+</body>
+</html>

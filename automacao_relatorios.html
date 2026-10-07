@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YEVQZCLHG4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date());
+      gtag('config', 'G-YEVQZCLHG4');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
+    <title>Automação de Relatórios com Python e Power BI — Marcelo Fernandes</title>
+    <meta name="description" content="Automação de relatórios em Python e Power BI: dashboards interativos, consolidação de dados e insights automáticos para pequenas empresas." />
+    <link rel="canonical" href="https://marcelofernandes.dev.br/automacao-de-relatorios.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="pt_BR"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Automação de Relatórios com Python e Power BI — Marcelo Fernandes"/>
+    <meta property="og:description" content="Dashboards interativos e relatórios automáticos que transformam dados complexos em insights acionáveis."/>
+    <meta property="og:url" content="https://marcelofernandes.dev.br/automacao-de-relatorios.html"/>
+    <meta property="og:site_name" content="Marcelo Fernandes"/>
+    <meta property="og:image" content="https://marcelofernandes.dev.br/img/banner-minastech.jpg"/>
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image"/>
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Automação de Relatórios",
+        "provider": {
+          "@type": "Person",
+          "name": "Marcelo Fernandes",
+          "url": "https://marcelofernandes.dev.br/",
+          "sameAs": ["https://wa.me/5534998928444"]
+        },
+        "areaServed": "BR",
+        "description": "Serviço de automação de relatórios para pequenas empresas: consolidação de dados, geração de PDFs/Excel e dashboards com insights automáticos."
+      }
+    </script>
+
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+
+    <!-- Fonts & Tailwind -->
+
+    <!-- Lucide Icons -->
+
+    <!-- CSS Personalizado -->
+
+    <meta name="theme-color" content="#050a17">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tw-config.js"></script>
+    <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+    <div class="bg-aurora"></div>
+    <div class="bg-grid"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header -->
+    <header id="siteHeader" class="sticky top-0 z-50 header-blur">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 h-[72px] flex items-center justify-between gap-4">
+            <a href="index.html" class="flex items-center gap-3 shrink-0">
+                <span class="w-9 h-9 rounded-xl flex items-center justify-center font-display font-bold text-ink" style="background: linear-gradient(135deg,#34d399,#38bdf8);">MF</span>
+                <span class="leading-tight">
+                    <span class="block font-display font-semibold">Marcelo Fernandes</span>
+                    <span class="block text-xs text-slate-500">AI & Cloud Solutions</span>
+                </span>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8 text-[15px]" aria-label="Principal">
+                <a href="index.html#servicos" class="nav-link">Serviços</a>
+                <div class="dropdown relative">
+                    <button class="nav-link flex items-center gap-1" aria-haspopup="true">
+                        Especialidades <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="ia.html" class="dropdown-item">
+                            <i data-lucide="brain" class="w-5 h-5 text-ai-color mt-0.5"></i>
+                            <span><span class="block text-white font-medium">Inteligência Artificial</span><span class="block text-xs text-slate-400">ML, NLP, visão e IA generativa</span></span>
+                        </a>
+                        <a href="cloud.html" class="dropdown-item">
+                            <i data-lucide="cloud" class="w-5 h-5 text-cloud-color mt-0.5"></i>
+                            <span><span class="block text-white font-medium">Computação em Nuvem</span><span class="block text-xs text-slate-400">AWS, Azure, Kubernetes</span></span>
+                        </a>
+                        <a href="software.html" class="dropdown-item">
+                            <i data-lucide="code-2" class="w-5 h-5 text-dev-color mt-0.5"></i>
+                            <span><span class="block text-white font-medium">Desenvolvimento de Software</span><span class="block text-xs text-slate-400">Web, mobile, APIs e automação</span></span>
+                        </a>
+                        <div class="my-1.5 mx-3 h-px bg-white/[0.07]"></div>
+                        <a href="site_institucional.html" class="dropdown-item !py-2"><i data-lucide="layout-template" class="w-4 h-4 text-dev-color mt-0.5"></i><span class="text-sm text-slate-200">Sites & lojas virtuais</span></a>
+                        <a href="automacao_relatorios.html" class="dropdown-item !py-2" aria-current="page"><i data-lucide="bar-chart-3" class="w-4 h-4 text-ai-color mt-0.5"></i><span class="text-sm text-slate-200">Automação & Power BI</span></a>
+                        <a href="manutencao_servidores.html" class="dropdown-item !py-2"><i data-lucide="server" class="w-4 h-4 text-cloud-color mt-0.5"></i><span class="text-sm text-slate-200">Servidores Linux</span></a>
+                        <a href="seguranca_cibernetica.html" class="dropdown-item !py-2"><i data-lucide="shield-check" class="w-4 h-4 text-violet-400 mt-0.5"></i><span class="text-sm text-slate-200">Cibersegurança & LGPD</span></a>
+                    </div>
+                </div>
+                <a href="index.html#projetos" class="nav-link">Projetos</a>
+                <a href="index.html#sobre" class="nav-link">Sobre</a>
+                <a href="https://marcelofernandes.dev.br/blog" target="_blank" rel="noopener noreferrer" class="nav-link">Blog</a>
+                <a href="contato.html" class="nav-link">Contato</a>
+            </nav>
+
+            <div class="flex items-center gap-2">
+                <a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="btn btn-primary !py-2.5 !px-4 text-sm">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span class="hidden sm:inline">Conversar agora</span>
+                    <span class="sm:hidden">WhatsApp</span>
+                </a>
+                <button id="menuBtn" class="lg:hidden p-2.5 rounded-xl border border-white/10 text-slate-300" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu mobile -->
+        <nav id="mobileMenu" class="lg:hidden hidden border-t border-white/5 px-5 pb-6 pt-2 max-h-[80vh] overflow-y-auto" aria-label="Menu mobile">
+            <a href="index.html#servicos" class="block py-3 text-slate-300 border-b border-white/5">Serviços</a>
+            <a href="ia.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="brain" class="w-4 h-4 text-ai-color"></i>Inteligência Artificial</a>
+            <a href="cloud.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="cloud" class="w-4 h-4 text-cloud-color"></i>Computação em Nuvem</a>
+            <a href="software.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="code-2" class="w-4 h-4 text-dev-color"></i>Desenvolvimento de Software</a>
+            <a href="site_institucional.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="layout-template" class="w-4 h-4 text-dev-color"></i>Sites & lojas virtuais</a>
+            <a href="automacao_relatorios.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5" aria-current="page"><i data-lucide="bar-chart-3" class="w-4 h-4 text-ai-color"></i>Automação & Power BI</a>
+            <a href="manutencao_servidores.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="server" class="w-4 h-4 text-cloud-color"></i>Servidores Linux</a>
+            <a href="seguranca_cibernetica.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="shield-check" class="w-4 h-4 text-violet-400"></i>Cibersegurança & LGPD</a>
+            <a href="index.html#projetos" class="block py-3 text-slate-300 border-b border-white/5">Projetos</a>
+            <a href="index.html#sobre" class="block py-3 text-slate-300 border-b border-white/5">Sobre</a>
+            <a href="https://marcelofernandes.dev.br/blog" target="_blank" rel="noopener noreferrer" class="block py-3 text-slate-300 border-b border-white/5">Blog</a>
+            <a href="contato.html" class="block py-3 text-slate-300">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="ac-ai relative px-5 sm:px-6 pt-12 md:pt-16 pb-16 max-w-7xl mx-auto">
+            <div class="page-glow"></div>
+            <nav class="crumbs mb-10" aria-label="Você está em"><a href="index.html">Início</a><span>/</span><a href="index.html#servicos">Serviços</a><span>/</span><span class="text-slate-300">Automação de relatórios</span></nav>
+
+            <div class="grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
+                <div>
+                    <div class="reveal inline-flex items-center gap-2.5 panel rounded-full pl-3 pr-4 py-1.5 mb-7">
+                        <i data-lucide="bar-chart-3" class="w-4 h-4 text-ai-color"></i>
+                        <span class="text-sm text-slate-300">Serviço especializado</span>
+                    </div>
+                    <h1 class="reveal text-[2.6rem] leading-[1.05] sm:text-6xl font-bold mb-6" data-delay="1">
+                        Automação de relatórios com <span class="grad-accent">Python e Power BI</span>
+                    </h1>
+                    <p class="reveal text-lg md:text-xl text-slate-400 max-w-xl mb-10 leading-relaxed" data-delay="2">
+                        Dashboards interativos e relatórios automáticos que transformam dados complexos em insights acionáveis.
+                        Elimine horas de trabalho manual com soluções personalizadas.
+                    </p>
+                    <div class="reveal flex flex-col sm:flex-row gap-3" data-delay="3">
+                        <a href="#contato" class="btn btn-primary"><i data-lucide="zap" class="w-5 h-5"></i>Automatizar meus relatórios</a>
+                        <a href="#como-funciona" class="btn btn-ghost">Como funciona <i data-lucide="arrow-down" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <!-- Mockup de dashboard -->
+                <figure class="reveal panel rounded-3xl p-5 md:p-6" data-delay="2" aria-label="Exemplo ilustrativo de dashboard">
+                    <div class="flex items-center justify-between mb-5">
+                        <span class="text-sm font-medium">Vendas — visão mensal</span>
+                        <span class="flex items-center gap-1.5 text-xs text-slate-400"><span class="status-dot"></span>Atualizado automaticamente</span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3 mb-5">
+                        <div class="rounded-xl border border-white/[0.08] bg-ink/60 p-3"><p class="text-[11px] text-slate-500">Faturamento</p><p class="font-display text-xl font-bold">R$ 482k</p><p class="text-[11px] text-ai-color">▲ 12%</p></div>
+                        <div class="rounded-xl border border-white/[0.08] bg-ink/60 p-3"><p class="text-[11px] text-slate-500">Ticket médio</p><p class="font-display text-xl font-bold">R$ 318</p><p class="text-[11px] text-ai-color">▲ 4%</p></div>
+                        <div class="rounded-xl border border-white/[0.08] bg-ink/60 p-3"><p class="text-[11px] text-slate-500">Margem</p><p class="font-display text-xl font-bold">27%</p><p class="text-[11px] text-red-400">▼ 1%</p></div>
+                    </div>
+                    <div class="rounded-xl border border-white/[0.08] bg-ink/60 p-4">
+                        <div class="mini-bars !h-28 !gap-2 !mt-0"><span style="height:42%"></span><span style="height:55%"></span><span style="height:48%"></span><span style="height:63%"></span><span style="height:58%"></span><span style="height:70%"></span><span style="height:66%"></span><span style="height:78%"></span><span style="height:74%"></span><span style="height:86%"></span><span style="height:81%"></span><span style="height:100%"></span></div>
+                        <div class="flex justify-between font-mono text-[10px] text-slate-600 mt-2"><span>jan</span><span>jun</span><span>dez</span></div>
+                    </div>
+                    <div class="mt-4 flex items-center gap-2 text-xs text-slate-400"><i data-lucide="mail-check" class="w-4 h-4 text-ai-color"></i>Relatório PDF enviado à diretoria · seg 07:00</div>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Tecnologias -->
+        <section id="tecnologias" class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="eyebrow mb-4">Tecnologias</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Ferramentas que <span class="grad-ai">utilizo</span></h2>
+                <p class="text-slate-400 text-lg">As melhores ferramentas do mercado combinadas para criar soluções eficientes.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-5">
+                <article class="reveal card ai panel rounded-3xl p-8"><span class="icon-tile mb-6"><i data-lucide="code-2" class="w-6 h-6"></i></span><h3 class="text-xl font-bold mb-2">Python</h3><p class="text-slate-400 leading-relaxed">Automação, análise de dados e integração entre sistemas com bibliotecas especializadas.</p></article>
+                <article class="reveal card dev panel rounded-3xl p-8" data-delay="1"><span class="icon-tile mb-6"><i data-lucide="bar-chart-3" class="w-6 h-6"></i></span><h3 class="text-xl font-bold mb-2">Power BI</h3><p class="text-slate-400 leading-relaxed">Dashboards interativos e relatórios visuais com atualização automática de dados.</p></article>
+                <article class="reveal card cloud panel rounded-3xl p-8" data-delay="2"><span class="icon-tile mb-6"><i data-lucide="cloud" class="w-6 h-6"></i></span><h3 class="text-xl font-bold mb-2">APIs & cloud</h3><p class="text-slate-400 leading-relaxed">Integração com serviços em nuvem e automação de processos empresariais.</p></article>
+            </div>
+        </section>
+
+        <!-- Serviços -->
+        <section id="servicos-requisitados" class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="eyebrow mb-4">Serviços</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Serviços mais <span class="grad-ai">requisitados</span></h2>
+                <p class="text-slate-400 text-lg">Soluções práticas para os problemas mais comuns de análise de dados.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <article class="reveal card ai panel rounded-3xl p-7"><span class="icon-tile mb-5"><i data-lucide="bar-chart-3" class="w-6 h-6"></i></span><h3 class="text-lg font-bold mb-2">Dashboard Power BI</h3><p class="text-slate-400 leading-relaxed">Painéis interativos com atualização automática, conectados às suas bases de dados para monitoramento em tempo real.</p></article>
+                <article class="reveal card ai panel rounded-3xl p-7" data-delay="1"><span class="icon-tile mb-5"><i data-lucide="refresh-cw" class="w-6 h-6"></i></span><h3 class="text-lg font-bold mb-2">ETL automatizado</h3><p class="text-slate-400 leading-relaxed">Extração, transformação e carga que consolidam dados de múltiplas fontes automaticamente.</p></article>
+                <article class="reveal card ai panel rounded-3xl p-7" data-delay="2"><span class="icon-tile mb-5"><i data-lucide="mail" class="w-6 h-6"></i></span><h3 class="text-lg font-bold mb-2">Relatórios por e-mail</h3><p class="text-slate-400 leading-relaxed">Envio automático de relatórios em PDF/Excel para equipes e gestores, com agendamento personalizado.</p></article>
+                <article class="reveal card ai panel rounded-3xl p-7"><span class="icon-tile mb-5"><i data-lucide="trending-up" class="w-6 h-6"></i></span><h3 class="text-lg font-bold mb-2">KPIs automatizados</h3><p class="text-slate-400 leading-relaxed">Monitoramento de indicadores-chave com alertas inteligentes para desvios e oportunidades.</p></article>
+                <article class="reveal card ai panel rounded-3xl p-7" data-delay="1"><span class="icon-tile mb-5"><i data-lucide="database" class="w-6 h-6"></i></span><h3 class="text-lg font-bold mb-2">Integração de sistemas</h3><p class="text-slate-400 leading-relaxed">Conexão entre ERP, CRM, planilhas e outras fontes para uma visão unificada dos dados.</p></article>
+                <article class="reveal card ai panel rounded-3xl p-7" data-delay="2"><span class="icon-tile mb-5"><i data-lucide="bot" class="w-6 h-6"></i></span><h3 class="text-lg font-bold mb-2">Chatbot de dados</h3><p class="text-slate-400 leading-relaxed">Assistente que responde perguntas sobre métricas e desempenho via WhatsApp ou Teams.</p></article>
+            </div>
+        </section>
+
+        <!-- Benefícios -->
+        <section id="beneficios" class="ac-ai py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal panel rounded-[2rem] p-8 md:p-12">
+                <div class="max-w-2xl mb-10">
+                    <span class="eyebrow mb-4">Benefícios</span>
+                    <h2 class="text-3xl md:text-4xl font-bold">Ganhe tempo e decida com <span class="grad-ai">dados de verdade</span></h2>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div><i data-lucide="timer" class="w-7 h-7 text-ai-color mb-4"></i><h3 class="font-bold mb-2">Economia de tempo</h3><p class="text-sm text-slate-400 leading-relaxed">Reduza as horas gastas montando relatórios manualmente todos os meses.</p></div>
+                    <div><i data-lucide="eye" class="w-7 h-7 text-ai-color mb-4"></i><h3 class="font-bold mb-2">Visão clara</h3><p class="text-sm text-slate-400 leading-relaxed">Relatórios padronizados e métricas consistentes para toda a equipe.</p></div>
+                    <div><i data-lucide="search" class="w-7 h-7 text-ai-color mb-4"></i><h3 class="font-bold mb-2">Insights rápidos</h3><p class="text-sm text-slate-400 leading-relaxed">Detecte tendências e problemas antes que impactem seu negócio.</p></div>
+                    <div><i data-lucide="lightbulb" class="w-7 h-7 text-ai-color mb-4"></i><h3 class="font-bold mb-2">Decisões inteligentes</h3><p class="text-sm text-slate-400 leading-relaxed">Use dados reais e atualizados para planejar estratégias e crescer.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como funciona -->
+        <section id="como-funciona" class="ac-ai py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-start">
+                <div>
+                    <div class="reveal mb-10">
+                        <span class="eyebrow mb-4">Processo</span>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-4">Como <span class="grad-ai">funciona</span></h2>
+                        <p class="text-slate-400 text-lg">Um fluxo simples e claro para sua automação entrar em operação rapidamente.</p>
+                    </div>
+                    <ol class="steps space-y-8">
+                        <li class="reveal"><h3 class="text-lg font-bold mb-1">Diagnóstico & planejamento</h3><p class="text-slate-400">Entrevista para entender suas fontes de dados, frequência de relatórios e objetivos.</p></li>
+                        <li class="reveal"><h3 class="text-lg font-bold mb-1">Protótipo & aprovação</h3><p class="text-slate-400">Entrega rápida de um exemplo funcional para validação e ajustes antes do desenvolvimento completo.</p></li>
+                        <li class="reveal"><h3 class="text-lg font-bold mb-1">Desenvolvimento & automação</h3><p class="text-slate-400">Script personalizado, integração com seus sistemas, testes rigorosos e execução agendada.</p></li>
+                        <li class="reveal"><h3 class="text-lg font-bold mb-1">Entrega & suporte inicial</h3><p class="text-slate-400">Colocação em produção, treinamento da equipe e suporte inicial para garantir o sucesso.</p></li>
+                    </ol>
+                </div>
+                <div class="reveal panel rounded-3xl p-8 lg:sticky lg:top-28" data-delay="1">
+                    <h3 class="text-2xl font-bold mb-6">Ideal para você se:</h3>
+                    <ul class="check-list mb-8">
+                        <li>Precisa consolidar dados de diferentes fontes manualmente</li>
+                        <li>Gasta horas montando relatórios recorrentes</li>
+                        <li>Quer tomar decisões com base em dados atualizados</li>
+                        <li>Quer reduzir erros humanos e automatizar tarefas repetitivas</li>
+                    </ul>
+                    <a href="#contato" class="btn btn-primary w-full"><i data-lucide="message-circle" class="w-5 h-5"></i>Falar sobre meu caso</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato -->
+        <section id="contato" class="ac-ai py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="relative panel rounded-[2rem] p-8 md:p-14 overflow-hidden">
+                <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-3xl opacity-30 pointer-events-none" style="background: radial-gradient(circle, rgba(52,211,153,.5), rgba(56,189,248,.3) 40%, transparent 70%);"></div>
+                <div class="relative grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                    <div class="reveal">
+                        <span class="eyebrow mb-4">Contato</span>
+                        <blockquote class="text-3xl md:text-4xl font-display font-bold leading-tight mb-6">“Do Excel manual ao Power BI automatizado — transforme dados em <span class="grad-ai">vantagem competitiva</span>.”</blockquote>
+                        <p class="text-slate-400 text-lg mb-10 leading-relaxed">Pronto para ter relatórios que se atualizam sozinhos e dashboards que mostram o que realmente importa?</p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><i data-lucide="phone" class="w-4 h-4 text-ai-color"></i>(34) 99892-8444</a>
+                            <a href="mailto:contato@marcelofernandes.dev.br" class="btn btn-ghost"><i data-lucide="mail" class="w-4 h-4 text-cloud-color"></i>contato@marcelofernandes.dev.br</a>
+                        </div>
+                    </div>
+
+                    <form data-whatsapp data-assunto="Automação de relatórios" class="reveal rounded-3xl p-6 md:p-8 border border-white/[0.08] bg-ink/60" data-delay="1">
+                        <h3 class="text-2xl font-bold mb-2">Quero automatizar meus relatórios</h3>
+                        <p class="text-slate-400 mb-8">Conte como é o processo hoje. A mensagem abre direto no WhatsApp.</p>
+                        <div class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <label class="block"><span class="block text-sm text-slate-400 mb-1.5">Nome</span><input name="nome" type="text" required placeholder="Seu nome" class="field"></label>
+                                <label class="block"><span class="block text-sm text-slate-400 mb-1.5">Empresa</span><input name="empresa" type="text" placeholder="Nome da empresa" class="field"></label>
+                            </div>
+                            <label class="block"><span class="block text-sm text-slate-400 mb-1.5">Como é feito hoje?</span><textarea name="mensagem" required rows="4" placeholder="Ex.: junto 3 planilhas do ERP toda segunda e monto um relatório no Excel..." class="field resize-none"></textarea></label>
+                            <button type="submit" class="btn btn-primary w-full"><i data-lucide="send" class="w-5 h-5"></i>Enviar pelo WhatsApp</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 mt-8">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 py-14">
+            <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+                <div>
+                    <a href="index.html" class="flex items-center gap-3 mb-4">
+                        <span class="w-9 h-9 rounded-xl flex items-center justify-center font-display font-bold text-ink" style="background: linear-gradient(135deg,#34d399,#38bdf8);">MF</span>
+                        <span class="leading-tight">
+                            <span class="block font-display font-semibold">Marcelo Fernandes</span>
+                            <span class="block text-xs text-slate-500">AI & Cloud Specialist</span>
+                        </span>
+                    </a>
+                    <p class="text-sm text-slate-500 max-w-xs leading-relaxed">IA, cloud e software sob medida para empresas que querem crescer com tecnologia.</p>
+                    <div class="flex gap-2 mt-6">
+                        <!-- TODO: trocar "#" pelos perfis reais -->
+                        <a href="#" aria-label="LinkedIn" class="p-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/25 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" aria-label="GitHub" class="p-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/25 transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                        <a href="mailto:contato@marcelofernandes.dev.br" aria-label="E-mail" class="p-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/25 transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-sm font-semibold mb-4">Especialidades</h2>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="ia.html" class="text-slate-400 hover:text-white transition-colors">Inteligência Artificial</a></li>
+                        <li><a href="cloud.html" class="text-slate-400 hover:text-white transition-colors">Computação em Nuvem</a></li>
+                        <li><a href="software.html" class="text-slate-400 hover:text-white transition-colors">Desenvolvimento de Software</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-sm font-semibold mb-4">Serviços</h2>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="site_institucional.html" class="text-slate-400 hover:text-white transition-colors">Sites & lojas virtuais</a></li>
+                        <li><a href="automacao_relatorios.html" class="text-slate-400 hover:text-white transition-colors">Automação & Power BI</a></li>
+                        <li><a href="manutencao_servidores.html" class="text-slate-400 hover:text-white transition-colors">Servidores Linux</a></li>
+                        <li><a href="seguranca_cibernetica.html" class="text-slate-400 hover:text-white transition-colors">Cibersegurança & LGPD</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-sm font-semibold mb-4">Contato</h2>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">(34) 99892-8444</a></li>
+                        <li><a href="mailto:contato@marcelofernandes.dev.br" class="text-slate-400 hover:text-white transition-colors break-all">contato@marcelofernandes.dev.br</a></li>
+                        <li><a href="https://marcelofernandes.dev.br/blog" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-white/5 text-sm text-slate-600">
+                © <span id="year">2026</span> Marcelo Fernandes. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark" class="theme-transition">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YEVQZCLHG4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YEVQZCLHG4');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>Marcelo Fernandes — Soluções Digitais, Sites, Automação e Servidores Linux</title>
+    <meta name="description" content="Criação de sites rápidos e otimizados, automações em Python e gestão de servidores Linux/Nginx. Marcelo Fernandes oferece soluções digitais completas para pequenas empresas que buscam performance e segurança online." />
+    <meta name="keywords" content="desenvolvedor web, automação python, servidores linux, criação de sites, SEO, performance web, cibersegurança, pequenas empresas, tecnologia, otimização de sites" />
+    <link rel="canonical" href="https://marcelofernandes.dev.br/" />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Marcelo Fernandes — Soluções Digitais e Automação para Pequenas Empresas" />
+    <meta property="og:description" content="Sites rápidos, automações em Python e servidores Linux/Nginx com foco em segurança e performance." />
+    <meta property="og:url" content="https://marcelofernandes.dev.br/" />
+    <meta property="og:image" content="https://marcelofernandes.dev.br/img/og-preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Marcelo Fernandes — Soluções Digitais" />
+    <meta property="og:locale" content="pt_BR" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Marcelo Fernandes — Soluções Digitais para Pequenas Empresas" />
+    <meta name="twitter:description" content="Criação de sites otimizados, automação de relatórios e servidores Linux para negócios de pequeno porte." />
+    <meta name="twitter:image" content="https://marcelofernandes.dev.br/img/og-preview.jpg" />
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Marcelo Fernandes",
+        "url": "https://marcelofernandes.dev.br/",
+        "jobTitle": "Desenvolvedor Web e Especialista em Automação",
+        "description": "Soluções digitais para pequenas empresas: sites rápidos, automações em Python e servidores Linux otimizados.",
+        "knowsAbout": ["Web Development", "Python Automation", "Linux Server Administration", "SEO", "Cybersecurity"],
+        "sameAs": [
+            "https://github.com/seuusuario",
+            "https://www.linkedin.com/in/seulinkedin/",
+            "https://wa.me/5534998928444"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uberlândia",
+            "addressRegion": "MG",
+            "addressCountry": "BR"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+55-34-99892-8444",
+            "contactType": "customer service",
+            "areaServed": "BR",
+            "availableLanguage": "pt-BR"
+        },
+        "image": "https://marcelofernandes.dev.br/img/og-preview.jpg"
+    }
+    </script>
+    
+    <!-- Additional Schema for Local Business -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Marcelo Fernandes - Soluções Digitais",
+        "image": "https://marcelofernandes.dev.br/img/og-preview.jpg",
+        "@id": "https://marcelofernandes.dev.br/",
+        "url": "https://marcelofernandes.dev.br/",
+        "telephone": "+55-34-99892-8444",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Uberlândia",
+            "addressRegion": "MG",
+            "addressCountry": "BR"
+        },
+        "priceRange": "R$",
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "08:00",
+            "closes": "18:00"
+        },
+        "sameAs": [
+            "https://wa.me/5534998928444"
+        ]
+    }
+    </script>
+    
+    <!-- Favicon & App Icons -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    
+    <!-- Fonts & Tailwind -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Afacad:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Critical CSS (Inlined for performance) -->
+    <style>
+        /* Critical CSS for above-the-fold content */
+        body { 
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        body.is-loaded { 
+            opacity: 1;
+        }
+        
+        /* Skip to content link */
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #3b82f6;
+            color: white;
+            padding: 8px 16px;
+            z-index: 10000;
+            text-decoration: none;
+            border-radius: 0 0 4px 0;
+        }
+        .skip-to-content:focus {
+            top: 0;
+        }
+        
+        /* Custom utility classes */
+        .text-balance {
+            text-wrap: balance;
+        }
+        
+        /* Focus styles */
+        *:focus-visible {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
+        
+        /* Theme transition */
+        .theme-transition,
+        .theme-transition *,
+        .theme-transition *::before,
+        .theme-transition *::after {
+            transition: background-color 0.3s ease,
+                        border-color 0.3s ease,
+                        color 0.3s ease,
+                        opacity 0.3s ease,
+                        transform 0.3s ease !important;
+        }
+    </style>
+</head>
+<body class="leading-relaxed bg-gray-900 text-gray-100 min-h-screen">
+    <!-- Skip to Content -->
+    <a href="#main-content" class="skip-to-content">
+        Pular para o conteúdo principal
+    </a>
+    
+    <!-- Barra de Progresso -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    
+    <!-- Partículas de Fundo -->
+    <div class="particles-container" id="particlesBg" aria-hidden="true"></div>
+    
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-gray-900/80 backdrop-blur border-b border-gray-800 glass-effect">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="index.html" class="magnetic-btn flex items-baseline gap-2" aria-label="Ir para página inicial">
+                <span class="text-2xl headline font-bold text-white">Marcelo</span>
+                <span class="text-lg text-gray-400">Fernandes</span>
+            </a>
+            
+            <!-- Navigation -->
+            <nav class="hidden md:flex items-center gap-8 text-sm uppercase tracking-wide" aria-label="Navegação principal">
+                <a href="site_institucional.html" class="hover:text-blue-400 text-gray-300 transition-colors magnetic-btn">Projetos</a>
+                <a href="automacao_relatorios.html" class="hover:text-blue-400 text-gray-300 transition-colors magnetic-btn">Automação</a>
+                <a href="seguranca_cibernetica.html" class="hover:text-blue-400 text-gray-300 transition-colors magnetic-btn">Segurança</a>
+                <a href="contato.html" class="hover:text-blue-400 text-gray-300 transition-colors magnetic-btn">Contato</a>
+            </nav>
+            
+            <!-- Actions -->
+            <div class="flex items-center gap-3">
+                <!-- Theme Toggle -->
+                <button id="themeToggle" class="p-2 rounded-lg hover:bg-gray-800 transition-colors" 
+                        aria-label="Alternar tema" 
+                        aria-checked="false" 
+                        role="switch">
+                    <i data-lucide="sun" class="w-5 h-5"></i>
+                </button>
+                
+                <!-- WhatsApp CTA -->
+                <a href="https://wa.me/5534998928444" 
+                   class="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-semibold bg-blue-600 hover:bg-blue-700 text-white transition-all pulse magnetic-btn"
+                   aria-label="Conversar no WhatsApp">
+                    💬 Fale Comigo
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors" 
+                        aria-label="Abrir menu" 
+                        aria-expanded="false" 
+                        id="mobileMenuToggle">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" 
+             class="md:hidden absolute top-full left-0 right-0 bg-gray-900/95 backdrop-blur border-b border-gray-800 opacity-0 transform -translate-y-4 transition-all duration-300 pointer-events-none">
+            <nav class="px-4 py-4" aria-label="Navegação mobile">
+                <div class="flex flex-col gap-4">
+                    <a href="site_institucional.html" 
+                       class="hover:text-blue-400 text-gray-300 transition-colors py-2">Projetos</a>
+                    <a href="automacao_relatorios.html" 
+                       class="hover:text-blue-400 text-gray-300 transition-colors py-2">Automação</a>
+                    <a href="seguranca_cibernetica.html" 
+                       class="hover:text-blue-400 text-gray-300 transition-colors py-2">Segurança</a>
+                    <a href="contato.html" 
+                       class="hover:text-blue-400 text-gray-300 transition-colors py-2">Contato</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero -->
+        <section class="max-w-6xl mx-auto px-6 pt-16 pb-12 text-center relative overflow-hidden">
+            <!-- Elementos flutuantes -->
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+            
+            <p class="text-sm uppercase tracking-widest text-gray-400 fade-in">Soluções Digitais para Pequenas Empresas</p>
+            <h1 class="headline text-4xl md:text-5xl font-bold mt-4 fade-in">
+                Transformo ideias em <span class="text-shimmer">soluções digitais</span> que geram resultados
+            </h1>
+            <p class="max-w-3xl mx-auto mt-6 text-gray-300 text-lg fade-in">
+                Crio <strong class="text-white">sites otimizados, automações inteligentes e infraestrutura segura</strong> que ajudam pequenas empresas a vender mais, reduzir trabalho manual e crescer com tecnologia.
+            </p>
+            
+            <!-- Stats -->
+            <div class="max-w-4xl mx-auto mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 fade-in">
+                <div class="text-center">
+                    <div class="kpi-value text-3xl font-bold" data-realtime="50">50+</div>
+                    <div class="text-sm text-gray-400">Projetos Entregues</div>
+                </div>
+                <div class="text-center">
+                    <div class="kpi-value text-3xl font-bold" data-realtime="95">95%</div>
+                    <div class="text-sm text-gray-400">Satisfação do Cliente</div>
+                </div>
+                <div class="text-center">
+                    <div class="kpi-value text-3xl font-bold" data-realtime="100">100%</div>
+                    <div class="text-sm text-gray-400">Foco em Resultados</div>
+                </div>
+                <div class="text-center">
+                    <div class="kpi-value text-3xl font-bold" data-realtime="24">24/7</div>
+                    <div class="text-sm text-gray-400">Suporte Disponível</div>
+                </div>
+            </div>
+            
+            <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4 fade-in">
+                <a href="#projetos" 
+                   class="btn btn-primary magnetic-btn hover-3d" 
+                   data-tooltip="Veja meus projetos realizados">
+                    Ver Projetos
+                </a>
+                <a href="#contato" 
+                   class="btn btn-outline magnetic-btn hover-3d" 
+                   data-tooltip="Solicite um orçamento sem compromisso">
+                    Solicitar Orçamento
+                </a>
+            </div>
+        </section>
+
+        <!-- Projetos -->
+        <section id="projetos" class="max-w-6xl mx-auto px-6 py-12">
+            <div class="flex items-end justify-between gap-6 fade-in">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white">
+                        Como posso <span class="text-shimmer">ajudar seu negócio</span>
+                    </h2>
+                    <p class="mt-2 text-gray-400">Soluções práticas para desafios reais</p>
+                </div>
+                <a href="#contato" 
+                   class="hidden md:inline text-blue-400 hover:text-blue-300 transition-colors magnetic-btn">
+                    Precisa de algo específico?
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 stagger-fade-in">
+                <!-- Projeto 1: Site Institucional & Loja simples -->
+                <article class="card card-hover hover-3d reveal reveal-delay-1">
+                    <div class="image-container">
+                        <img src="img/webdev.webp" 
+                             alt="Site Institucional e Loja simples" 
+                             class="project-image" 
+                             loading="lazy"
+                             data-src="img/webdev.webp" />
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-white">Sites & Lojas Virtuais</h3>
+                            <i data-lucide="globe" class="w-5 h-5 text-blue-400"></i>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Layouts modernos, código otimizado e foco em conversão. Sites rápidos que vendem e geram resultados reais.
+                        </p>
+                        <div class="mb-4 flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 rounded bg-gray-800 text-gray-300">HTML/CSS/JS</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-gray-300">SEO Avançado</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-gray-300">Performance</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="site_institucional.html" 
+                               class="text-blue-400 hover:text-blue-300 transition-colors magnetic-btn">
+                                Ver detalhes
+                            </a>
+                            <a href="https://wa.me/5534998928444?text=Quero%20um%20site%20institucional%20personalizado" 
+                               class="text-sm px-3 py-1.5 rounded bg-blue-600 hover:bg-blue-700 text-white transition-all magnetic-btn"
+                               data-tooltip="Solicite um orçamento para site">
+                                Quero similar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projeto 2: Automação de Relatórios -->
+                <article class="card card-hover hover-3d reveal reveal-delay-2">
+                    <div class="image-container">
+                        <img src="img/pythonauto.webp" 
+                             alt="Automação com Python" 
+                             class="project-image" 
+                             loading="lazy"
+                             data-src="img/pythonauto.webp" />
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-white">Automação Inteligente</h3>
+                            <i data-lucide="cpu" class="w-5 h-5 text-blue-400"></i>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Elimine horas de trabalho manual. Scripts que organizam dados, geram relatórios automáticos e entregam insights valiosos.
+                        </p>
+                        <div class="mb-4 flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 rounded bg-gray-800 text-gray-300">Python</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-gray-300">Web Scraping</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-gray-300">APIs</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="automacao_relatorios.html" 
+                               class="text-blue-400 hover:text-blue-300 transition-colors magnetic-btn">
+                                Ver detalhes
+                            </a>
+                            <a href="https://wa.me/5534998928444?text=Quero%20automatizar%20meus%20relat%C3%B3rios" 
+                               class="text-sm px-3 py-1.5 rounded bg-blue-600 hover:bg-blue-700 text-white transition-all magnetic-btn"
+                               data-tooltip="Automatize seus processos">
+                                Quero similar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projeto 3: Manutenção de Servidores Linux -->
+                <article class="card card-hover hover-3d reveal reveal-delay-3">
+                    <div class="image-container">
+                        <img src="img/cloudcomp.webp" 
+                             alt="Manutenção e otimização de servidores Linux" 
+                             class="project-image" 
+                             loading="lazy"
+                             data-src="img/cloudcomp.webp" />
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-white">Infraestrutura em Nuvem</h3>
+                            <i data-lucide="server" class="w-5 h-5 text-blue-400"></i>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Servidores Linux otimizados para máximo desempenho, segurança e estabilidade. Sua operação sempre online.
+                        </p>
+                        <div class="mb-4 flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 rounded bg-gray-800 text-gray-300">Linux</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-gray-300">Nginx</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-gray-300">Segurança</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="manutencao_servidores.html" 
+                               class="text-blue-400 hover:text-blue-300 transition-colors magnetic-btn">
+                                Ver detalhes
+                            </a>
+                            <a href="https://wa.me/5534998928444?text=Tenho%20interesse%20em%20manuten%C3%A7%C3%A3o%20de%20servidores%20Linux" 
+                               class="text-sm px-3 py-1.5 rounded bg-blue-600 hover:bg-blue-700 text-white transition-all magnetic-btn"
+                               data-tooltip="Otimize seus servidores">
+                                Quero similar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projeto 4: Serviços de Cibersegurança -->
+                <article class="card card-hover hover-3d reveal reveal-delay-1">
+                    <div class="image-container">
+                        <img src="img/security.jpg" 
+                             alt="Serviços de Cibersegurança e Segurança da Informação" 
+                             class="project-image" 
+                             loading="lazy"
+                             data-src="img/security.jpg" />
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-white">Cibersegurança</h3>
+                            <i data-lucide="shield" class="w-5 h-5 text-blue-400"></i>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Proteja seus dados com auditoria, backup automatizado e segurança em nuvem. Conformidade LGPD e tranquilidade.
+                        </p>
+                        <div class="mb-4 flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 rounded bg-gray-800 text-gray-300">Segurança</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-gray-300">Backup</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-gray-300">LGPD</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="seguranca_cibernetica.html" 
+                               class="text-blue-400 hover:text-blue-300 transition-colors magnetic-btn">
+                                Ver detalhes
+                            </a>
+                            <a href="https://wa.me/5534998928444?text=Quero%20um%20servi%C3%A7o%20de%20ciberseguran%C3%A7a%20personalizado" 
+                               class="text-sm px-3 py-1.5 rounded bg-blue-600 hover:bg-blue-700 text-white transition-all magnetic-btn"
+                               data-tooltip="Proteja seu negócio">
+                                Quero similar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projeto 5: APIs & Chatbots -->
+                <article class="card card-hover hover-3d reveal reveal-delay-2">
+                    <div class="image-container">
+                        <img src="img/api.jpg" 
+                             alt="APIs e Chatbots" 
+                             class="project-image" 
+                             loading="lazy"
+                             data-src="img/api.jpg" />
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-white">APIs & Chatbots</h3>
+                            <i data-lucide="bot" class="w-5 h-5 text-blue-400"></i>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Integrações inteligentes e automações conversacionais para otimizar atendimento e processos via WhatsApp e Telegram.
+                        </p>
+                        <div class="mb-4 flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 rounded bg-gray-800 text-gray-300">APIs</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-gray-300">Bots</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-gray-300">Integrações</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="apis_chatbots.html" 
+                               class="text-blue-400 hover:text-blue-300 transition-colors magnetic-btn">
+                                Ver detalhes
+                            </a>
+                            <a href="https://wa.me/5534998928444?text=Quero%20uma%20integra%C3%A7%C3%A3o%20de%20APIs%20ou%20chatbot" 
+                               class="text-sm px-3 py-1.5 rounded bg-blue-600 hover:bg-blue-700 text-white transition-all magnetic-btn"
+                               data-tooltip="Automatize seu atendimento">
+                                Quero similar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Projeto 6: SEO & Performance -->
+                <article class="card card-hover hover-3d reveal reveal-delay-3">
+                    <div class="image-container">
+                        <img src="img/seo.jpg" 
+                             alt="SEO e Performance" 
+                             class="project-image" 
+                             loading="lazy"
+                             data-src="img/seo.jpg" />
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-white">SEO & Performance</h3>
+                            <i data-lucide="trending-up" class="w-5 h-5 text-blue-400"></i>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Otimizações técnicas para velocidade, indexação e conversões — para você aparecer mais e reter visitantes.
+                        </p>
+                        <div class="mb-4 flex flex-wrap gap-2 text-xs">
+                            <span class="px-2 py-1 rounded bg-gray-800 text-gray-300">SEO</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-gray-300">Performance</span>
+                            <span class="px-2 py-1 rounded bg-gray-800 text-gray-300">Core Web Vitals</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="seo_performance.html" 
+                               class="text-blue-400 hover:text-blue-300 transition-colors magnetic-btn">
+                                Ver detalhes
+                            </a>
+                            <a href="https://wa.me/5534998928444?text=Quero%20melhorar%20o%20SEO%20e%20a%20performance%20do%20meu%20site" 
+                               class="text-sm px-3 py-1.5 rounded bg-blue-600 hover:bg-blue-700 text-white transition-all magnetic-btn"
+                               data-tooltip="Melhore seu posicionamento">
+                                Quero similar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Habilidades -->
+        <section id="habilidades" class="max-w-6xl mx-auto px-6 py-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-white fade-in">
+                Minhas <span class="text-shimmer">Expertises</span>
+            </h2>
+            <p class="text-center text-gray-400 mt-3 fade-in">
+                Competências técnicas aplicadas para o crescimento do seu negócio
+            </p>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 stagger-fade-in">
+                <!-- Python & Automação -->
+                <div class="card hover-3d reveal reveal-delay-1">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-white">Python & Automação</h3>
+                        <i data-lucide="code" class="w-5 h-5 text-blue-400"></i>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Automações inteligentes, coleta de dados estratégica e integração de sistemas via scripts otimizados.
+                    </p>
+                    <div class="skill-track">
+                        <div class="skill-progress" data-width="95"></div>
+                    </div>
+                    <div class="mt-2 text-xs text-gray-400 flex justify-between">
+                        <span>Iniciante</span>
+                        <span>Especialista</span>
+                    </div>
+                </div>
+
+                <!-- HTML/CSS/JS -->
+                <div class="card hover-3d reveal reveal-delay-2">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-white">Frontend Moderno</h3>
+                        <i data-lucide="layout" class="w-5 h-5 text-blue-400"></i>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Desenvolvimento de interfaces modernas, responsivas e acessíveis com foco em experiência do usuário.
+                    </p>
+                    <div class="skill-track">
+                        <div class="skill-progress" data-width="90"></div>
+                    </div>
+                    <div class="mt-2 text-xs text-gray-400 flex justify-between">
+                        <span>Iniciante</span>
+                        <span>Especialista</span>
+                    </div>
+                </div>
+
+                <!-- Linux & Nginx -->
+                <div class="card hover-3d reveal reveal-delay-3">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-white">Infraestrutura Linux</h3>
+                        <i data-lucide="server" class="w-5 h-5 text-blue-400"></i>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Deploy, manutenção e otimização de servidores em ambiente Linux para máxima performance.
+                    </p>
+                    <div class="skill-track">
+                        <div class="skill-progress" data-width="85"></div>
+                    </div>
+                    <div class="mt-2 text-xs text-gray-400 flex justify-between">
+                        <span>Iniciante</span>
+                        <span>Especialista</span>
+                    </div>
+                </div>
+
+                <!-- APIs e Chatbots -->
+                <div class="card hover-3d reveal reveal-delay-1">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-white">APIs & Chatbots</h3>
+                        <i data-lucide="message-circle" class="w-5 h-5 text-blue-400"></i>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Integrações com WhatsApp, Telegram e sistemas personalizados para automação de processos.
+                    </p>
+                    <div class="skill-track">
+                        <div class="skill-progress" data-width="80"></div>
+                    </div>
+                    <div class="mt-2 text-xs text-gray-400 flex justify-between">
+                        <span>Iniciante</span>
+                        <span>Especialista</span>
+                    </div>
+                </div>
+
+                <!-- SEO & Performance -->
+                <div class="card hover-3d reveal reveal-delay-2">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-white">SEO & Performance</h3>
+                        <i data-lucide="trending-up" class="w-5 h-5 text-blue-400"></i>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Otimização técnica para maior velocidade, ranqueamento no Google e melhores conversões.
+                    </p>
+                    <div class="skill-track">
+                        <div class="skill-progress" data-width="90"></div>
+                    </div>
+                    <div class="mt-2 text-xs text-gray-400 flex justify-between">
+                        <span>Iniciante</span>
+                        <span>Especialista</span>
+                    </div>
+                </div>
+
+                <!-- Cibersegurança -->
+                <div class="card hover-3d reveal reveal-delay-3">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-white">Cibersegurança</h3>
+                        <i data-lucide="shield" class="w-5 h-5 text-blue-400"></i>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Proteção de dados, backup automatizado e conformidade com LGPD para segurança do negócio.
+                    </p>
+                    <div class="skill-track">
+                        <div class="skill-progress" data-width="85"></div>
+                    </div>
+                    <div class="mt-2 text-xs text-gray-400 flex justify-between">
+                        <span>Iniciante</span>
+                        <span>Especialista</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre -->
+        <section id="sobre" class="max-w-6xl mx-auto px-6 py-16 gradient-bg rounded-2xl my-12 glass-effect">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div class="fade-in">
+                    <h2 class="text-3xl font-bold mb-6 text-white">
+                        Um profissional que <span class="text-shimmer">entende seu negócio</span>
+                    </h2>
+                    <div class="space-y-4 text-gray-300">
+                        <p>
+                            Sou <strong class="text-white">Marcelo Fernandes</strong>, e ajudo pequenas empresas a construir presença digital sólida e eficiente.  
+                            Atuo com foco em <strong>automação, desempenho e infraestrutura</strong> — sempre priorizando clareza, resultados reais e suporte próximo.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0"></i>
+                                <span>Experiência prática com micro e pequenas empresas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0"></i>
+                                <span>Comunicação direta e suporte ágil</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0"></i>
+                                <span>Soluções com foco em desempenho e escalabilidade</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0"></i>
+                                <span>Preços transparentes e sem surpresas</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6 flex gap-3">
+                        <a href="#projetos" 
+                           class="btn btn-primary magnetic-btn hover-3d" 
+                           data-tooltip="Conheça meu trabalho">
+                            Ver Portfólio
+                        </a>
+                        <a href="docs/cv-marcelo-fernandes.pdf" 
+                           class="btn btn-outline magnetic-btn hover-3d" 
+                           data-tooltip="Baixe meu currículo">
+                            <i data-lucide="download" class="w-4 h-4 mr-2"></i>
+                            Baixar CV
+                        </a>
+                    </div>
+                </div>
+
+                <div class="p-6 rounded-2xl card fade-in hover-3d">
+                    <h3 class="text-xl font-bold text-white mb-6">Serviços Especializados</h3>
+                    <div class="grid sm:grid-cols-2 gap-4 stagger-fade-in">
+                        <div class="p-4 rounded-xl bg-gray-800 border border-gray-700 flex flex-col items-start hover-3d">
+                            <i data-lucide="globe" class="w-5 h-5 mb-2 text-blue-400"></i>
+                            <p class="font-semibold text-white">Sites & Lojas</p>
+                            <p class="text-gray-300 text-sm">Projetos otimizados para conversão e performance.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-gray-800 border border-gray-700 flex flex-col items-start hover-3d">
+                            <i data-lucide="cpu" class="w-5 h-5 mb-2 text-blue-400"></i>
+                            <p class="font-semibold text-white">Automações Python</p>
+                            <p class="text-gray-300 text-sm">Web scraping, relatórios e integrações inteligentes.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-gray-800 border border-gray-700 flex flex-col items-start hover-3d">
+                            <i data-lucide="terminal" class="w-5 h-5 mb-2 text-blue-400"></i>
+                            <p class="font-semibold text-white">Infraestrutura</p>
+                            <p class="text-gray-300 text-sm">Servidores Linux otimizados para estabilidade.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-gray-800 border border-gray-700 flex flex-col items-start hover-3d">
+                            <i data-lucide="search" class="w-5 h-5 mb-2 text-blue-400"></i>
+                            <p class="font-semibold text-white">SEO & Performance</p>
+                            <p class="text-gray-300 text-sm">Otimizações para velocidade e ranqueamento.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-gray-800 border border-gray-700 flex flex-col items-start hover-3d">
+                            <i data-lucide="bot" class="w-5 h-5 mb-2 text-blue-400"></i>
+                            <p class="font-semibold text-white">Chatbots & APIs</p>
+                            <p class="text-gray-300 text-sm">Automações para WhatsApp e integrações.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-gray-800 border border-gray-700 flex flex-col items-start hover-3d">
+                            <i data-lucide="shield" class="w-5 h-5 mb-2 text-blue-400"></i>
+                            <p class="font-semibold text-white">Cibersegurança</p>
+                            <p class="text-gray-300 text-sm">Proteção de dados e backup automatizado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA quote -->
+        <section class="text-center py-16 px-6 rounded-2xl max-w-6xl mx-auto my-12 gradient-bg fade-in glass-effect">
+            <blockquote class="text-2xl md:text-3xl font-semibold italic text-white mb-6">
+                "A tecnologia deve <span class="text-shimmer">simplificar o trabalho</span> — não criar mais preocupações."
+            </blockquote>
+            <p class="text-lg text-gray-300 mb-8">
+                Pronto para dar o próximo passo? Vamos conversar sobre o que sua empresa precisa para crescer com tecnologia.
+            </p>
+            <a href="https://wa.me/5534998928444?text=Ol%C3%A1!%20Vim%20pelo%20seu%20site.%20Gostaria%20de%20um%20or%C3%A7amento." 
+               class="btn btn-primary text-lg px-8 py-4 magnetic-btn hover-3d"
+               data-tooltip="Clique para conversar no WhatsApp">
+                <i data-lucide="message-circle" class="w-5 h-5 mr-2"></i>
+                Conversar no WhatsApp
+            </a>
+        </section>
+
+        <!-- Contato -->
+        <section id="contato" class="max-w-6xl mx-auto px-6 py-16">
+            <h2 class="text-3xl font-bold text-center mb-3 text-white fade-in">
+                Vamos <span class="text-shimmer">conversar</span>
+            </h2>
+            <p class="text-center text-gray-400 fade-in">
+                Atendo Uberlândia e região. Trabalho remoto para <strong class="text-white">todo o Brasil</strong>.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-12 mt-10">
+                <div class="fade-in">
+                    <h3 class="text-xl font-bold mb-6 text-white">Fale comigo diretamente</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-gray-800 hover:bg-gray-700 transition-colors">
+                            <div class="p-3 rounded-lg bg-blue-500/10">
+                                <i data-lucide="message-circle" class="w-5 h-5 text-blue-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-white">WhatsApp</p>
+                                <a href="https://wa.me/5534998928444" 
+                                   class="text-blue-400 hover:text-blue-300 transition-colors">
+                                    (34) 99892-8444
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-gray-800 hover:bg-gray-700 transition-colors">
+                            <div class="p-3 rounded-lg bg-blue-500/10">
+                                <i data-lucide="phone" class="w-5 h-5 text-blue-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-white">Telefone</p>
+                                <a href="tel:+5534998928444" 
+                                   class="text-blue-400 hover:text-blue-300 transition-colors">
+                                    (34) 99892-8444
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-gray-800 hover:bg-gray-700 transition-colors">
+                            <div class="p-3 rounded-lg bg-blue-500/10">
+                                <i data-lucide="mail" class="w-5 h-5 text-blue-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-white">E-mail</p>
+                                <a href="mailto:contato@marcelofernandes.dev.br" 
+                                   class="text-blue-400 hover:text-blue-300 transition-colors">
+                                    contato@marcelofernandes.dev.br
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4 p-4 rounded-xl bg-gray-800 hover:bg-gray-700 transition-colors">
+                            <div class="p-3 rounded-lg bg-blue-500/10">
+                                <i data-lucide="clock" class="w-5 h-5 text-blue-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-white">Horário de Atendimento</p>
+                                <p class="text-gray-300">Segunda a Sábado, 8h às 18h</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-in">
+                    <h3 class="text-xl font-bold mb-6 text-white">Como trabalho</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 p-4 rounded-xl card">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center">
+                                <span class="text-blue-400 font-bold">1</span>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-white mb-1">Conversa inicial</p>
+                                <p class="text-gray-400 text-sm">Entendimento dos objetivos e prioridades do seu negócio</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4 p-4 rounded-xl card">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center">
+                                <span class="text-blue-400 font-bold">2</span>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-white mb-1">Protótipo e aprovação</p>
+                                <p class="text-gray-400 text-sm">Apresentação rápida e validação do cliente</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4 p-4 rounded-xl card">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center">
+                                <span class="text-blue-400 font-bold">3</span>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-white mb-1">Desenvolvimento</p>
+                                <p class="text-gray-400 text-sm">Implementação com testes e validações contínuas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4 p-4 rounded-xl card">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center">
+                                <span class="text-blue-400 font-bold">4</span>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-white mb-1">Entrega e suporte</p>
+                                <p class="text-gray-400 text-sm">Publicação e acompanhamento inicial do projeto</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 border-t border-gray-800 text-gray-500 mt-12 glass-effect">
+        <div class="max-w-6xl mx-auto px-6">
+            <p class="mt-2">© 2025 Marcelo Fernandes — Soluções Digitais para Pequenas Empresas</p>
+            <p class="mt-2 text-sm">Desenvolvimento Web • Automação • SEO • Infraestrutura</p>
+            <div class="mt-4 flex justify-center gap-4">
+                <a href="politica-privacidade.html" class="text-sm text-gray-500 hover:text-blue-400 transition-colors">
+                    Política de Privacidade
+                </a>
+                <span class="text-gray-500">•</span>
+                <a href="termos-uso.html" class="text-sm text-gray-500 hover:text-blue-400 transition-colors">
+                    Termos de Uso
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    
+    <!-- No-JS Fallback -->
+    <noscript>
+        <style>
+            body { opacity: 1 !important; }
+            .fade-in, .reveal { opacity: 1 !important; transform: none !important; }
+        </style>
+        <div class="fixed inset-0 bg-red-900/90 z-50 p-6 text-white">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-2xl font-bold mb-4">JavaScript Desabilitado</h2>
+                <p class="mb-4">Para uma experiência completa em nosso site, por favor habilite o JavaScript em seu navegador.</p>
+                <p class="text-sm">Você ainda pode navegar, mas algumas funcionalidades estarão limitadas.</p>
+            </div>
+        </div>
+    </noscript>
+    
+    <!-- Load body after scripts -->
+    <script>
+        // Mark body as loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('is-loaded');
+            
+            // Initialize mobile menu
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    
+                    if (!isExpanded) {
+                        mobileMenu.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
+                        mobileMenu.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                    } else {
+                        mobileMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                        mobileMenu.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
+                    }
+                    
+                    // Update icon
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        if (!isExpanded) {
+                            icon.setAttribute('data-lucide', 'x');
+                        } else {
+                            icon.setAttribute('data-lucide', 'menu');
+                        }
+                        lucide.createIcons();
+                    }
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+                        if (mobileMenuToggle.getAttribute('aria-expanded') === 'true') {
+                            mobileMenuToggle.click();
+                        }
+                    }
+                });
+                
+                // Close menu on escape key
+                document.addEventListener('keydown', function(event) {
+                    if (event.key === 'Escape' && mobileMenuToggle.getAttribute('aria-expanded') === 'true') {
+                        mobileMenuToggle.click();
+                    }
+                });
+            }
+            
+            // Initialize theme toggle
+            const themeToggle = document.getElementById('themeToggle');
+            if (themeToggle) {
+                // Get current theme from localStorage or system preference
+                const currentTheme = localStorage.getItem('theme') || 
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                
+                // Apply initial theme
+                document.documentElement.setAttribute('data-theme', currentTheme);
+                themeToggle.setAttribute('aria-checked', currentTheme === 'light');
+                
+                // Update icon based on theme
+                const icon = themeToggle.querySelector('i');
+                if (icon) {
+                    icon.setAttribute('data-lucide', currentTheme === 'light' ? 'moon' : 'sun');
+                    lucide.createIcons();
+                }
+                
+                // Toggle theme on click
+                themeToggle.addEventListener('click', function() {
+                    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+                    const newTheme = isLight ? 'dark' : 'light';
+                    
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                    this.setAttribute('aria-checked', newTheme === 'light');
+                    
+                    // Update icon
+                    if (icon) {
+                        icon.setAttribute('data-lucide', newTheme === 'light' ? 'moon' : 'sun');
+                        lucide.createIcons();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

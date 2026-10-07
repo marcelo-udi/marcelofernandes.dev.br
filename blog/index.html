@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog MarceloFernandes | Tecnologia - Segurança - Cloud - IA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset e configurações gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Cabeçalho mais fino */
+        header {
+            border-bottom: 1px solid #eaeaea;
+            padding: 15px 0;
+            margin-bottom: 20px;
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Logo com fonte melhorada */
+        .logo a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 30px;
+            font-weight: 900;
+            color: #1a1a1a;
+            letter-spacing: -0.8px;
+            line-height: 1.1;
+            transition: color 0.2s;
+        }
+
+        .logo h1:hover {
+            color: #0066cc;
+        }
+
+        .logo p {
+            font-size: 11px;
+            color: #666;
+            margin-top: 3px;
+            letter-spacing: 0.3px;
+        }
+
+        .logo span {
+            color: #0066cc;
+            background: linear-gradient(90deg, #0066cc, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            font-size: 13px;
+            transition: color 0.2s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a:hover {
+            color: #0066cc;
+        }
+
+        nav a.active {
+            color: #0066cc;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #0066cc;
+        }
+
+        /* Layout principal */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        /* Posts - REMOVIDO O VERMELHÃO DAS LATERAIS */
+.post {
+background-color: white;
+border-radius: 8px;
+padding: 25px;
+margin-bottom: 25px;
+box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+transition: transform 0.3s, box-shadow 0.3s;
+/* removido border-left: 3px solid #0066cc; */
+cursor: pointer;
+}
+
+        .post:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        /* REMOVIDO: .post-critical removido - agora todos os posts têm a mesma borda */
+        
+        .post-header {
+            margin-bottom: 15px;
+        }
+
+        .post-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .post-meta {
+            display: flex;
+            color: #777;
+            font-size: 11px;
+            margin-bottom: 5px;
+        }
+
+        .post-category {
+            background-color: #f0f7ff;
+            color: #0066cc;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        /* Mantemos a categoria vermelha para posts críticos, mas sem borda vermelha */
+        .post-critical .post-category {
+            background-color: #fff0f0;
+            color: #d63031;
+        }
+
+        .post-date {
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .post-date i, .post-read-time i {
+            margin-right: 5px;
+            font-size: 10px;
+        }
+
+        .post-content {
+            font-size: 13.5px;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .post-content p {
+            margin-bottom: 12px;
+        }
+
+        .post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background-color: #f5f5f5;
+            color: #666;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 10.5px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .read-more {
+            color: #0066cc;
+            font-weight: 600;
+            font-size: 12px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            font-size: 13px;
+        }
+
+        .sidebar-widget {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+
+        .widget-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .widget-list {
+            list-style: none;
+        }
+
+        .widget-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .widget-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .widget-list a {
+            text-decoration: none;
+            color: #444;
+            transition: color 0.2s;
+            display: block;
+        }
+
+        .widget-list a:hover {
+            color: #0066cc;
+        }
+
+        .widget-list .date {
+            font-size: 11px;
+            color: #888;
+            margin-top: 3px;
+        }
+
+        .newsletter-form {
+            margin-top: 15px;
+        }
+
+        .newsletter-form input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .newsletter-form button {
+            width: 100%;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #0052a3;
+        }
+
+        /* Destaque */
+        .highlight {
+            background-color: #fff8e1;
+            border-left: 3px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 13px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Rodapé */
+        footer {
+            border-top: 1px solid #eaeaea;
+            padding: 25px 0;
+            margin-top: 25px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            color: #1a1a1a;
+        }
+
+        .footer-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-left: 20px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #666;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #0066cc;
+        }
+
+        .copyright {
+            margin-top: 15px;
+            width: 100%;
+            font-size: 11px;
+            color: #888;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            nav ul {
+                margin-top: 10px;
+            }
+            
+            nav li {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .footer-links {
+                margin-top: 10px;
+            }
+            
+            .footer-links li {
+                margin-left: 0;
+                margin-right: 12px;
+            }
+            
+            .logo h1 {
+                font-size: 26px;
+            }
+        }
+
+        /* Estilos para elementos específicos */
+        .veredito {
+            font-weight: 700;
+            color: #0066cc;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #ddd;
+        }
+
+        .critical-veredito {
+            color: #d63031;
+            font-weight: 700;
+        }
+
+        .destaque-numero {
+            background-color: #0066cc;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #888;
+            margin-top: 15px;
+        }
+
+        .stats span {
+            display: flex;
+            align-items: center;
+        }
+
+        .stats i {
+            margin-right: 5px;
+        }
+
+        .cve-badge {
+            display: inline-block;
+            background-color: #d63031;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <h1>Blog<span> Marcelo Fernandes</span></h1>
+                    <p>Tecnologia • Segurança • Análise Técnica • Vulnerabilidades</p>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Início</a></li>
+                    <li><a href="#">Artigos Técnicos</a></li>
+                    <li><a href="#">CVEs</a></li>
+                    <li><a href="#">Red Team</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Conteúdo Principal -->
+        <main>
+            <!-- NOVO POST: Anatomia de Ataques em Redes Corporativas -->
+            <article class="post post-critical" onclick="window.location.href='posts/ataque-em-redes-corporativas.html'" style="cursor: pointer;">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <span class="post-date"><i class="far fa-calendar"></i> 25/03/2024</span>
+                        <span class="post-read-time"><i class="far fa-clock"></i> 12 min leitura</span>
+                    </div>
+                    <h2 class="post-title">Anatomia de Ataques em Redes Corporativas: CVEs, TTPs e Análise Técnica</h2>
+                    <span class="post-category">ANÁLISE TÉCNICA • RED TEAM • VULNERABILIDADES</span>
+                </div>
+                <div class="post-content">
+                    <p><span class="cve-badge">CVE-2023-34362</span> <span class="cve-badge">CVE-2024-21887</span> <span class="cve-badge">CVE-2024-21413</span></p>
+                    <p>Análise técnica completa de 14 CVEs críticos, mapeamento de TTPs de 7 APTs ativos e detalhamento de técnicas de evasão avançada. Baseado em telemetria real de incidentes respondidos no Q1/2024.</p>
+                    
+                    <div class="highlight">
+                        <p><strong>APT Groups:</strong> Cl0p (FIN11), Lazarus Group (APT38), APT29 (Cozy Bear), Scattered Spider (UNC3944)</p>
+                        <p><strong>Técnicas:</strong> AMSI Bypass, EDR Evasion, DNS tunneling, Living-off-the-Land, Rust-based loaders</p>
+                    </div>
+                    
+                    <p class="critical-veredito">Dataset: 1.2TB de logs • 50 empresas analisadas • 450 PCAP samples • 1.200 malware samples</p>
+                    
+                    <a href="posts/ataque-em-redes-corporativas.html" class="read-more" onclick="event.stopPropagation();">Leia análise técnica completa →</a>
+                </div>
+                <div class="post-tags">
+                    <span class="tag">CVE-2023-34362</span>
+                    <span class="tag">CVE-2024-21887</span>
+                    <span class="tag">APT29</span>
+                    <span class="tag">Lazarus</span>
+                    <span class="tag">CobaltStrike</span>
+                    <span class="tag">EDR-evasion</span>
+                    <span class="tag">Volatility</span>
+                    <span class="tag">Sigma</span>
+                    <span class="tag">YARA</span>
+                </div>
+                <div class="stats">
+                    <span><i class="far fa-eye"></i> 4.8k visualizações</span>
+                    <span><i class="far fa-comment"></i> 89 comentários</span>
+                    <span><i class="fas fa-fire-alt"></i> ANÁLISE TÉCNICA</span>
+                </div>
+            </article>
+
+            <!-- Post reactshell -->
+            <article class="post post-critical" onclick="window.location.href='posts/react-shell.html'" style="cursor: pointer;">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <span class="post-date"><i class="far fa-calendar"></i> 06/12/2025</span>
+                        <span class="post-read-time"><i class="far fa-clock"></i> 4 min leitura</span>
+                    </div>
+                    <h2 class="post-title">React2Shell: Falha Crítica no React Adicionada ao Catálogo KEV da CISA</h2>
+                    <span class="post-category">VULNERABILIDADE CRÍTICA</span>
+                </div>
+                <div class="post-content">
+                    <p><span class="cve-badge">CVE-2025-55182</span> <strong>CVSS 10.0 - CRÍTICO</strong></p>
+                    <p>A CISA adicionou formalmente uma falha de segurança crítica que afeta os React Server Components (RSC) ao seu catálogo de Vulnerabilidades Exploradas Conhecidas (KEV) após relatos de exploração ativa em ambiente real.</p>
+                    
+                    <div class="highlight">
+                        <p><strong>Impacto:</strong> Execução remota de código (RCE) por atacante não autenticado. <strong>Frameworks afetados:</strong> Next.js, React Router, Waku, Parcel, Vite, RedwoodSDK.</p>
+                    </div>
+                    
+                    <p class="critical-veredito">Atualização urgente necessária: versões corrigidas 19.0.1, 19.1.2, 19.2.1.</p>
+                    
+                    <a href="posts/react-shell.html" class="read-more" onclick="event.stopPropagation();">Leia análise completa →</a>
+                </div>
+                <div class="post-tags">
+                    <span class="tag">react</span>
+                    <span class="tag">cve-2025-55182</span>
+                    <span class="tag">segurança</span>
+                    <span class="tag">vulnerabilidade</span>
+                    <span class="tag">rce</span>
+                </div>
+                <div class="stats">
+                    <span><i class="far fa-eye"></i> 3.2k visualizações</span>
+                    <span><i class="far fa-comment"></i> 47 comentários</span>
+                    <span><i class="fas fa-fire-alt"></i> ALTA GRAVIDADE</span>
+                </div>
+            </article>
+
+            <!-- Post How to Streamline Zero Trust -->
+            <article class="post" onclick="window.location.href='posts/how-to-streamline-zero-trust-using.html'" style="cursor: pointer;">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <span class="post-date"><i class="far fa-calendar"></i> 15/03/2024</span>
+                        <span class="post-read-time"><i class="far fa-clock"></i> 3 min leitura</span>
+                    </div>
+                    <h2 class="post-title">How to Streamline Zero Trust: Implementação Simplificada</h2>
+                    <span class="post-category">SEGURANÇA</span>
+                </div>
+                <div class="post-content">
+                    <p>Zero Trust não é apenas um conceito, mas uma arquitetura de segurança essencial. Descubra como implementar de forma eficiente sem complicações desnecessárias.</p>
+                    
+                    <div class="highlight">
+                        <p><strong>Princípios básicos:</strong> Nunca confie, sempre verifique. Acesso de privilégio mínimo. Microssegmentação. Monitoramento contínuo.</p>
+                    </div>
+                    
+                    <p>Implementação em 4 fases: identificação de ativos, definição de políticas, autenticação multifator e monitoramento em tempo real.</p>
+                    
+                    <a href="posts/how-to-streamline-zero-trust-using.html" class="read-more" onclick="event.stopPropagation();">Leia o guia completo →</a>
+                </div>
+                <div class="post-tags">
+                    <span class="tag">zero trust</span>
+                    <span class="tag">segurança</span>
+                    <span class="tag">arquitetura</span>
+                    <span class="tag">cybersecurity</span>
+                </div>
+                <div class="stats">
+                    <span><i class="far fa-eye"></i> 1.5k visualizações</span>
+                    <span><i class="far fa-comment"></i> 23 comentários</span>
+                </div>
+            </article>
+
+            <!-- Post Guia Aprendizado IA -->
+            <article class="post" onclick="window.location.href='posts/guia-aprendizado-ia.html'" style="cursor: pointer;">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <span class="post-date"><i class="far fa-calendar"></i> 10/03/2024</span>
+                        <span class="post-read-time"><i class="far fa-clock"></i> 5 min leitura</span>
+                    </div>
+                    <h2 class="post-title">Guia Completo de Aprendizado em Inteligência Artificial</h2>
+                    <span class="post-category">IA & MACHINE LEARNING</span>
+                </div>
+                <div class="post-content">
+                    <p>Começar na área de IA pode ser desafiador. Este guia fornece um roadmap estruturado desde os fundamentos até tópicos avançados.</p>
+                    
+                    <p><span class="destaque-numero">1</span> Fundamentos: Matemática, Estatística, Programação Python</p>
+                    <p><span class="destaque-numero">2</span> Machine Learning: Algoritmos, Scikit-learn, Validação</p>
+                    <p><span class="destaque-numero">3</span> Deep Learning: Redes Neurais, TensorFlow, PyTorch</p>
+                    <p><span class="destaque-numero">4</span> Especialização: NLP, Visão Computacional, Reinforcement Learning</p>
+                    
+                    <div class="highlight">
+                        <p><strong>Recursos recomendados:</strong> Coursera, Fast.ai, Kaggle, Papers with Code. Aprendizado prático é essencial.</p>
+                    </div>
+                    
+                    <a href="posts/guia-aprendizado-ia.html" class="read-more" onclick="event.stopPropagation();">Acesse o guia completo →</a>
+                </div>
+                <div class="post-tags">
+                    <span class="tag">ia</span>
+                    <span class="tag">machine learning</span>
+                    <span class="tag">aprendizado</span>
+                    <span class="tag">guia</span>
+                </div>
+                <div class="stats">
+                    <span><i class="far fa-eye"></i> 2.8k visualizações</span>
+                    <span><i class="far fa-comment"></i> 38 comentários</span>
+                </div>
+            </article>
+
+            <!-- Post India Taxa IA -->
+            <article class="post" onclick="window.location.href='posts/india-taxa-ia.html'" style="cursor: pointer;">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <span class="post-date"><i class="far fa-calendar"></i> 05/03/2024</span>
+                        <span class="post-read-time"><i class="far fa-clock"></i> 2 min leitura</span>
+                    </div>
+                    <h2 class="post-title">Índia Anuncia Taxa sobre Serviços de IA: Impacto no Mercado</h2>
+                    <span class="post-category">POLÍTICA TECNOLÓGICA</span>
+                </div>
+                <div class="post-content">
+                    <p>O governo indiano anunciou uma nova taxa sobre serviços de inteligência artificial, afetando startups e empresas de tecnologia.</p>
+                    
+                    <div class="highlight">
+                        <p><strong>Detalhes:</strong> Taxa de 7% sobre serviços de IA comercial. Aplica-se a empresas com faturamento acima de ₹50 lakhs. Implementação a partir do próximo trimestre fiscal.</p>
+                    </div>
+                    
+                    <p>Especialistas discutem o impacto na inovação e como isso posiciona a Índia no cenário global de regulação de IA.</p>
+                    
+                    <a href="posts/india-taxa-ia.html" class="read-more" onclick="event.stopPropagation();">Leia análise completa →</a>
+                </div>
+                <div class="post-tags">
+                    <span class="tag">índia</span>
+                    <span class="tag">ia</span>
+                    <span class="tag">taxação</span>
+                    <span class="tag">política</span>
+                    <span class="tag">regulação</span>
+                </div>
+                <div class="stats">
+                    <span><i class="far fa-eye"></i> 1.7k visualizações</span>
+                    <span><i class="far fa-comment"></i> 29 comentários</span>
+                </div>
+            </article>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Mais Lidos</h3>
+                <ul class="widget-list">
+                    <li>
+                        <a href="posts/ataque-em-redes-corporativas.html">Anatomia de Ataques em Redes Corporativas</a>
+                        <div class="date">25/03/2024 • 12 min • <span style="color: #d63031; font-weight: bold;">ANÁLISE TÉCNICA</span></div>
+                    </li>
+                    <li>
+                        <a href="posts/react-shell.html">React2Shell: Falha Crítica no React</a>
+                        <div class="date">06/12/2025 • 4 min • <span style="color: #d63031; font-weight: bold;">CRÍTICO</span></div>
+                    </li>
+                    <li>
+                        <a href="posts/guia-aprendizado-ia.html">Guia Completo de Aprendizado em IA</a>
+                        <div class="date">10/03/2024 • 5 min</div>
+                    </li>
+                    <li>
+                        <a href="posts/how-to-streamline-zero-trust-using.html">How to Streamline Zero Trust</a>
+                        <div class="date">15/03/2024 • 3 min</div>
+                    </li>
+                    <li>
+                        <a href="posts/india-taxa-ia.html">Índia Anuncia Taxa sobre Serviços de IA</a>
+                        <div class="date">05/03/2024 • 2 min</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Alertas de Segurança Técnicos</h3>
+                <ul class="widget-list">
+                    <li>
+                        <a href="posts/ataque-em-redes-corporativas.html"><strong>CVE-2023-34362</strong> - MOVEit RCE</a>
+                        <div class="date">CVSS 9.8 • Exploited by Cl0p</div>
+                    </li>
+                    <li>
+                        <a href="posts/ataque-em-redes-corporativas.html"><strong>CVE-2024-21887</strong> - Ivanti SSRF</a>
+                        <div class="date">CVSS 9.1 • Chained with 21888</div>
+                    </li>
+                    <li>
+                        <a href="posts/react-shell.html"><strong>CVE-2025-55182</strong> - React RCE</a>
+                        <div class="date">CVSS 10.0 • CISA KEV</div>
+                    </li>
+                    <li>
+                        <a href="#"><strong>CVE-2024-6387</strong> - OpenSSH RCE</a>
+                        <div class="date">CVSS 9.8 • Ativo</div>
+                    </li>
+                </ul>
+                <p style="font-size: 11px; color: #888; margin-top: 10px;">Baseado em telemetria Q1/2024</p>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Ferramentas Analisadas</h3>
+                <ul class="widget-list">
+                    <li><a href="posts/ataque-em-redes-corporativas.html">Cobalt Strike 4.9</a></li>
+                    <li><a href="posts/ataque-em-redes-corporativas.html">Sliver 1.6</a></li>
+                    <li><a href="posts/ataque-em-redes-corporativas.html">Volatility 3</a></li>
+                    <li><a href="posts/ataque-em-redes-corporativas.html">YARA Rules 2024</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Newsletter Técnica</h3>
+                <p>CVEs, PoCs, Sigma rules, YARA rules e análises técnicas semanais.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="seu@email.com" required>
+                    <button type="submit">Inscrever</button>
+                </form>
+                <p style="font-size: 11px; color: #888; margin-top: 10px;">+3.200 analistas • Conteúdo técnico avançado</p>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Categorias Técnicas</h3>
+                <ul class="widget-list">
+                    <li><a href="posts/ataque-em-redes-corporativas.html">Red Team <span style="float: right; color: #d63031; font-weight: bold;">5</span></a></li>
+                    <li><a href="posts/ataque-em-redes-corporativas.html">Forensics <span style="float: right; color: #888;">4</span></a></li>
+                    <li><a href="posts/react-shell.html">Vulnerabilidades <span style="float: right; color: #d63031; font-weight: bold;">12</span></a></li>
+                    <li><a href="posts/guia-aprendizado-ia.html">IA & ML <span style="float: right; color: #888;">7</span></a></li>
+                    <li><a href="posts/how-to-streamline-zero-trust-using.html">Arquitetura <span style="float: right; color: #888;">5</span></a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">BlogMarceloFernandes</div>
+            <ul class="footer-links">
+                <li><a href="#">Research</a></li>
+                <li><a href="#">Presentations</a></li>
+                <li><a href="#">Github</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+            <div class="copyright">
+                Blog Marcelo Fernandes © 2024 • Análise Técnica de Segurança • PGP: 0xAB3F9C2D
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Interatividade simples
+        document.addEventListener('DOMContentLoaded', function() {
+            // Efeito de hover nos posts
+            const posts = document.querySelectorAll('.post');
+            posts.forEach(post => {
+                post.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                post.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Newsletter form
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    alert(`Obrigado por se inscrever, ${email.split('@')[0]}! Você receberá nosso próximo resumo técnico.`);
+                    this.reset();
+                });
+            }
+            
+            // Destaque para links ativos
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Animar badges CVE (todos eles)
+            const cveBadges = document.querySelectorAll('.cve-badge');
+            cveBadges.forEach(badge => {
+                setInterval(() => {
+                    badge.style.transform = badge.style.transform === 'scale(1.05)' ? 'scale(1)' : 'scale(1.05)';
+                }, 1000);
+            });
+            
+            // Linkar todos os posts clicáveis
+            const postLinks = document.querySelectorAll('.post');
+            postLinks.forEach(post => {
+                post.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('read-more') && !e.target.classList.contains('tag')) {
+                        const link = this.querySelector('.read-more');
+                        if (link && link.href) {
+                            window.location.href = link.getAttribute('href');
+                        }
+                    }
+                });
+            });
+
+            // Adicionar tooltip para tags técnicas
+            const tags = document.querySelectorAll('.tag');
+            tags.forEach(tag => {
+                const tooltips = {
+                    'CVE-2023-34362': 'MOVEit SQL Injection → RCE',
+                    'CVE-2024-21887': 'Ivanti Connect Secure SSRF',
+                    'CVE-2024-21413': 'Windows SmartScreen bypass',
+                    'APT29': 'Cozy Bear - Russian APT',
+                    'Lazarus': 'North Korean APT group',
+                    'CobaltStrike': 'Post-exploitation framework',
+                    'EDR-evasion': 'Endpoint Detection & Response evasion',
+                    'Volatility': 'Memory forensics framework',
+                    'Sigma': 'SIEM detection rules',
+                    'YARA': 'Malware pattern matching'
+                };
+
+                if (tooltips[tag.textContent]) {
+                    tag.title = tooltips[tag.textContent];
+                    tag.style.cursor = 'help';
+                }
+            });
+
+            // Highlight do novo post técnico (agora sem borda vermelha)
+            const newPost = document.querySelector('.post:nth-child(1)');
+            if (newPost) {
+                setTimeout(() => {
+                    newPost.style.boxShadow = '0 0 0 2px #0066cc, 0 5px 20px rgba(0,0,0,0.1)';
+                    setTimeout(() => {
+                        newPost.style.boxShadow = '0 3px 15px rgba(0,0,0,0.05)';
+                    }, 2000);
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>

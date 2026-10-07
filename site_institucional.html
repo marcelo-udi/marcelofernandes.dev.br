@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO -->
+  <title>Criação de Site Institucional & Loja Simples — Marcelo Fernandes</title>
+  <meta name="description" content="Criação de sites e lojas virtuais profissionais em HTML, CSS e JavaScript. Layout limpo, SEO otimizado e integração com Google Analytics. Transforme visitantes em clientes reais." />
+  <link rel="canonical" href="https://marcelofernandes.dev.br/site_institucional.html" />
+  
+  <!-- Open Graph -->
+  <meta property="og:locale" content="pt_BR"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Criação de Site Institucional & Loja Simples — Marcelo Fernandes"/>
+  <meta property="og:description" content="Transforme sua presença digital com um site rápido, bonito e que gera resultados reais."/>
+  <meta property="og:url" content="https://marcelofernandes.dev.br/site_institucional.html"/>
+  <meta property="og:site_name" content="Marcelo Fernandes"/>
+  <meta property="og:image" content="https://marcelofernandes.dev.br/img/banner-minastech.jpg"/>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Desenvolvimento Web",
+      "provider": {
+        "@type": "Person",
+        "name": "Marcelo Fernandes",
+        "url": "https://marcelofernandes.dev.br/",
+        "sameAs": ["https://wa.me/5534998928444"]
+      },
+      "areaServed": "BR",
+      "description": "Criação de sites institucionais e lojas virtuais com foco em performance, SEO e conversão.",
+      "offers": {
+        "@type": "Offer",
+        "price": "790",
+        "priceCurrency": "BRL"
+      }
+    }
+  </script>
+
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+  
+  <!-- Fonts & Tailwind -->
+  
+  <!-- Lucide Icons -->
+
+    <meta name="theme-color" content="#050a17">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tw-config.js"></script>
+    <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+    <div class="bg-aurora"></div>
+    <div class="bg-grid"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header -->
+    <header id="siteHeader" class="sticky top-0 z-50 header-blur">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 h-[72px] flex items-center justify-between gap-4">
+            <a href="index.html" class="flex items-center gap-3 shrink-0">
+                <span class="w-9 h-9 rounded-xl flex items-center justify-center font-display font-bold text-ink" style="background: linear-gradient(135deg,#34d399,#38bdf8);">MF</span>
+                <span class="leading-tight">
+                    <span class="block font-display font-semibold">Marcelo Fernandes</span>
+                    <span class="block text-xs text-slate-500">AI & Cloud Solutions</span>
+                </span>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8 text-[15px]" aria-label="Principal">
+                <a href="index.html#servicos" class="nav-link">Serviços</a>
+                <div class="dropdown relative">
+                    <button class="nav-link flex items-center gap-1" aria-haspopup="true">
+                        Especialidades <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="ia.html" class="dropdown-item">
+                            <i data-lucide="brain" class="w-5 h-5 text-ai-color mt-0.5"></i>
+                            <span><span class="block text-white font-medium">Inteligência Artificial</span><span class="block text-xs text-slate-400">ML, NLP, visão e IA generativa</span></span>
+                        </a>
+                        <a href="cloud.html" class="dropdown-item">
+                            <i data-lucide="cloud" class="w-5 h-5 text-cloud-color mt-0.5"></i>
+                            <span><span class="block text-white font-medium">Computação em Nuvem</span><span class="block text-xs text-slate-400">AWS, Azure, Kubernetes</span></span>
+                        </a>
+                        <a href="software.html" class="dropdown-item">
+                            <i data-lucide="code-2" class="w-5 h-5 text-dev-color mt-0.5"></i>
+                            <span><span class="block text-white font-medium">Desenvolvimento de Software</span><span class="block text-xs text-slate-400">Web, mobile, APIs e automação</span></span>
+                        </a>
+                        <div class="my-1.5 mx-3 h-px bg-white/[0.07]"></div>
+                        <a href="site_institucional.html" class="dropdown-item !py-2" aria-current="page"><i data-lucide="layout-template" class="w-4 h-4 text-dev-color mt-0.5"></i><span class="text-sm text-slate-200">Sites & lojas virtuais</span></a>
+                        <a href="automacao_relatorios.html" class="dropdown-item !py-2"><i data-lucide="bar-chart-3" class="w-4 h-4 text-ai-color mt-0.5"></i><span class="text-sm text-slate-200">Automação & Power BI</span></a>
+                        <a href="manutencao_servidores.html" class="dropdown-item !py-2"><i data-lucide="server" class="w-4 h-4 text-cloud-color mt-0.5"></i><span class="text-sm text-slate-200">Servidores Linux</span></a>
+                        <a href="seguranca_cibernetica.html" class="dropdown-item !py-2"><i data-lucide="shield-check" class="w-4 h-4 text-violet-400 mt-0.5"></i><span class="text-sm text-slate-200">Cibersegurança & LGPD</span></a>
+                    </div>
+                </div>
+                <a href="index.html#projetos" class="nav-link">Projetos</a>
+                <a href="index.html#sobre" class="nav-link">Sobre</a>
+                <a href="https://marcelofernandes.dev.br/blog" target="_blank" rel="noopener noreferrer" class="nav-link">Blog</a>
+                <a href="contato.html" class="nav-link">Contato</a>
+            </nav>
+
+            <div class="flex items-center gap-2">
+                <a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="btn btn-primary !py-2.5 !px-4 text-sm">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span class="hidden sm:inline">Conversar agora</span>
+                    <span class="sm:hidden">WhatsApp</span>
+                </a>
+                <button id="menuBtn" class="lg:hidden p-2.5 rounded-xl border border-white/10 text-slate-300" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu mobile -->
+        <nav id="mobileMenu" class="lg:hidden hidden border-t border-white/5 px-5 pb-6 pt-2 max-h-[80vh] overflow-y-auto" aria-label="Menu mobile">
+            <a href="index.html#servicos" class="block py-3 text-slate-300 border-b border-white/5">Serviços</a>
+            <a href="ia.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="brain" class="w-4 h-4 text-ai-color"></i>Inteligência Artificial</a>
+            <a href="cloud.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="cloud" class="w-4 h-4 text-cloud-color"></i>Computação em Nuvem</a>
+            <a href="software.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="code-2" class="w-4 h-4 text-dev-color"></i>Desenvolvimento de Software</a>
+            <a href="site_institucional.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5" aria-current="page"><i data-lucide="layout-template" class="w-4 h-4 text-dev-color"></i>Sites & lojas virtuais</a>
+            <a href="automacao_relatorios.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="bar-chart-3" class="w-4 h-4 text-ai-color"></i>Automação & Power BI</a>
+            <a href="manutencao_servidores.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="server" class="w-4 h-4 text-cloud-color"></i>Servidores Linux</a>
+            <a href="seguranca_cibernetica.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="shield-check" class="w-4 h-4 text-violet-400"></i>Cibersegurança & LGPD</a>
+            <a href="index.html#projetos" class="block py-3 text-slate-300 border-b border-white/5">Projetos</a>
+            <a href="index.html#sobre" class="block py-3 text-slate-300 border-b border-white/5">Sobre</a>
+            <a href="https://marcelofernandes.dev.br/blog" target="_blank" rel="noopener noreferrer" class="block py-3 text-slate-300 border-b border-white/5">Blog</a>
+            <a href="contato.html" class="block py-3 text-slate-300">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="ac-dev relative px-5 sm:px-6 pt-12 md:pt-16 pb-16 max-w-7xl mx-auto">
+            <div class="page-glow"></div>
+            <nav class="crumbs mb-10" aria-label="Você está em"><a href="index.html">Início</a><span>/</span><a href="index.html#servicos">Serviços</a><span>/</span><span class="text-slate-300">Sites & lojas virtuais</span></nav>
+
+            <div class="grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
+                <div>
+                    <div class="reveal inline-flex items-center gap-2.5 panel rounded-full pl-3 pr-4 py-1.5 mb-7">
+                        <i data-lucide="layout-template" class="w-4 h-4 text-dev-color"></i>
+                        <span class="text-sm text-slate-300">A partir de R$ 790</span>
+                    </div>
+                    <h1 class="reveal text-[2.6rem] leading-[1.05] sm:text-6xl font-bold mb-6" data-delay="1">
+                        Site institucional & <span class="grad-accent">loja simples</span>
+                    </h1>
+                    <p class="reveal text-lg md:text-xl text-slate-400 max-w-xl mb-10 leading-relaxed" data-delay="2">
+                        Um site rápido, bonito e que gera resultados reais. Layout moderno, SEO técnico avançado e
+                        integrações estratégicas para converter visitantes em clientes.
+                    </p>
+                    <div class="reveal flex flex-col sm:flex-row gap-3" data-delay="3">
+                        <a href="#planos" class="btn btn-primary"><i data-lucide="tag" class="w-5 h-5"></i>Ver planos</a>
+                        <a href="#contato" class="btn btn-ghost">Solicitar orçamento <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <figure class="reveal relative" data-delay="2" aria-label="Ilustração de um site institucional">
+                    <div class="absolute -inset-6 rounded-[2rem] blur-3xl opacity-30 pointer-events-none" style="background: radial-gradient(circle, rgba(245,158,11,.5), transparent 70%)"></div>
+                    <div class="relative panel rounded-3xl overflow-hidden">
+                        <div class="terminal-bar"><span class="dot bg-red-400/80"></span><span class="dot bg-yellow-400/80"></span><span class="dot bg-green-400/80"></span><span class="ml-3 flex-1 rounded-md bg-white/[0.05] px-3 py-1 text-xs text-slate-500 font-mono flex items-center gap-1.5"><i data-lucide="lock" class="w-3 h-3 text-ai-color"></i>seunegocio.com.br</span></div>
+                        <div class="p-5 md:p-6 bg-[#0b1020]" aria-hidden="true">
+                            <div class="flex items-center justify-between mb-8">
+                                <span class="flex items-center gap-2"><span class="w-6 h-6 rounded-md" style="background: linear-gradient(135deg,#fbbf24,#f472b6)"></span><span class="h-2.5 w-20 rounded bg-white/30"></span></span>
+                                <span class="hidden sm:flex gap-3"><span class="h-2 w-10 rounded bg-white/15"></span><span class="h-2 w-10 rounded bg-white/15"></span><span class="h-2 w-10 rounded bg-white/15"></span></span>
+                                <span class="h-6 w-20 rounded-md bg-dev-color/80"></span>
+                            </div>
+                            <div class="grid grid-cols-[1.3fr_1fr] gap-5 items-center mb-8">
+                                <div class="space-y-2.5">
+                                    <div class="h-4 w-11/12 rounded bg-white/70"></div>
+                                    <div class="h-4 w-8/12 rounded bg-white/70"></div>
+                                    <div class="h-2 w-full rounded bg-white/15 mt-4"></div>
+                                    <div class="h-2 w-10/12 rounded bg-white/15"></div>
+                                    <div class="flex gap-2 pt-3"><span class="h-7 w-24 rounded-md" style="background: linear-gradient(135deg,#fbbf24,#f472b6)"></span><span class="h-7 w-20 rounded-md border border-white/20"></span></div>
+                                </div>
+                                <div class="aspect-square rounded-2xl" style="background: radial-gradient(circle at 30% 30%, rgba(251,191,36,.55), rgba(244,114,182,.35) 45%, rgba(14,165,233,.2) 75%);"></div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-3">
+                                <div class="rounded-xl border border-white/10 p-3 space-y-2"><span class="block w-5 h-5 rounded bg-dev-color/50"></span><span class="block h-2 w-3/4 rounded bg-white/30"></span><span class="block h-1.5 w-full rounded bg-white/10"></span></div>
+                                <div class="rounded-xl border border-white/10 p-3 space-y-2"><span class="block w-5 h-5 rounded bg-dev-color/50"></span><span class="block h-2 w-3/4 rounded bg-white/30"></span><span class="block h-1.5 w-full rounded bg-white/10"></span></div>
+                                <div class="rounded-xl border border-white/10 p-3 space-y-2"><span class="block w-5 h-5 rounded bg-dev-color/50"></span><span class="block h-2 w-3/4 rounded bg-white/30"></span><span class="block h-1.5 w-full rounded bg-white/10"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel rounded-xl absolute -bottom-5 -left-3 sm:-left-6 px-4 py-3 flex items-center gap-3 shadow-2xl">
+                        <i data-lucide="gauge" class="w-5 h-5 text-ai-color"></i>
+                        <span class="text-sm"><span class="block font-semibold">Carrega em &lt; 2s</span><span class="block text-xs text-slate-400">SEO técnico incluso</span></span>
+                    </div>
+                    <div class="panel rounded-xl absolute -top-4 -right-2 sm:-right-5 px-4 py-3 flex items-center gap-3 shadow-2xl">
+                        <i data-lucide="smartphone" class="w-5 h-5 text-dev-color"></i>
+                        <span class="text-sm font-semibold">100% responsivo</span>
+                    </div>
+                </figure>
+            </div>
+
+            <div class="reveal panel rounded-3xl mt-16 grid grid-cols-2 lg:grid-cols-4 divide-white/[0.06] lg:divide-x" data-delay="3">
+                <div class="p-6 md:p-8"><p class="stat-num">+300%</p><p class="text-sm text-slate-400 mt-2">Visibilidade online</p></div>
+                <div class="p-6 md:p-8"><p class="stat-num">&lt; 2s</p><p class="text-sm text-slate-400 mt-2">Carregamento</p></div>
+                <div class="p-6 md:p-8"><p class="stat-num">100%</p><p class="text-sm text-slate-400 mt-2">Responsivo</p></div>
+                <div class="p-6 md:p-8"><p class="stat-num">24/7</p><p class="text-sm text-slate-400 mt-2">No ar</p></div>
+            </div>
+        </section>
+
+        <!-- Diferenciais -->
+        <section class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-5">
+                <article class="reveal card dev panel rounded-3xl p-8"><span class="icon-tile mb-6"><i data-lucide="zap" class="w-6 h-6"></i></span><h2 class="text-xl font-bold mb-2">Performance e SEO avançado</h2><p class="text-slate-400 leading-relaxed">Sites ultrarrápidos e otimizados para o Google. Melhore seu posicionamento e atraia visitantes qualificados.</p></article>
+                <article class="reveal card dev panel rounded-3xl p-8" data-delay="1"><span class="icon-tile mb-6"><i data-lucide="shopping-bag" class="w-6 h-6"></i></span><h2 class="text-xl font-bold mb-2">Lojas simples e eficientes</h2><p class="text-slate-400 leading-relaxed">Venda online sem complicações, com meios de pagamento, WhatsApp e gestão de pedidos intuitiva.</p></article>
+                <article class="reveal card dev panel rounded-3xl p-8" data-delay="2"><span class="icon-tile mb-6"><i data-lucide="bar-chart-3" class="w-6 h-6"></i></span><h2 class="text-xl font-bold mb-2">Monitoramento e resultados</h2><p class="text-slate-400 leading-relaxed">Google Analytics e relatórios de comportamento dos visitantes para otimizar conversões.</p></article>
+            </div>
+        </section>
+
+        <!-- Resultados -->
+        <section id="resultados" class="ac-dev py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="eyebrow mb-4">Resultados</span>
+                <h2 class="text-4xl md:text-5xl font-bold">Resultados <span class="grad-dev">comprovados</span></h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-5">
+                <article class="reveal card dev panel rounded-3xl p-8 flex flex-col sm:flex-row gap-6 sm:items-center">
+                    <div class="flex-1"><span class="tag tag-dev mb-4">Loja de roupas</span><p class="text-slate-300 leading-relaxed">E-commerce que aumentou as vendas online após migrar para um site otimizado e responsivo.</p></div>
+                    <div class="sm:text-right shrink-0"><p class="font-display text-5xl font-bold text-dev-color">+150%</p><p class="text-sm text-slate-400">conversões</p></div>
+                </article>
+                <article class="reveal card dev panel rounded-3xl p-8 flex flex-col sm:flex-row gap-6 sm:items-center" data-delay="1">
+                    <div class="flex-1"><span class="tag tag-dev mb-4">Consultor financeiro</span><p class="text-slate-300 leading-relaxed">Site institucional que triplicou os leads qualificados com SEO local estratégico.</p></div>
+                    <div class="sm:text-right shrink-0"><p class="font-display text-5xl font-bold text-dev-color">+200%</p><p class="text-sm text-slate-400">leads</p></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Por que convertem -->
+        <section class="ac-dev py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="reveal">
+                    <span class="eyebrow mb-4">Diferenciais</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-8">Por que meus sites <span class="grad-dev">convertem mais</span>?</h2>
+                    <ul class="check-list text-[17px] mb-10">
+                        <li>Atendimento direto e personalizado — sem intermediários ou burocracia.</li>
+                        <li>Foco em performance, SEO e experiência do usuário.</li>
+                        <li>Código limpo, otimizado e documentação completa do projeto.</li>
+                        <li>Suporte técnico dedicado para atualizações e melhorias contínuas.</li>
+                        <li>Velocidade e compatibilidade em todos os dispositivos.</li>
+                    </ul>
+                    <a href="#contato" class="btn btn-primary"><i data-lucide="message-circle" class="w-5 h-5"></i>Falar sobre meu projeto</a>
+                </div>
+                <div class="reveal panel rounded-3xl overflow-hidden" data-delay="1">
+                    <img src="img/projetos/ux-dev.jpg" alt="Relatório do Google Analytics com acessos de um site" class="w-full h-full object-cover" loading="lazy">
+                    <p class="px-5 py-3 text-xs text-slate-500 border-t border-white/[0.06] flex items-center gap-2"><i data-lucide="bar-chart-3" class="w-3.5 h-3.5"></i>Acompanhamento de acessos com Google Analytics</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Amador vs profissional -->
+        <section class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="eyebrow mb-4">Comparativo</span>
+                <h2 class="text-4xl md:text-5xl font-bold">Site amador vs. <span class="grad-dev">site profissional</span></h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-5">
+                <div class="reveal rounded-3xl border border-red-400/20 bg-red-500/[0.04] p-8">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2.5"><i data-lucide="x-circle" class="w-5 h-5 text-red-400"></i>Site amador</h3>
+                    <ul class="space-y-3 text-slate-400">
+                        <li class="flex gap-3"><i data-lucide="x" class="w-4 h-4 text-red-400 mt-1 shrink-0"></i>Carregamento lento (5s+)</li>
+                        <li class="flex gap-3"><i data-lucide="x" class="w-4 h-4 text-red-400 mt-1 shrink-0"></i>Não aparece no Google</li>
+                        <li class="flex gap-3"><i data-lucide="x" class="w-4 h-4 text-red-400 mt-1 shrink-0"></i>Layout quebrado no celular</li>
+                        <li class="flex gap-3"><i data-lucide="x" class="w-4 h-4 text-red-400 mt-1 shrink-0"></i>Design desatualizado</li>
+                        <li class="flex gap-3"><i data-lucide="x" class="w-4 h-4 text-red-400 mt-1 shrink-0"></i>Baixa conversão</li>
+                    </ul>
+                </div>
+                <div class="reveal rounded-3xl border border-ai-color/30 bg-ai-color/[0.05] p-8 ac-ai" data-delay="1">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-5 h-5 text-ai-color"></i>Site profissional</h3>
+                    <ul class="check-list">
+                        <li>Carregamento rápido (&lt; 2s)</li>
+                        <li>Otimizado para SEO</li>
+                        <li>100% responsivo</li>
+                        <li>Design moderno</li>
+                        <li>Alta conversão</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="reveal panel rounded-3xl p-8 md:p-10 mt-5 grid lg:grid-cols-[1fr_1.2fr] gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-3">Sites leves, responsivos e bem estruturados</h3>
+                    <p class="text-slate-400 leading-relaxed">Desenvolvidos com as melhores práticas: carregam rápido, funcionam em qualquer dispositivo e transmitem credibilidade para o seu negócio.</p>
+                </div>
+                <ul class="check-list ac-dev sm:grid-cols-2">
+                    <li>Código otimizado em HTML, CSS e JavaScript</li>
+                    <li>SEO técnico integrado desde o início</li>
+                    <li>Google Analytics e relatórios de desempenho</li>
+                    <li>Integração com WhatsApp e redes sociais</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Processo -->
+        <section class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="eyebrow mb-4">Processo</span>
+                <h2 class="text-4xl md:text-5xl font-bold">Como funciona a <span class="grad-dev">criação</span></h2>
+            </div>
+            <ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px rounded-3xl overflow-hidden border border-white/[0.08] bg-white/[0.08]">
+                <li class="reveal bg-ink/95 p-8"><div class="flex items-center justify-between mb-8"><i data-lucide="clipboard-list" class="w-6 h-6 text-dev-color"></i><span class="font-mono text-sm text-slate-500">01</span></div><h3 class="text-xl font-bold mb-2">Briefing estratégico</h3><p class="text-slate-400">Entendimento do seu negócio, objetivos e público-alvo.</p></li>
+                <li class="reveal bg-ink/95 p-8" data-delay="1"><div class="flex items-center justify-between mb-8"><i data-lucide="palette" class="w-6 h-6 text-dev-color"></i><span class="font-mono text-sm text-slate-500">02</span></div><h3 class="text-xl font-bold mb-2">Design e estrutura</h3><p class="text-slate-400">Layout personalizado com foco em experiência do usuário e conversão.</p></li>
+                <li class="reveal bg-ink/95 p-8" data-delay="2"><div class="flex items-center justify-between mb-8"><i data-lucide="code-2" class="w-6 h-6 text-dev-color"></i><span class="font-mono text-sm text-slate-500">03</span></div><h3 class="text-xl font-bold mb-2">Desenvolvimento</h3><p class="text-slate-400">Código limpo, otimizado e integrado às ferramentas estratégicas.</p></li>
+                <li class="reveal bg-ink/95 p-8" data-delay="3"><div class="flex items-center justify-between mb-8"><i data-lucide="rocket" class="w-6 h-6 text-dev-color"></i><span class="font-mono text-sm text-slate-500">04</span></div><h3 class="text-xl font-bold mb-2">Lançamento</h3><p class="text-slate-400">Site testado e publicado, pronto para gerar resultados desde o primeiro dia.</p></li>
+            </ol>
+        </section>
+
+        <!-- Planos -->
+        <section id="planos" class="ac-dev py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal text-center max-w-2xl mx-auto mb-12">
+                <span class="eyebrow mb-4">Planos</span>
+                <h2 class="text-4xl md:text-5xl font-bold">Planos e <span class="grad-dev">investimento</span></h2>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-5 items-stretch">
+                <article class="reveal panel rounded-3xl p-8 flex flex-col">
+                    <h3 class="text-xl font-bold mb-2">Presença Digital</h3>
+                    <p class="text-sm text-slate-400 mb-6">Para quem precisa de uma presença online profissional e eficiente.</p>
+                    <p class="font-display text-4xl font-bold mb-8">R$ 790</p>
+                    <ul class="check-list text-sm mb-10">
+                        <li>Site institucional de até 3 páginas</li>
+                        <li>Design responsivo e moderno</li>
+                        <li>Integração com WhatsApp</li>
+                        <li>SEO básico e Google Maps</li>
+                    </ul>
+                    <a href="https://wa.me/5534998928444?text=Quero%20o%20plano%20Presen%C3%A7a%20Digital" target="_blank" rel="noopener noreferrer" class="btn btn-ghost mt-auto">Escolher plano</a>
+                </article>
+                <article class="reveal relative rounded-3xl p-8 flex flex-col border border-dev-color/50 bg-gradient-to-b from-dev-color/[0.12] to-panel/80 shadow-[0_30px_80px_-30px_rgba(245,158,11,0.45)]" data-delay="1">
+                    <span class="absolute -top-3 left-8 rounded-full px-3 py-1 text-xs font-semibold text-ink" style="background: linear-gradient(135deg,#fbbf24,#f472b6)">Mais popular</span>
+                    <h3 class="text-xl font-bold mb-2">Profissional</h3>
+                    <p class="text-sm text-slate-400 mb-6">Para pequenas empresas e profissionais que buscam resultados.</p>
+                    <p class="font-display text-4xl font-bold mb-8">R$ 1.290</p>
+                    <ul class="check-list text-sm mb-10">
+                        <li>Até 6 páginas e formulários</li>
+                        <li>SEO técnico e Analytics</li>
+                        <li>Hospedagem otimizada inclusa</li>
+                        <li>Integração com redes sociais</li>
+                        <li>Suporte por 30 dias</li>
+                    </ul>
+                    <a href="https://wa.me/5534998928444?text=Quero%20o%20plano%20Profissional" target="_blank" rel="noopener noreferrer" class="btn btn-primary mt-auto">Escolher plano</a>
+                </article>
+                <article class="reveal panel rounded-3xl p-8 flex flex-col" data-delay="2">
+                    <h3 class="text-xl font-bold mb-2">E-commerce Completo</h3>
+                    <p class="text-sm text-slate-400 mb-6">Solução completa e escalável para vendas online.</p>
+                    <p class="font-display text-4xl font-bold mb-8">R$ 2.490</p>
+                    <ul class="check-list text-sm mb-10">
+                        <li>Loja virtual completa</li>
+                        <li>Integração com pagamentos</li>
+                        <li>Otimização de performance</li>
+                        <li>Relatórios e suporte dedicado</li>
+                        <li>Revisões ilimitadas</li>
+                    </ul>
+                    <a href="https://wa.me/5534998928444?text=Quero%20o%20plano%20E-commerce%20Completo" target="_blank" rel="noopener noreferrer" class="btn btn-ghost mt-auto">Escolher plano</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contato -->
+        <section id="contato" class="ac-dev py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="relative panel rounded-[2rem] p-8 md:p-14 overflow-hidden">
+                <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-3xl opacity-30 pointer-events-none" style="background: radial-gradient(circle, rgba(251,191,36,.45), rgba(244,114,182,.25) 40%, transparent 70%);"></div>
+                <div class="relative grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                    <div class="reveal">
+                        <span class="eyebrow mb-4">Contato</span>
+                        <blockquote class="text-3xl md:text-4xl font-display font-bold leading-tight mb-6">“Um site bem feito gera confiança, visibilidade e <span class="grad-dev">resultados duradouros</span>.”</blockquote>
+                        <p class="text-slate-400 text-lg mb-10 leading-relaxed">Crie uma presença online sólida com um site limpo, rápido e profissional que converte visitantes em clientes.</p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><i data-lucide="phone" class="w-4 h-4 text-ai-color"></i>(34) 99892-8444</a>
+                            <a href="mailto:contato@marcelofernandes.dev.br" class="btn btn-ghost"><i data-lucide="mail" class="w-4 h-4 text-dev-color"></i>contato@marcelofernandes.dev.br</a>
+                        </div>
+                    </div>
+
+                    <form data-whatsapp data-assunto="Site / loja virtual" class="reveal rounded-3xl p-6 md:p-8 border border-white/[0.08] bg-ink/60" data-delay="1">
+                        <h3 class="text-2xl font-bold mb-2">Solicitar orçamento personalizado</h3>
+                        <p class="text-slate-400 mb-8">A mensagem abre direto no WhatsApp.</p>
+                        <div class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <label class="block"><span class="block text-sm text-slate-400 mb-1.5">Nome</span><input name="nome" type="text" required placeholder="Seu nome" class="field"></label>
+                                <label class="block"><span class="block text-sm text-slate-400 mb-1.5">Empresa</span><input name="empresa" type="text" placeholder="Nome do negócio" class="field"></label>
+                            </div>
+                            <fieldset>
+                                <legend class="block text-sm text-slate-400 mb-1.5">Plano de interesse</legend>
+                                <div class="flex flex-wrap gap-2">
+                                    <label class="chip"><input type="radio" name="interesse" value="Presença Digital" class="sr-only">Presença Digital</label>
+                                    <label class="chip"><input type="radio" name="interesse" value="Profissional" class="sr-only">Profissional</label>
+                                    <label class="chip"><input type="radio" name="interesse" value="E-commerce Completo" class="sr-only">E-commerce</label>
+                                    <label class="chip"><input type="radio" name="interesse" value="Ainda não sei" class="sr-only">Ainda não sei</label>
+                                </div>
+                            </fieldset>
+                            <label class="block"><span class="block text-sm text-slate-400 mb-1.5">Sobre o projeto</span><textarea name="mensagem" required rows="4" placeholder="O que você vende ou faz, e o que espera do site?" class="field resize-none"></textarea></label>
+                            <button type="submit" class="btn btn-primary w-full"><i data-lucide="send" class="w-5 h-5"></i>Enviar pelo WhatsApp</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 mt-8">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 py-14">
+            <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+                <div>
+                    <a href="index.html" class="flex items-center gap-3 mb-4">
+                        <span class="w-9 h-9 rounded-xl flex items-center justify-center font-display font-bold text-ink" style="background: linear-gradient(135deg,#34d399,#38bdf8);">MF</span>
+                        <span class="leading-tight">
+                            <span class="block font-display font-semibold">Marcelo Fernandes</span>
+                            <span class="block text-xs text-slate-500">AI & Cloud Specialist</span>
+                        </span>
+                    </a>
+                    <p class="text-sm text-slate-500 max-w-xs leading-relaxed">IA, cloud e software sob medida para empresas que querem crescer com tecnologia.</p>
+                    <div class="flex gap-2 mt-6">
+                        <!-- TODO: trocar "#" pelos perfis reais -->
+                        <a href="#" aria-label="LinkedIn" class="p-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/25 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" aria-label="GitHub" class="p-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/25 transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                        <a href="mailto:contato@marcelofernandes.dev.br" aria-label="E-mail" class="p-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/25 transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-sm font-semibold mb-4">Especialidades</h2>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="ia.html" class="text-slate-400 hover:text-white transition-colors">Inteligência Artificial</a></li>
+                        <li><a href="cloud.html" class="text-slate-400 hover:text-white transition-colors">Computação em Nuvem</a></li>
+                        <li><a href="software.html" class="text-slate-400 hover:text-white transition-colors">Desenvolvimento de Software</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-sm font-semibold mb-4">Serviços</h2>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="site_institucional.html" class="text-slate-400 hover:text-white transition-colors">Sites & lojas virtuais</a></li>
+                        <li><a href="automacao_relatorios.html" class="text-slate-400 hover:text-white transition-colors">Automação & Power BI</a></li>
+                        <li><a href="manutencao_servidores.html" class="text-slate-400 hover:text-white transition-colors">Servidores Linux</a></li>
+                        <li><a href="seguranca_cibernetica.html" class="text-slate-400 hover:text-white transition-colors">Cibersegurança & LGPD</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-sm font-semibold mb-4">Contato</h2>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">(34) 99892-8444</a></li>
+                        <li><a href="mailto:contato@marcelofernandes.dev.br" class="text-slate-400 hover:text-white transition-colors break-all">contato@marcelofernandes.dev.br</a></li>
+                        <li><a href="https://marcelofernandes.dev.br/blog" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-white/5 text-sm text-slate-600">
+                © <span id="year">2026</span> Marcelo Fernandes. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/site.js"></script>
+</body>
+</html>

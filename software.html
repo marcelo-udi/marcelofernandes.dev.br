@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YEVQZCLHG4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date());
+      gtag('config', 'G-YEVQZCLHG4');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href="https://marcelofernandes.dev.br/desenvolvimento-software-empresas">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Marcelo Fernandes">
+    <meta property="og:image:alt" content="Desenvolvimento de Software para Empresas - Soluções Customizadas">
+    
+    <title>Desenvolvimento de Software para Empresas | Marcelo Fernandes - Soluções Customizadas</title>
+    <meta name="description" content="Desenvolvimento de software e aplicativos empresariais customizados. Sistemas web, mobile, automação de processos e integração para transformação digital.">
+    <meta name="keywords" content="desenvolvimento de software, aplicativos empresariais, sistemas web, desenvolvimento mobile, automação de processos, software customizado, transformação digital, desenvolvimento ágil">
+    
+    <!-- Schema Markup para Desenvolvimento de Software -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Desenvolvimento de Software para Empresas",
+      "description": "Soluções completas de desenvolvimento de software e aplicativos para negócios",
+      "provider": {
+        "@type": "Person",
+        "name": "Marcelo Fernandes",
+        "jobTitle": "Arquiteto de Software"
+      },
+      "areaServed": "Brasil",
+      "serviceType": "Desenvolvimento de Software",
+      "offers": {
+        "@type": "Offer",
+        "category": "Serviços de Tecnologia"
+      }
+    }
+    </script>
+    
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+
+    <meta name="theme-color" content="#050a17">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tw-config.js"></script>
+    <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+    <div class="bg-aurora"></div>
+    <div class="bg-grid"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header -->
+    <header id="siteHeader" class="sticky top-0 z-50 header-blur">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 h-[72px] flex items-center justify-between gap-4">
+            <a href="index.html" class="flex items-center gap-3 shrink-0">
+                <span class="w-9 h-9 rounded-xl flex items-center justify-center font-display font-bold text-ink" style="background: linear-gradient(135deg,#34d399,#38bdf8);">MF</span>
+                <span class="leading-tight">
+                    <span class="block font-display font-semibold">Marcelo Fernandes</span>
+                    <span class="block text-xs text-slate-500">AI & Cloud Solutions</span>
+                </span>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8 text-[15px]" aria-label="Principal">
+                <a href="index.html#servicos" class="nav-link">Serviços</a>
+                <div class="dropdown relative">
+                    <button class="nav-link flex items-center gap-1" aria-haspopup="true">
+                        Especialidades <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="ia.html" class="dropdown-item">
+                            <i data-lucide="brain" class="w-5 h-5 text-ai-color mt-0.5"></i>
+                            <span><span class="block text-white font-medium">Inteligência Artificial</span><span class="block text-xs text-slate-400">ML, NLP, visão e IA generativa</span></span>
+                        </a>
+                        <a href="cloud.html" class="dropdown-item">
+                            <i data-lucide="cloud" class="w-5 h-5 text-cloud-color mt-0.5"></i>
+                            <span><span class="block text-white font-medium">Computação em Nuvem</span><span class="block text-xs text-slate-400">AWS, Azure, Kubernetes</span></span>
+                        </a>
+                        <a href="software.html" class="dropdown-item" aria-current="page">
+                            <i data-lucide="code-2" class="w-5 h-5 text-dev-color mt-0.5"></i>
+                            <span><span class="block text-white font-medium">Desenvolvimento de Software</span><span class="block text-xs text-slate-400">Web, mobile, APIs e automação</span></span>
+                        </a>
+                        <div class="my-1.5 mx-3 h-px bg-white/[0.07]"></div>
+                        <a href="site_institucional.html" class="dropdown-item !py-2"><i data-lucide="layout-template" class="w-4 h-4 text-dev-color mt-0.5"></i><span class="text-sm text-slate-200">Sites & lojas virtuais</span></a>
+                        <a href="automacao_relatorios.html" class="dropdown-item !py-2"><i data-lucide="bar-chart-3" class="w-4 h-4 text-ai-color mt-0.5"></i><span class="text-sm text-slate-200">Automação & Power BI</span></a>
+                        <a href="manutencao_servidores.html" class="dropdown-item !py-2"><i data-lucide="server" class="w-4 h-4 text-cloud-color mt-0.5"></i><span class="text-sm text-slate-200">Servidores Linux</span></a>
+                        <a href="seguranca_cibernetica.html" class="dropdown-item !py-2"><i data-lucide="shield-check" class="w-4 h-4 text-violet-400 mt-0.5"></i><span class="text-sm text-slate-200">Cibersegurança & LGPD</span></a>
+                    </div>
+                </div>
+                <a href="index.html#projetos" class="nav-link">Projetos</a>
+                <a href="index.html#sobre" class="nav-link">Sobre</a>
+                <a href="https://marcelofernandes.dev.br/blog" target="_blank" rel="noopener noreferrer" class="nav-link">Blog</a>
+                <a href="contato.html" class="nav-link">Contato</a>
+            </nav>
+
+            <div class="flex items-center gap-2">
+                <a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="btn btn-primary !py-2.5 !px-4 text-sm">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span class="hidden sm:inline">Conversar agora</span>
+                    <span class="sm:hidden">WhatsApp</span>
+                </a>
+                <button id="menuBtn" class="lg:hidden p-2.5 rounded-xl border border-white/10 text-slate-300" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu mobile -->
+        <nav id="mobileMenu" class="lg:hidden hidden border-t border-white/5 px-5 pb-6 pt-2 max-h-[80vh] overflow-y-auto" aria-label="Menu mobile">
+            <a href="index.html#servicos" class="block py-3 text-slate-300 border-b border-white/5">Serviços</a>
+            <a href="ia.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="brain" class="w-4 h-4 text-ai-color"></i>Inteligência Artificial</a>
+            <a href="cloud.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="cloud" class="w-4 h-4 text-cloud-color"></i>Computação em Nuvem</a>
+            <a href="software.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5" aria-current="page"><i data-lucide="code-2" class="w-4 h-4 text-dev-color"></i>Desenvolvimento de Software</a>
+            <a href="site_institucional.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="layout-template" class="w-4 h-4 text-dev-color"></i>Sites & lojas virtuais</a>
+            <a href="automacao_relatorios.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="bar-chart-3" class="w-4 h-4 text-ai-color"></i>Automação & Power BI</a>
+            <a href="manutencao_servidores.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="server" class="w-4 h-4 text-cloud-color"></i>Servidores Linux</a>
+            <a href="seguranca_cibernetica.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="shield-check" class="w-4 h-4 text-violet-400"></i>Cibersegurança & LGPD</a>
+            <a href="index.html#projetos" class="block py-3 text-slate-300 border-b border-white/5">Projetos</a>
+            <a href="index.html#sobre" class="block py-3 text-slate-300 border-b border-white/5">Sobre</a>
+            <a href="https://marcelofernandes.dev.br/blog" target="_blank" rel="noopener noreferrer" class="block py-3 text-slate-300 border-b border-white/5">Blog</a>
+            <a href="contato.html" class="block py-3 text-slate-300">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="ac-dev relative px-5 sm:px-6 pt-12 md:pt-16 pb-16 max-w-7xl mx-auto">
+            <div class="page-glow"></div>
+            <nav class="crumbs mb-10" aria-label="Você está em"><a href="index.html">Início</a><span>/</span><span class="text-slate-300">Desenvolvimento de Software</span></nav>
+
+            <div class="max-w-4xl">
+                <div class="reveal inline-flex items-center gap-2.5 panel rounded-full pl-3 pr-4 py-1.5 mb-7">
+                    <i data-lucide="code-2" class="w-4 h-4 text-dev-color"></i>
+                    <span class="text-sm text-slate-300">Transformação digital com software</span>
+                </div>
+                <h1 class="reveal text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-7xl font-bold mb-6" data-delay="1">
+                    Desenvolvimento de software <span class="grad-accent">para empresas</span>
+                </h1>
+                <p class="reveal text-lg md:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed" data-delay="2">
+                    Softwares e aplicativos sob medida que automatizam processos, integram sistemas e impulsionam
+                    a eficiência operacional do seu negócio.
+                </p>
+                <div class="reveal flex flex-col sm:flex-row gap-3" data-delay="3">
+                    <a href="#contato" class="btn btn-primary"><i data-lucide="rocket" class="w-5 h-5"></i>Iniciar projeto</a>
+                    <a href="#tipos" class="btn btn-ghost">Tipos de software <i data-lucide="arrow-down" class="w-4 h-4"></i></a>
+                </div>
+            </div>
+
+            <div class="reveal panel rounded-3xl mt-16 grid grid-cols-2 lg:grid-cols-4 divide-white/[0.06] lg:divide-x" data-delay="3">
+                <div class="p-6 md:p-8"><p class="stat-num">50%</p><p class="text-sm text-slate-400 mt-2">Aumento de produtividade</p></div>
+                <div class="p-6 md:p-8"><p class="stat-num">40%</p><p class="text-sm text-slate-400 mt-2">Redução de custos</p></div>
+                <div class="p-6 md:p-8"><p class="stat-num">99%</p><p class="text-sm text-slate-400 mt-2">Disponibilidade do sistema</p></div>
+                <div class="p-6 md:p-8"><p class="stat-num">8×</p><p class="text-sm text-slate-400 mt-2">Retorno sobre investimento</p></div>
+            </div>
+        </section>
+
+        <!-- O que é -->
+        <section id="o-que-e" class="ac-dev py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                <div class="reveal">
+                    <span class="eyebrow mb-4">Conceito</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">O que é <span class="grad-accent">software empresarial</span>?</h2>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-10">
+                        São sistemas desenvolvidos para as necessidades específicas de uma organização: automatizam processos,
+                        integram departamentos e fornecem insights baseados em dados para decisões estratégicas.
+                    </p>
+                    <div class="rounded-3xl bg-ink/70 border border-white/[0.08] p-6">
+                        <div class="text-sm font-medium mb-5">Arquitetura de software empresarial</div>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center">
+                            <div class="node p-4"><i data-lucide="layout" class="w-5 h-5 mx-auto mb-2 text-dev-color"></i><div class="font-semibold text-sm">Frontend</div><div class="text-[11px] text-slate-500">UI/UX</div></div>
+                            <div class="node p-4"><i data-lucide="server" class="w-5 h-5 mx-auto mb-2 text-dev-color"></i><div class="font-semibold text-sm">Backend</div><div class="text-[11px] text-slate-500">API/negócio</div></div>
+                            <div class="node p-4"><i data-lucide="database" class="w-5 h-5 mx-auto mb-2 text-dev-color"></i><div class="font-semibold text-sm">Banco de dados</div><div class="text-[11px] text-slate-500">SQL/NoSQL</div></div>
+                            <div class="node p-4"><i data-lucide="cloud" class="w-5 h-5 mx-auto mb-2 text-cloud-color"></i><div class="font-semibold text-sm">Cloud</div><div class="text-[11px] text-slate-500">AWS/Azure/GCP</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal panel rounded-3xl p-8" data-delay="1">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3"><i data-lucide="zap" class="w-6 h-6 text-dev-color"></i>Por que software sob medida?</h3>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4"><span class="icon-tile !w-11 !h-11 shrink-0"><i data-lucide="package" class="w-5 h-5"></i></span><span><span class="block font-semibold mb-1">Solução específica</span><span class="block text-slate-400">Feito exatamente para as suas necessidades, sem adaptar software genérico.</span></span></li>
+                        <li class="flex gap-4"><span class="icon-tile !w-11 !h-11 shrink-0"><i data-lucide="refresh-ccw" class="w-5 h-5"></i></span><span><span class="block font-semibold mb-1">Escalabilidade</span><span class="block text-slate-400">Cresce junto com seu negócio, adaptando-se a novas demandas e volumes.</span></span></li>
+                        <li class="flex gap-4"><span class="icon-tile !w-11 !h-11 shrink-0"><i data-lucide="shield" class="w-5 h-5"></i></span><span><span class="block font-semibold mb-1">Segurança</span><span class="block text-slate-400">Controle total sobre a segurança dos dados e o acesso ao sistema.</span></span></li>
+                        <li class="flex gap-4"><span class="icon-tile !w-11 !h-11 shrink-0"><i data-lucide="trending-up" class="w-5 h-5"></i></span><span><span class="block font-semibold mb-1">Vantagem competitiva</span><span class="block text-slate-400">Funcionalidades exclusivas que diferenciam sua empresa no mercado.</span></span></li>
+                    </ul>
+                    <div class="mt-8 rounded-2xl p-5 border border-dev-color/25 bg-dev-color/[0.06] text-slate-300">
+                        <span class="block text-xs font-mono uppercase tracking-wider text-dev-color mb-1.5">Dados do mercado</span>
+                        Empresas que investem em software customizado têm <strong class="text-white">40% mais eficiência</strong> operacional e reduzem custos em até <strong class="text-white">30%</strong> em comparação com soluções prontas.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefícios -->
+        <section id="beneficios" class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="eyebrow mb-4">Benefícios</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Benefícios do <span class="grad-dev">software sob medida</span></h2>
+                <p class="text-slate-400 text-lg">Vantagens competitivas com soluções desenvolvidas para o seu negócio.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <article class="reveal card dev panel rounded-3xl p-7"><div class="flex items-start justify-between mb-6"><span class="icon-tile"><i data-lucide="zap" class="w-6 h-6"></i></span><span class="tag tag-dev">+70% eficiência</span></div><h3 class="text-xl font-bold mb-2">Automação de processos</h3><p class="text-slate-400 leading-relaxed">Elimine tarefas manuais e repetitivas, reduzindo erros e liberando sua equipe para atividades estratégicas.</p></article>
+                <article class="reveal card dev panel rounded-3xl p-7" data-delay="1"><div class="flex items-start justify-between mb-6"><span class="icon-tile"><i data-lucide="database" class="w-6 h-6"></i></span><span class="tag tag-dev">-60% retrabalho</span></div><h3 class="text-xl font-bold mb-2">Integração de sistemas</h3><p class="text-slate-400 leading-relaxed">Conecte todos os departamentos em uma única plataforma, compartilhando informações em tempo real.</p></article>
+                <article class="reveal card dev panel rounded-3xl p-7" data-delay="2"><div class="flex items-start justify-between mb-6"><span class="icon-tile"><i data-lucide="bar-chart-3" class="w-6 h-6"></i></span><span class="tag tag-dev">+50% assertividade</span></div><h3 class="text-xl font-bold mb-2">Business intelligence</h3><p class="text-slate-400 leading-relaxed">Transforme dados em insights acionáveis com dashboards e relatórios personalizados.</p></article>
+                <article class="reveal card dev panel rounded-3xl p-7"><div class="flex items-start justify-between mb-6"><span class="icon-tile"><i data-lucide="smartphone" class="w-6 h-6"></i></span><span class="tag tag-dev">+45% produtividade</span></div><h3 class="text-xl font-bold mb-2">Mobilidade</h3><p class="text-slate-400 leading-relaxed">Acesse informações e realize operações de qualquer lugar, em qualquer dispositivo.</p></article>
+                <article class="reveal card dev panel rounded-3xl p-7" data-delay="1"><div class="flex items-start justify-between mb-6"><span class="icon-tile"><i data-lucide="shield-check" class="w-6 h-6"></i></span><span class="tag tag-dev">Conformidade LGPD</span></div><h3 class="text-xl font-bold mb-2">Conformidade & segurança</h3><p class="text-slate-400 leading-relaxed">Atenda regulamentações com controles de acesso, auditoria e criptografia de dados.</p></article>
+                <article class="reveal card dev panel rounded-3xl p-7" data-delay="2"><div class="flex items-start justify-between mb-6"><span class="icon-tile"><i data-lucide="life-buoy" class="w-6 h-6"></i></span><span class="tag tag-dev">99,9% disponibilidade</span></div><h3 class="text-xl font-bold mb-2">Manutenção & suporte</h3><p class="text-slate-400 leading-relaxed">Atualizações contínuas, correções e suporte técnico especializado.</p></article>
+            </div>
+
+            <div class="reveal panel rounded-3xl mt-8 overflow-hidden">
+                <div class="p-6 md:p-8 border-b border-white/[0.06]"><h3 class="text-2xl font-bold">Software pronto vs. software customizado</h3></div>
+                <div class="overflow-x-auto">
+                    <table class="table-dark min-w-[680px]">
+                        <thead><tr><th class="pl-6 md:pl-8">Característica</th><th>Software pronto</th><th>Software customizado</th><th class="pr-6 md:pr-8">Vantagem</th></tr></thead>
+                        <tbody>
+                            <tr><td class="pl-6 md:pl-8 text-white font-medium">Adequação ao processo</td><td>Processo adaptado ao software</td><td>Software adaptado ao processo</td><td class="pr-6 md:pr-8 text-dev-color font-medium">↑ 100% adequação</td></tr>
+                            <tr><td class="pl-6 md:pl-8 text-white font-medium">Custo total (5 anos)</td><td>Alto (licenças + adaptações)</td><td>Otimizado (desenvolvimento + manutenção)</td><td class="pr-6 md:pr-8 text-dev-color font-medium">↓ 40% economia</td></tr>
+                            <tr><td class="pl-6 md:pl-8 text-white font-medium">Integração</td><td>Limitada / plugins extras</td><td>Completa e nativa</td><td class="pr-6 md:pr-8 text-dev-color font-medium">↑ 80% eficiência</td></tr>
+                            <tr><td class="pl-6 md:pl-8 text-white font-medium">Escalabilidade</td><td>Limitada pela licença</td><td>Ilimitada e flexível</td><td class="pr-6 md:pr-8 text-dev-color font-medium">↑ Crescimento garantido</td></tr>
+                            <tr><td class="pl-6 md:pl-8 text-white font-medium border-b-0">Manutenção</td><td class="border-b-0">Depende do fornecedor</td><td class="border-b-0">Controle total e ágil</td><td class="pr-6 md:pr-8 text-dev-color font-medium border-b-0">↑ Autonomia total</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tipos -->
+        <section id="tipos" class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="eyebrow mb-4">Soluções</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Tipos de <span class="grad-dev">software empresarial</span></h2>
+                <p class="text-slate-400 text-lg">Soluções para diferentes necessidades do negócio.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-5">
+                <article class="reveal card dev panel rounded-3xl p-8">
+                    <div class="flex items-center gap-4 mb-5"><span class="icon-tile"><i data-lucide="globe" class="w-6 h-6"></i></span><div><h3 class="text-xl font-bold">Sistemas web</h3><p class="text-sm text-slate-500">Aplicações responsivas e escaláveis</p></div></div>
+                    <p class="text-slate-400 leading-relaxed mb-6">Plataformas web completas com interfaces modernas, acessíveis de qualquer navegador, sem instalação.</p>
+                    <div class="flex flex-wrap gap-2"><span class="tag tag-dev">React</span><span class="tag tag-dev">Vue.js</span><span class="tag tag-dev">Angular</span></div>
+                </article>
+                <article class="reveal card dev panel rounded-3xl p-8" data-delay="1">
+                    <div class="flex items-center gap-4 mb-5"><span class="icon-tile"><i data-lucide="smartphone" class="w-6 h-6"></i></span><div><h3 class="text-xl font-bold">Aplicativos mobile</h3><p class="text-sm text-slate-500">iOS, Android e cross-platform</p></div></div>
+                    <p class="text-slate-400 leading-relaxed mb-6">Apps nativos e híbridos para força de vendas, atendimento ao cliente, controle de operações e muito mais.</p>
+                    <div class="flex flex-wrap gap-2"><span class="tag tag-dev">React Native</span><span class="tag tag-dev">Flutter</span><span class="tag tag-dev">Swift/Kotlin</span></div>
+                </article>
+                <article class="reveal card dev panel rounded-3xl p-8">
+                    <div class="flex items-center gap-4 mb-5"><span class="icon-tile"><i data-lucide="cloud" class="w-6 h-6"></i></span><div><h3 class="text-xl font-bold">Sistemas em cloud</h3><p class="text-sm text-slate-500">Infraestrutura escalável e segura</p></div></div>
+                    <p class="text-slate-400 leading-relaxed mb-6">Deploy em plataformas cloud com alta disponibilidade, backup automático e escalabilidade sob demanda.</p>
+                    <div class="flex flex-wrap gap-2"><span class="tag tag-cloud">AWS</span><span class="tag tag-cloud">Azure</span><span class="tag tag-cloud">Google Cloud</span></div>
+                </article>
+                <article class="reveal card dev panel rounded-3xl p-8" data-delay="1">
+                    <div class="flex items-center gap-4 mb-5"><span class="icon-tile"><i data-lucide="git-branch" class="w-6 h-6"></i></span><div><h3 class="text-xl font-bold">APIs & integrações</h3><p class="text-sm text-slate-500">Conectividade entre sistemas</p></div></div>
+                    <p class="text-slate-400 leading-relaxed mb-6">APIs RESTful e GraphQL para integração com ERPs, CRMs, marketplaces e outros sistemas.</p>
+                    <div class="flex flex-wrap gap-2"><span class="tag tag-dev">REST API</span><span class="tag tag-dev">GraphQL</span><span class="tag tag-dev">Webhooks</span></div>
+                </article>
+            </div>
+
+            <div class="reveal relative panel rounded-3xl p-8 md:p-10 mt-5 overflow-hidden">
+                <div class="absolute -right-24 -top-24 w-80 h-80 rounded-full blur-3xl opacity-30 pointer-events-none" style="background: radial-gradient(circle, rgba(245,158,11,.55), transparent 70%)"></div>
+                <div class="relative flex items-center gap-4 mb-8"><span class="icon-tile ac-dev"><i data-lucide="briefcase" class="w-6 h-6"></i></span><div><h3 class="text-2xl font-bold">Sistemas de gestão customizados</h3><p class="text-slate-400">ERP, CRM e sistemas de gestão específicos</p></div></div>
+                <div class="relative grid md:grid-cols-3 gap-4">
+                    <div class="rounded-2xl border border-white/[0.08] bg-ink/50 p-6"><i data-lucide="boxes" class="w-5 h-5 text-dev-color mb-4"></i><h4 class="font-semibold mb-2">ERP personalizado</h4><p class="text-sm text-slate-400 leading-relaxed">Gestão empresarial integrada, desenvolvida para os seus processos.</p></div>
+                    <div class="rounded-2xl border border-white/[0.08] bg-ink/50 p-6"><i data-lucide="contact" class="w-5 h-5 text-dev-color mb-4"></i><h4 class="font-semibold mb-2">CRM especializado</h4><p class="text-sm text-slate-400 leading-relaxed">Relacionamento com o cliente adaptado ao seu modelo de negócio e fluxo de vendas.</p></div>
+                    <div class="rounded-2xl border border-white/[0.08] bg-ink/50 p-6"><i data-lucide="pie-chart" class="w-5 h-5 text-dev-color mb-4"></i><h4 class="font-semibold mb-2">BI & analytics</h4><p class="text-sm text-slate-400 leading-relaxed">Dashboards e relatórios personalizados para análise de dados e tomada de decisão.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tecnologias -->
+        <section id="tecnologias" class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="eyebrow mb-4">Tecnologias</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Tecnologias & <span class="grad-dev">plataformas</span></h2>
+                <p class="text-slate-400 text-lg">Stack moderno para desenvolvimento de software.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-5">
+                <article class="reveal card dev panel rounded-3xl p-7"><span class="icon-tile mb-5"><i data-lucide="layout" class="w-6 h-6"></i></span><h3 class="text-lg font-bold mb-2">Frontend</h3><p class="text-sm text-slate-400 leading-relaxed mb-5">Interfaces modernas, responsivas e com ótima experiência de uso.</p><div class="flex flex-wrap gap-2"><span class="tag tag-dev">React</span><span class="tag tag-dev">Vue.js</span><span class="tag tag-dev">TypeScript</span></div></article>
+                <article class="reveal card dev panel rounded-3xl p-7" data-delay="1"><span class="icon-tile mb-5"><i data-lucide="server" class="w-6 h-6"></i></span><h3 class="text-lg font-bold mb-2">Backend</h3><p class="text-sm text-slate-400 leading-relaxed mb-5">APIs robustas, processamento de dados e lógica de negócio escalável.</p><div class="flex flex-wrap gap-2"><span class="tag tag-dev">Node.js</span><span class="tag tag-dev">Python</span><span class="tag tag-dev">Java</span></div></article>
+                <article class="reveal card dev panel rounded-3xl p-7" data-delay="2"><span class="icon-tile mb-5"><i data-lucide="smartphone" class="w-6 h-6"></i></span><h3 class="text-lg font-bold mb-2">Mobile</h3><p class="text-sm text-slate-400 leading-relaxed mb-5">Apps nativos e cross-platform com performance de app nativo.</p><div class="flex flex-wrap gap-2"><span class="tag tag-dev">React Native</span><span class="tag tag-dev">Flutter</span><span class="tag tag-dev">Swift</span></div></article>
+                <article class="reveal card dev panel rounded-3xl p-7" data-delay="3"><span class="icon-tile mb-5"><i data-lucide="database" class="w-6 h-6"></i></span><h3 class="text-lg font-bold mb-2">Banco de dados</h3><p class="text-sm text-slate-400 leading-relaxed mb-5">Armazenamento seguro, escalável e otimizado.</p><div class="flex flex-wrap gap-2"><span class="tag tag-dev">PostgreSQL</span><span class="tag tag-dev">MongoDB</span><span class="tag tag-dev">Redis</span></div></article>
+            </div>
+            <div class="reveal panel rounded-3xl p-6 md:p-8">
+                <h3 class="text-lg font-bold mb-6">DevOps & cloud</h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="rounded-2xl border border-white/[0.08] bg-ink/50 p-5"><span class="font-mono text-xs text-orange-400">AWS</span><h4 class="font-semibold mt-1 mb-1">Amazon Web Services</h4><p class="text-sm text-slate-400">Infraestrutura cloud completa com mais de 200 serviços.</p></div>
+                    <div class="rounded-2xl border border-white/[0.08] bg-ink/50 p-5"><span class="font-mono text-xs text-sky-400">Azure</span><h4 class="font-semibold mt-1 mb-1">Microsoft Azure</h4><p class="text-sm text-slate-400">Plataforma cloud enterprise com forte integração Microsoft.</p></div>
+                    <div class="rounded-2xl border border-white/[0.08] bg-ink/50 p-5"><span class="font-mono text-xs text-cloud-color">Docker</span><h4 class="font-semibold mt-1 mb-1">Contêineres & Kubernetes</h4><p class="text-sm text-slate-400">Deploy escalável e consistente em qualquer ambiente.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Setores -->
+        <section id="setores" class="ac-dev py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="eyebrow mb-4">Setores</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Software em <span class="grad-dev">diferentes setores</span></h2>
+                <p class="text-slate-400 text-lg">Soluções específicas para cada tipo de negócio.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <article class="reveal card dev panel rounded-3xl p-7 flex flex-col"><h3 class="text-lg font-bold flex items-center gap-2.5 mb-5"><i data-lucide="shopping-cart" class="w-5 h-5 text-dev-color"></i>Varejo & e-commerce</h3><ul class="check-list text-sm mb-6"><li>Gestão de estoque</li><li>Plataforma de e-commerce customizada</li><li>App para força de vendas</li><li>Programa de fidelidade digital</li></ul><span class="mt-auto font-display text-2xl font-bold text-dev-color">↑ 60% <span class="text-sm font-sans font-normal text-slate-400">vendas</span></span></article>
+                <article class="reveal card dev panel rounded-3xl p-7 flex flex-col" data-delay="1"><h3 class="text-lg font-bold flex items-center gap-2.5 mb-5"><i data-lucide="heart-pulse" class="w-5 h-5 text-dev-color"></i>Saúde & medicina</h3><ul class="check-list text-sm mb-6"><li>Prontuário eletrônico</li><li>Agendamento online</li><li>Telemedicina</li><li>Gestão de clínica/hospital</li></ul><span class="mt-auto font-display text-2xl font-bold text-dev-color">↑ 50% <span class="text-sm font-sans font-normal text-slate-400">eficiência</span></span></article>
+                <article class="reveal card dev panel rounded-3xl p-7 flex flex-col" data-delay="2"><h3 class="text-lg font-bold flex items-center gap-2.5 mb-5"><i data-lucide="factory" class="w-5 h-5 text-dev-color"></i>Indústria & manufatura</h3><ul class="check-list text-sm mb-6"><li>Controle de produção</li><li>Manutenção preditiva</li><li>Gestão de qualidade</li><li>Logística e estoque</li></ul><span class="mt-auto font-display text-2xl font-bold text-dev-color">↓ 35% <span class="text-sm font-sans font-normal text-slate-400">custos</span></span></article>
+                <article class="reveal card dev panel rounded-3xl p-7 flex flex-col"><h3 class="text-lg font-bold flex items-center gap-2.5 mb-5"><i data-lucide="briefcase" class="w-5 h-5 text-dev-color"></i>Serviços & consultoria</h3><ul class="check-list text-sm mb-6"><li>Gestão de projetos</li><li>Controle de horas/faturamento</li><li>CRM especializado</li><li>Portal do cliente</li></ul><span class="mt-auto font-display text-2xl font-bold text-dev-color">↑ 40% <span class="text-sm font-sans font-normal text-slate-400">produtividade</span></span></article>
+                <article class="reveal card dev panel rounded-3xl p-7 flex flex-col" data-delay="1"><h3 class="text-lg font-bold flex items-center gap-2.5 mb-5"><i data-lucide="graduation-cap" class="w-5 h-5 text-dev-color"></i>Educação & treinamento</h3><ul class="check-list text-sm mb-6"><li>Plataforma EAD</li><li>Gestão acadêmica</li><li>Sistema de matrículas</li><li>App para alunos</li></ul><span class="mt-auto font-display text-2xl font-bold text-dev-color">↑ 55% <span class="text-sm font-sans font-normal text-slate-400">engajamento</span></span></article>
+                <article class="reveal card dev panel rounded-3xl p-7 flex flex-col" data-delay="2"><h3 class="text-lg font-bold flex items-center gap-2.5 mb-5"><i data-lucide="truck" class="w-5 h-5 text-dev-color"></i>Logística & transporte</h3><ul class="check-list text-sm mb-6"><li>Roteirização inteligente</li><li>Controle de frota</li><li>App para entregadores</li><li>Rastreamento em tempo real</li></ul><span class="mt-auto font-display text-2xl font-bold text-dev-color">↓ 30% <span class="text-sm font-sans font-normal text-slate-400">custos logísticos</span></span></article>
+            </div>
+        </section>
+
+        <!-- Metodologia -->
+        <section id="metodologia" class="ac-dev py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-start">
+                <div class="reveal lg:sticky lg:top-28">
+                    <span class="eyebrow mb-4">Metodologia</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Metodologia de <span class="grad-dev">desenvolvimento</span></h2>
+                    <p class="text-slate-400 text-lg mb-10">Processo ágil e transparente em 6 etapas.</p>
+                    <div class="panel rounded-3xl p-6 md:p-8">
+                        <h3 class="text-lg font-bold mb-6">Investimento & retorno (ROI)</h3>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div><p class="font-display text-2xl md:text-3xl font-bold text-dev-color">3–4 m</p><p class="text-xs text-slate-400 mt-1">Primeira versão funcional</p></div>
+                            <div><p class="font-display text-2xl md:text-3xl font-bold text-dev-color">8×</p><p class="text-xs text-slate-400 mt-1">Retorno médio em 2 anos</p></div>
+                            <div><p class="font-display text-2xl md:text-3xl font-bold text-dev-color">30–50%</p><p class="text-xs text-slate-400 mt-1">Redução de custos operacionais</p></div>
+                        </div>
+                    </div>
+                </div>
+                <ol class="steps boxed space-y-5">
+                    <li class="reveal panel rounded-2xl p-6 !pl-20 relative"><div class="flex flex-wrap items-baseline justify-between gap-2 mb-1"><h3 class="text-lg font-bold">Descoberta & planejamento</h3><span class="font-mono text-xs text-slate-500">1–2 semanas</span></div><p class="text-slate-400">Análise de requisitos, definição de escopo e planejamento detalhado do projeto.</p></li>
+                    <li class="reveal panel rounded-2xl p-6 !pl-20 relative"><div class="flex flex-wrap items-baseline justify-between gap-2 mb-1"><h3 class="text-lg font-bold">Design & prototipagem</h3><span class="font-mono text-xs text-slate-500">2–3 semanas</span></div><p class="text-slate-400">Wireframes, protótipos interativos e design de interface (UI/UX).</p></li>
+                    <li class="reveal panel rounded-2xl p-6 !pl-20 relative"><div class="flex flex-wrap items-baseline justify-between gap-2 mb-1"><h3 class="text-lg font-bold">Desenvolvimento ágil</h3><span class="font-mono text-xs text-slate-500">4–12 semanas</span></div><p class="text-slate-400">Programação em sprints com entregas incrementais e revisões contínuas.</p></li>
+                    <li class="reveal panel rounded-2xl p-6 !pl-20 relative"><div class="flex flex-wrap items-baseline justify-between gap-2 mb-1"><h3 class="text-lg font-bold">Testes & qualidade</h3><span class="font-mono text-xs text-slate-500">2–3 semanas</span></div><p class="text-slate-400">Testes automatizados, testes manuais e garantia de qualidade.</p></li>
+                    <li class="reveal panel rounded-2xl p-6 !pl-20 relative"><div class="flex flex-wrap items-baseline justify-between gap-2 mb-1"><h3 class="text-lg font-bold">Deploy & implantação</h3><span class="font-mono text-xs text-slate-500">1–2 semanas</span></div><p class="text-slate-400">Deploy em produção, migração de dados e treinamento dos usuários.</p></li>
+                    <li class="reveal panel rounded-2xl p-6 !pl-20 relative"><div class="flex flex-wrap items-baseline justify-between gap-2 mb-1"><h3 class="text-lg font-bold">Manutenção & evolução</h3><span class="font-mono text-xs text-slate-500">Contínuo</span></div><p class="text-slate-400">Suporte técnico, atualizações e evolução contínua do software.</p></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Cases -->
+        <section id="projetos" class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-12">
+                <span class="eyebrow mb-4">Cases</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Cases de <span class="grad-dev">sucesso</span></h2>
+                <p class="text-slate-400 text-lg">Soluções reais desenvolvidas para empresas.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-5">
+                <article class="reveal card dev panel rounded-3xl overflow-hidden flex flex-col">
+                    <div class="terminal-bar"><span class="dot bg-red-400/80"></span><span class="dot bg-yellow-400/80"></span><span class="dot bg-green-400/80"></span><span class="ml-2 text-xs text-slate-500 font-mono">case_erp.py</span></div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="flex gap-2 mb-5"><span class="tag tag-dev">Indústria</span><span class="tag tag-dev">ERP customizado</span></div>
+                        <h3 class="text-2xl font-bold mb-3">ERP para indústria de autopeças</h3>
+                        <p class="text-slate-400 leading-relaxed mb-8">Sistema integrado de gestão que reduziu o tempo de produção e aumentou a precisão do estoque.</p>
+                        <div class="grid grid-cols-2 gap-6 mb-8"><div><p class="font-display text-4xl font-bold text-dev-color">-25%</p><p class="text-sm text-slate-400 mt-1">tempo de produção</p></div><div><p class="font-display text-4xl font-bold text-dev-color">95%</p><p class="text-sm text-slate-400 mt-1">precisão de estoque</p></div></div>
+                        <div class="mt-auto pt-6 border-t border-white/[0.06] flex items-center gap-2 text-sm text-slate-400"><i data-lucide="clock" class="w-4 h-4"></i>5 meses · ROI 10×</div>
+                    </div>
+                </article>
+                <article class="reveal card dev panel rounded-3xl overflow-hidden flex flex-col" data-delay="1">
+                    <div class="terminal-bar"><span class="dot bg-red-400/80"></span><span class="dot bg-yellow-400/80"></span><span class="dot bg-green-400/80"></span><span class="ml-2 text-xs text-slate-500 font-mono">case_app.py</span></div>
+                    <div class="p-8 flex flex-col flex-1">
+                        <div class="flex gap-2 mb-5"><span class="tag tag-dev">Serviços</span><span class="tag tag-dev">App mobile</span></div>
+                        <h3 class="text-2xl font-bold mb-3">App para empresa de limpeza</h3>
+                        <p class="text-slate-400 leading-relaxed mb-8">Aplicativo para gestão de equipes, agendamentos e pagamentos.</p>
+                        <div class="grid grid-cols-2 gap-6 mb-8"><div><p class="font-display text-4xl font-bold text-dev-color">+40%</p><p class="text-sm text-slate-400 mt-1">produtividade</p></div><div><p class="font-display text-4xl font-bold text-dev-color">+35%</p><p class="text-sm text-slate-400 mt-1">satisfação do cliente</p></div></div>
+                        <div class="mt-auto pt-6 border-t border-white/[0.06] flex items-center gap-2 text-sm text-slate-400"><i data-lucide="clock" class="w-4 h-4"></i>3 meses · ROI 8×</div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contato -->
+        <section id="contato" class="ac-dev py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="relative panel rounded-[2rem] p-8 md:p-14 overflow-hidden">
+                <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-3xl opacity-30 pointer-events-none" style="background: radial-gradient(circle, rgba(251,191,36,.45), rgba(244,114,182,.25) 40%, transparent 70%);"></div>
+                <div class="relative grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                    <div class="reveal">
+                        <span class="eyebrow mb-4">Contato</span>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6">Pronto para transformar sua empresa <span class="grad-dev">com software</span>?</h2>
+                        <p class="text-slate-400 text-lg mb-8 leading-relaxed">Agende uma consultoria gratuita e descubra como um software sob medida pode otimizar seus processos, reduzir custos e impulsionar o crescimento do seu negócio.</p>
+                        <h3 class="font-semibold mb-4">O que você recebe na consultoria</h3>
+                        <ul class="check-list mb-10">
+                            <li>Análise de processos e oportunidades de automação</li>
+                            <li>Proposta de solução técnica e estimativa de investimento</li>
+                            <li>Roadmap de desenvolvimento em 90 dias</li>
+                            <li>Estimativa de ROI e economia</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><i data-lucide="phone" class="w-4 h-4 text-ai-color"></i>(34) 99892-8444</a>
+                            <a href="mailto:software@marcelofernandes.dev.br" class="btn btn-ghost"><i data-lucide="mail" class="w-4 h-4 text-dev-color"></i>software@marcelofernandes.dev.br</a>
+                        </div>
+                        <p class="text-sm text-slate-500 mt-4 flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4"></i>Seg–Sex: 8h às 18h</p>
+                    </div>
+
+                    <form data-whatsapp data-assunto="Diagnóstico de Software" class="reveal rounded-3xl p-6 md:p-8 border border-white/[0.08] bg-ink/60" data-delay="1">
+                        <h3 class="text-2xl font-bold mb-2">Solicitar diagnóstico de software</h3>
+                        <p class="text-slate-400 mb-8">Receba em 48h um diagnóstico preliminar sobre as oportunidades de automação e desenvolvimento para sua empresa.</p>
+                        <div class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <label class="block"><span class="block text-sm text-slate-400 mb-1.5">Nome</span><input name="nome" type="text" required placeholder="Seu nome" class="field"></label>
+                                <label class="block"><span class="block text-sm text-slate-400 mb-1.5">Empresa</span><input name="empresa" type="text" placeholder="Nome da empresa" class="field"></label>
+                            </div>
+                            <label class="block"><span class="block text-sm text-slate-400 mb-1.5">Tipo de solução</span>
+                                <select name="interesse" class="field">
+                                    <option value="">Selecione</option><option>Sistema web</option><option>App mobile</option><option>ERP/CRM customizado</option><option>Automação de processos</option><option>Integração de sistemas</option><option>Outro</option>
+                                </select>
+                            </label>
+                            <label class="block"><span class="block text-sm text-slate-400 mb-1.5">Projeto</span><textarea name="mensagem" required rows="4" placeholder="Conte o que você precisa e qual é o seu setor" class="field resize-none"></textarea></label>
+                            <button type="submit" class="btn btn-primary w-full"><i data-lucide="code-2" class="w-5 h-5"></i>Solicitar diagnóstico gratuito</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 mt-8">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 py-14">
+            <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+                <div>
+                    <a href="index.html" class="flex items-center gap-3 mb-4">
+                        <span class="w-9 h-9 rounded-xl flex items-center justify-center font-display font-bold text-ink" style="background: linear-gradient(135deg,#34d399,#38bdf8);">MF</span>
+                        <span class="leading-tight">
+                            <span class="block font-display font-semibold">Marcelo Fernandes</span>
+                            <span class="block text-xs text-slate-500">AI & Cloud Specialist</span>
+                        </span>
+                    </a>
+                    <p class="text-sm text-slate-500 max-w-xs leading-relaxed">IA, cloud e software sob medida para empresas que querem crescer com tecnologia.</p>
+                    <div class="flex gap-2 mt-6">
+                        <!-- TODO: trocar "#" pelos perfis reais -->
+                        <a href="#" aria-label="LinkedIn" class="p-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/25 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" aria-label="GitHub" class="p-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/25 transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                        <a href="mailto:contato@marcelofernandes.dev.br" aria-label="E-mail" class="p-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/25 transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-sm font-semibold mb-4">Especialidades</h2>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="ia.html" class="text-slate-400 hover:text-white transition-colors">Inteligência Artificial</a></li>
+                        <li><a href="cloud.html" class="text-slate-400 hover:text-white transition-colors">Computação em Nuvem</a></li>
+                        <li><a href="software.html" class="text-slate-400 hover:text-white transition-colors">Desenvolvimento de Software</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-sm font-semibold mb-4">Serviços</h2>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="site_institucional.html" class="text-slate-400 hover:text-white transition-colors">Sites & lojas virtuais</a></li>
+                        <li><a href="automacao_relatorios.html" class="text-slate-400 hover:text-white transition-colors">Automação & Power BI</a></li>
+                        <li><a href="manutencao_servidores.html" class="text-slate-400 hover:text-white transition-colors">Servidores Linux</a></li>
+                        <li><a href="seguranca_cibernetica.html" class="text-slate-400 hover:text-white transition-colors">Cibersegurança & LGPD</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-sm font-semibold mb-4">Contato</h2>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">(34) 99892-8444</a></li>
+                        <li><a href="mailto:contato@marcelofernandes.dev.br" class="text-slate-400 hover:text-white transition-colors break-all">contato@marcelofernandes.dev.br</a></li>
+                        <li><a href="https://marcelofernandes.dev.br/blog" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-white/5 text-sm text-slate-600">
+                © <span id="year">2026</span> Marcelo Fernandes. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/site.js"></script>
+</body>
+</html>

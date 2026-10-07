@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YEVQZCLHG4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YEVQZCLHG4');
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050a17">
+
+    <!-- SEO Essencial -->
+    <title>Marcelo Fernandes | Especialista em IA, Cloud e Desenvolvimento de Software</title>
+    <meta name="description" content="Especialista em Inteligência Artificial, Computação em Nuvem e Desenvolvimento de Software. Transforme seu negócio com soluções de IA, AWS, Azure e sistemas web escaláveis. Consultoria gratuita." />
+    <link rel="canonical" href="https://marcelofernandes.dev.br">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <!-- Open Graph (LinkedIn, WhatsApp, Facebook) -->
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Marcelo Fernandes">
+    <meta property="og:title" content="Marcelo Fernandes | Especialista em IA, Cloud e Software">
+    <meta property="og:description" content="Especialista em IA, Cloud Computing e Desenvolvimento de Software. Soluções inteligentes para transformar seu negócio. Consultoria gratuita.">
+    <meta property="og:url" content="https://marcelofernandes.dev.br">
+    <meta property="og:image" content="https://marcelofernandes.dev.br/img/banner-minastech.jpg">
+    <meta property="og:image:alt" content="Marcelo Fernandes - Especialista em IA, Cloud e Desenvolvimento de Software">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@marcelodev">
+    <meta name="twitter:creator" content="@marcelodev">
+    <meta name="twitter:title" content="Marcelo Fernandes | IA, Cloud e Software">
+    <meta name="twitter:description" content="Transformação digital com IA, Cloud e Software. Consultoria gratuita.">
+    <meta name="twitter:image" content="https://marcelofernandes.dev.br/img/banner-minastech.jpg">
+    <meta name="twitter:image:alt" content="Marcelo Fernandes - Transformação Digital com IA e Cloud">
+
+    <!-- Schema.org — Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Marcelo Fernandes — AI & Cloud Solutions",
+      "description": "Especialista em Inteligência Artificial, Computação em Nuvem e Desenvolvimento de Software.",
+      "url": "https://marcelofernandes.dev.br",
+      "telephone": "+55-34-99892-8444",
+      "email": "contato@marcelofernandes.dev.br",
+      "address": { "@type": "PostalAddress", "addressCountry": "BR" },
+      "founder": {
+        "@type": "Person",
+        "name": "Marcelo Fernandes",
+        "jobTitle": "Especialista em IA, Cloud e Desenvolvimento de Software",
+        "url": "https://marcelofernandes.dev.br"
+      }
+    }
+    </script>
+
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tw-config.js"></script>
+    <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+    <div class="bg-aurora"></div>
+    <div class="bg-grid"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header -->
+    <header id="siteHeader" class="sticky top-0 z-50 header-blur">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 h-[72px] flex items-center justify-between gap-4">
+            <a href="#" class="flex items-center gap-3 shrink-0">
+                <span class="w-9 h-9 rounded-xl flex items-center justify-center font-display font-bold text-ink" style="background: linear-gradient(135deg,#34d399,#38bdf8);">MF</span>
+                <span class="leading-tight">
+                    <span class="block font-display font-semibold">Marcelo Fernandes</span>
+                    <span class="block text-xs text-slate-500">AI & Cloud Solutions</span>
+                </span>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8 text-[15px]" aria-label="Principal">
+                <a href="#servicos" class="nav-link">Serviços</a>
+                <div class="dropdown relative">
+                    <button class="nav-link flex items-center gap-1" aria-haspopup="true">
+                        Especialidades <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="ia.html" class="dropdown-item">
+                            <i data-lucide="brain" class="w-5 h-5 text-ai-color mt-0.5"></i>
+                            <span><span class="block text-white font-medium">Inteligência Artificial</span><span class="block text-xs text-slate-400">ML, NLP, visão e IA generativa</span></span>
+                        </a>
+                        <a href="cloud.html" class="dropdown-item">
+                            <i data-lucide="cloud" class="w-5 h-5 text-cloud-color mt-0.5"></i>
+                            <span><span class="block text-white font-medium">Computação em Nuvem</span><span class="block text-xs text-slate-400">AWS, Azure, Kubernetes</span></span>
+                        </a>
+                        <a href="software.html" class="dropdown-item">
+                            <i data-lucide="code-2" class="w-5 h-5 text-dev-color mt-0.5"></i>
+                            <span><span class="block text-white font-medium">Desenvolvimento de Software</span><span class="block text-xs text-slate-400">Web, mobile, APIs e automação</span></span>
+                        </a>
+                        <div class="my-1.5 mx-3 h-px bg-white/[0.07]"></div>
+                        <a href="site_institucional.html" class="dropdown-item !py-2"><i data-lucide="layout-template" class="w-4 h-4 text-dev-color mt-0.5"></i><span class="text-sm text-slate-200">Sites & lojas virtuais</span></a>
+                        <a href="automacao_relatorios.html" class="dropdown-item !py-2"><i data-lucide="bar-chart-3" class="w-4 h-4 text-ai-color mt-0.5"></i><span class="text-sm text-slate-200">Automação & Power BI</span></a>
+                        <a href="manutencao_servidores.html" class="dropdown-item !py-2"><i data-lucide="server" class="w-4 h-4 text-cloud-color mt-0.5"></i><span class="text-sm text-slate-200">Servidores Linux</span></a>
+                        <a href="seguranca_cibernetica.html" class="dropdown-item !py-2"><i data-lucide="shield-check" class="w-4 h-4 text-violet-400 mt-0.5"></i><span class="text-sm text-slate-200">Cibersegurança & LGPD</span></a>
+                    </div>
+                </div>
+                <a href="#projetos" class="nav-link">Projetos</a>
+                <a href="#sobre" class="nav-link">Sobre</a>
+                <a href="https://marcelofernandes.dev.br/blog" target="_blank" rel="noopener noreferrer" class="nav-link">Blog</a>
+                <a href="#contato" class="nav-link">Contato</a>
+            </nav>
+
+            <div class="flex items-center gap-2">
+                <a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="btn btn-primary !py-2.5 !px-4 text-sm">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span class="hidden sm:inline">Conversar agora</span>
+                    <span class="sm:hidden">WhatsApp</span>
+                </a>
+                <button id="menuBtn" class="lg:hidden p-2.5 rounded-xl border border-white/10 text-slate-300" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu mobile -->
+        <nav id="mobileMenu" class="lg:hidden hidden border-t border-white/5 px-5 pb-6 pt-2 max-h-[80vh] overflow-y-auto" aria-label="Menu mobile">
+            <a href="#servicos" class="block py-3 text-slate-300 border-b border-white/5">Serviços</a>
+            <a href="ia.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="brain" class="w-4 h-4 text-ai-color"></i>Inteligência Artificial</a>
+            <a href="cloud.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="cloud" class="w-4 h-4 text-cloud-color"></i>Computação em Nuvem</a>
+            <a href="software.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="code-2" class="w-4 h-4 text-dev-color"></i>Desenvolvimento de Software</a>
+            <a href="site_institucional.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="layout-template" class="w-4 h-4 text-dev-color"></i>Sites & lojas virtuais</a>
+            <a href="automacao_relatorios.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="bar-chart-3" class="w-4 h-4 text-ai-color"></i>Automação & Power BI</a>
+            <a href="manutencao_servidores.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="server" class="w-4 h-4 text-cloud-color"></i>Servidores Linux</a>
+            <a href="seguranca_cibernetica.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><i data-lucide="shield-check" class="w-4 h-4 text-violet-400"></i>Cibersegurança & LGPD</a>
+            <a href="#projetos" class="block py-3 text-slate-300 border-b border-white/5">Projetos</a>
+            <a href="#sobre" class="block py-3 text-slate-300 border-b border-white/5">Sobre</a>
+            <a href="https://marcelofernandes.dev.br/blog" target="_blank" rel="noopener noreferrer" class="block py-3 text-slate-300 border-b border-white/5">Blog</a>
+            <a href="#contato" class="block py-3 text-slate-300">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="relative px-5 sm:px-6 pt-16 md:pt-24 pb-20 max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-[1.25fr_1fr] gap-14 lg:gap-10 items-center">
+                <div>
+                    <div class="reveal inline-flex items-center gap-2.5 panel rounded-full pl-3 pr-4 py-1.5 mb-7">
+                        <span class="status-dot"></span>
+                        <span class="text-sm text-slate-300">Disponível para novos projetos</span>
+                    </div>
+
+                    <h1 class="reveal text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-7xl font-bold mb-6" data-delay="1">
+                        Transformação digital com
+                        <span class="grad-ai">IA</span>, <span class="grad-cloud">Cloud</span> &amp; <span class="grad-dev">Dev</span>
+                    </h1>
+
+                    <p class="reveal text-lg md:text-xl text-slate-400 max-w-2xl mb-10 leading-relaxed" data-delay="2">
+                        Desenvolvimento de software inteligente, arquiteturas em nuvem escaláveis e soluções de IA
+                        que impulsionam a inovação e a eficiência do seu negócio.
+                    </p>
+
+                    <div class="reveal flex flex-col sm:flex-row gap-3" data-delay="3">
+                        <a href="#contato" class="btn btn-primary">
+                            <i data-lucide="calendar-check" class="w-5 h-5"></i>
+                            Consultoria gratuita
+                        </a>
+                        <a href="#projetos" class="btn btn-ghost">
+                            Ver projetos
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+
+                    <div class="reveal grid grid-cols-3 gap-6 mt-14 max-w-lg" data-delay="3">
+                        <div>
+                            <p class="text-xs uppercase tracking-wider text-slate-500 mb-1">Experiência</p>
+                            <p class="font-display text-3xl font-bold">7+ <span class="text-base font-medium text-slate-400">anos</span></p>
+                        </div>
+                        <div>
+                            <p class="text-xs uppercase tracking-wider text-slate-500 mb-1">Custo cloud</p>
+                            <p class="font-display text-3xl font-bold text-cloud-color">-60%</p>
+                        </div>
+                        <div>
+                            <p class="text-xs uppercase tracking-wider text-slate-500 mb-1">Acurácia ML</p>
+                            <p class="font-display text-3xl font-bold text-ai-color">92%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto + cartão de código -->
+                <div class="reveal relative mx-auto w-full max-w-[420px] mb-24 sm:mb-12 lg:mb-0" data-delay="2">
+                    <div class="absolute -inset-10 rounded-full blur-3xl opacity-40" style="background: radial-gradient(circle, rgba(56,189,248,.35), transparent 65%);"></div>
+                    <div class="portrait-ring relative">
+                        <img src="img/marcelofernandes.jpg" alt="Foto de Marcelo Fernandes" width="612" height="725" class="portrait w-full aspect-square object-cover object-[50%_10%]" fetchpriority="high">
+                    </div>
+
+                    <div class="panel rounded-2xl absolute -bottom-24 left-0 sm:-bottom-16 sm:-left-14 w-[250px] overflow-hidden shadow-2xl">
+                        <div class="terminal-bar">
+                            <span class="dot bg-red-400/80"></span><span class="dot bg-yellow-400/80"></span><span class="dot bg-green-400/80"></span>
+                            <span class="ml-2 text-xs text-slate-500 font-mono">stack.ts</span>
+                        </div>
+                        <pre class="font-mono text-[12.5px] leading-6 p-4 text-slate-300 overflow-hidden"><span class="text-pink-400">const</span> marcelo = {
+  ia:    [<span class="text-ai-color">'ML'</span>, <span class="text-ai-color">'LLMs'</span>],
+  cloud: [<span class="text-cloud-color">'AWS'</span>, <span class="text-cloud-color">'Azure'</span>],
+  dev:   [<span class="text-dev-color">'React'</span>, <span class="text-dev-color">'Node'</span>],
+};</pre>
+                    </div>
+
+                    <div class="panel rounded-xl absolute -top-4 -right-2 sm:-right-6 px-4 py-3 flex items-center gap-3 shadow-2xl">
+                        <i data-lucide="badge-check" class="w-5 h-5 text-ai-color"></i>
+                        <span class="text-sm"><span class="block font-semibold">Certificado AWS</span><span class="block text-xs text-slate-400">Azure Expert</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Faixa de tecnologias -->
+        <section class="border-y border-white/5 bg-white/[0.015] py-6" aria-label="Tecnologias">
+            <div class="marquee overflow-hidden">
+                <div class="marquee-track" id="marqueeTrack">
+                    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/python.svg" alt="" loading="lazy">Python</span>
+                    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/tensorflow.svg" alt="" loading="lazy">TensorFlow</span>
+                    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/pytorch.svg" alt="" loading="lazy">PyTorch</span>
+                    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/kubernetes.svg" alt="" loading="lazy">Kubernetes</span>
+                    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/docker.svg" alt="" loading="lazy">Docker</span>
+                    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/terraform.svg" alt="" loading="lazy">Terraform</span>
+                    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/react.svg" alt="" loading="lazy">React</span>
+                    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/nextdotjs.svg" alt="" loading="lazy">Next.js</span>
+                    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/nodedotjs.svg" alt="" loading="lazy">Node.js</span>
+                    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/typescript.svg" alt="" loading="lazy">TypeScript</span>
+                    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/linux.svg" alt="" loading="lazy">Linux</span>
+                    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/nginx.svg" alt="" loading="lazy">Nginx</span>
+                    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/postgresql.svg" alt="" loading="lazy">PostgreSQL</span>
+                    <span class="marquee-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/githubactions.svg" alt="" loading="lazy">GitHub Actions</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Serviços (bento) -->
+        <section id="servicos" class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-14">
+                <span class="eyebrow mb-4">Serviços</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Do modelo de IA ao <span class="grad-brand">servidor em produção</span></h2>
+                <p class="text-slate-400 text-lg">Soluções integradas de IA, Cloud Computing e Desenvolvimento de Software — com uma única pessoa responsável do início ao fim.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-6 gap-5">
+                <!-- IA (destaque) -->
+                <article class="reveal card ai panel rounded-3xl p-8 lg:col-span-4 grid md:grid-cols-2 gap-8 items-center">
+                    <div class="flex flex-col h-full">
+                        <div class="icon-tile mb-6"><i data-lucide="brain" class="w-6 h-6"></i></div>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-3">Inteligência Artificial</h3>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+                            Modelos preditivos, processamento de linguagem natural, visão computacional,
+                            IA generativa e sistemas de recomendação feitos para o seu negócio.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="tag tag-ai">Machine Learning</span>
+                            <span class="tag tag-ai">LLMs</span>
+                            <span class="tag tag-ai">NLP</span>
+                            <span class="tag tag-ai">Visão computacional</span>
+                        </div>
+                        <a href="ia.html" class="mt-auto inline-flex items-center gap-2 font-semibold text-ai-color group">
+                            Explorar casos de IA <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                    <div class="rounded-2xl bg-ink/70 border border-white/[0.07] p-5 space-y-3" aria-hidden="true">
+                        <div class="flex items-center gap-2 text-xs text-slate-500 font-mono mb-1"><span class="w-1.5 h-1.5 rounded-full bg-ai-color"></span>assistente.ai</div>
+                        <div class="bubble bubble-user">Qual a previsão de vendas para dezembro?</div>
+                        <div class="bubble bubble-ai">
+                            Alta de <strong class="text-ai-color">18%</strong> vs. novembro. Sugiro reforçar o estoque das 12 linhas mais vendidas.
+                            <div class="mini-bars"><span style="height:38%"></span><span style="height:52%"></span><span style="height:44%"></span><span style="height:60%"></span><span style="height:58%"></span><span style="height:72%"></span><span style="height:100%"></span></div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Cloud -->
+                <article class="reveal card cloud panel rounded-3xl p-8 lg:col-span-2 flex flex-col" data-delay="1">
+                    <div class="icon-tile mb-6"><i data-lucide="cloud" class="w-6 h-6"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Computação em Nuvem</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        Arquitetura escalável, migração, serverless e otimização de custos em AWS, Azure e Google Cloud.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="tag tag-cloud">AWS</span>
+                        <span class="tag tag-cloud">Azure</span>
+                        <span class="tag tag-cloud">Kubernetes</span>
+                        <span class="tag tag-cloud">Serverless</span>
+                    </div>
+                    <a href="cloud.html" class="mt-auto inline-flex items-center gap-2 font-semibold text-cloud-color group">
+                        Soluções Cloud <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </article>
+
+                <!-- Dev -->
+                <article class="reveal card dev panel rounded-3xl p-8 lg:col-span-2 flex flex-col">
+                    <div class="icon-tile mb-6"><i data-lucide="code-2" class="w-6 h-6"></i></div>
+                    <h3 class="text-2xl font-bold mb-3">Desenvolvimento de Software</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        Sistemas web e mobile, APIs robustas e microsserviços com foco em performance e segurança.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="tag tag-dev">React/Next.js</span>
+                        <span class="tag tag-dev">Node.js</span>
+                        <span class="tag tag-dev">TypeScript</span>
+                        <span class="tag tag-dev">Python</span>
+                    </div>
+                    <a href="software.html" class="mt-auto inline-flex items-center gap-2 font-semibold text-dev-color group">
+                        Explorar casos de Software <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </article>
+
+                <!-- Serviços sob medida -->
+                <article class="reveal card panel rounded-3xl p-8 lg:col-span-4 flex flex-col" data-delay="1">
+                    <div class="flex items-start justify-between gap-4 mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Serviços para pequenas empresas</h3>
+                            <p class="text-slate-400">Soluções sob medida para o dia a dia do seu negócio.</p>
+                        </div>
+                        <i data-lucide="briefcase" class="w-6 h-6 text-slate-500 shrink-0"></i>
+                    </div>
+                    <div class="grid sm:grid-cols-2 auto-rows-fr gap-3 flex-1">
+                        <a href="site_institucional.html" class="svc-link">
+                            <i data-lucide="layout-template" class="w-5 h-5 text-dev-color shrink-0"></i>
+                            <span><span class="block font-medium">Sites & lojas virtuais</span><span class="block text-xs text-slate-500">Rápidos e otimizados para SEO</span></span>
+                            <i data-lucide="arrow-up-right" class="svc-arrow w-4 h-4 shrink-0"></i>
+                        </a>
+                        <a href="automacao_relatorios.html" class="svc-link">
+                            <i data-lucide="bar-chart-3" class="w-5 h-5 text-ai-color shrink-0"></i>
+                            <span><span class="block font-medium">Automação & Power BI</span><span class="block text-xs text-slate-500">Relatórios que se fazem sozinhos</span></span>
+                            <i data-lucide="arrow-up-right" class="svc-arrow w-4 h-4 shrink-0"></i>
+                        </a>
+                        <a href="manutencao_servidores.html" class="svc-link">
+                            <i data-lucide="server" class="w-5 h-5 text-cloud-color shrink-0"></i>
+                            <span><span class="block font-medium">Servidores Linux</span><span class="block text-xs text-slate-500">Nginx, Docker, backups e monitoramento</span></span>
+                            <i data-lucide="arrow-up-right" class="svc-arrow w-4 h-4 shrink-0"></i>
+                        </a>
+                        <a href="seguranca_cibernetica.html" class="svc-link">
+                            <i data-lucide="shield-check" class="w-5 h-5 text-violet-400 shrink-0"></i>
+                            <span><span class="block font-medium">Cibersegurança & LGPD</span><span class="block text-xs text-slate-500">Proteção de dados e resposta a incidentes</span></span>
+                            <i data-lucide="arrow-up-right" class="svc-arrow w-4 h-4 shrink-0"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Projetos (estudos de caso) -->
+        <section id="projetos" class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+                <div class="max-w-2xl">
+                    <span class="eyebrow mb-4">Portfólio</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">Projetos em <span class="grad-brand">destaque</span></h2>
+                    <p class="text-slate-400 text-lg">Soluções reais combinando IA, Cloud e desenvolvimento de software.</p>
+                </div>
+                <a href="#contato" class="btn btn-ghost self-start md:self-auto">
+                    Solicitar projeto personalizado <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Case 1: previsão de demanda -->
+                <article class="reveal card ai panel rounded-[2rem] p-6 md:p-10 grid lg:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <div class="flex items-center gap-3 mb-5">
+                            <span class="font-mono text-sm text-slate-500">01</span>
+                            <span class="tag tag-ai">Inteligência Artificial</span>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-4">Previsão de demanda com machine learning</h3>
+                        <p class="text-slate-400 mb-8 leading-relaxed">
+                            Modelo de machine learning para previsão de vendas em tempo real,
+                            treinado e servido em AWS SageMaker.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6 mb-8 max-w-sm">
+                            <div><p class="font-display text-4xl font-bold text-ai-color">-40%</p><p class="text-sm text-slate-400 mt-1">estoque parado</p></div>
+                            <div><p class="font-display text-4xl font-bold text-ai-color">92%</p><p class="text-sm text-slate-400 mt-1">acurácia da previsão</p></div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="tag tag-ai">Python</span>
+                            <span class="tag tag-ai">TensorFlow</span>
+                            <span class="tag tag-cloud">SageMaker</span>
+                            <span class="tag tag-cloud">Lambda</span>
+                            <span class="tag tag-cloud">S3</span>
+                        </div>
+                        <a href="ia.html#projetos" class="inline-flex items-center gap-2 font-semibold text-ai-color group">
+                            Ver mais projetos de IA <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+
+                    <figure class="rounded-2xl bg-ink/70 border border-white/[0.07] p-5 md:p-6" aria-label="Gráfico: vendas reais e previsão do modelo">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-sm font-medium">Vendas mensais</span>
+                            <span class="flex items-center gap-4 text-xs text-slate-400">
+                                <span class="flex items-center gap-1.5"><span class="w-3 h-0.5 bg-ai-color rounded"></span>Real</span>
+                                <span class="flex items-center gap-1.5"><span class="w-3 h-0.5 rounded" style="background: repeating-linear-gradient(90deg,#38bdf8 0 3px,transparent 3px 5px)"></span>Previsão</span>
+                            </span>
+                        </div>
+                        <svg viewBox="0 0 400 200" class="w-full h-auto" role="img">
+                            <g stroke="rgba(148,170,220,0.1)" stroke-width="1">
+                                <line x1="20" y1="40" x2="390" y2="40"/><line x1="20" y1="85" x2="390" y2="85"/>
+                                <line x1="20" y1="130" x2="390" y2="130"/><line x1="20" y1="175" x2="390" y2="175"/>
+                            </g>
+                            <defs>
+                                <linearGradient id="areaAi" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0" stop-color="#34d399" stop-opacity=".25"/><stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+                                </linearGradient>
+                            </defs>
+                            <path class="chart-forecast" d="M20,150 L70,136 L120,142 L170,118 L220,124 L270,100 L300,92 L300,175 L20,175 Z" fill="url(#areaAi)"/>
+                            <path class="chart-forecast" d="M300,88 L345,64 L390,40 L390,80 L345,92 L300,96 Z" fill="rgba(56,189,248,0.12)"/>
+                            <path class="chart-line" d="M20,150 L70,136 L120,142 L170,118 L220,124 L270,100 L300,92" fill="none" stroke="#34d399" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+                            <path class="chart-forecast" d="M300,92 L345,78 L390,60" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="6 5" stroke-linecap="round"/>
+                            <line x1="300" y1="30" x2="300" y2="175" stroke="rgba(148,170,220,0.25)" stroke-dasharray="2 4"/>
+                            <circle class="chart-forecast" cx="300" cy="92" r="4.5" fill="#34d399" stroke="#050a17" stroke-width="2"/>
+                            <g font-family="Fira Code, monospace" font-size="10" fill="#5f6b85">
+                                <text x="20" y="194">jan</text><text x="120" y="194">mar</text><text x="220" y="194">mai</text><text x="292" y="194">hoje</text><text x="372" y="194">dez</text>
+                            </g>
+                        </svg>
+                    </figure>
+                </article>
+
+                <!-- Case 2: migração cloud -->
+                <article class="reveal card cloud panel rounded-[2rem] p-6 md:p-10 grid lg:grid-cols-2 gap-10 items-center">
+                    <figure class="order-last lg:order-first rounded-2xl bg-ink/70 border border-white/[0.07] p-5 md:p-6" aria-label="Diagrama: migração de servidores on-premise para AWS EKS">
+                        <div class="grid grid-cols-[1fr_auto_1fr_auto_1.3fr] items-center gap-2 sm:gap-3 mb-8 text-center">
+                            <div class="node p-3">
+                                <div class="space-y-1.5 mb-2">
+                                    <div class="h-2.5 rounded bg-slate-600/40"></div><div class="h-2.5 rounded bg-slate-600/40"></div><div class="h-2.5 rounded bg-slate-600/40"></div>
+                                </div>
+                                <div class="text-[11px] text-slate-400">On-premise</div>
+                            </div>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-600"></i>
+                            <div class="node p-3">
+                                <i data-lucide="file-code-2" class="w-5 h-5 text-violet-400 mx-auto mb-1.5"></i>
+                                <div class="text-[11px] text-slate-400">Terraform</div>
+                            </div>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-600"></i>
+                            <div class="node p-3 border-cloud-color/40">
+                                <div class="grid grid-cols-4 gap-1 mb-2">
+                                    <span class="pod"></span><span class="pod"></span><span class="pod"></span><span class="pod"></span>
+                                    <span class="pod"></span><span class="pod"></span><span class="pod"></span><span class="pod opacity-40"></span>
+                                </div>
+                                <div class="text-[11px] text-cloud-color">AWS EKS</div>
+                            </div>
+                        </div>
+
+                        <div class="text-sm font-medium mb-4">Custo mensal de infraestrutura</div>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-xs text-slate-400 mb-1.5"><span>Antes</span><span class="font-mono">100%</span></div>
+                                <div class="cost-bar bg-slate-500/50" style="width:100%"></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs text-slate-400 mb-1.5"><span>Depois</span><span class="font-mono text-cloud-color">40%</span></div>
+                                <div class="cost-bar" style="width:40%; background: linear-gradient(90deg,#0ea5e9,#38bdf8); transition-delay:.3s"></div>
+                            </div>
+                        </div>
+                    </figure>
+
+                    <div>
+                        <div class="flex items-center gap-3 mb-5">
+                            <span class="font-mono text-sm text-slate-500">02</span>
+                            <span class="tag tag-cloud">Cloud Architecture</span>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-4">Migração para cloud nativa</h3>
+                        <p class="text-slate-400 mb-8 leading-relaxed">
+                            Migração completa de infraestrutura on-premise para Kubernetes na AWS,
+                            com toda a infraestrutura descrita em código e deploy automatizado.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6 mb-8 max-w-sm">
+                            <div><p class="font-display text-4xl font-bold text-cloud-color">-60%</p><p class="text-sm text-slate-400 mt-1">custo de infraestrutura</p></div>
+                            <div><p class="font-display text-4xl font-bold text-cloud-color">3×</p><p class="text-sm text-slate-400 mt-1">mais performance</p></div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-8">
+                            <span class="tag tag-cloud">AWS EKS</span>
+                            <span class="tag tag-cloud">Terraform</span>
+                            <span class="tag tag-dev">Docker</span>
+                            <span class="tag tag-cloud">CI/CD</span>
+                        </div>
+                        <a href="cloud.html#projetos" class="inline-flex items-center gap-2 font-semibold text-cloud-color group">
+                            Ver mais projetos Cloud <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Processo -->
+        <section class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal max-w-2xl mb-16">
+                <span class="eyebrow mb-4">Como trabalho</span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Metodologia <span class="grad-brand">ágil</span></h2>
+                <p class="text-slate-400 text-lg">Do conceito à implantação, com foco em resultados mensuráveis.</p>
+            </div>
+
+            <div class="relative">
+                <div class="hidden lg:block absolute top-[22px] left-[22px] right-[22px] h-px" style="background: linear-gradient(90deg,#10b981,#0ea5e9,#f59e0b,#8b5cf6); opacity:.5"></div>
+            <ol class="relative grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+                <li class="reveal">
+                    <div class="step-dot text-ai-color mb-6">01</div>
+                    <h3 class="text-xl font-bold mb-2">Análise & planejamento</h3>
+                    <p class="text-slate-400 leading-relaxed">Entendimento do negócio e definição da arquitetura tecnológica.</p>
+                </li>
+                <li class="reveal" data-delay="1">
+                    <div class="step-dot text-cloud-color mb-6">02</div>
+                    <h3 class="text-xl font-bold mb-2">Prototipagem rápida</h3>
+                    <p class="text-slate-400 leading-relaxed">Desenvolvimento de MVP com feedback contínuo.</p>
+                </li>
+                <li class="reveal" data-delay="2">
+                    <div class="step-dot text-dev-color mb-6">03</div>
+                    <h3 class="text-xl font-bold mb-2">Desenvolvimento & IA</h3>
+                    <p class="text-slate-400 leading-relaxed">Implementação com integração de modelos de IA.</p>
+                </li>
+                <li class="reveal" data-delay="3">
+                    <div class="step-dot text-violet-400 mb-6">04</div>
+                    <h3 class="text-xl font-bold mb-2">Deploy & otimização</h3>
+                    <p class="text-slate-400 leading-relaxed">Implantação em cloud e monitoramento contínuo.</p>
+                </li>
+            </ol>
+            </div>
+        </section>
+
+        <!-- Sobre -->
+        <section id="sobre" class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal panel rounded-[2rem] p-8 md:p-14">
+                <div class="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-center">
+                    <div>
+                        <span class="eyebrow mb-4">Sobre</span>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6">Sobre o <span class="grad-brand">especialista</span></h2>
+                        <p class="text-slate-400 text-lg mb-5 leading-relaxed">
+                            Com mais de 7 anos de experiência em tecnologia, especializei-me na interseção entre
+                            Inteligência Artificial, Computação em Nuvem e Desenvolvimento de Software.
+                        </p>
+                        <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                            Minha missão é ajudar empresas a aproveitarem o poder da IA e da cloud para criar
+                            soluções inovadoras que geram resultados tangíveis.
+                        </p>
+
+                        <ul class="grid grid-cols-2 gap-3 mb-10">
+                            <li class="flex items-center gap-2.5 text-slate-300"><i data-lucide="badge-check" class="w-5 h-5 text-ai-color"></i>Certificado AWS</li>
+                            <li class="flex items-center gap-2.5 text-slate-300"><i data-lucide="badge-check" class="w-5 h-5 text-cloud-color"></i>Azure Expert</li>
+                            <li class="flex items-center gap-2.5 text-slate-300"><i data-lucide="badge-check" class="w-5 h-5 text-dev-color"></i>Full Stack</li>
+                            <li class="flex items-center gap-2.5 text-slate-300"><i data-lucide="badge-check" class="w-5 h-5 text-violet-400"></i>Machine Learning</li>
+                        </ul>
+
+                        <a href="docs/cv-marcelo-fernandes.pdf" target="_blank" rel="noopener" class="btn btn-ghost">
+                            <i data-lucide="file-down" class="w-4 h-4"></i> Baixar currículo
+                        </a>
+                    </div>
+
+                    <div class="rounded-3xl bg-ink/70 border border-white/[0.08] divide-y divide-white/[0.06]">
+                        <div class="p-6 flex items-center justify-between">
+                            <h3 class="font-bold text-lg">Stack por área</h3>
+                            <i data-lucide="layers" class="w-5 h-5 text-slate-500"></i>
+                        </div>
+                        <div class="p-6 grid sm:grid-cols-[130px_1fr] gap-3 items-start">
+                            <span class="flex items-center gap-2 text-sm font-medium text-ai-color"><i data-lucide="brain" class="w-4 h-4"></i>IA & ML</span>
+                            <div class="flex flex-wrap gap-2"><span class="tag tag-ai">Python</span><span class="tag tag-ai">TensorFlow</span><span class="tag tag-ai">PyTorch</span><span class="tag tag-ai">LLMs</span><span class="tag tag-ai">Scikit-learn</span></div>
+                        </div>
+                        <div class="p-6 grid sm:grid-cols-[130px_1fr] gap-3 items-start">
+                            <span class="flex items-center gap-2 text-sm font-medium text-cloud-color"><i data-lucide="cloud" class="w-4 h-4"></i>Cloud</span>
+                            <div class="flex flex-wrap gap-2"><span class="tag tag-cloud">AWS</span><span class="tag tag-cloud">Azure</span><span class="tag tag-cloud">Kubernetes</span><span class="tag tag-cloud">Terraform</span></div>
+                        </div>
+                        <div class="p-6 grid sm:grid-cols-[130px_1fr] gap-3 items-start">
+                            <span class="flex items-center gap-2 text-sm font-medium text-dev-color"><i data-lucide="code-2" class="w-4 h-4"></i>Software</span>
+                            <div class="flex flex-wrap gap-2"><span class="tag tag-dev">React</span><span class="tag tag-dev">Next.js</span><span class="tag tag-dev">Node.js</span><span class="tag tag-dev">TypeScript</span></div>
+                        </div>
+                        <div class="p-6 grid sm:grid-cols-[130px_1fr] gap-3 items-start">
+                            <span class="flex items-center gap-2 text-sm font-medium text-violet-400"><i data-lucide="infinity" class="w-4 h-4"></i>DevOps</span>
+                            <div class="flex flex-wrap gap-2"><span class="tag" style="--accent:167,139,250">Docker</span><span class="tag" style="--accent:167,139,250">CI/CD</span><span class="tag" style="--accent:167,139,250">Linux</span><span class="tag" style="--accent:167,139,250">Nginx</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog -->
+        <section class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+                <div class="max-w-2xl">
+                    <span class="eyebrow mb-4">Blog</span>
+                    <h2 class="text-4xl md:text-5xl font-bold">Artigos <span class="grad-brand">recentes</span></h2>
+                </div>
+                <a href="blog/" class="inline-flex items-center gap-2 font-semibold text-slate-300 hover:text-white group">
+                    Ver todos os artigos <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-5">
+                <a href="blog/posts/react-shell.html" class="reveal card post-card panel rounded-3xl p-7" style="--accent:244,63,94">
+                    <span class="tag mb-6 self-start" style="--accent:251,113,133">Vulnerabilidade crítica</span>
+                    <h3 class="text-xl font-bold mb-3 text-slate-100">React2Shell: falha crítica no React entra no catálogo KEV da CISA</h3>
+                    <p class="text-slate-400 mb-8 leading-relaxed">CVE-2025-55182 com CVSS 10.0 permite execução remota de código em React Server Components. Veja quem é afetado e como corrigir.</p>
+                    <span class="mt-auto text-sm text-slate-500 font-mono">06/12/2025 · 4 min</span>
+                </a>
+                <a href="blog/posts/ataque-em-redes-corporativas.html" class="reveal card post-card panel rounded-3xl p-7" data-delay="1" style="--accent:167,139,250">
+                    <span class="tag mb-6 self-start" style="--accent:167,139,250">Análise técnica</span>
+                    <h3 class="text-xl font-bold mb-3 text-slate-100">Anatomia de ataques em redes corporativas: CVEs, TTPs e análise técnica</h3>
+                    <p class="text-slate-400 mb-8 leading-relaxed">14 CVEs críticos, TTPs de 7 grupos APT ativos e técnicas de evasão avançada mapeadas a partir de incidentes reais.</p>
+                    <span class="mt-auto text-sm text-slate-500 font-mono">25/03/2024 · 12 min</span>
+                </a>
+                <a href="blog/posts/guia-aprendizado-ia.html" class="reveal card ai post-card panel rounded-3xl p-7" data-delay="2">
+                    <span class="tag tag-ai mb-6 self-start">IA & ML</span>
+                    <h3 class="text-xl font-bold mb-3 text-slate-100">Guia completo de aprendizado em Inteligência Artificial</h3>
+                    <p class="text-slate-400 mb-8 leading-relaxed">Um roadmap estruturado dos fundamentos de matemática e Python até deep learning, NLP e visão computacional.</p>
+                    <span class="mt-auto text-sm text-slate-500 font-mono">10/03/2024 · 5 min</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contato -->
+        <section id="contato" class="py-16 md:py-20 px-5 sm:px-6 max-w-7xl mx-auto">
+            <div class="relative panel rounded-[2rem] p-8 md:p-14 overflow-hidden">
+                <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-3xl opacity-30 pointer-events-none" style="background: radial-gradient(circle, rgba(52,211,153,.5), rgba(56,189,248,.3) 40%, transparent 70%);"></div>
+                <div class="relative grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                    <div class="reveal">
+                        <span class="eyebrow mb-4">Contato</span>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6">Pronto para a <span class="grad-brand">transformação digital</span>?</h2>
+                        <p class="text-slate-400 text-lg mb-10 leading-relaxed">
+                            Vamos conversar sobre como Inteligência Artificial, Cloud Computing e
+                            desenvolvimento de software podem revolucionar seu negócio. A primeira conversa é gratuita.
+                        </p>
+
+                        <div class="space-y-3">
+                            <a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="card ai rounded-2xl p-4 flex items-center gap-4 border border-white/[0.08] bg-ink/50">
+                                <span class="icon-tile !w-12 !h-12"><i data-lucide="phone" class="w-5 h-5"></i></span>
+                                <span><span class="block text-sm text-slate-500">Telefone / WhatsApp</span><span class="block text-lg font-semibold">(34) 99892-8444</span></span>
+                            </a>
+                            <a href="mailto:contato@marcelofernandes.dev.br" class="card cloud rounded-2xl p-4 flex items-center gap-4 border border-white/[0.08] bg-ink/50">
+                                <span class="icon-tile !w-12 !h-12"><i data-lucide="mail" class="w-5 h-5"></i></span>
+                                <span class="min-w-0"><span class="block text-sm text-slate-500">E-mail</span><span class="block text-lg font-semibold break-all">contato@marcelofernandes.dev.br</span></span>
+                            </a>
+                            <div class="card dev rounded-2xl p-4 flex items-center gap-4 border border-white/[0.08] bg-ink/50">
+                                <span class="icon-tile !w-12 !h-12"><i data-lucide="clock" class="w-5 h-5"></i></span>
+                                <span><span class="block text-sm text-slate-500">Horário de atendimento</span><span class="block text-lg font-semibold">Seg–Sex: 8h às 18h</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="contactForm" data-whatsapp class="reveal rounded-3xl p-6 md:p-8 border border-white/[0.08] bg-ink/60" data-delay="1">
+                        <h3 class="text-2xl font-bold mb-2">Agende uma consultoria</h3>
+                        <p class="text-slate-400 mb-8">Descreva seu projeto. A mensagem abre direto no WhatsApp.</p>
+
+                        <div class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <label class="block">
+                                    <span class="block text-sm text-slate-400 mb-1.5">Nome</span>
+                                    <input name="nome" type="text" required placeholder="Seu nome" class="field">
+                                </label>
+                                <label class="block">
+                                    <span class="block text-sm text-slate-400 mb-1.5">E-mail</span>
+                                    <input name="email" type="email" placeholder="voce@empresa.com" class="field">
+                                </label>
+                            </div>
+                            <fieldset>
+                                <legend class="block text-sm text-slate-400 mb-1.5">Interesse principal</legend>
+                                <div class="flex flex-wrap gap-2" id="interestChips">
+                                    <label class="chip"><input type="radio" name="interesse" value="Inteligência Artificial" class="sr-only">IA</label>
+                                    <label class="chip"><input type="radio" name="interesse" value="Computação em Nuvem" class="sr-only">Cloud</label>
+                                    <label class="chip"><input type="radio" name="interesse" value="Desenvolvimento de Software" class="sr-only">Software</label>
+                                    <label class="chip"><input type="radio" name="interesse" value="Site / Automação / Servidores" class="sr-only">Site, automação ou servidor</label>
+                                </div>
+                            </fieldset>
+                            <label class="block">
+                                <span class="block text-sm text-slate-400 mb-1.5">Mensagem</span>
+                                <textarea name="mensagem" required placeholder="Conte um pouco sobre o projeto ou desafio..." rows="4" class="field resize-none"></textarea>
+                            </label>
+                            <button type="submit" class="btn btn-primary w-full">
+                                <i data-lucide="send" class="w-5 h-5"></i>
+                                Solicitar proposta
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 mt-8">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 py-14">
+            <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+                <div>
+                    <a href="#" class="flex items-center gap-3 mb-4">
+                        <span class="w-9 h-9 rounded-xl flex items-center justify-center font-display font-bold text-ink" style="background: linear-gradient(135deg,#34d399,#38bdf8);">MF</span>
+                        <span class="leading-tight">
+                            <span class="block font-display font-semibold">Marcelo Fernandes</span>
+                            <span class="block text-xs text-slate-500">AI & Cloud Specialist</span>
+                        </span>
+                    </a>
+                    <p class="text-sm text-slate-500 max-w-xs leading-relaxed">IA, cloud e software sob medida para empresas que querem crescer com tecnologia.</p>
+                    <div class="flex gap-2 mt-6">
+                        <!-- TODO: trocar "#" pelos perfis reais -->
+                        <a href="#" aria-label="LinkedIn" class="p-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/25 transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" aria-label="GitHub" class="p-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/25 transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                        <a href="mailto:contato@marcelofernandes.dev.br" aria-label="E-mail" class="p-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/25 transition-colors"><i data-lucide="mail" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-sm font-semibold mb-4">Especialidades</h2>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="ia.html" class="text-slate-400 hover:text-white transition-colors">Inteligência Artificial</a></li>
+                        <li><a href="cloud.html" class="text-slate-400 hover:text-white transition-colors">Computação em Nuvem</a></li>
+                        <li><a href="software.html" class="text-slate-400 hover:text-white transition-colors">Desenvolvimento de Software</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-sm font-semibold mb-4">Serviços</h2>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="site_institucional.html" class="text-slate-400 hover:text-white transition-colors">Sites & lojas virtuais</a></li>
+                        <li><a href="automacao_relatorios.html" class="text-slate-400 hover:text-white transition-colors">Automação & Power BI</a></li>
+                        <li><a href="manutencao_servidores.html" class="text-slate-400 hover:text-white transition-colors">Servidores Linux</a></li>
+                        <li><a href="seguranca_cibernetica.html" class="text-slate-400 hover:text-white transition-colors">Cibersegurança & LGPD</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-sm font-semibold mb-4">Contato</h2>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">(34) 99892-8444</a></li>
+                        <li><a href="mailto:contato@marcelofernandes.dev.br" class="text-slate-400 hover:text-white transition-colors break-all">contato@marcelofernandes.dev.br</a></li>
+                        <li><a href="https://marcelofernandes.dev.br/blog" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-white/5 text-sm text-slate-600">
+                © <span id="year">2026</span> Marcelo Fernandes. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/site.js"></script>
+</body>
+</html>
