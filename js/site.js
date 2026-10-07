@@ -1,5 +1,6 @@
 // Comportamentos compartilhados por todas as páginas
-lucide.createIcons();
+// Ícones já vêm embutidos no HTML (npm run build); só cria se a biblioteca estiver na página
+if (window.lucide) lucide.createIcons();
 
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();

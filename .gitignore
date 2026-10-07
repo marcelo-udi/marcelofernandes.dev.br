@@ -1,2 +1,5 @@
 # Relatório de acessos do servidor antigo (dados de visitantes)
 goaccess.html
+
+# Ferramentas de build (não vão para o site)
+node_modules/

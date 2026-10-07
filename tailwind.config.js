@@ -1,5 +1,6 @@
-// Cores da marca para o Tailwind CDN — sem isso, classes como text-ai-color não geram CSS
-tailwind.config = {
+/** Configuração do Tailwind — cores da marca e fontes */
+module.exports = {
+    content: ['./*.html', './js/*.js'],
     theme: {
         extend: {
             colors: {
