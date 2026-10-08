@@ -13,8 +13,10 @@ const svgFor = (name, cls) => {
     const file = `node_modules/lucide-static/icons/${ALIAS[name] ?? name}.svg`;
     const svg = readFileSync(file, 'utf8')
         .replace(/<!--[\s\S]*?-->/g, '')
-        .replace(/\s*\n\s*/g, '')
-        .replace(/\sclass="[^"]*"/, '');
+        .replace(/\s*\n\s*/g, ' ')
+        .replace(/\sclass="[^"]*"/, '')
+        .replace(/>\s+</g, '><')
+        .trim();
     return svg.replace('<svg', `<svg class="${cls}" aria-hidden="true" focusable="false" data-icon="${name}"`);
 };
 
