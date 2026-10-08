@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,869 +24,223 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YEVQZCLHG4"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-YEVQZCLHG4');</script>
     <!-- /SEO -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <meta name="theme-color" content="#050a17">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Reset e configurações gerais */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
-            font-size: 14px;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        /* Cabeçalho mais fino */
-        header {
-            border-bottom: 1px solid #eaeaea;
-            padding: 15px 0;
-            margin-bottom: 20px;
-            background-color: white;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        /* Logo com fonte melhorada */
-        .logo a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .logo h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 30px;
-            font-weight: 900;
-            color: #1a1a1a;
-            letter-spacing: -0.8px;
-            line-height: 1.1;
-            transition: color 0.2s;
-        }
-
-        .logo h1:hover {
-            color: #0066cc;
-        }
-
-        .logo p {
-            font-size: 11px;
-            color: #666;
-            margin-top: 3px;
-            letter-spacing: 0.3px;
-        }
-
-        .logo span {
-            color: #0066cc;
-            background: linear-gradient(90deg, #0066cc, #0099ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav li {
-            margin-left: 25px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #444;
-            font-weight: 600;
-            font-size: 13px;
-            transition: color 0.2s;
-            position: relative;
-            padding: 5px 0;
-        }
-
-        nav a:hover {
-            color: #0066cc;
-        }
-
-        nav a.active {
-            color: #0066cc;
-        }
-
-        nav a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: #0066cc;
-        }
-
-        /* Layout principal */
-        .container {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-
-        /* Posts - REMOVIDO O VERMELHÃO DAS LATERAIS */
-.post {
-background-color: white;
-border-radius: 8px;
-padding: 25px;
-margin-bottom: 25px;
-box-shadow: 0 3px 15px rgba(0,0,0,0.05);
-transition: transform 0.3s, box-shadow 0.3s;
-/* removido border-left: 3px solid #0066cc; */
-cursor: pointer;
-}
-
-        .post:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-
-        /* REMOVIDO: .post-critical removido - agora todos os posts têm a mesma borda */
-        
-        .post-header {
-            margin-bottom: 15px;
-        }
-
-        .post-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-
-        .post-meta {
-            display: flex;
-            color: #777;
-            font-size: 11px;
-            margin-bottom: 5px;
-        }
-
-        .post-category {
-            background-color: #f0f7ff;
-            color: #0066cc;
-            padding: 2px 10px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 10px;
-            letter-spacing: 0.3px;
-        }
-
-        /* Mantemos a categoria vermelha para posts críticos, mas sem borda vermelha */
-        .post-critical .post-category {
-            background-color: #fff0f0;
-            color: #d63031;
-        }
-
-        .post-date {
-            margin-right: 15px;
-            display: flex;
-            align-items: center;
-        }
-
-        .post-date i, .post-read-time i {
-            margin-right: 5px;
-            font-size: 10px;
-        }
-
-        .post-content {
-            font-size: 13.5px;
-            color: #444;
-            margin-bottom: 15px;
-        }
-
-        .post-content p {
-            margin-bottom: 12px;
-        }
-
-        .post-tags {
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-
-        .tag {
-            background-color: #f5f5f5;
-            color: #666;
-            padding: 3px 10px;
-            border-radius: 10px;
-            font-size: 10.5px;
-            margin-right: 8px;
-            margin-bottom: 8px;
-        }
-
-        .read-more {
-            color: #0066cc;
-            font-weight: 600;
-            font-size: 12px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        .read-more:hover {
-            text-decoration: underline;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            font-size: 13px;
-        }
-
-        .sidebar-widget {
-            background-color: white;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
-        }
-
-        .widget-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .widget-list {
-            list-style: none;
-        }
-
-        .widget-list li {
-            margin-bottom: 12px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #f5f5f5;
-        }
-
-        .widget-list li:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .widget-list a {
-            text-decoration: none;
-            color: #444;
-            transition: color 0.2s;
-            display: block;
-        }
-
-        .widget-list a:hover {
-            color: #0066cc;
-        }
-
-        .widget-list .date {
-            font-size: 11px;
-            color: #888;
-            margin-top: 3px;
-        }
-
-        .newsletter-form {
-            margin-top: 15px;
-        }
-
-        .newsletter-form input {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 13px;
-            margin-bottom: 10px;
-        }
-
-        .newsletter-form button {
-            width: 100%;
-            background-color: #0066cc;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .newsletter-form button:hover {
-            background-color: #0052a3;
-        }
-
-        /* Destaque */
-        .highlight {
-            background-color: #fff8e1;
-            border-left: 3px solid #ffc107;
-            padding: 15px;
-            margin: 20px 0;
-            font-size: 13px;
-            border-radius: 0 6px 6px 0;
-        }
-
-        /* Rodapé */
-        footer {
-            border-top: 1px solid #eaeaea;
-            padding: 25px 0;
-            margin-top: 25px;
-            text-align: center;
-            color: #666;
-            font-size: 12px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .footer-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 18px;
-            font-weight: 800;
-            color: #1a1a1a;
-        }
-
-        .footer-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-left: 20px;
-        }
-
-        .footer-links a {
-            text-decoration: none;
-            color: #666;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: #0066cc;
-        }
-
-        .copyright {
-            margin-top: 15px;
-            width: 100%;
-            font-size: 11px;
-            color: #888;
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            nav ul {
-                margin-top: 10px;
-            }
-            
-            nav li {
-                margin-left: 0;
-                margin-right: 15px;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .footer-links {
-                margin-top: 10px;
-            }
-            
-            .footer-links li {
-                margin-left: 0;
-                margin-right: 12px;
-            }
-            
-            .logo h1 {
-                font-size: 26px;
-            }
-        }
-
-        /* Estilos para elementos específicos */
-        .veredito {
-            font-weight: 700;
-            color: #0066cc;
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px dashed #ddd;
-        }
-
-        .critical-veredito {
-            color: #d63031;
-            font-weight: 700;
-        }
-
-        .destaque-numero {
-            background-color: #0066cc;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            font-weight: 700;
-            margin-right: 8px;
-        }
-
-        .stats {
-            display: flex;
-            justify-content: space-between;
-            font-size: 11px;
-            color: #888;
-            margin-top: 15px;
-        }
-
-        .stats span {
-            display: flex;
-            align-items: center;
-        }
-
-        .stats i {
-            margin-right: 5px;
-        }
-
-        .cve-badge {
-            display: inline-block;
-            background-color: #d63031;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 10px;
-            font-weight: 700;
-            margin-right: 8px;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
-    <!-- Cabeçalho -->
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <a href="index.html">
-                    <h1>Blog<span> Marcelo Fernandes</span></h1>
-                    <p>Tecnologia • Segurança • Análise Técnica • Vulnerabilidades</p>
-                </a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">Início</a></li>
-                    <li><a href="#">Artigos Técnicos</a></li>
-                    <li><a href="#">CVEs</a></li>
-                    <li><a href="#">Red Team</a></li>
-                    <li><a href="#">Contato</a></li>
-                </ul>
+    <div class="bg-aurora"></div>
+    <div class="bg-grid"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header -->
+    <header id="siteHeader" class="sticky top-0 z-50 header-blur">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 h-[72px] flex items-center justify-between gap-4">
+            <a href="/" class="flex items-center gap-3 min-w-0">
+                <img src="/img/logo.svg" width="36" height="36" alt="" class="w-9 h-9 shrink-0">
+                <span class="leading-tight">
+                    <span class="block font-display font-semibold">Marcelo Fernandes</span>
+                    <span class="block text-xs text-slate-500">AI & Cloud Solutions</span>
+                </span>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8 text-[15px]" aria-label="Principal">
+                <a href="/#servicos" class="nav-link">Serviços</a>
+                <div class="dropdown relative">
+                    <button class="nav-link flex items-center gap-1" aria-haspopup="true">
+                        Especialidades <svg class="w-4 h-4" aria-hidden="true" focusable="false" data-icon="chevron-down"class="lucide lucide-chevron-down"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="/ia.html" class="dropdown-item">
+                            <svg class="w-5 h-5 text-ai-color mt-0.5" aria-hidden="true" focusable="false" data-icon="brain"class="lucide lucide-brain"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /><path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /><path d="M3.477 10.896a4 4 0 0 1 .585-.396" /><path d="M19.938 10.5a4 4 0 0 1 .585.396" /><path d="M6 18a4 4 0 0 1-1.967-.516" /><path d="M19.967 17.484A4 4 0 0 1 18 18" /></svg>
+                            <span><span class="block text-white font-medium">Inteligência Artificial</span><span class="block text-xs text-slate-400">ML, NLP, visão e IA generativa</span></span>
+                        </a>
+                        <a href="/cloud.html" class="dropdown-item">
+                            <svg class="w-5 h-5 text-cloud-color mt-0.5" aria-hidden="true" focusable="false" data-icon="cloud"class="lucide lucide-cloud"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></svg>
+                            <span><span class="block text-white font-medium">Computação em Nuvem</span><span class="block text-xs text-slate-400">AWS, Azure, Kubernetes</span></span>
+                        </a>
+                        <a href="/software.html" class="dropdown-item">
+                            <svg class="w-5 h-5 text-dev-color mt-0.5" aria-hidden="true" focusable="false" data-icon="code-2"class="lucide lucide-code-xml"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg>
+                            <span><span class="block text-white font-medium">Desenvolvimento de Software</span><span class="block text-xs text-slate-400">Web, mobile, APIs e automação</span></span>
+                        </a>
+                        <div class="my-1.5 mx-3 h-px bg-white/[0.07]"></div>
+                        <a href="/site_institucional.html" class="dropdown-item !py-2"><svg class="w-4 h-4 text-dev-color mt-0.5" aria-hidden="true" focusable="false" data-icon="layout-template"class="lucide lucide-layout-template"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><rect width="18" height="7" x="3" y="3" rx="1" /><rect width="9" height="7" x="3" y="14" rx="1" /><rect width="5" height="7" x="16" y="14" rx="1" /></svg><span class="text-sm text-slate-200">Sites & lojas virtuais</span></a>
+                        <a href="/automacao_relatorios.html" class="dropdown-item !py-2"><svg class="w-4 h-4 text-ai-color mt-0.5" aria-hidden="true" focusable="false" data-icon="bar-chart-3"class="lucide lucide-chart-column"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16" /><path d="M18 17V9" /><path d="M13 17V5" /><path d="M8 17v-3" /></svg><span class="text-sm text-slate-200">Automação & Power BI</span></a>
+                        <a href="/manutencao_servidores.html" class="dropdown-item !py-2"><svg class="w-4 h-4 text-cloud-color mt-0.5" aria-hidden="true" focusable="false" data-icon="server"class="lucide lucide-server"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /><rect width="20" height="8" x="2" y="14" rx="2" ry="2" /><line x1="6" x2="6.01" y1="6" y2="6" /><line x1="6" x2="6.01" y1="18" y2="18" /></svg><span class="text-sm text-slate-200">Servidores Linux</span></a>
+                        <a href="/seguranca_cibernetica.html" class="dropdown-item !py-2"><svg class="w-4 h-4 text-violet-400 mt-0.5" aria-hidden="true" focusable="false" data-icon="shield-check"class="lucide lucide-shield-check"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg><span class="text-sm text-slate-200">Cibersegurança & LGPD</span></a>
+                    </div>
+                </div>
+                <a href="/#projetos" class="nav-link">Projetos</a>
+                <a href="/#sobre" class="nav-link">Sobre</a>
+                <a href="/blog/" class="nav-link">Blog</a>
+                <a href="/contato.html" class="nav-link">Contato</a>
             </nav>
+
+            <div class="flex items-center gap-2">
+                <a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="btn btn-primary !py-2.5 !px-3 sm:!px-4 text-sm" aria-label="Conversar no WhatsApp">
+                    <svg class="w-4 h-4" aria-hidden="true" focusable="false" data-icon="message-circle"class="lucide lucide-message-circle"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>
+                    <span class="hidden sm:inline">Conversar agora</span>
+                </a>
+                <button id="menuBtn" class="lg:hidden p-2.5 rounded-xl border border-white/10 text-slate-300" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+                    <svg class="w-5 h-5" aria-hidden="true" focusable="false" data-icon="menu"class="lucide lucide-menu"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
+                </button>
+            </div>
         </div>
+
+        <!-- Menu mobile -->
+        <nav id="mobileMenu" class="lg:hidden hidden border-t border-white/5 px-5 pb-6 pt-2 max-h-[80vh] overflow-y-auto" aria-label="Menu mobile">
+            <a href="/#servicos" class="block py-3 text-slate-300 border-b border-white/5">Serviços</a>
+            <a href="/ia.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><svg class="w-4 h-4 text-ai-color" aria-hidden="true" focusable="false" data-icon="brain"class="lucide lucide-brain"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /><path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /><path d="M3.477 10.896a4 4 0 0 1 .585-.396" /><path d="M19.938 10.5a4 4 0 0 1 .585.396" /><path d="M6 18a4 4 0 0 1-1.967-.516" /><path d="M19.967 17.484A4 4 0 0 1 18 18" /></svg>Inteligência Artificial</a>
+            <a href="/cloud.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><svg class="w-4 h-4 text-cloud-color" aria-hidden="true" focusable="false" data-icon="cloud"class="lucide lucide-cloud"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></svg>Computação em Nuvem</a>
+            <a href="/software.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><svg class="w-4 h-4 text-dev-color" aria-hidden="true" focusable="false" data-icon="code-2"class="lucide lucide-code-xml"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg>Desenvolvimento de Software</a>
+            <a href="/site_institucional.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><svg class="w-4 h-4 text-dev-color" aria-hidden="true" focusable="false" data-icon="layout-template"class="lucide lucide-layout-template"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><rect width="18" height="7" x="3" y="3" rx="1" /><rect width="9" height="7" x="3" y="14" rx="1" /><rect width="5" height="7" x="16" y="14" rx="1" /></svg>Sites & lojas virtuais</a>
+            <a href="/automacao_relatorios.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><svg class="w-4 h-4 text-ai-color" aria-hidden="true" focusable="false" data-icon="bar-chart-3"class="lucide lucide-chart-column"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16" /><path d="M18 17V9" /><path d="M13 17V5" /><path d="M8 17v-3" /></svg>Automação & Power BI</a>
+            <a href="/manutencao_servidores.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><svg class="w-4 h-4 text-cloud-color" aria-hidden="true" focusable="false" data-icon="server"class="lucide lucide-server"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" /><rect width="20" height="8" x="2" y="14" rx="2" ry="2" /><line x1="6" x2="6.01" y1="6" y2="6" /><line x1="6" x2="6.01" y1="18" y2="18" /></svg>Servidores Linux</a>
+            <a href="/seguranca_cibernetica.html" class="flex items-center gap-3 py-3 text-slate-300 border-b border-white/5"><svg class="w-4 h-4 text-violet-400" aria-hidden="true" focusable="false" data-icon="shield-check"class="lucide lucide-shield-check"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg>Cibersegurança & LGPD</a>
+            <a href="/#projetos" class="block py-3 text-slate-300 border-b border-white/5">Projetos</a>
+            <a href="/#sobre" class="block py-3 text-slate-300 border-b border-white/5">Sobre</a>
+            <a href="/blog/" class="block py-3 text-slate-300 border-b border-white/5">Blog</a>
+            <a href="/contato.html" class="block py-3 text-slate-300">Contato</a>
+        </nav>
     </header>
 
-    <div class="container">
-        <!-- Conteúdo Principal -->
-        <main>
-            <!-- NOVO POST: Anatomia de Ataques em Redes Corporativas -->
-            <article class="post post-critical" onclick="window.location.href='posts/ataque-em-redes-corporativas.html'" style="cursor: pointer;">
-                <div class="post-header">
-                    <div class="post-meta">
-                        <span class="post-date"><i class="far fa-calendar"></i> 25/03/2024</span>
-                        <span class="post-read-time"><i class="far fa-clock"></i> 12 min leitura</span>
+    <main>
+        <section class="relative px-5 sm:px-6 pt-10 md:pt-12 pb-10 md:pb-14 max-w-7xl mx-auto ac-cloud">
+            <div class="page-glow"></div>
+            <nav class="crumbs mb-8" aria-label="Você está em"><a href="/">Início</a><span>/</span><span class="text-slate-300">Blog</span></nav>
+            <div class="grid lg:grid-cols-[1.3fr_1fr] gap-10 items-end">
+                <div>
+                    <span class="reveal eyebrow mb-4">Blog</span>
+                    <h1 class="reveal text-[2.6rem] leading-[1.05] sm:text-6xl font-bold mb-6" data-delay="1">Segurança, cloud e <span class="grad-brand">inteligência artificial</span></h1>
+                    <p class="reveal text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed" data-delay="2">Análises de vulnerabilidades, guias práticos e o que está mudando em tecnologia — explicado sem rodeios.</p>
+                </div>
+                <div class="reveal" data-delay="2">
+                    <label class="block relative mb-4">
+                        <span class="sr-only">Buscar artigos</span>
+                        <svg class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" aria-hidden="true" focusable="false" data-icon="search"class="lucide lucide-search"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
+                        <input type="search" data-search-input placeholder="Buscar artigos..." class="field !pl-11">
+                    </label>
+                    <div class="flex flex-wrap gap-2" data-filters>
+                        <button type="button" class="chip" data-filter="" aria-pressed="true">Todos</button><button type="button" class="chip" data-filter="IA" aria-pressed="false">IA</button><button type="button" class="chip" data-filter="Segurança" aria-pressed="false">Segurança</button>
                     </div>
-                    <h2 class="post-title">Anatomia de Ataques em Redes Corporativas: CVEs, TTPs e Análise Técnica</h2>
-                    <span class="post-category">ANÁLISE TÉCNICA • RED TEAM • VULNERABILIDADES</span>
                 </div>
-                <div class="post-content">
-                    <p><span class="cve-badge">CVE-2023-34362</span> <span class="cve-badge">CVE-2024-21887</span> <span class="cve-badge">CVE-2024-21413</span></p>
-                    <p>Análise técnica completa de 14 CVEs críticos, mapeamento de TTPs de 7 APTs ativos e detalhamento de técnicas de evasão avançada. Baseado em telemetria real de incidentes respondidos no Q1/2024.</p>
-                    
-                    <div class="highlight">
-                        <p><strong>APT Groups:</strong> Cl0p (FIN11), Lazarus Group (APT38), APT29 (Cozy Bear), Scattered Spider (UNC3944)</p>
-                        <p><strong>Técnicas:</strong> AMSI Bypass, EDR Evasion, DNS tunneling, Living-off-the-Land, Rust-based loaders</p>
-                    </div>
-                    
-                    <p class="critical-veredito">Dataset: 1.2TB de logs • 50 empresas analisadas • 450 PCAP samples • 1.200 malware samples</p>
-                    
-                    <a href="posts/ataque-em-redes-corporativas.html" class="read-more" onclick="event.stopPropagation();">Leia análise técnica completa →</a>
-                </div>
-                <div class="post-tags">
-                    <span class="tag">CVE-2023-34362</span>
-                    <span class="tag">CVE-2024-21887</span>
-                    <span class="tag">APT29</span>
-                    <span class="tag">Lazarus</span>
-                    <span class="tag">CobaltStrike</span>
-                    <span class="tag">EDR-evasion</span>
-                    <span class="tag">Volatility</span>
-                    <span class="tag">Sigma</span>
-                    <span class="tag">YARA</span>
-                </div>
-                <div class="stats">
-                    <span><i class="far fa-eye"></i> 4.8k visualizações</span>
-                    <span><i class="far fa-comment"></i> 89 comentários</span>
-                    <span><i class="fas fa-fire-alt"></i> ANÁLISE TÉCNICA</span>
-                </div>
-            </article>
+            </div>
+        </section>
 
-            <!-- Post reactshell -->
-            <article class="post post-critical" onclick="window.location.href='posts/react-shell.html'" style="cursor: pointer;">
-                <div class="post-header">
-                    <div class="post-meta">
-                        <span class="post-date"><i class="far fa-calendar"></i> 06/12/2025</span>
-                        <span class="post-read-time"><i class="far fa-clock"></i> 4 min leitura</span>
+        <section class="px-5 sm:px-6 max-w-7xl mx-auto" aria-label="Artigos">
+            <div class="space-y-5" data-posts>
+                <a href="/blog/posts/how-to-streamline-zero-trust-using.html" class="reveal card group panel rounded-[2rem] p-8 md:p-10 grid lg:grid-cols-[1.2fr_1fr] gap-8 items-center ac-violet" data-cat="Segurança" data-search="como simplificar o zero trust com o shared signals framework como implementar zero trust de forma simplificada com o shared signals framework: princípios, fases de implementação e monitoramento contínuo. zero trust">
+                    <div>
+                        <div class="flex flex-wrap items-center gap-3 mb-5"><span class="tag tag-violet">Zero Trust</span><span class="text-sm text-slate-500 font-mono">Mais recente</span></div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-100 group-hover:text-white transition-colors">Como simplificar o Zero Trust com o Shared Signals Framework</h2>
+                        <p class="text-slate-400 text-lg leading-relaxed mb-8">Como implementar Zero Trust de forma simplificada com o Shared Signals Framework: princípios, fases de implementação e monitoramento contínuo.</p>
+                        <span class="inline-flex items-center gap-2 font-semibold text-accent">Ler artigo <svg class="w-4 h-4" aria-hidden="true" focusable="false" data-icon="arrow-right"class="lucide lucide-arrow-right"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></span>
                     </div>
-                    <h2 class="post-title">React2Shell: Falha Crítica no React Adicionada ao Catálogo KEV da CISA</h2>
-                    <span class="post-category">VULNERABILIDADE CRÍTICA</span>
-                </div>
-                <div class="post-content">
-                    <p><span class="cve-badge">CVE-2025-55182</span> <strong>CVSS 10.0 - CRÍTICO</strong></p>
-                    <p>A CISA adicionou formalmente uma falha de segurança crítica que afeta os React Server Components (RSC) ao seu catálogo de Vulnerabilidades Exploradas Conhecidas (KEV) após relatos de exploração ativa em ambiente real.</p>
-                    
-                    <div class="highlight">
-                        <p><strong>Impacto:</strong> Execução remota de código (RCE) por atacante não autenticado. <strong>Frameworks afetados:</strong> Next.js, React Router, Waku, Parcel, Vite, RedwoodSDK.</p>
+                    <div class="hidden lg:flex aspect-[4/3] rounded-3xl border border-white/[0.08] items-center justify-center relative overflow-hidden" style="background: radial-gradient(circle at 30% 30%, rgba(var(--accent),.35), transparent 60%), radial-gradient(circle at 80% 80%, rgba(var(--accent-2),.25), transparent 55%), rgba(3,7,18,.6)">
+                        <svg class="w-24 h-24 text-accent opacity-90" aria-hidden="true" focusable="false" data-icon="shield-check"class="lucide lucide-shield-check"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg>
+                        <span class="absolute bottom-5 left-6 font-mono text-xs text-slate-400">9 dez 2025 · 6 min de leitura</span>
                     </div>
-                    
-                    <p class="critical-veredito">Atualização urgente necessária: versões corrigidas 19.0.1, 19.1.2, 19.2.1.</p>
-                    
-                    <a href="posts/react-shell.html" class="read-more" onclick="event.stopPropagation();">Leia análise completa →</a>
+                </a>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <a href="/blog/posts/india-taxa-ia.html" class="reveal card post-card panel rounded-3xl p-7 ac-cloud" data-cat="IA" data-search="índia propõe cobrar openai e google por treinar ia com conteúdo protegido índia propõe taxar openai e google pelo treino de ia com conteúdo protegido por direitos autorais. entenda a proposta e o impacto no mercado de ia. regulação &amp; ia">
+                    <div class="flex items-center justify-between mb-6"><span class="tag tag-cloud">Regulação & IA</span><svg class="w-5 h-5 text-accent" aria-hidden="true" focusable="false" data-icon="scale"class="lucide lucide-scale"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /><path d="M7 21h10" /><path d="M12 3v18" /><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" /></svg></div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-100">Índia propõe cobrar OpenAI e Google por treinar IA com conteúdo protegido</h3>
+                    <p class="text-slate-400 mb-8 leading-relaxed">Índia propõe taxar OpenAI e Google pelo treino de IA com conteúdo protegido por direitos autorais. Entenda a proposta e o impacto no mercado de IA.</p>
+                    <span class="mt-auto text-sm text-slate-500 font-mono">9 dez 2025 · 5 min</span>
+                </a><a href="/blog/posts/guia-aprendizado-ia.html" class="reveal card post-card panel rounded-3xl p-7 ac-ai" data-cat="IA" data-search="guia prático para aprender inteligência artificial roadmap prático para aprender inteligência artificial: fundamentos de matemática e python, machine learning, deep learning, nlp e visão computacional. guia prático">
+                    <div class="flex items-center justify-between mb-6"><span class="tag tag-ai">Guia prático</span><svg class="w-5 h-5 text-accent" aria-hidden="true" focusable="false" data-icon="brain"class="lucide lucide-brain"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /><path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /><path d="M3.477 10.896a4 4 0 0 1 .585-.396" /><path d="M19.938 10.5a4 4 0 0 1 .585.396" /><path d="M6 18a4 4 0 0 1-1.967-.516" /><path d="M19.967 17.484A4 4 0 0 1 18 18" /></svg></div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-100">Guia prático para aprender Inteligência Artificial</h3>
+                    <p class="text-slate-400 mb-8 leading-relaxed">Roadmap prático para aprender Inteligência Artificial: fundamentos de matemática e Python, machine learning, deep learning, NLP e visão computacional.</p>
+                    <span class="mt-auto text-sm text-slate-500 font-mono">8 dez 2025 · 8 min</span>
+                </a><a href="/blog/posts/react-shell.html" class="reveal card post-card panel rounded-3xl p-7 ac-rose" data-cat="Segurança" data-search="react2shell: falha crítica no react entra no catálogo kev da cisa após exploração ativa cve-2025-55182 (cvss 10.0): falha em react server components permite execução remota de código. veja quem é afetado e as versões corrigidas. vulnerabilidade crítica">
+                    <div class="flex items-center justify-between mb-6"><span class="tag tag-rose">Vulnerabilidade crítica</span><svg class="w-5 h-5 text-accent" aria-hidden="true" focusable="false" data-icon="triangle-alert"class="lucide lucide-triangle-alert"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" /><path d="M12 9v4" /><path d="M12 17h.01" /></svg></div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-100">React2Shell: falha crítica no React entra no catálogo KEV da CISA após exploração ativa</h3>
+                    <p class="text-slate-400 mb-8 leading-relaxed">CVE-2025-55182 (CVSS 10.0): falha em React Server Components permite execução remota de código. Veja quem é afetado e as versões corrigidas.</p>
+                    <span class="mt-auto text-sm text-slate-500 font-mono">6 dez 2025 · 4 min</span>
+                </a><a href="/blog/posts/ataque-em-redes-corporativas.html" class="reveal card post-card panel rounded-3xl p-7 ac-violet" data-cat="Segurança" data-search="anatomia de ataques em redes corporativas: cves, ttps e análise técnica análise técnica de 14 cves críticos, ttps de 7 grupos apt ativos e técnicas de evasão avançada, com recomendações de mitigação para redes corporativas. análise técnica">
+                    <div class="flex items-center justify-between mb-6"><span class="tag tag-violet">Análise técnica</span><svg class="w-5 h-5 text-accent" aria-hidden="true" focusable="false" data-icon="network"class="lucide lucide-network"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1" /><rect x="2" y="16" width="6" height="6" rx="1" /><rect x="9" y="2" width="6" height="6" rx="1" /><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" /><path d="M12 12V8" /></svg></div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-100">Anatomia de ataques em redes corporativas: CVEs, TTPs e análise técnica</h3>
+                    <p class="text-slate-400 mb-8 leading-relaxed">Análise técnica de 14 CVEs críticos, TTPs de 7 grupos APT ativos e técnicas de evasão avançada, com recomendações de mitigação para redes corporativas.</p>
+                    <span class="mt-auto text-sm text-slate-500 font-mono">25 set 2025 · 12 min</span>
+                </a>
                 </div>
-                <div class="post-tags">
-                    <span class="tag">react</span>
-                    <span class="tag">cve-2025-55182</span>
-                    <span class="tag">segurança</span>
-                    <span class="tag">vulnerabilidade</span>
-                    <span class="tag">rce</span>
-                </div>
-                <div class="stats">
-                    <span><i class="far fa-eye"></i> 3.2k visualizações</span>
-                    <span><i class="far fa-comment"></i> 47 comentários</span>
-                    <span><i class="fas fa-fire-alt"></i> ALTA GRAVIDADE</span>
-                </div>
-            </article>
+            </div>
+            <p data-empty class="hidden text-center text-slate-400 py-16">Nenhum artigo encontrado.</p>
+        </section>
 
-            <!-- Post How to Streamline Zero Trust -->
-            <article class="post" onclick="window.location.href='posts/how-to-streamline-zero-trust-using.html'" style="cursor: pointer;">
-                <div class="post-header">
-                    <div class="post-meta">
-                        <span class="post-date"><i class="far fa-calendar"></i> 15/03/2024</span>
-                        <span class="post-read-time"><i class="far fa-clock"></i> 3 min leitura</span>
-                    </div>
-                    <h2 class="post-title">How to Streamline Zero Trust: Implementação Simplificada</h2>
-                    <span class="post-category">SEGURANÇA</span>
+        <section class="py-10 md:py-14 px-5 sm:px-6 max-w-7xl mx-auto mt-6 md:mt-10">
+            <div class="reveal relative panel rounded-[2rem] p-8 md:p-12 overflow-hidden grid lg:grid-cols-[1.5fr_1fr] gap-8 items-center">
+                <div class="absolute -top-40 left-1/3 w-[600px] h-[360px] rounded-full blur-3xl opacity-25 pointer-events-none" style="background: radial-gradient(circle, rgba(52,211,153,.5), rgba(56,189,248,.3) 40%, transparent 70%);"></div>
+                <div class="relative">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3">Leu algo que se aplica à sua empresa?</h2>
+                    <p class="text-slate-400 text-lg">Faço um diagnóstico gratuito de segurança, cloud ou IA para o seu negócio.</p>
                 </div>
-                <div class="post-content">
-                    <p>Zero Trust não é apenas um conceito, mas uma arquitetura de segurança essencial. Descubra como implementar de forma eficiente sem complicações desnecessárias.</p>
-                    
-                    <div class="highlight">
-                        <p><strong>Princípios básicos:</strong> Nunca confie, sempre verifique. Acesso de privilégio mínimo. Microssegmentação. Monitoramento contínuo.</p>
-                    </div>
-                    
-                    <p>Implementação em 4 fases: identificação de ativos, definição de políticas, autenticação multifator e monitoramento em tempo real.</p>
-                    
-                    <a href="posts/how-to-streamline-zero-trust-using.html" class="read-more" onclick="event.stopPropagation();">Leia o guia completo →</a>
+                <div class="relative flex flex-wrap gap-3 lg:justify-end">
+                    <a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><svg class="w-5 h-5" aria-hidden="true" focusable="false" data-icon="message-circle"class="lucide lucide-message-circle"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>Conversar no WhatsApp</a>
+                    <a href="/contato.html" class="btn btn-ghost">Outros contatos</a>
                 </div>
-                <div class="post-tags">
-                    <span class="tag">zero trust</span>
-                    <span class="tag">segurança</span>
-                    <span class="tag">arquitetura</span>
-                    <span class="tag">cybersecurity</span>
-                </div>
-                <div class="stats">
-                    <span><i class="far fa-eye"></i> 1.5k visualizações</span>
-                    <span><i class="far fa-comment"></i> 23 comentários</span>
-                </div>
-            </article>
+            </div>
+        </section>
+    </main>
 
-            <!-- Post Guia Aprendizado IA -->
-            <article class="post" onclick="window.location.href='posts/guia-aprendizado-ia.html'" style="cursor: pointer;">
-                <div class="post-header">
-                    <div class="post-meta">
-                        <span class="post-date"><i class="far fa-calendar"></i> 10/03/2024</span>
-                        <span class="post-read-time"><i class="far fa-clock"></i> 5 min leitura</span>
+    <!-- Footer -->
+    <footer class="border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 pt-10 md:pt-14 pb-10">
+            <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+                <div>
+                    <a href="/" class="flex items-center gap-3 mb-4">
+                        <img src="/img/logo.svg" width="36" height="36" alt="" class="w-9 h-9 shrink-0">
+                        <span class="leading-tight">
+                            <span class="block font-display font-semibold">Marcelo Fernandes</span>
+                            <span class="block text-xs text-slate-500">AI & Cloud Specialist</span>
+                        </span>
+                    </a>
+                    <p class="text-sm text-slate-500 max-w-xs leading-relaxed">IA, cloud e software sob medida para empresas que querem crescer com tecnologia.</p>
+                    <div class="flex gap-2 mt-6">
+                        <!-- TODO: trocar "#" pelos perfis reais -->
+                        <a href="#" aria-label="LinkedIn" class="p-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/25 transition-colors"><svg class="w-5 h-5" aria-hidden="true" focusable="false" data-icon="linkedin"class="lucide lucide-linkedin"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg></a>
+                        <a href="#" aria-label="GitHub" class="p-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/25 transition-colors"><svg class="w-5 h-5" aria-hidden="true" focusable="false" data-icon="github"class="lucide lucide-github"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg></a>
+                        <a href="mailto:contato@marcelofernandes.dev.br" aria-label="E-mail" class="p-2.5 rounded-xl border border-white/10 text-slate-400 hover:text-white hover:border-white/25 transition-colors"><svg class="w-5 h-5" aria-hidden="true" focusable="false" data-icon="mail"class="lucide lucide-mail"xmlns="http://www.w3.org/2000/svg"width="24"height="24"viewBox="0 0 24 24"fill="none"stroke="currentColor"stroke-width="2"stroke-linecap="round"stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg></a>
                     </div>
-                    <h2 class="post-title">Guia Completo de Aprendizado em Inteligência Artificial</h2>
-                    <span class="post-category">IA & MACHINE LEARNING</span>
                 </div>
-                <div class="post-content">
-                    <p>Começar na área de IA pode ser desafiador. Este guia fornece um roadmap estruturado desde os fundamentos até tópicos avançados.</p>
-                    
-                    <p><span class="destaque-numero">1</span> Fundamentos: Matemática, Estatística, Programação Python</p>
-                    <p><span class="destaque-numero">2</span> Machine Learning: Algoritmos, Scikit-learn, Validação</p>
-                    <p><span class="destaque-numero">3</span> Deep Learning: Redes Neurais, TensorFlow, PyTorch</p>
-                    <p><span class="destaque-numero">4</span> Especialização: NLP, Visão Computacional, Reinforcement Learning</p>
-                    
-                    <div class="highlight">
-                        <p><strong>Recursos recomendados:</strong> Coursera, Fast.ai, Kaggle, Papers with Code. Aprendizado prático é essencial.</p>
-                    </div>
-                    
-                    <a href="posts/guia-aprendizado-ia.html" class="read-more" onclick="event.stopPropagation();">Acesse o guia completo →</a>
+                <div>
+                    <h2 class="text-sm font-semibold mb-4">Especialidades</h2>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="/ia.html" class="text-slate-400 hover:text-white transition-colors">Inteligência Artificial</a></li>
+                        <li><a href="/cloud.html" class="text-slate-400 hover:text-white transition-colors">Computação em Nuvem</a></li>
+                        <li><a href="/software.html" class="text-slate-400 hover:text-white transition-colors">Desenvolvimento de Software</a></li>
+                    </ul>
                 </div>
-                <div class="post-tags">
-                    <span class="tag">ia</span>
-                    <span class="tag">machine learning</span>
-                    <span class="tag">aprendizado</span>
-                    <span class="tag">guia</span>
+                <div>
+                    <h2 class="text-sm font-semibold mb-4">Serviços</h2>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="/site_institucional.html" class="text-slate-400 hover:text-white transition-colors">Sites & lojas virtuais</a></li>
+                        <li><a href="/automacao_relatorios.html" class="text-slate-400 hover:text-white transition-colors">Automação & Power BI</a></li>
+                        <li><a href="/manutencao_servidores.html" class="text-slate-400 hover:text-white transition-colors">Servidores Linux</a></li>
+                        <li><a href="/seguranca_cibernetica.html" class="text-slate-400 hover:text-white transition-colors">Cibersegurança & LGPD</a></li>
+                    </ul>
                 </div>
-                <div class="stats">
-                    <span><i class="far fa-eye"></i> 2.8k visualizações</span>
-                    <span><i class="far fa-comment"></i> 38 comentários</span>
+                <div>
+                    <h2 class="text-sm font-semibold mb-4">Contato</h2>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="https://wa.me/5534998928444" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">(34) 99892-8444</a></li>
+                        <li><a href="mailto:contato@marcelofernandes.dev.br" class="text-slate-400 hover:text-white transition-colors break-all">contato@marcelofernandes.dev.br</a></li>
+                        <li><a href="/blog/" class="text-slate-400 hover:text-white transition-colors">Blog</a></li>
+                    </ul>
                 </div>
-            </article>
-
-            <!-- Post India Taxa IA -->
-            <article class="post" onclick="window.location.href='posts/india-taxa-ia.html'" style="cursor: pointer;">
-                <div class="post-header">
-                    <div class="post-meta">
-                        <span class="post-date"><i class="far fa-calendar"></i> 05/03/2024</span>
-                        <span class="post-read-time"><i class="far fa-clock"></i> 2 min leitura</span>
-                    </div>
-                    <h2 class="post-title">Índia Anuncia Taxa sobre Serviços de IA: Impacto no Mercado</h2>
-                    <span class="post-category">POLÍTICA TECNOLÓGICA</span>
-                </div>
-                <div class="post-content">
-                    <p>O governo indiano anunciou uma nova taxa sobre serviços de inteligência artificial, afetando startups e empresas de tecnologia.</p>
-                    
-                    <div class="highlight">
-                        <p><strong>Detalhes:</strong> Taxa de 7% sobre serviços de IA comercial. Aplica-se a empresas com faturamento acima de ₹50 lakhs. Implementação a partir do próximo trimestre fiscal.</p>
-                    </div>
-                    
-                    <p>Especialistas discutem o impacto na inovação e como isso posiciona a Índia no cenário global de regulação de IA.</p>
-                    
-                    <a href="posts/india-taxa-ia.html" class="read-more" onclick="event.stopPropagation();">Leia análise completa →</a>
-                </div>
-                <div class="post-tags">
-                    <span class="tag">índia</span>
-                    <span class="tag">ia</span>
-                    <span class="tag">taxação</span>
-                    <span class="tag">política</span>
-                    <span class="tag">regulação</span>
-                </div>
-                <div class="stats">
-                    <span><i class="far fa-eye"></i> 1.7k visualizações</span>
-                    <span><i class="far fa-comment"></i> 29 comentários</span>
-                </div>
-            </article>
-        </main>
-
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-widget">
-                <h3 class="widget-title">Mais Lidos</h3>
-                <ul class="widget-list">
-                    <li>
-                        <a href="posts/ataque-em-redes-corporativas.html">Anatomia de Ataques em Redes Corporativas</a>
-                        <div class="date">25/03/2024 • 12 min • <span style="color: #d63031; font-weight: bold;">ANÁLISE TÉCNICA</span></div>
-                    </li>
-                    <li>
-                        <a href="posts/react-shell.html">React2Shell: Falha Crítica no React</a>
-                        <div class="date">06/12/2025 • 4 min • <span style="color: #d63031; font-weight: bold;">CRÍTICO</span></div>
-                    </li>
-                    <li>
-                        <a href="posts/guia-aprendizado-ia.html">Guia Completo de Aprendizado em IA</a>
-                        <div class="date">10/03/2024 • 5 min</div>
-                    </li>
-                    <li>
-                        <a href="posts/how-to-streamline-zero-trust-using.html">How to Streamline Zero Trust</a>
-                        <div class="date">15/03/2024 • 3 min</div>
-                    </li>
-                    <li>
-                        <a href="posts/india-taxa-ia.html">Índia Anuncia Taxa sobre Serviços de IA</a>
-                        <div class="date">05/03/2024 • 2 min</div>
-                    </li>
-                </ul>
             </div>
 
-            <div class="sidebar-widget">
-                <h3 class="widget-title">Alertas de Segurança Técnicos</h3>
-                <ul class="widget-list">
-                    <li>
-                        <a href="posts/ataque-em-redes-corporativas.html"><strong>CVE-2023-34362</strong> - MOVEit RCE</a>
-                        <div class="date">CVSS 9.8 • Exploited by Cl0p</div>
-                    </li>
-                    <li>
-                        <a href="posts/ataque-em-redes-corporativas.html"><strong>CVE-2024-21887</strong> - Ivanti SSRF</a>
-                        <div class="date">CVSS 9.1 • Chained with 21888</div>
-                    </li>
-                    <li>
-                        <a href="posts/react-shell.html"><strong>CVE-2025-55182</strong> - React RCE</a>
-                        <div class="date">CVSS 10.0 • CISA KEV</div>
-                    </li>
-                    <li>
-                        <a href="#"><strong>CVE-2024-6387</strong> - OpenSSH RCE</a>
-                        <div class="date">CVSS 9.8 • Ativo</div>
-                    </li>
-                </ul>
-                <p style="font-size: 11px; color: #888; margin-top: 10px;">Baseado em telemetria Q1/2024</p>
-            </div>
-
-            <div class="sidebar-widget">
-                <h3 class="widget-title">Ferramentas Analisadas</h3>
-                <ul class="widget-list">
-                    <li><a href="posts/ataque-em-redes-corporativas.html">Cobalt Strike 4.9</a></li>
-                    <li><a href="posts/ataque-em-redes-corporativas.html">Sliver 1.6</a></li>
-                    <li><a href="posts/ataque-em-redes-corporativas.html">Volatility 3</a></li>
-                    <li><a href="posts/ataque-em-redes-corporativas.html">YARA Rules 2024</a></li>
-                </ul>
-            </div>
-
-            <div class="sidebar-widget">
-                <h3 class="widget-title">Newsletter Técnica</h3>
-                <p>CVEs, PoCs, Sigma rules, YARA rules e análises técnicas semanais.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="seu@email.com" required>
-                    <button type="submit">Inscrever</button>
-                </form>
-                <p style="font-size: 11px; color: #888; margin-top: 10px;">+3.200 analistas • Conteúdo técnico avançado</p>
-            </div>
-
-            <div class="sidebar-widget">
-                <h3 class="widget-title">Categorias Técnicas</h3>
-                <ul class="widget-list">
-                    <li><a href="posts/ataque-em-redes-corporativas.html">Red Team <span style="float: right; color: #d63031; font-weight: bold;">5</span></a></li>
-                    <li><a href="posts/ataque-em-redes-corporativas.html">Forensics <span style="float: right; color: #888;">4</span></a></li>
-                    <li><a href="posts/react-shell.html">Vulnerabilidades <span style="float: right; color: #d63031; font-weight: bold;">12</span></a></li>
-                    <li><a href="posts/guia-aprendizado-ia.html">IA & ML <span style="float: right; color: #888;">7</span></a></li>
-                    <li><a href="posts/how-to-streamline-zero-trust-using.html">Arquitetura <span style="float: right; color: #888;">5</span></a></li>
-                </ul>
-            </div>
-        </aside>
-    </div>
-
-    <!-- Rodapé -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">BlogMarceloFernandes</div>
-            <ul class="footer-links">
-                <li><a href="#">Research</a></li>
-                <li><a href="#">Presentations</a></li>
-                <li><a href="#">Github</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-            <div class="copyright">
-                Blog Marcelo Fernandes © 2024 • Análise Técnica de Segurança • PGP: 0xAB3F9C2D
+            <div class="mt-12 pt-8 border-t border-white/5 text-sm text-slate-600">
+                © <span id="year">2026</span> Marcelo Fernandes. Todos os direitos reservados.
             </div>
         </div>
     </footer>
 
-    <script>
-        // Interatividade simples
-        document.addEventListener('DOMContentLoaded', function() {
-            // Efeito de hover nos posts
-            const posts = document.querySelectorAll('.post');
-            posts.forEach(post => {
-                post.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px)';
-                });
-                
-                post.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
-            
-            // Newsletter form
-            const newsletterForm = document.querySelector('.newsletter-form');
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const email = this.querySelector('input[type="email"]').value;
-                    alert(`Obrigado por se inscrever, ${email.split('@')[0]}! Você receberá nosso próximo resumo técnico.`);
-                    this.reset();
-                });
-            }
-            
-            // Destaque para links ativos
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            const navLinks = document.querySelectorAll('nav a');
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active');
-                }
-            });
-            
-            // Animar badges CVE (todos eles)
-            const cveBadges = document.querySelectorAll('.cve-badge');
-            cveBadges.forEach(badge => {
-                setInterval(() => {
-                    badge.style.transform = badge.style.transform === 'scale(1.05)' ? 'scale(1)' : 'scale(1.05)';
-                }, 1000);
-            });
-            
-            // Linkar todos os posts clicáveis
-            const postLinks = document.querySelectorAll('.post');
-            postLinks.forEach(post => {
-                post.addEventListener('click', function(e) {
-                    if (!e.target.classList.contains('read-more') && !e.target.classList.contains('tag')) {
-                        const link = this.querySelector('.read-more');
-                        if (link && link.href) {
-                            window.location.href = link.getAttribute('href');
-                        }
-                    }
-                });
-            });
-
-            // Adicionar tooltip para tags técnicas
-            const tags = document.querySelectorAll('.tag');
-            tags.forEach(tag => {
-                const tooltips = {
-                    'CVE-2023-34362': 'MOVEit SQL Injection → RCE',
-                    'CVE-2024-21887': 'Ivanti Connect Secure SSRF',
-                    'CVE-2024-21413': 'Windows SmartScreen bypass',
-                    'APT29': 'Cozy Bear - Russian APT',
-                    'Lazarus': 'North Korean APT group',
-                    'CobaltStrike': 'Post-exploitation framework',
-                    'EDR-evasion': 'Endpoint Detection & Response evasion',
-                    'Volatility': 'Memory forensics framework',
-                    'Sigma': 'SIEM detection rules',
-                    'YARA': 'Malware pattern matching'
-                };
-
-                if (tooltips[tag.textContent]) {
-                    tag.title = tooltips[tag.textContent];
-                    tag.style.cursor = 'help';
-                }
-            });
-
-            // Highlight do novo post técnico (agora sem borda vermelha)
-            const newPost = document.querySelector('.post:nth-child(1)');
-            if (newPost) {
-                setTimeout(() => {
-                    newPost.style.boxShadow = '0 0 0 2px #0066cc, 0 5px 20px rgba(0,0,0,0.1)';
-                    setTimeout(() => {
-                        newPost.style.boxShadow = '0 3px 15px rgba(0,0,0,0.05)';
-                    }, 2000);
-                }, 1000);
-            }
-        });
-    </script>
+    <script src="/js/site.js"></script>
+    <script src="/js/blog.js"></script>
 </body>
 </html>

@@ -18,7 +18,8 @@ const svgFor = (name, cls) => {
     return svg.replace('<svg', `<svg class="${cls}" aria-hidden="true" focusable="false" data-icon="${name}"`);
 };
 
-for (const page of readdirSync('.').filter(f => f.endsWith('.html'))) {
+const pages = readdirSync('.', { recursive: true }).filter(f => f.endsWith('.html') && !f.startsWith('node_modules'));
+for (const page of pages) {
     const html = readFileSync(page, 'utf8');
     let n = 0;
     const out = html.replace(/<i data-lucide="([^"]+)"(?: class="([^"]*)")?><\/i>/g, (_, name, cls = '') => (n++, svgFor(name, cls)));

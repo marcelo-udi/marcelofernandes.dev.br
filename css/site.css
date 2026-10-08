@@ -312,3 +312,67 @@ select.field { appearance: none; background-image: url("data:image/svg+xml,%3Csv
 /* Texto do botão em uma linha (no celular pode quebrar para não estourar a largura) */
 .btn { max-width: 100%; text-align: center; }
 @media (min-width: 640px) { .btn { white-space: nowrap; } }
+
+/* ===== Blog ===== */
+.post-card { display: flex; flex-direction: column; }
+.post-card h2, .post-card h3 { transition: color .2s; }
+.post-card:hover h2, .post-card:hover h3 { color: #fff; }
+
+.toc a { display: block; padding: .4rem 0 .4rem .9rem; border-left: 1px solid var(--line); color: var(--muted); font-size: .9rem; line-height: 1.4; transition: color .2s, border-color .2s; }
+.toc a:hover { color: var(--text); }
+.toc a.active { color: #fff; border-left-color: rgb(var(--accent, 56,189,248)); }
+
+/* Texto do artigo */
+.prose-blog { color: #c3cbe0; font-size: 1.075rem; line-height: 1.8; }
+.prose-blog > * + * { margin-top: 1.25rem; }
+.prose-blog h2 { font-size: 1.75rem; line-height: 1.25; font-weight: 700; color: #fff; margin-top: 3rem; scroll-margin-top: 96px; }
+.prose-blog h3 { font-size: 1.3rem; line-height: 1.35; font-weight: 600; color: #fff; margin-top: 2.25rem; scroll-margin-top: 96px; }
+.prose-blog h4, .prose-blog h5 { font-size: 1.05rem; font-weight: 600; color: #fff; margin-top: 1.75rem; }
+.prose-blog strong { color: #eef2fa; font-weight: 600; }
+.prose-blog a { color: rgb(var(--accent, 56,189,248)); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(var(--accent, 56,189,248), .4); }
+.prose-blog a:hover { text-decoration-color: currentColor; }
+.prose-blog ul, .prose-blog ol { padding-left: 1.4rem; }
+.prose-blog ul { list-style: disc; }
+.prose-blog ol { list-style: decimal; }
+.prose-blog li { margin-top: .45rem; padding-left: .25rem; }
+.prose-blog li::marker { color: rgb(var(--accent, 56,189,248)); }
+.prose-blog :not(pre) > code { font-family: 'Fira Code', monospace; font-size: .88em; padding: .15em .45em; border-radius: 6px; background: rgba(255,255,255,.07); color: #e6ebf5; }
+.prose-blog pre, .prose-blog .code-block {
+    font-family: 'Fira Code', monospace; font-size: .88rem; line-height: 1.7; white-space: pre-wrap; word-break: break-word;
+    padding: 1.1rem 1.25rem; border-radius: 14px; background: rgba(3,7,18,.75); border: 1px solid var(--line); color: #d5ddef; overflow-x: auto;
+}
+.prose-blog .code-block code, .prose-blog pre code { background: none; padding: 0; }
+.prose-blog table { width: 100%; border-collapse: collapse; font-size: .95rem; display: block; overflow-x: auto; }
+.prose-blog th, .prose-blog td { padding: .7rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.prose-blog th { color: var(--muted); font-weight: 500; font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; }
+.prose-blog svg { display: inline-block; width: 1.05em; height: 1.05em; vertical-align: -0.15em; margin-right: .25rem; }
+
+/* Caixas de destaque herdadas dos posts */
+.prose-blog .alert-critical, .prose-blog .alert-warning, .prose-blog .alert-info, .prose-blog .important,
+.prose-blog .highlight-box, .prose-blog .proposal-box, .prose-blog .veredito, .prose-blog .cve-list {
+    border-radius: 16px; padding: 1.1rem 1.3rem; border: 1px solid; border-left-width: 4px;
+}
+.prose-blog .alert-critical { background: rgba(244,63,94,.07); border-color: rgba(244,63,94,.35); }
+.prose-blog .alert-warning  { background: rgba(245,158,11,.07); border-color: rgba(245,158,11,.35); }
+.prose-blog .alert-info, .prose-blog .important { background: rgba(14,165,233,.07); border-color: rgba(14,165,233,.35); }
+.prose-blog .highlight-box  { background: rgba(255,255,255,.03); border-color: var(--line-2); font-style: italic; color: #d5ddef; }
+.prose-blog .proposal-box, .prose-blog .veredito { background: rgba(16,185,129,.06); border-color: rgba(16,185,129,.35); }
+.prose-blog .cve-list { background: rgba(255,255,255,.02); border-color: var(--line-2); }
+.prose-blog .alert-critical > :first-child, .prose-blog .alert-warning > :first-child, .prose-blog .alert-info > :first-child,
+.prose-blog .important > :first-child, .prose-blog .highlight-box > :first-child, .prose-blog .proposal-box > :first-child,
+.prose-blog .veredito > :first-child, .prose-blog .cve-list > :first-child { margin-top: 0; }
+.prose-blog [class*="alert-"] > * + *, .prose-blog .important > * + *, .prose-blog .highlight-box > * + *,
+.prose-blog .proposal-box > * + *, .prose-blog .veredito > * + *, .prose-blog .cve-list > * + * { margin-top: .75rem; }
+
+.prose-blog .cve-badge, .prose-blog .cve-id { font-family: 'Fira Code', monospace; font-size: .85em; padding: .15em .55em; border-radius: 6px; background: rgba(139,92,246,.15); color: #c4b5fd; white-space: nowrap; }
+.prose-blog .cvss-score { font-family: 'Fira Code', monospace; font-size: .8em; font-weight: 600; padding: .15em .55em; border-radius: 6px; background: rgba(244,63,94,.15); color: #fda4af; white-space: nowrap; }
+.prose-blog .cvss-high { background: rgba(245,158,11,.15); color: #fcd34d; }
+.prose-blog .cve-item { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; padding: .55rem 0; border-top: 1px solid var(--line); }
+.prose-blog .tech-badge { display: inline-block; font-size: .8rem; padding: .2rem .65rem; border-radius: 999px; background: rgba(14,165,233,.1); border: 1px solid rgba(14,165,233,.25); color: #7dd3fc; margin: .15rem .2rem .15rem 0; }
+.prose-blog .matrix-item, .prose-blog .flow-step, .prose-blog .workflow-step { border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.2rem; background: rgba(255,255,255,.02); }
+.prose-blog .matrix-title { display: block; font-weight: 600; color: #fff; margin-bottom: .4rem; }
+.prose-blog .step-number { display: inline-flex; align-items: center; justify-content: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; margin-right: .5rem; font-family: 'Fira Code', monospace; font-size: .8rem; color: #7dd3fc; border: 1px solid rgba(14,165,233,.4); }
+.prose-blog .requirements-list, .prose-blog .affected-list { list-style: none; padding-left: 0; }
+.prose-blog .requirements-list li, .prose-blog .affected-list li { position: relative; padding-left: 1.5rem; }
+.prose-blog .requirements-list li::before, .prose-blog .affected-list li::before { content: '→'; position: absolute; left: 0; color: rgb(var(--accent, 56,189,248)); }
+.chip[aria-pressed="true"] { color: #04140e; background: linear-gradient(135deg, #34d399, #38bdf8); border-color: transparent; font-weight: 600; }
