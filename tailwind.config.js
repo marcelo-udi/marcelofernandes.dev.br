@@ -9,6 +9,9 @@ module.exports = {
                 'dev-color':   '#f59e0b',
                 'ink':         '#050a17',
                 'panel':       '#0a1226',
+                // Página inicial
+                'brand':       { DEFAULT: '#8b5cf6', light: '#c4b5fd', dark: '#6d28d9' },
+                'night':       { DEFAULT: '#0c0b12', 2: '#13121c', 3: '#1b1a27' },
             },
             fontFamily: {
                 display: ['"Space Grotesk"', 'Inter', 'sans-serif'],
