@@ -131,9 +131,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="preload" as="image" href="img/marcelo-hero.webp" type="image/webp">
-    <link rel="stylesheet" href="css/tailwind.css?v=4">
-    <link rel="stylesheet" href="css/home.css?v=4">
+    <link rel="stylesheet" href="css/tailwind.css?v=5">
+    <link rel="stylesheet" href="css/home.css?v=5">
 </head>
 <body>
     <div class="scroll-progress" id="scrollProgress"></div>
@@ -192,11 +191,43 @@
                 </div>
             </div>
 
-            <div class="reveal order-1 md:order-2 w-full max-w-[300px] sm:max-w-[400px] mx-auto">
-                <div class="hero-foto">
-                    <img src="img/marcelo-hero.webp" alt="Marcelo Fernandes, criador de sites" width="560" height="560" fetchpriority="high">
-                    <span class="selo bottom-[16%] -left-3 sm:-left-8"><svg class="w-4 h-4 text-azul" aria-hidden="true" focusable="false" data-icon="zap" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></svg>Abre em menos de 2s</span>
-                    <span class="selo bottom-[3%] -right-2 sm:-right-6"><svg class="w-4 h-4 text-azul" aria-hidden="true" focusable="false" data-icon="smartphone" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></svg>Perfeito no celular</span>
+            <div class="reveal order-1 md:order-2 w-full max-w-[460px] md:max-w-[520px] mx-auto">
+                <div class="mockup" role="img" aria-label="Exemplo de site profissional no computador e no celular">
+                    <div class="mk-browser">
+                        <div class="mk-bar">
+                            <span class="mk-dot"></span><span class="mk-dot"></span><span class="mk-dot"></span>
+                            <span class="mk-url"><svg class="w-3 h-3" aria-hidden="true" focusable="false" data-icon="lock" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="18" height="11" x="3" y="11" rx="2" ry="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>seunegocio.com.br</span>
+                        </div>
+                        <div class="mk-page">
+                            <div class="mk-nav">
+                                <span class="mk-logo"></span>
+                                <span class="mk-links"><i></i><i></i><i></i></span>
+                                <span class="mk-cta"></span>
+                            </div>
+                            <div class="mk-hero">
+                                <div>
+                                    <p class="mk-h">Atendimento que faz a diferença</p>
+                                    <span class="mk-line w-[90%]"></span>
+                                    <span class="mk-line w-[70%]"></span>
+                                    <span class="mk-btn">Agendar pelo WhatsApp</span>
+                                </div>
+                                <div class="mk-img"></div>
+                            </div>
+                            <div class="mk-cards"><span></span><span></span><span></span></div>
+                        </div>
+                    </div>
+
+                    <div class="mk-phone">
+                        <div class="mk-notch"></div>
+                        <div class="mk-img mk-img-sm"></div>
+                        <p class="mk-h mk-h-sm">Atendimento que faz a diferença</p>
+                        <span class="mk-line w-[85%]"></span>
+                        <span class="mk-line w-[60%]"></span>
+                        <span class="mk-btn mk-btn-sm">WhatsApp</span>
+                    </div>
+
+                    <span class="selo top-[64%] -left-2 sm:-left-8"><svg class="w-4 h-4 text-azul" aria-hidden="true" focusable="false" data-icon="zap" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" /></svg>Abre em menos de 2s</span>
+                    <span class="selo -bottom-2 left-[22%] sm:left-[26%]"><svg class="w-4 h-4 text-azul" aria-hidden="true" focusable="false" data-icon="search" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>Aparece no Google</span>
                 </div>
             </div>
         </section>
@@ -281,13 +312,19 @@
 
         <!-- Quem sou -->
         <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24">
-            <div class="reveal grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center">
-                <img src="img/marcelofernandes.jpg" alt="Foto de Marcelo Fernandes" width="612" height="725" loading="lazy" class="w-36 h-36 md:w-52 md:h-52 rounded-full object-cover object-[50%_15%] ring-8 ring-white">
+            <div class="reveal plano p-8 sm:p-12 grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center">
+                <span class="grid place-items-center w-24 h-24 md:w-32 md:h-32 rounded-3xl bg-azul text-white font-titulo font-extrabold text-5xl md:text-6xl">M</span>
                 <div>
                     <h2 class="font-titulo font-extrabold text-3xl sm:text-4xl tracking-tight">Prazer, eu sou o Marcelo.</h2>
                     <p class="text-lg text-tinta-soft mt-4 leading-relaxed max-w-3xl">
                         Desenvolvedor com mais de 7 anos de experiência em tecnologia. Crio sites pensando no que importa para você: aparecer para quem procura o seu serviço e transformar visita em contato. Sem intermediários, sem burocracia e com suporte depois que o site estiver no ar.
                     </p>
+                    <ul class="mt-6 flex flex-wrap gap-2 text-sm font-medium">
+                        <li class="rounded-full bg-paper px-3.5 py-1.5">Certificado AWS</li>
+                        <li class="rounded-full bg-paper px-3.5 py-1.5">Azure Expert</li>
+                        <li class="rounded-full bg-paper px-3.5 py-1.5">Full Stack</li>
+                        <li class="rounded-full bg-paper px-3.5 py-1.5">Uberlândia-MG</li>
+                    </ul>
                 </div>
             </div>
         </section>

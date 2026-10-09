@@ -42,17 +42,42 @@ body {
 .btn-branco { background: #fff; color: var(--tinta); }
 .btn-branco:hover { background: var(--sol); }
 
-/* Foto do topo */
-.hero-foto { position: relative; aspect-ratio: 1; }
-.hero-foto::before {
-    content: ""; position: absolute; inset: 9% 6% 0 6%; border-radius: 9999px 9999px 2rem 2rem;
-    background: var(--azul);
+/* Ilustração do topo: site no computador e no celular */
+.mockup { position: relative; padding: 6% 10% 14% 4%; }
+.mockup::before {
+    content: ""; position: absolute; inset: 0 0 6% 12%; border-radius: 2.5rem; background: var(--azul);
 }
-.hero-foto::after {
-    content: ""; position: absolute; width: 22%; aspect-ratio: 1; top: 4%; right: 2%; border-radius: 9999px;
-    background: var(--sol);
+.mockup::after {
+    content: ""; position: absolute; width: 18%; aspect-ratio: 1; top: -4%; right: 4%; border-radius: 9999px; background: var(--sol);
 }
-.hero-foto img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: contain; object-position: bottom; clip-path: inset(-20% 6% 0 6% round 0 0 2rem 2rem); }
+.mk-browser { position: relative; z-index: 1; background: #fff; border-radius: 1rem; overflow: hidden; box-shadow: 0 30px 60px -25px rgba(21, 23, 28, .55); }
+.mk-bar { display: flex; align-items: center; gap: 6px; padding: 10px 12px; background: #eef0f4; }
+.mk-dot { width: 9px; height: 9px; border-radius: 9999px; background: #c9ced8; }
+.mk-dot:nth-child(1) { background: #ff6159; } .mk-dot:nth-child(2) { background: #ffbd2e; } .mk-dot:nth-child(3) { background: #28c941; }
+.mk-url { margin-left: 10px; flex: 1; display: flex; align-items: center; gap: 5px; background: #fff; border-radius: 9999px; padding: 4px 10px; font-size: 11px; color: #4a4f5c; }
+.mk-page { padding: 14px 16px 18px; }
+.mk-nav { display: flex; align-items: center; gap: 10px; }
+.mk-logo { width: 18px; height: 18px; border-radius: 6px; background: var(--azul); }
+.mk-links { display: flex; gap: 6px; margin-left: auto; }
+.mk-links i { width: 26px; height: 6px; border-radius: 9999px; background: #e3e5ea; }
+.mk-cta { width: 46px; height: 16px; border-radius: 9999px; background: var(--tinta); }
+.mk-hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 14px; align-items: center; margin-top: 18px; }
+.mk-h { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: clamp(14px, 2.4vw, 20px); line-height: 1.1; color: var(--tinta); margin-bottom: 10px; }
+.mk-line { display: block; height: 6px; border-radius: 9999px; background: #e3e5ea; margin-top: 6px; }
+.mk-btn { display: inline-block; margin-top: 12px; padding: 6px 10px; border-radius: 9999px; background: #25d366; color: #fff; font-size: 10px; font-weight: 700; white-space: nowrap; }
+.mk-img { aspect-ratio: 4 / 3.4; border-radius: .7rem; background: linear-gradient(135deg, #ffd27a, #ffb21e 45%, #2546f5); position: relative; overflow: hidden; }
+.mk-img::after { content: ""; position: absolute; width: 46%; aspect-ratio: 1; right: 12%; bottom: -10%; border-radius: 9999px; background: rgba(255, 255, 255, .35); }
+.mk-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 16px; }
+.mk-cards span { height: 34px; border-radius: .5rem; background: #f3f4f7; border: 1px solid #e8eaef; }
+.mk-phone {
+    position: absolute; z-index: 2; right: 0; bottom: 0; width: 31%; padding: 18px 9px 12px;
+    background: #fff; border: 5px solid var(--tinta); border-radius: 1.4rem; box-shadow: 0 25px 50px -20px rgba(21, 23, 28, .6);
+}
+.mk-notch { position: absolute; top: 5px; left: 50%; transform: translateX(-50%); width: 34%; height: 6px; border-radius: 9999px; background: var(--tinta); }
+.mk-img-sm { aspect-ratio: 4 / 3; border-radius: .5rem; }
+.mk-h-sm { font-size: clamp(10px, 1.6vw, 12px); margin: 8px 0 4px; }
+.mk-phone .mk-line { height: 4px; margin-top: 4px; }
+.mk-btn-sm { display: block; text-align: center; margin-top: 8px; padding: 5px 0; font-size: 9px; }
 .selo {
     position: absolute; z-index: 2; display: flex; align-items: center; gap: .5rem;
     background: #fff; color: var(--tinta); border-radius: 9999px; padding: .55rem .95rem;
