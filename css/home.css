@@ -94,3 +94,29 @@ body {
     .reveal { opacity: 1; transform: none; transition: none; }
     .btn, .plano, .servico { transition: none; }
 }
+
+/* Exemplos de sites (mini sites desenhados em CSS; escalam com a largura do cartão) */
+.exemplo { background: var(--paper); border: 1.5px solid var(--linha); border-radius: 1.5rem; overflow: hidden; transition: transform .2s, box-shadow .2s; }
+.exemplo:hover { transform: translateY(-4px); box-shadow: 0 24px 50px -28px rgba(21, 23, 28, .35); }
+.ex-tela { container-type: inline-size; margin: 1.25rem 1.25rem 0; border-radius: .8rem .8rem 0 0; overflow: hidden; background: var(--c3); box-shadow: 0 -1px 0 var(--linha), 0 18px 40px -24px rgba(21, 23, 28, .45); }
+.ex-bar { display: flex; align-items: center; gap: 1.2cqw; padding: 2cqw 2.4cqw; background: #eceef2; }
+.ex-bar span { width: 1.8cqw; height: 1.8cqw; border-radius: 9999px; background: #ff6159; }
+.ex-bar span:nth-child(2) { background: #ffbd2e; } .ex-bar span:nth-child(3) { background: #28c941; }
+.ex-bar em { margin-left: 2cqw; flex: 1; background: #fff; border-radius: 9999px; padding: .8cqw 2.4cqw; font-style: normal; font-size: 2.3cqw; color: #4a4f5c; }
+.ex-site { padding: 3cqw 4cqw 4.5cqw; }
+.ex-nav { display: flex; align-items: center; gap: 1.6cqw; }
+.ex-nav b { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 3cqw; color: var(--c1); margin-right: auto; }
+.ex-nav > i { width: 6cqw; height: 1.1cqw; border-radius: 9999px; background: rgba(21, 23, 28, .14); }
+.ex-pill { display: inline-flex; align-items: center; gap: .6cqw; margin-left: 1cqw; padding: 1cqw 2.4cqw; border-radius: 9999px; background: var(--c1); color: #fff; font-size: 2.1cqw; font-weight: 700; }
+.ex-pill svg { width: 2.4cqw; height: 2.4cqw; }
+.ex-hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 4cqw; align-items: center; margin-top: 5cqw; }
+.ex-h { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 5.4cqw; line-height: 1.05; color: #15171c; }
+.ex-p { font-size: 2.4cqw; line-height: 1.4; color: #4a4f5c; margin-top: 1.8cqw; }
+.ex-btn { display: inline-block; margin-top: 3cqw; padding: 1.5cqw 3cqw; border-radius: 9999px; background: var(--c1); color: #fff; font-size: 2.2cqw; font-weight: 700; }
+.ex-img { aspect-ratio: 1 / .85; border-radius: 2.5cqw; display: grid; place-items: center; background: radial-gradient(circle at 70% 75%, rgba(255, 255, 255, .55), transparent 45%), linear-gradient(135deg, var(--c2), color-mix(in srgb, var(--c1) 35%, var(--c2))); color: var(--c1); }
+.ex-img svg { width: 13cqw; height: 13cqw; stroke-width: 1.5; }
+.ex-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2cqw; margin-top: 5cqw; }
+.ex-row span { padding: 2cqw; border-radius: 1.6cqw; background: #fff; border: 1px solid rgba(21, 23, 28, .08); font-size: 2.2cqw; font-weight: 600; color: #15171c; text-align: center; }
+.ex-produtos span { display: grid; place-items: center; aspect-ratio: 1.6; background: var(--c2); color: var(--c1); }
+.ex-produtos svg { width: 6cqw; height: 6cqw; }
+@media (prefers-reduced-motion: reduce) { .exemplo { transition: none; } }
