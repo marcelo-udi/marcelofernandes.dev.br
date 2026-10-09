@@ -136,8 +136,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Cormorant+Garamond:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link rel="preload" as="image" href="img/marcelo-hero.webp" type="image/webp">
-    <link rel="stylesheet" href="css/tailwind.css?v=8">
-    <link rel="stylesheet" href="css/home.css?v=8">
+    <link rel="stylesheet" href="css/tailwind.css?v=9">
+    <link rel="stylesheet" href="css/home.css?v=9">
 </head>
 <body>
     <div class="scroll-progress" id="scrollProgress"></div>
@@ -226,36 +226,74 @@
                 <p class="text-lg text-tinta-soft mt-4">Do site simples ao sistema sob medida. Cada projeto é orçado conforme o que você realmente precisa, sem pacote engessado, e a proposta chega direto no seu WhatsApp.</p>
             </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12 items-stretch">
-                <article class="reveal plano p-7 flex flex-col">
-                    <span class="grid place-items-center w-12 h-12 rounded-2xl bg-azul-soft text-azul"><svg class="w-6 h-6" aria-hidden="true" focusable="false" data-icon="panels-top-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="18" height="18" x="3" y="3" rx="2" /><path d="M3 9h18" /><path d="M9 21V9" /></svg></span>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-14 items-stretch">
+                <article class="reveal plano p-7 flex flex-col relative">
+                    <span class="grid place-items-center w-12 h-12 rounded-2xl bg-azul-soft text-azul shrink-0"><svg class="w-6 h-6" aria-hidden="true" focusable="false" data-icon="panels-top-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="18" height="18" x="3" y="3" rx="2" /><path d="M3 9h18" /><path d="M9 21V9" /></svg></span>
                     <h3 class="font-titulo font-extrabold text-2xl mt-6">Presença Digital</h3>
-                    <p class="text-tinta-soft mt-2 leading-relaxed flex-1">Site de até 3 páginas para o seu negócio estar na internet com cara profissional, WhatsApp e Google Maps.</p>
-                    <a href="https://wa.me/5534998928444?text=Ol%C3%A1%2C%20Marcelo!%20Quero%20um%20or%C3%A7amento%20do%20plano%20Presen%C3%A7a%20Digital." target="_blank" rel="noopener noreferrer" class="btn btn-linha mt-7 w-full">Pedir orçamento</a>
+                    <p class="text-sm font-semibold text-azul mt-2 plano-ideal">Ideal para autônomos e negócios locais</p>
+                    <p class="text-tinta-soft mt-3 leading-relaxed plano-desc">Seu negócio na internet com cara profissional.</p>
+                    <ul class="plano-lista">
+                        <li><svg class="w-5 h-5 text-azul shrink-0" aria-hidden="true" focusable="false" data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Até 3 páginas</li>
+                        <li><svg class="w-5 h-5 text-azul shrink-0" aria-hidden="true" focusable="false" data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Botão de WhatsApp</li>
+                        <li><svg class="w-5 h-5 text-azul shrink-0" aria-hidden="true" focusable="false" data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Localização no Google Maps</li>
+                        <li><svg class="w-5 h-5 text-azul shrink-0" aria-hidden="true" focusable="false" data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Perfeito no celular</li>
+                    </ul>
+                    <a href="https://wa.me/5534998928444?text=Ol%C3%A1%2C%20Marcelo!%20Quero%20um%20or%C3%A7amento%20do%20plano%20Presen%C3%A7a%20Digital." target="_blank" rel="noopener noreferrer" class="btn btn-linha mt-auto w-full">Pedir orçamento</a>
                 </article>
-
                 <article class="reveal plano plano-destaque p-7 flex flex-col relative">
-                    <span class="absolute top-7 right-7 rounded-full bg-sol px-3 py-1 text-xs font-bold text-tinta">Mais escolhido</span>
-                    <span class="grid place-items-center w-12 h-12 rounded-2xl bg-white/10 text-sol"><svg class="w-6 h-6" aria-hidden="true" focusable="false" data-icon="building-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" /><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" /><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" /><path d="M10 6h4" /><path d="M10 10h4" /><path d="M10 14h4" /><path d="M10 18h4" /></svg></span>
+                    <span class="plano-badge">Mais escolhido</span>
+                    <span class="grid place-items-center w-12 h-12 rounded-2xl bg-white/10 text-sol shrink-0"><svg class="w-6 h-6" aria-hidden="true" focusable="false" data-icon="building-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" /><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" /><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" /><path d="M10 6h4" /><path d="M10 10h4" /><path d="M10 14h4" /><path d="M10 18h4" /></svg></span>
                     <h3 class="font-titulo font-extrabold text-2xl mt-6">Profissional</h3>
-                    <p class="text-white/70 mt-2 leading-relaxed flex-1">Site completo para gerar clientes: mais páginas, formulários, SEO técnico, Google Analytics e hospedagem inclusa.</p>
-                    <a href="https://wa.me/5534998928444?text=Ol%C3%A1%2C%20Marcelo!%20Quero%20um%20or%C3%A7amento%20do%20plano%20Profissional." target="_blank" rel="noopener noreferrer" class="btn btn-azul mt-7 w-full">Pedir orçamento</a>
+                    <p class="text-sm font-semibold text-sol mt-2 plano-ideal">Ideal para empresas que querem mais clientes</p>
+                    <p class="text-white/70 mt-3 leading-relaxed plano-desc">Site completo para transformar visitas em contatos.</p>
+                    <ul class="plano-lista">
+                        <li><svg class="w-5 h-5 text-sol shrink-0" aria-hidden="true" focusable="false" data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Mais páginas e formulários</li>
+                        <li><svg class="w-5 h-5 text-sol shrink-0" aria-hidden="true" focusable="false" data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>SEO técnico para o Google</li>
+                        <li><svg class="w-5 h-5 text-sol shrink-0" aria-hidden="true" focusable="false" data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Google Analytics configurado</li>
+                        <li><svg class="w-5 h-5 text-sol shrink-0" aria-hidden="true" focusable="false" data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Hospedagem inclusa</li>
+                        <li><svg class="w-5 h-5 text-sol shrink-0" aria-hidden="true" focusable="false" data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>30 dias de suporte</li>
+                    </ul>
+                    <a href="https://wa.me/5534998928444?text=Ol%C3%A1%2C%20Marcelo!%20Quero%20um%20or%C3%A7amento%20do%20plano%20Profissional." target="_blank" rel="noopener noreferrer" class="btn btn-azul mt-auto w-full">Pedir orçamento</a>
                 </article>
-
-                <article class="reveal plano p-7 flex flex-col">
-                    <span class="grid place-items-center w-12 h-12 rounded-2xl bg-azul-soft text-azul"><svg class="w-6 h-6" aria-hidden="true" focusable="false" data-icon="shopping-cart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" /><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" /></svg></span>
+                <article class="reveal plano p-7 flex flex-col relative">
+                    <span class="grid place-items-center w-12 h-12 rounded-2xl bg-azul-soft text-azul shrink-0"><svg class="w-6 h-6" aria-hidden="true" focusable="false" data-icon="shopping-cart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" /><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" /></svg></span>
                     <h3 class="font-titulo font-extrabold text-2xl mt-6">Loja Virtual</h3>
-                    <p class="text-tinta-soft mt-2 leading-relaxed flex-1">Loja completa para vender pela internet, com pagamento online, gestão de produtos e pedidos.</p>
-                    <a href="https://wa.me/5534998928444?text=Ol%C3%A1%2C%20Marcelo!%20Quero%20um%20or%C3%A7amento%20de%20Loja%20Virtual." target="_blank" rel="noopener noreferrer" class="btn btn-linha mt-7 w-full">Pedir orçamento</a>
+                    <p class="text-sm font-semibold text-azul mt-2 plano-ideal">Ideal para quem vende produtos</p>
+                    <p class="text-tinta-soft mt-3 leading-relaxed plano-desc">Loja completa para vender pela internet.</p>
+                    <ul class="plano-lista">
+                        <li><svg class="w-5 h-5 text-azul shrink-0" aria-hidden="true" focusable="false" data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Catálogo com carrinho</li>
+                        <li><svg class="w-5 h-5 text-azul shrink-0" aria-hidden="true" focusable="false" data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Pix, cartão e boleto</li>
+                        <li><svg class="w-5 h-5 text-azul shrink-0" aria-hidden="true" focusable="false" data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Cálculo de frete</li>
+                        <li><svg class="w-5 h-5 text-azul shrink-0" aria-hidden="true" focusable="false" data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Painel de pedidos e estoque</li>
+                    </ul>
+                    <a href="https://wa.me/5534998928444?text=Ol%C3%A1%2C%20Marcelo!%20Quero%20um%20or%C3%A7amento%20de%20Loja%20Virtual." target="_blank" rel="noopener noreferrer" class="btn btn-linha mt-auto w-full">Pedir orçamento</a>
                 </article>
-
-                <article class="reveal plano p-7 flex flex-col">
-                    <span class="grid place-items-center w-12 h-12 rounded-2xl bg-azul-soft text-azul"><svg class="w-6 h-6" aria-hidden="true" focusable="false" data-icon="app-window" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M10 4v4" /><path d="M2 8h20" /><path d="M6 4v4" /></svg></span>
+                <article class="reveal plano p-7 flex flex-col relative">
+                    <span class="grid place-items-center w-12 h-12 rounded-2xl bg-azul-soft text-azul shrink-0"><svg class="w-6 h-6" aria-hidden="true" focusable="false" data-icon="app-window" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M10 4v4" /><path d="M2 8h20" /><path d="M6 4v4" /></svg></span>
                     <h3 class="font-titulo font-extrabold text-2xl mt-6">Sob Medida</h3>
-                    <p class="text-tinta-soft mt-2 leading-relaxed flex-1">Sistema ou aplicativo feito para o seu negócio, com painel administrativo, integrações e automações.</p>
-                    <a href="https://wa.me/5534998928444?text=Ol%C3%A1%2C%20Marcelo!%20Quero%20um%20or%C3%A7amento%20de%20sistema%20sob%20medida." target="_blank" rel="noopener noreferrer" class="btn btn-linha mt-7 w-full">Pedir orçamento</a>
+                    <p class="text-sm font-semibold text-azul mt-2 plano-ideal">Ideal para processos específicos</p>
+                    <p class="text-tinta-soft mt-3 leading-relaxed plano-desc">Sistema ou aplicativo feito para o seu negócio.</p>
+                    <ul class="plano-lista">
+                        <li><svg class="w-5 h-5 text-azul shrink-0" aria-hidden="true" focusable="false" data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Painel administrativo</li>
+                        <li><svg class="w-5 h-5 text-azul shrink-0" aria-hidden="true" focusable="false" data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Integrações com outros sistemas</li>
+                        <li><svg class="w-5 h-5 text-azul shrink-0" aria-hidden="true" focusable="false" data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Automações de tarefas</li>
+                        <li><svg class="w-5 h-5 text-azul shrink-0" aria-hidden="true" focusable="false" data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M20 6 9 17l-5-5" /></svg>Projeto feito para você</li>
+                    </ul>
+                    <a href="https://wa.me/5534998928444?text=Ol%C3%A1%2C%20Marcelo!%20Quero%20um%20or%C3%A7amento%20de%20sistema%20sob%20medida." target="_blank" rel="noopener noreferrer" class="btn btn-linha mt-auto w-full">Pedir orçamento</a>
                 </article>
             </div>
+
+            <div class="reveal planos-inclui mt-8">
+                <p class="font-semibold shrink-0">Todos os planos incluem:</p>
+                <ul>
+                    <li><svg class="w-5 h-5 text-azul shrink-0" aria-hidden="true" focusable="false" data-icon="palette" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="13.5" cy="6.5" r=".5" fill="currentColor" /><circle cx="17.5" cy="10.5" r=".5" fill="currentColor" /><circle cx="8.5" cy="7.5" r=".5" fill="currentColor" /><circle cx="6.5" cy="12.5" r=".5" fill="currentColor" /><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" /></svg>Design exclusivo</li>
+                    <li><svg class="w-5 h-5 text-azul shrink-0" aria-hidden="true" focusable="false" data-icon="smartphone" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></svg>Versão para celular</li>
+                    <li><svg class="w-5 h-5 text-azul shrink-0" aria-hidden="true" focusable="false" data-icon="search" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>Otimização para o Google</li>
+                    <li><svg class="w-5 h-5 text-azul shrink-0" aria-hidden="true" focusable="false" data-icon="message-circle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>Atendimento direto comigo</li>
+                </ul>
+            </div>
+
+            <p class="reveal mt-6 text-tinta-soft">Não sabe qual escolher? <a href="https://wa.me/5534998928444?text=Ol%C3%A1%2C%20Marcelo!%20N%C3%A3o%20sei%20qual%20site%20escolher%2C%20pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer" class="font-semibold text-azul hover:underline">Me conta sobre o seu negócio que eu te ajudo a decidir.</a></p>
         </section>
 
         <!-- Exemplos -->
