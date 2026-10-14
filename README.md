@@ -59,16 +59,18 @@ Todas as URLs do site antigo continuam existindo (`build.format: 'preserve'`). `
 
 ## Publicação
 
-Um push na branch `main` dispara `.github/workflows/deploy.yml`, que instala, checa os tipos, gera o site, verifica os links e publica no GitHub Pages. Acompanhe em **Actions** no GitHub.
+Um push na branch `main` dispara `.github/workflows/deploy.yml`, que instala, checa os tipos, gera o site, verifica os links e envia o `dist/` para a branch **`gh-pages`**. O GitHub Pages serve essa branch (Settings → Pages → **Deploy from a branch** → `gh-pages` / `(root)`). Acompanhe em **Actions**.
 
-O Pages precisa estar com a fonte **GitHub Actions** (Settings → Pages → Build and deployment → Source).
+Por que não `actions/deploy-pages`: em 14/10/2026 a API de publicação do Pages ficou presa numa publicação fantasma e recusava novas publicações; a publicação pela branch funcionou.
+
+Publicação manual (sem Actions): `npm run build`, copiar `dist/` para uma pasta, `git init -b gh-pages`, commit e `git push -f origin gh-pages`.
 
 ## Backup e reversão
 
 - O site antigo (HTML feito à mão) está na tag **`antes-reconstrucao-20261014`**.
 - Para voltar ao site antigo:
-  1. Settings → Pages → Source: **Deploy from a branch** → `main` / `(root)`, ou `gh api -X PUT repos/marcelo-udi/marcelofernandes.dev.br/pages -f build_type=legacy -f "source[branch]=main" -f "source[path]=/"`.
-  2. `git checkout main && git reset --hard antes-reconstrucao-20261014 && git push --force-with-lease` (ou crie uma branch a partir da tag e aponte o Pages para ela).
+  - A branch **`site-antigo`** tem exatamente o site anterior. Basta apontar o Pages para ela: Settings → Pages → Branch `site-antigo` / `(root)`, ou `gh api -X PUT repos/marcelo-udi/marcelofernandes.dev.br/pages -f build_type=legacy -f "source[branch]=site-antigo" -f "source[path]=/"`.
+  - Para voltar ao site novo: apontar de novo para `gh-pages`.
 - Para desfazer só uma alteração do site novo: `git revert <commit>` e push. O Actions publica de novo.
 - Cada publicação fica registrada em **Actions** e em **Deployments**, e dá para reexecutar uma publicação anterior por lá.
 
