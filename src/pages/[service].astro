@@ -1,0 +1,138 @@
+---
+// Gera uma página por serviço, nas URLs antigas (/ia.html, /cloud.html, /site_institucional.html…)
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Crumbs from '../components/Crumbs.astro';
+import SectionHead from '../components/SectionHead.astro';
+import Steps from '../components/Steps.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { SERVICES, type Service } from '../data/services';
+import { projectBySlug } from '../data/projects';
+import { SITE, whatsapp } from '../data/site';
+import { breadcrumbSchema, faqSchema } from '../data/schema';
+
+export function getStaticPaths() {
+  return SERVICES.map((s) => ({ params: { service: s.slug }, props: { s } }));
+}
+
+const { s } = Astro.props as { s: Service };
+const path = `/${s.slug}.html`;
+const projects = (s.projects ?? []).map(projectBySlug).filter((p) => p !== undefined);
+const others = SERVICES.filter((x) => x.slug !== s.slug).slice(0, 8);
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: s.h1,
+  description: s.description,
+  serviceType: s.name,
+  provider: { '@id': `${SITE.url}/#negocio` },
+  areaServed: [{ '@type': 'City', name: 'Uberlândia' }, { '@type': 'Country', name: 'Brasil' }],
+  url: new URL(path, SITE.url).href,
+};
+---
+<Base title={s.title} description={s.description} path={path} ogImage={s.ogImage} waMessage={s.message}
+  schema={[serviceSchema, breadcrumbSchema([{ href: '/servicos.html', label: 'Serviços' }, { href: path, label: s.name }]), faqSchema(s.faq)]}>
+
+  <header class="page-head">
+    <div class="wrap page-head-grid">
+      <Crumbs items={[{ href: '/servicos.html', label: 'Serviços' }, { label: s.name }]} />
+      <span class="card-icon"><Icon name={s.icon} /></span>
+      <h1 class="h1">{s.h1}</h1>
+      <p class="lead">{s.lead}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href={whatsapp(s.message)} target="_blank" rel="noopener" data-track={`whatsapp_${s.slug}`}>
+          <Icon name="MessageCircle" />Pedir orçamento
+        </a>
+        <a class="btn btn--ghost" href={`/contato.html?servico=${s.slug}#orcamento`}>Descrever o projeto</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" aria-labelledby="problemas">
+    <div class="wrap split">
+      <div>
+        <SectionHead label="Quando faz sentido" title="Situações que este serviço resolve" id="problemas" />
+      </div>
+      <ul class="dash-list reveal">
+        {s.problems.map((p) => <li>{p}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--line" aria-labelledby="escopo">
+    <div class="wrap split split--wide">
+      <div class="reveal">
+        <SectionHead label="Escopo" title="O que está incluído" id="escopo" />
+        <ul class="check-list">
+          {s.includes.map((i) => <li><Icon name="Check" />{i}</li>)}
+        </ul>
+        {s.stack && (
+          <div style="margin-top:32px;display:grid;gap:12px">
+            <p class="eyebrow eyebrow--plain">Ferramentas que uso</p>
+            <ul class="tags">{s.stack.map((t) => <li>{t}</li>)}</ul>
+          </div>
+        )}
+      </div>
+      <aside class="reveal" style="display:grid;gap:16px;align-content:start">
+        <div class="note">
+          <h3><Icon name="Info" />Transparência</h3>
+          <ul>{s.limits.map((l) => <li>{l}</li>)}</ul>
+        </div>
+        <div class="aside-box">
+          <h3 class="h3">Quer uma proposta?</h3>
+          <p>Conte o que você precisa. A resposta vem com escopo, prazo e valor, sem compromisso.</p>
+          <a class="btn btn--primary" href={whatsapp(s.message)} target="_blank" rel="noopener" data-track={`whatsapp_${s.slug}_lateral`}>
+            <Icon name="MessageCircle" />Chamar no WhatsApp
+          </a>
+          <a class="btn btn--ghost" href={`mailto:${SITE.email}?subject=${encodeURIComponent('Orçamento: ' + s.name)}`}>
+            <Icon name="Mail" />Enviar e-mail
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--line" aria-labelledby="como">
+    <div class="wrap">
+      <SectionHead label="Como funciona" title="Etapas do trabalho" id="como" />
+      <Steps steps={s.steps} />
+    </div>
+  </section>
+
+  {projects.length > 0 && (
+    <section class="section section--line" aria-labelledby="exemplos">
+      <div class="wrap">
+        <SectionHead label="Na prática" title={projects.length > 1 ? 'Projetos onde apliquei isso' : 'Projeto onde apliquei isso'} id="exemplos" />
+        <div class="grid" style="gap:24px">
+          {projects.map((p, i) => <ProjectCard project={p!} flip={i % 2 === 1} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section section--line" aria-labelledby="faq">
+    <div class="wrap wrap-narrow" style="margin-inline:auto">
+      <SectionHead label="Dúvidas" title="Perguntas frequentes" id="faq" />
+      <Faq items={s.faq} />
+    </div>
+  </section>
+
+  <section class="section section--line" aria-labelledby="outros">
+    <div class="wrap">
+      <SectionHead label="Outros serviços" title="Também posso ajudar com" id="outros" />
+      <div class="grid grid-4">
+        {others.map((o) => (
+          <a class="card card--compact" href={`/${o.slug}.html`}>
+            <h3 class="h3" style="display:flex;gap:10px;align-items:center"><Icon name={o.icon} />{o.name}</h3>
+            <p>{o.summary}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Cta message={s.message} servico={s.slug} track={`whatsapp_${s.slug}_final`} />
+</Base>

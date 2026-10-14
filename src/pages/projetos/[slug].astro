@@ -1,0 +1,157 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import Crumbs from '../../components/Crumbs.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import Cta from '../../components/Cta.astro';
+import { PROJECTS, type Project } from '../../data/projects';
+import { serviceBySlug } from '../../data/services';
+import { SITE } from '../../data/site';
+import { breadcrumbSchema } from '../../data/schema';
+
+export function getStaticPaths() {
+  return PROJECTS.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+}
+
+const { p } = Astro.props as { p: Project };
+const path = `/projetos/${p.slug}.html`;
+const demo = p.status.toLowerCase().includes('demonstr');
+const services = p.services.map(serviceBySlug).filter((s) => s !== undefined);
+const others = PROJECTS.filter((x) => x.slug !== p.slug);
+
+const workSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: p.name,
+  description: p.description,
+  url: new URL(path, SITE.url).href,
+  creator: { '@id': `${SITE.url}/#pessoa` },
+  keywords: p.stack.join(', '),
+  sameAs: p.url,
+};
+---
+<Base title={p.title} description={p.description} path={path}
+  schema={[workSchema, breadcrumbSchema([{ href: '/projetos/', label: 'Projetos' }, { href: path, label: p.name }])]}>
+
+  <header class="page-head">
+    <div class="wrap page-head-grid">
+      <Crumbs items={[{ href: '/projetos/', label: 'Projetos' }, { label: p.name }]} />
+      <span class:list={['badge', demo ? 'badge--demo' : 'badge--live']}>{p.status}</span>
+      <h1 class="h1">{p.name}</h1>
+      <p class="lead">{p.summary}</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href={p.url} target="_blank" rel="noopener">
+          <Icon name="ExternalLink" />Abrir {p.urlLabel}
+        </a>
+        <a class="btn btn--ghost" href="#solucao">Ver a solução</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" aria-label="Telas do projeto">
+    <div class="wrap grid grid-2" style="gap:20px;align-items:start">
+      {p.gallery.map((g, i) => (
+        <figure class="figure reveal" style="margin:0">
+          <div class="project-shot" style="border-radius:16px">
+            <div class="browser">
+              <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>{p.urlLabel}</span></div>
+              <Image src={g.img} alt={g.alt} widths={[400, 640, 900, 1200]} sizes="(min-width: 680px) 560px, 92vw"
+                loading={i === 0 ? 'eager' : 'lazy'} quality={80} format="webp"
+                style={g.img.width < 600 ? 'aspect-ratio:auto;object-fit:contain;max-height:620px;width:auto;margin-inline:auto' : undefined} />
+            </div>
+          </div>
+          <figcaption>{g.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--line" aria-labelledby="contexto">
+    <div class="wrap split">
+      <div class="reveal" style="display:grid;gap:16px">
+        <p class="eyebrow"><b>01</b>Contexto</p>
+        <h2 class="h2" id="contexto" style="font-size:1.6rem">O ponto de partida</h2>
+        <p class="muted">{p.context}</p>
+      </div>
+      <div class="reveal" style="display:grid;gap:16px">
+        <p class="eyebrow"><b>02</b>Objetivo</p>
+        <h2 class="h2" style="font-size:1.6rem">O que precisava funcionar</h2>
+        <p class="muted">{p.goal}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line" id="solucao" aria-labelledby="solucao-titulo">
+    <div class="wrap">
+      <SectionHead num="03" label="Solução" title="O que foi construído" id="solucao-titulo" />
+      <div class="grid grid-2">
+        {p.solution.map((x) => (
+          <div class="card reveal">
+            <h3 class="h3">{x.t}</h3>
+            <p>{x.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" aria-labelledby="decisoes">
+    <div class="wrap">
+      <SectionHead num="04" label="Decisões técnicas" title="Por que foi feito assim" id="decisoes" />
+      <ul class="principles">
+        {p.decisions.map((d, i) => (
+          <li class="reveal">
+            <span class="num">{String(i + 1).padStart(2, '0')}</span>
+            <p style="color:var(--night-ink)">{d}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="resultado">
+    <div class="wrap split split--wide">
+      <div class="reveal" style="display:grid;gap:20px;align-content:start">
+        <p class="eyebrow"><b>05</b>Resultado</p>
+        <h2 class="h2" id="resultado">O que dá para conferir</h2>
+        <ul class="check-list">
+          {p.results.map((r) => <li><Icon name="Check" />{r}</li>)}
+        </ul>
+        <div class="btn-row" style="margin-top:8px">
+          {p.links.map((l) => (
+            <a class="btn btn--ghost btn--small" href={l.href} target="_blank" rel="noopener"><Icon name="ExternalLink" />{l.label}</a>
+          ))}
+        </div>
+      </div>
+      <aside class="aside-box reveal">
+        <h3 class="h3">Tecnologias</h3>
+        <ul class="tags">{p.stack.map((t) => <li>{t}</li>)}</ul>
+        <h3 class="h3" style="margin-top:8px">Serviços relacionados</h3>
+        <ul style="list-style:none;display:grid;gap:8px">
+          {services.map((s) => <li><a class="link-arrow" href={`/${s!.slug}.html`}>{s!.name} <Icon name="ArrowRight" /></a></li>)}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  {others.length > 0 && (
+    <section class="section section--line" aria-labelledby="outros">
+      <div class="wrap">
+        <SectionHead label="Mais projetos" title="Veja também" id="outros" />
+        <div class="grid grid-2">
+          {others.map((o) => (
+            <a class="card" href={`/projetos/${o.slug}.html`}>
+              <span class:list={['badge', o.status.toLowerCase().includes('demonstr') ? 'badge--demo' : 'badge--live']}>{o.status}</span>
+              <h3 class="h3">{o.name}</h3>
+              <p>{o.summary}</p>
+              <span class="link-arrow">Ver estudo de caso <Icon name="ArrowRight" /></span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <Cta title="Quer algo parecido para o seu negócio?" text="Conte o que você precisa. A proposta vem com escopo, prazo e valor." />
+</Base>

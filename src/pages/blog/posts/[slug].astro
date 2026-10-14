@@ -1,0 +1,94 @@
+---
+import Base from '../../../layouts/Base.astro';
+import Icon from '../../../components/Icon.astro';
+import Crumbs from '../../../components/Crumbs.astro';
+import Cta from '../../../components/Cta.astro';
+import { POSTS, postBody, formatDate, type Post } from '../../../data/posts';
+import { SITE } from '../../../data/site';
+import { breadcrumbSchema } from '../../../data/schema';
+
+export function getStaticPaths() {
+  return POSTS.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+}
+
+const { p } = Astro.props as { p: Post };
+const path = `/blog/posts/${p.slug}.html`;
+const url = new URL(path, SITE.url).href;
+const body = postBody(p.slug);
+const related = POSTS.filter((x) => x.slug !== p.slug).slice(0, 3);
+
+const article = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: p.title,
+  description: p.description,
+  datePublished: p.published,
+  dateModified: p.modified,
+  inLanguage: 'pt-BR',
+  mainEntityOfPage: url,
+  image: `${SITE.url}/img/og/home.jpg`,
+  author: { '@id': `${SITE.url}/#pessoa`, '@type': 'Person', name: SITE.name, url: `${SITE.url}/sobre.html` },
+  publisher: { '@id': `${SITE.url}/#negocio` },
+  keywords: p.tags.join(', '),
+};
+---
+<Base title={`${p.seoTitle} | Marcelo Fernandes`} description={p.description} path={path} ogType="article"
+  published={p.published} modified={p.modified}
+  schema={[article, breadcrumbSchema([{ href: '/blog/', label: 'Conteúdo' }, { href: path, label: p.title }])]}>
+  <article>
+    <header class="page-head">
+      <div class="wrap page-head-grid article-head">
+        <Crumbs items={[{ href: '/blog/', label: 'Conteúdo' }, { label: p.label }]} />
+        <h1 class="h1" style="max-width:24ch">{p.title}</h1>
+        <p class="lead">{p.description}</p>
+        <p class="post-meta">
+          Por <a href="/sobre.html">{SITE.name}</a> · <time datetime={p.published}>{formatDate(p.published)}</time>
+          {p.modified !== p.published && <> · atualizado em <time datetime={p.modified}>{formatDate(p.modified)}</time></>}
+          {p.minutes && <> · {p.minutes} min de leitura</>}
+        </p>
+      </div>
+    </header>
+
+    <div class="section">
+      <div class="wrap article-layout">
+        <div class="prose" set:html={body} />
+        <aside style="display:grid;gap:24px;align-content:start">
+          <nav class="toc aside-box" data-toc hidden aria-label="Neste artigo" style="gap:10px">
+            <p class="eyebrow eyebrow--plain">Neste artigo</p>
+            <div data-toc-list style="display:grid;gap:2px"></div>
+          </nav>
+          <div class="aside-box" style="position:static">
+            <p class="eyebrow eyebrow--plain">Compartilhar</p>
+            <div class="btn-row">
+              <button class="btn btn--ghost btn--small" type="button" data-copy-link><Icon name="Link" /><span>Copiar link</span></button>
+              <a class="btn btn--ghost btn--small" href={`https://wa.me/?text=${encodeURIComponent(p.title + ' ' + url)}`} target="_blank" rel="noopener">WhatsApp</a>
+              <a class="btn btn--ghost btn--small" href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`} target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+      <div class="wrap" style="margin-top:40px">
+        <ul class="tags" aria-label="Assuntos">{p.tags.map((t) => <li>{t}</li>)}</ul>
+      </div>
+    </div>
+  </article>
+
+  <section class="section section--line" aria-labelledby="leia">
+    <div class="wrap">
+      <h2 class="h2" id="leia" style="margin-bottom:24px">Leia também</h2>
+      <ul class="post-list">
+        {related.map((r) => (
+          <li>
+            <a href={`/blog/posts/${r.slug}.html`}>
+              <span class="post-meta"><time datetime={r.published}>{formatDate(r.published)}</time></span>
+              <div><h3 style="font-size:1.2rem;letter-spacing:-0.02em">{r.title}</h3></div>
+              <span class="post-meta">{r.label}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <Cta title="Este tema afeta o seu negócio?" text="Posso olhar o seu caso e dizer, com franqueza, o que vale a pena fazer agora." message={`Olá, Marcelo! Li o artigo "${p.title}" e quero conversar.`} />
+</Base>

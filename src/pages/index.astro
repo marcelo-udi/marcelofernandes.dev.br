@@ -1,0 +1,194 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import SectionHead from '../components/SectionHead.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Steps from '../components/Steps.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { SERVICES } from '../data/services';
+import { PROJECTS } from '../data/projects';
+import { whatsapp } from '../data/site';
+import { faqSchema } from '../data/schema';
+import heroPhoto from '../assets/marcelo-hero.webp';
+import aboutPhoto from '../assets/marcelofernandes.jpg';
+
+const principais = SERVICES.filter((s) => s.group === 'principal');
+const complementares = SERVICES.filter((s) => s.group === 'complementar');
+
+const pairs = [
+  { p: 'Quem procura o seu serviço no Google encontra o concorrente.', a: 'Um site rápido, feito para o celular e preparado para a busca, com o WhatsApp a um toque.', href: '/site_institucional.html', link: 'Sites e lojas virtuais' },
+  { p: 'A equipe perde horas copiando dados entre planilhas e sistemas.', a: 'Rotinas em Python que juntam, conferem e enviam os dados sozinhas, no horário certo.', href: '/automacao_relatorios.html', link: 'Automação e dados' },
+  { p: 'Pedidos chegam pelo WhatsApp, por e-mail e por telefone, e alguns se perdem.', a: 'Um sistema web simples, com cada pedido registrado, a etapa visível e a equipe no mesmo painel.', href: '/software.html', link: 'Sistemas web e APIs' },
+  { p: 'O site sai do ar e ninguém sabe por quê. Nem se existe backup.', a: 'Servidor configurado com HTTPS, monitoramento, alertas e backups automáticos testados.', href: '/manutencao_servidores.html', link: 'Servidores Linux' },
+];
+
+const principles = [
+  { t: 'Proposta antes do trabalho', d: 'Escopo, prazo e valor por escrito antes de começar. Se algo mudar no caminho, conversamos antes.' },
+  { t: 'Você é dono de tudo', d: 'Domínio, contas, código e acessos ficam no seu nome. Nada fica preso a mim.' },
+  { t: 'Leve e rápido por padrão', d: 'Páginas sem excesso de scripts e plugins, que abrem rápido mesmo com sinal fraco no celular.' },
+  { t: 'Backup e caminho de volta', d: 'Antes de mexer em algo que está no ar, faço backup e deixo anotado como desfazer.' },
+  { t: 'Segurança no básico bem feito', d: 'HTTPS, senhas e chaves fora do código, acessos mínimos e sistema atualizado.' },
+  { t: 'Documentado para continuar', d: 'Você recebe instruções de uso e, se um dia trocar de profissional, ele consegue continuar.' },
+];
+
+const faq = [
+  { q: 'Quanto custa?', a: 'Depende do escopo: número de páginas, integrações e o que precisa ser automatizado. Você recebe uma proposta fechada, com prazo e valor, antes de qualquer compromisso. O orçamento é gratuito.' },
+  { q: 'Atende só em Uberlândia?', a: 'Não. Atendo presencialmente em Uberlândia-MG e de forma remota em todo o Brasil, pelo WhatsApp e por videochamada.' },
+  { q: 'Preciso saber exatamente o que quero?', a: 'Não. Basta explicar o problema e como as coisas funcionam hoje. A primeira conversa serve justamente para transformar isso em um escopo claro.' },
+  { q: 'Com quem eu vou falar?', a: 'Comigo, do primeiro contato à entrega. Não há intermediários nem atendimento terceirizado.' },
+  { q: 'E depois que o projeto for entregue?', a: 'Você recebe os acessos e as instruções. Ajustes, suporte e manutenção mensal são combinados na proposta, conforme a sua necessidade.' },
+];
+---
+<Base
+  title="Marcelo Fernandes | Sites, Sistemas, Automação e Servidores em Uberlândia"
+  description="Desenvolvedor em Uberlândia-MG: criação de sites e lojas virtuais, sistemas web, automação com Python e servidores Linux para pequenas empresas e autônomos. Atendimento direto e orçamento grátis."
+  path="/"
+  schema={[faqSchema(faq)]}
+>
+  <!-- 1. Hero -->
+  <section class="hero" aria-labelledby="hero-titulo">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow eyebrow--plain">Sites · Sistemas · Automação · Servidores — Uberlândia-MG</p>
+        <h1 class="h1" id="hero-titulo">Tecnologia que faz o seu negócio <em>trabalhar menos</em> e atender melhor.</h1>
+        <p class="lead">Sou o Marcelo Fernandes, desenvolvedor. Crio sites que trazem contatos, transformo tarefas manuais em processos automáticos e cuido dos servidores onde tudo roda, para pequenas empresas e profissionais autônomos.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href={whatsapp()} target="_blank" rel="noopener" data-track="whatsapp_hero">
+            <Icon name="MessageCircle" />Pedir orçamento pelo WhatsApp
+          </a>
+          <a class="btn btn--ghost" href="#projetos">Ver projetos</a>
+        </div>
+        <ul class="hero-proof">
+          <li><Icon name="Check" />Você fala direto comigo, do orçamento à entrega.</li>
+          <li><Icon name="Check" />Escopo, prazo e valor por escrito antes de começar.</li>
+          <li><Icon name="Check" />Presencial em Uberlândia e remoto em todo o Brasil.</li>
+        </ul>
+      </div>
+      <div class="portrait">
+        <div class="portrait-frame">
+          <Image src={heroPhoto} alt="Marcelo Fernandes, desenvolvedor em Uberlândia-MG" widths={[320, 480, 640]}
+            sizes="(min-width: 960px) 420px, 88vw" loading="eager" fetchpriority="high" quality={80} />
+        </div>
+        <div class="status-card">
+          <span class="status-dot">Agenda aberta para novos projetos</span>
+          <span class="mono">Resposta pelo WhatsApp · (34) 99892-8444</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Problemas reais -->
+  <section class="section section--line" aria-labelledby="problemas">
+    <div class="wrap">
+      <SectionHead num="01" label="O que eu resolvo" title="Reconhece alguma destas situações?" id="problemas" split>
+        A tecnologia certa não é a mais cara nem a mais nova: é a que resolve o problema que custa tempo e dinheiro hoje.
+      </SectionHead>
+      <div class="pairs reveal">
+        {pairs.map((x) => (
+          <div class="pair">
+            <p class="pair-problem">{x.p}</p>
+            <p class="pair-answer"><Icon name="CornerDownRight" />{x.a}</p>
+            <a class="link-arrow" href={x.href}>{x.link} <Icon name="ArrowRight" /></a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Serviços -->
+  <section class="section" id="servicos" aria-labelledby="servicos-titulo">
+    <div class="wrap">
+      <SectionHead num="02" label="Serviços" title="O que posso fazer pelo seu negócio" id="servicos-titulo">
+        Quatro frentes principais e serviços complementares. Cada página explica o problema, o escopo e os limites.
+      </SectionHead>
+      <div class="grid grid-4">
+        {principais.map((s) => (
+          <a class="card card--service reveal" href={`/${s.slug}.html`}>
+            <span class="card-icon"><Icon name={s.icon} /></span>
+            <h3 class="h3">{s.name}</h3>
+            <p>{s.summary}</p>
+            <span class="link-arrow">Saiba mais <Icon name="ArrowRight" /></span>
+          </a>
+        ))}
+      </div>
+      <div class="grid grid-4" style="margin-top:16px">
+        {complementares.map((s) => (
+          <a class="card card--compact reveal" href={`/${s.slug}.html`}>
+            <h3 class="h3" style="display:flex;gap:10px;align-items:center"><Icon name={s.icon} />{s.name}</h3>
+            <p>{s.summary}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Projetos -->
+  <section class="section section--line" id="projetos" aria-labelledby="projetos-titulo">
+    <div class="wrap">
+      <SectionHead num="03" label="Projetos" title="Trabalhos reais, que você pode abrir e conferir" id="projetos-titulo" split>
+        Sem logos de clientes inventados nem números sem fonte. Cada projeto tem estudo de caso com o problema, as decisões técnicas e o link.
+      </SectionHead>
+      <div class="grid" style="gap:24px">
+        {PROJECTS.map((p, i) => <ProjectCard project={p} flip={i % 2 === 1} />)}
+      </div>
+      <p style="margin-top:28px"><a class="link-arrow" href="/projetos/">Todos os projetos <Icon name="ArrowRight" /></a></p>
+    </div>
+  </section>
+
+  <!-- 5. Diferenciais -->
+  <section class="section dark" aria-labelledby="como-trabalho">
+    <div class="wrap">
+      <SectionHead num="04" label="Diferenciais" title="Como eu construo" id="como-trabalho" split>
+        Os mesmos cuidados que uso nos meus próprios projetos em produção valem para o seu.
+      </SectionHead>
+      <ul class="principles">
+        {principles.map((x, i) => (
+          <li class="reveal">
+            <span class="num">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{x.t}</h3>
+            <p>{x.d}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6. Metodologia -->
+  <section class="section" aria-labelledby="metodo">
+    <div class="wrap">
+      <SectionHead num="05" label="Metodologia" title="Do primeiro contato ao projeto no ar" id="metodo" />
+      <Steps steps={SERVICES[0].steps} />
+    </div>
+  </section>
+
+  <!-- 7. Sobre -->
+  <section class="section section--line" aria-labelledby="sobre">
+    <div class="wrap about">
+      <div class="about-photo reveal">
+        <Image src={aboutPhoto} alt="Retrato de Marcelo Fernandes" widths={[360, 560]} sizes="(min-width: 900px) 440px, 90vw" loading="lazy" quality={78} format="webp" />
+      </div>
+      <div class="about-copy reveal">
+        <p class="eyebrow"><b>06</b>Sobre</p>
+        <h2 class="h2" id="sobre">Prazer, eu sou o Marcelo.</h2>
+        <p>Trabalho com tecnologia há mais de 7 anos e atendo pessoalmente cada projeto. Gosto de entender como o negócio funciona antes de propor qualquer ferramenta, porque a melhor solução costuma ser a mais simples que resolve.</p>
+        <p>No dia a dia, desenvolvo sites e sistemas, escrevo automações em Python e mantenho servidores Linux, incluindo a infraestrutura dos meus próprios projetos, que ficam no ar 24 horas por dia.</p>
+        <p><a class="link-arrow" href="/sobre.html">Conheça a minha trajetória e a forma de trabalhar <Icon name="ArrowRight" /></a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Perguntas -->
+  <section class="section section--line" aria-labelledby="duvidas">
+    <div class="wrap split">
+      <SectionHead num="07" label="Dúvidas" title="Perguntas frequentes" id="duvidas">
+        Não achou a sua dúvida? <a href={whatsapp('Olá, Marcelo! Tenho uma dúvida antes de pedir orçamento.')} target="_blank" rel="noopener">Pergunte pelo WhatsApp</a>.
+      </SectionHead>
+      <Faq items={faq} />
+    </div>
+  </section>
+
+  <!-- 9. Chamada final -->
+  <Cta />
+</Base>

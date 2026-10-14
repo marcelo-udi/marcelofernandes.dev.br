@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import Crumbs from '../components/Crumbs.astro';
+import { SITE } from '../data/site';
+import { breadcrumbSchema } from '../data/schema';
+
+const updated = new Date(SITE.updated + 'T12:00:00').toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Base
+  title="Política de Privacidade | Marcelo Fernandes"
+  description="Como o site marcelofernandes.dev.br trata dados pessoais: Google Analytics, contato por WhatsApp e e-mail, cookies e direitos do titular segundo a LGPD."
+  path="/privacidade.html"
+  schema={[breadcrumbSchema([{ href: '/privacidade.html', label: 'Privacidade' }])]}
+>
+  <header class="page-head">
+    <div class="wrap page-head-grid">
+      <Crumbs items={[{ label: 'Privacidade' }]} />
+      <h1 class="h1">Política de privacidade</h1>
+      <p class="lead">Este site é simples: não tem cadastro, login nem banco de dados. Esta página explica quais dados são tratados e por quê.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap wrap-narrow prose" style="margin-inline:0">
+      <p><strong>Responsável:</strong> Marcelo Fernandes, Uberlândia-MG. Contato para assuntos de privacidade: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+
+      <h2 id="formulario">Formulário e contato</h2>
+      <p>O formulário de orçamento <strong>não envia nem grava nada neste site</strong>. Ele apenas monta uma mensagem com o que você digitou e a abre no seu WhatsApp (ou no seu programa de e-mail), para você revisar e decidir se envia.</p>
+      <p>Se você enviar a mensagem, os dados informados (nome, contato e descrição do projeto) passam a ser tratados apenas para responder ao seu pedido e preparar a proposta, com base no seu interesse em contratar um serviço (art. 7º, V, da LGPD). Eles não são vendidos nem compartilhados para marketing.</p>
+      <p>O WhatsApp é um serviço da Meta e segue a política de privacidade dele.</p>
+
+      <h2 id="analytics">Estatísticas de visita (Google Analytics)</h2>
+      <p>O site usa o Google Analytics 4 para contar visitas e entender quais páginas são úteis: páginas vistas, origem do acesso, tipo de aparelho, região aproximada e cliques nos botões de contato. Não usamos esses dados para identificar você.</p>
+      <p>O Google Analytics grava cookies (como <code>_ga</code>) no seu navegador. Você pode bloqueá-los nas configurações do navegador ou instalar o <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">complemento de desativação do Google Analytics</a>. O site continua funcionando normalmente.</p>
+
+      <h2 id="hospedagem">Hospedagem</h2>
+      <p>O site é publicado no GitHub Pages e passa pela rede do Cloudflare. Esses serviços registram dados técnicos de acesso, como o endereço IP, para entregar as páginas e proteger contra ataques, conforme as políticas de privacidade deles.</p>
+
+      <h2 id="direitos">Seus direitos</h2>
+      <p>Pela Lei Geral de Proteção de Dados (Lei 13.709/2018), você pode pedir confirmação do tratamento, acesso, correção ou exclusão dos seus dados, entre outros direitos. Basta escrever para <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+
+      <h2 id="mudancas">Mudanças nesta política</h2>
+      <p>Se a forma de tratar dados mudar (por exemplo, com um formulário que grave mensagens), esta página será atualizada antes.</p>
+      <p class="muted">Última atualização: {updated}.</p>
+    </div>
+  </section>
+</Base>

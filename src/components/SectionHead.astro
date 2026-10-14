@@ -1,0 +1,11 @@
+---
+interface Props { num?: string; label: string; title: string; id?: string; split?: boolean }
+const { num, label, title, id, split = false } = Astro.props;
+---
+<div class:list={['section-head', { 'section-head--split': split }]}>
+  <div style="display:grid;gap:16px">
+    <p class="eyebrow">{num && <b>{num}</b>}{label}</p>
+    <h2 class="h2" id={id}>{title}</h2>
+  </div>
+  {Astro.slots.has('default') && <p class="lead"><slot /></p>}
+</div>

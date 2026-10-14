@@ -1,0 +1,73 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Crumbs from '../components/Crumbs.astro';
+import SectionHead from '../components/SectionHead.astro';
+import Cta from '../components/Cta.astro';
+import { SITE } from '../data/site';
+import { breadcrumbSchema } from '../data/schema';
+import photo from '../assets/marcelofernandes.jpg';
+
+const values = [
+  { t: 'Entender antes de propor', d: 'Pergunto como o trabalho é feito hoje e onde dói. Às vezes a melhor resposta é uma planilha bem montada, e não um sistema novo.' },
+  { t: 'Falar a língua do cliente', d: 'Explico as opções sem jargão, com prós, contras e custo de cada uma, para a decisão ser sua.' },
+  { t: 'Entregar algo que dure', d: 'Código organizado, documentado e com backup. Quem vier depois de mim deve conseguir continuar o trabalho.' },
+  { t: 'Dizer o que não sei', d: 'Se um projeto não é a minha especialidade, digo logo e, quando possível, indico quem faça melhor.' },
+];
+---
+<Base
+  title="Sobre Marcelo Fernandes | Desenvolvedor em Uberlândia-MG"
+  description="Conheça Marcelo Fernandes, desenvolvedor em Uberlândia-MG: sites, sistemas web, automação com Python e servidores Linux, com atendimento direto e forma de trabalho transparente."
+  path="/sobre.html"
+  schema={[breadcrumbSchema([{ href: '/sobre.html', label: 'Sobre' }])]}
+>
+  <header class="page-head">
+    <div class="wrap page-head-grid">
+      <Crumbs items={[{ label: 'Sobre' }]} />
+      <h1 class="h1">Sobre mim</h1>
+      <p class="lead">Desenvolvedor em Uberlândia-MG. Ajudo pequenas empresas e profissionais autônomos a usar a tecnologia para atender melhor e trabalhar menos.</p>
+    </div>
+  </header>
+
+  <section class="section" aria-labelledby="historia">
+    <div class="wrap about">
+      <div class="about-photo reveal">
+        <Image src={photo} alt="Retrato de Marcelo Fernandes" widths={[360, 560]} sizes="(min-width: 900px) 440px, 90vw" loading="eager" quality={80} format="webp" />
+      </div>
+      <div class="about-copy reveal">
+        <h2 class="h2" id="historia">Prazer, Marcelo.</h2>
+        <p>Trabalho com tecnologia há mais de 7 anos. Comecei resolvendo problemas práticos e acabei ficando com as duas pontas do trabalho: a parte que o cliente vê, como sites e sistemas, e a parte que ninguém vê até dar problema, como servidores, backups e segurança.</p>
+        <p>Hoje mantenho meus próprios projetos em produção, incluindo uma plataforma online com servidor na AWS, pagamentos por PIX automáticos e site em dois idiomas. Essa experiência de operar algo de verdade, 24 horas por dia, é o que levo para os projetos dos clientes.</p>
+        <p>Também trabalho com material gráfico, como cartões de visita, pastas e papelaria. Por isso, consigo deixar a identidade de um negócio igual no papel e na internet.</p>
+        <ul class="facts">
+          <li><span>Base</span><span>{SITE.city}-{SITE.region}, atendimento remoto em todo o Brasil</span></li>
+          <li><span>Foco</span><span>Sites, sistemas web, automação e servidores Linux</span></li>
+          <li><span>Ferramentas</span><span>HTML/CSS/JS, Astro, Node.js, PHP, Python, Docker, Nginx, MariaDB</span></li>
+          <li><span>Contato</span><span><a href={`mailto:${SITE.email}`}>{SITE.email}</a></span></li>
+          <li><span>Código</span><span><a href={SITE.github} target="_blank" rel="noopener">github.com/marcelo-udi</a></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line" aria-labelledby="valores">
+    <div class="wrap">
+      <SectionHead label="Forma de trabalhar" title="O que você pode esperar" id="valores" />
+      <div class="grid grid-2">
+        {values.map((v) => (
+          <div class="card reveal">
+            <h3 class="h3">{v.t}</h3>
+            <p>{v.d}</p>
+          </div>
+        ))}
+      </div>
+      <p style="margin-top:32px" class="btn-row">
+        <a class="link-arrow" href="/projetos/">Ver os projetos <Icon name="ArrowRight" /></a>
+        <a class="link-arrow" href="/servicos.html">Ver os serviços <Icon name="ArrowRight" /></a>
+      </p>
+    </div>
+  </section>
+
+  <Cta />
+</Base>

@@ -1,0 +1,16 @@
+---
+// Ícone Lucide embutido como SVG (sem JavaScript no navegador).
+import * as icons from 'lucide-static';
+
+interface Props { name: string; class?: string; label?: string }
+const { name, class: cls = '', label } = Astro.props;
+const raw = (icons as Record<string, string>)[name];
+if (!raw) throw new Error(`Ícone desconhecido: ${name}`);
+
+const a11y = label ? `role="img" aria-label="${label}"` : 'aria-hidden="true" focusable="false"';
+const svg = raw
+  .replace(/\s*\n\s*/g, ' ')
+  .replace(/class="[^"]*"/, `class="i ${cls}" ${a11y}`)
+  .replace(/ width="24" height="24"/, '');
+---
+<Fragment set:html={svg} />

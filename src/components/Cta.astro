@@ -1,0 +1,28 @@
+---
+import Icon from './Icon.astro';
+import { whatsapp } from '../data/site';
+
+interface Props { title?: string; text?: string; message?: string; servico?: string; track?: string }
+const {
+  title = 'Vamos conversar sobre o que você precisa?',
+  text = 'Conte o problema pelo WhatsApp ou preencha o formulário. Você recebe uma proposta com escopo, prazo e valor, sem compromisso.',
+  message, servico, track = 'whatsapp_cta',
+} = Astro.props;
+const formHref = servico ? `/contato.html?servico=${servico}#orcamento` : '/contato.html#orcamento';
+---
+<section class="section" aria-labelledby="cta-titulo">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div style="position:relative;z-index:1">
+        <h2 class="h2" id="cta-titulo">{title}</h2>
+        <p>{text}</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--primary" href={whatsapp(message)} target="_blank" rel="noopener" data-track={track}>
+          <Icon name="MessageCircle" />Chamar no WhatsApp
+        </a>
+        <a class="btn btn--ghost" href={formHref}>Preencher formulário</a>
+      </div>
+    </div>
+  </div>
+</section>

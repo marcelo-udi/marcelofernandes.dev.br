@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Crumbs from '../components/Crumbs.astro';
+import SectionHead from '../components/SectionHead.astro';
+import Steps from '../components/Steps.astro';
+import Cta from '../components/Cta.astro';
+import { SERVICES } from '../data/services';
+import { breadcrumbSchema } from '../data/schema';
+
+const principais = SERVICES.filter((s) => s.group === 'principal');
+const complementares = SERVICES.filter((s) => s.group === 'complementar');
+---
+<Base
+  title="Serviços: Sites, Sistemas, Automação e Servidores | Marcelo Fernandes"
+  description="Criação de sites e lojas virtuais, sistemas web e APIs, automação com Python, servidores Linux, nuvem, segurança, IA aplicada e material gráfico. Uberlândia-MG e todo o Brasil."
+  path="/servicos.html"
+  schema={[breadcrumbSchema([{ href: '/servicos.html', label: 'Serviços' }])]}
+>
+  <header class="page-head">
+    <div class="wrap page-head-grid">
+      <Crumbs items={[{ label: 'Serviços' }]} />
+      <h1 class="h1">Serviços</h1>
+      <p class="lead">Tudo o que faço, organizado pelo problema que resolve. Cada página explica o escopo, como funciona e o que não está incluído.</p>
+    </div>
+  </header>
+
+  <section class="section" aria-labelledby="principais">
+    <div class="wrap">
+      <SectionHead label="Principais" title="As quatro frentes principais" id="principais" />
+      <div class="grid grid-2">
+        {principais.map((s) => (
+          <a class="card reveal" href={`/${s.slug}.html`}>
+            <span class="card-icon"><Icon name={s.icon} /></span>
+            <h3 class="h3">{s.name}</h3>
+            <p>{s.lead}</p>
+            <ul class="check-list" style="font-size:.95rem">
+              {s.includes.slice(0, 3).map((i) => <li><Icon name="Check" />{i}</li>)}
+            </ul>
+            <span class="link-arrow">Ver detalhes <Icon name="ArrowRight" /></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line" aria-labelledby="complementares">
+    <div class="wrap">
+      <SectionHead label="Complementares" title="Serviços complementares" id="complementares" />
+      <div class="grid grid-2">
+        {complementares.map((s) => (
+          <a class="card reveal" href={`/${s.slug}.html`}>
+            <h3 class="h3" style="display:flex;gap:10px;align-items:center"><Icon name={s.icon} />{s.name}</h3>
+            <p>{s.lead}</p>
+            <span class="link-arrow">Ver detalhes <Icon name="ArrowRight" /></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line" aria-labelledby="etapas">
+    <div class="wrap">
+      <SectionHead label="Como funciona" title="O mesmo processo para qualquer serviço" id="etapas" />
+      <Steps steps={SERVICES[0].steps} />
+    </div>
+  </section>
+
+  <Cta title="Não sabe qual serviço é o seu caso?" text="Descreva o problema com as suas palavras. Eu digo qual é o caminho mais simples e quanto custa." />
+</Base>

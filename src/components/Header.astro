@@ -1,0 +1,52 @@
+---
+import Icon from './Icon.astro';
+import { NAV, whatsapp } from '../data/site';
+
+interface Props { path: string }
+const { path } = Astro.props;
+
+// Página atual (ou seção dela) para marcar o item do menu
+const servicePages = ['/servicos.html', '/site_institucional.html', '/software.html', '/automacao_relatorios.html',
+  '/manutencao_servidores.html', '/cloud.html', '/seguranca_cibernetica.html', '/ia.html', '/material-grafico.html'];
+const isCurrent = (href: string) => {
+  if (href === '/servicos.html') return servicePages.includes(path);
+  if (href.endsWith('/')) return path.startsWith(href);
+  return path === href;
+};
+---
+<header class="site-header" id="topo">
+  <div class="wrap header-row">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">MF</span>
+      <span>Marcelo Fernandes<small>Uberlândia · MG</small></span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <ul>
+        {NAV.map((item) => (
+          <li><a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <a class="btn btn--primary btn--small header-cta" href={whatsapp()} target="_blank" rel="noopener" data-track="whatsapp_cabecalho">
+      <Icon name="MessageCircle" />Pedir orçamento
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-celular" data-menu-btn>
+      <span class="sr-only">Abrir menu</span>
+      <Icon name="Menu" class="i-open" />
+      <Icon name="X" class="i-close" />
+    </button>
+  </div>
+  <div class="mobile-menu wrap" id="menu-celular" hidden>
+    <nav aria-label="Principal (celular)">
+      <ul>
+        <li><a href="/">Início <Icon name="ArrowRight" /></a></li>
+        {NAV.map((item) => (
+          <li><a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label} <Icon name="ArrowRight" /></a></li>
+        ))}
+      </ul>
+    </nav>
+    <a class="btn btn--primary" href={whatsapp()} target="_blank" rel="noopener" data-track="whatsapp_menu">
+      <Icon name="MessageCircle" />Pedir orçamento pelo WhatsApp
+    </a>
+  </div>
+</header>

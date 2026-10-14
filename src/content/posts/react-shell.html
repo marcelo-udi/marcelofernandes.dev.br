@@ -1,0 +1,74 @@
+<div class="alert-critical">
+<p><strong> CRÍTICO:</strong> A vulnerabilidade CVE-2025-55182 (React2Shell) possui pontuação CVSS 10.0 e está sendo ativamente explorada. Atualize suas aplicações React imediatamente.</p>
+</div>
+<p>A Agência de Segurança de Infraestrutura e Cibersegurança dos EUA (CISA) adicionou formalmente uma falha de segurança crítica que afeta os React Server Components (RSC) ao seu catálogo de Vulnerabilidades Exploradas Conhecidas (KEV) após relatos de exploração ativa em ambiente real.</p>
+<p>A vulnerabilidade, <span class="cve-badge">CVE-2025-55182</span> <span>CVSS 10.0</span>, refere-se a um caso de execução remota de código (RCE) que pode ser acionada por um atacante não autenticado sem exigir nenhuma configuração especial. É também rastreada como <strong>React2Shell</strong>.</p>
+<div class="highlight-box">
+<p>"Os React Server Components da Meta contêm uma vulnerabilidade de execução remota de código que poderia permitir a execução remota de código não autenticada explorando uma falha em como o React decodifica os payloads enviados para os endpoints da Função do Servidor React", disse a CISA em um comunicado.</p>
+</div>
+<h2 id="analise-tecnica-da-vulnerabilidade">Análise Técnica da Vulnerabilidade</h2>
+<p>O problema decorre da <strong>desserialização insegura</strong> no protocolo Flight da biblioteca, que o React usa para comunicação entre servidor e cliente. Isso leva a um cenário onde um atacante remoto não autenticado pode executar comandos arbitrários no servidor enviando solicitações HTTP especialmente criadas.</p>
+<div class="alert-info">
+<p><strong> Martin Zugec, diretor de soluções técnicas da Bitdefender:</strong> "O processo de converter texto em objetos é amplamente considerado uma das classes mais perigosas de vulnerabilidades de software. A vulnerabilidade React2Shell reside no pacote <code>react-server</code>, especificamente em como ele analisa as referências de objeto durante a desserialização."</p>
+</div>
+<h2 id="versoes-corrigidas">Versões Corrigidas</h2>
+<p>A vulnerabilidade foi corrigida nas seguintes versões das bibliotecas React:</p>
+<div class="affected-list">
+<p><strong>Versões corrigidas:</strong> 19.0.1, 19.1.2, 19.2.1</p>
+<ul>
+<li><code>react-server-dom-webpack</code></li>
+<li><code>react-server-dom-parcel</code></li>
+<li><code>react-server-dom-turbopack</code></li>
+</ul>
+</div>
+<h3 id="frameworks-impactados">Frameworks Impactados</h3>
+<p>Algumas das estruturas downstream que dependem do React também são afetadas:</p>
+<div class="code-block">
+// Frameworks vulneráveis ao React2Shell
+- Next.js
+- React Router
+- Waku
+- Parcel
+- Vite
+- RedwoodSDK
+                    </div>
+<h2 id="exploracao-ativa-confirmada">Exploração Ativa Confirmada</h2>
+<p>O desenvolvimento ocorre depois que a Amazon relatou que observou tentativas de ataques originadas de infraestrutura associada a grupos de hacking chineses como <strong>Earth Lamia</strong> e <strong>Jackpot Panda</strong> dentro de horas da divulgação pública da falha.</p>
+<p><strong>Coalition, Fastly, GreyNoise, VulnCheck e Wiz</strong> também relataram ver esforços de exploração direcionados à falha, indicando que <strong>múltiplos atores de ameaças</strong> estão envolvidos em ataques oportunistas.</p>
+<div class="highlight-box">
+<h3 id="dados-de-exposicao"> Dados de Exposição</h3>
+<p>De acordo com dados da plataforma Censys, existem aproximadamente <strong>2.15 milhões de instâncias</strong> de serviços voltados para a internet que podem ser afetados por esta vulnerabilidade.</p>
+</div>
+<h2 id="taticas-dos-ataques-observados">Táticas dos Ataques Observados</h2>
+<p>Alguns dos ataques observados envolvem:</p>
+<ol>
+<li><strong>Implantação de mineradores de criptomoeda</strong></li>
+<li>Execução de comandos PowerShell "cheap math" para verificar exploração bem-sucedida</li>
+<li>Execução de comandos para baixar <em>in-memory downloaders</em></li>
+<li>Recuperação de payloads adicionais de servidores remotos</li>
+</ol>
+<h3 id="observacoes-da-palo-alto-networks-unit-42">Observações da Palo Alto Networks Unit 42</h3>
+<p>Em declaração ao The Hacker News, a Palo Alto Networks Unit 42 confirmou <strong>mais de 30 organizações afetadas</strong> em diversos setores, com atividades consistentes com o grupo chinês <strong>UNC5174 (CL-STA-1015)</strong>.</p>
+<div class="code-block">
+"Observamos varredura para RCE vulnerável, atividades de reconhecimento, 
+tentativa de roubo de arquivos de configuração e credenciais da AWS, 
+bem como instalação de downloaders para recuperar payloads da 
+infraestrutura de comando e controle do atacante."
+- Justin Moore, gerente sênior de pesquisa de inteligência 
+  de ameaças da Palo Alto Networks Unit 42
+                    </div>
+<h2 id="recomendacoes-de-mitigacao">Recomendações de Mitigação</h2>
+<div class="alert-critical">
+<p><strong> AÇÃO IMEDIATA REQUERIDA:</strong></p>
+<ol>
+<li>Atualize todas as bibliotecas React para as versões corrigidas (19.0.1, 19.1.2 ou 19.2.1)</li>
+<li>Verifique se frameworks dependentes (Next.js, React Router, etc.) estão atualizados</li>
+<li>Monitore logs para tentativas de exploração do CVE-2025-55182</li>
+<li>Agencias federais dos EUA têm até 26/12/2025 para aplicar patches (BOD 22-01)</li>
+</ol>
+</div>
+<h3 id="responsavel-pela-descoberta">Responsável pela Descoberta</h3>
+<p>O pesquisador de segurança <strong>Lachlan Davidson</strong>, que descobriu e reportou a falha, liberou múltiplos exploits de prova de conceito (PoC). Outro PoC funcional foi publicado pelo pesquisador taiwanês <strong>maple3142</strong> no GitHub.</p>
+<div class="veredito">
+<p><strong>VEREDITO:</strong> React2Shell é uma vulnerabilidade crítica (CVSS 10.0) com exploração ativa confirmada. Todas as organizações utilizando React Server Components devem priorizar a aplicação dos patches imediatamente. A janela entre divulgação e exploração foi de horas, não dias.</p>
+</div>

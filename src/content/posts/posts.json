@@ -1,0 +1,113 @@
+[
+  {
+    "slug": "how-to-streamline-zero-trust-using",
+    "title": "Como simplificar o Zero Trust com o Shared Signals Framework",
+    "seoTitle": "Como Implementar Zero Trust com Shared Signals Framework",
+    "description": "Como implementar Zero Trust de forma simplificada com o Shared Signals Framework: princípios, fases de implementação e monitoramento contínuo.",
+    "label": "Zero Trust",
+    "tags": [
+      "zero-trust",
+      "shared-signals-framework",
+      "ssf",
+      "caep",
+      "iam",
+      "identity-management",
+      "tines",
+      "kolide",
+      "okta",
+      "automation",
+      "security"
+    ],
+    "published": "2025-12-09",
+    "modified": "2025-12-09",
+    "minutes": 6
+  },
+  {
+    "slug": "india-taxa-ia",
+    "title": "Índia propõe cobrar OpenAI e Google por treinar IA com conteúdo protegido",
+    "seoTitle": "Índia Propõe Taxar OpenAI e Google por Treino de IA em Conteúdo Protegido",
+    "description": "Índia propõe taxar OpenAI e Google pelo treino de IA com conteúdo protegido por direitos autorais. Entenda a proposta e o impacto no mercado de IA.",
+    "label": "Regulação & IA",
+    "tags": [
+      "índia",
+      "openai",
+      "google",
+      "direitos-autorais",
+      "ia",
+      "regulação",
+      "royalties",
+      "nasscom",
+      "mercado-global",
+      "fair-use",
+      "genai"
+    ],
+    "published": "2025-12-09",
+    "modified": "2025-12-09",
+    "minutes": 5
+  },
+  {
+    "slug": "guia-aprendizado-ia",
+    "title": "Guia prático para aprender Inteligência Artificial",
+    "seoTitle": "Guia Prático de IA para Programadores",
+    "description": "Roadmap prático para aprender Inteligência Artificial: fundamentos de matemática e Python, machine learning, deep learning, NLP e visão computacional.",
+    "label": "Guia prático",
+    "tags": [
+      "python",
+      "machine-learning",
+      "deep-learning",
+      "nlp",
+      "transformers",
+      "pytorch",
+      "huggingface",
+      "rag"
+    ],
+    "published": "2025-12-08",
+    "modified": "2025-12-08",
+    "minutes": 8
+  },
+  {
+    "slug": "react-shell",
+    "title": "React2Shell: falha crítica no React entra no catálogo KEV da CISA após exploração ativa",
+    "seoTitle": "React2Shell: Falha Crítica no React (CVE-2025-55182)",
+    "description": "CVE-2025-55182 (CVSS 10.0): falha em React Server Components permite execução remota de código. Veja quem é afetado e as versões corrigidas.",
+    "label": "Vulnerabilidade crítica",
+    "tags": [
+      "react",
+      "cve-2025-55182",
+      "react2shell",
+      "rce",
+      "cisa",
+      "kev",
+      "vulnerabilidade",
+      "segurança",
+      "nextjs"
+    ],
+    "published": "2025-12-06",
+    "modified": "2025-12-06",
+    "minutes": 4
+  },
+  {
+    "slug": "ataque-em-redes-corporativas",
+    "title": "Anatomia de ataques em redes corporativas: CVEs, TTPs e análise técnica",
+    "seoTitle": "Anatomia de Ataques em Redes Corporativas: CVEs, TTPs e Mitigação Técnica",
+    "description": "Análise técnica de 14 CVEs críticos, TTPs de 7 grupos APT ativos e técnicas de evasão avançada, com recomendações de mitigação para redes corporativas.",
+    "label": "Análise técnica",
+    "tags": [
+      "CVE-2023-34362",
+      "CVE-2024-21887",
+      "APT29",
+      "Lazarus",
+      "CobaltStrike",
+      "Rust-malware",
+      "EDR-evasion",
+      "Volatility",
+      "Sigma",
+      "YARA",
+      "Incident-Response",
+      "Forensics"
+    ],
+    "published": "2025-09-25",
+    "modified": "2025-09-25",
+    "minutes": 12
+  }
+]

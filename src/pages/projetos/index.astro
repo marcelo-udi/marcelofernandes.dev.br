@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+import Crumbs from '../../components/Crumbs.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import Cta from '../../components/Cta.astro';
+import { PROJECTS } from '../../data/projects';
+import { breadcrumbSchema } from '../../data/schema';
+---
+<Base
+  title="Projetos e Estudos de Caso | Marcelo Fernandes"
+  description="Projetos reais de Marcelo Fernandes: plataforma online com servidor na AWS, pagamentos por PIX e site em dois idiomas, e loja online para gráfica com painéis de produção."
+  path="/projetos/"
+  schema={[breadcrumbSchema([{ href: '/projetos/', label: 'Projetos' }])]}
+>
+  <header class="page-head">
+    <div class="wrap page-head-grid">
+      <Crumbs items={[{ label: 'Projetos' }]} />
+      <h1 class="h1">Projetos</h1>
+      <p class="lead">Trabalhos que estão no ar e podem ser conferidos. Cada estudo de caso mostra o contexto, a solução, as decisões técnicas e o que dá para verificar.</p>
+    </div>
+  </header>
+
+  <section class="section" aria-label="Lista de projetos">
+    <div class="wrap grid" style="gap:24px">
+      {PROJECTS.map((p, i) => <ProjectCard project={p} flip={i % 2 === 1} headingLevel="h2" eager={i === 0} />)}
+    </div>
+  </section>
+
+  <Cta title="Tem um projeto parecido?" text="Conte o que você precisa. Se eu não for a pessoa certa para o trabalho, digo isso logo na primeira conversa." />
+</Base>

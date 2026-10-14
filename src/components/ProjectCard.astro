@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import type { Project } from '../data/projects';
+
+interface Props { project: Project; flip?: boolean; headingLevel?: 'h2' | 'h3'; eager?: boolean }
+const { project: p, flip = false, headingLevel: H = 'h3', eager = false } = Astro.props;
+const demo = p.status.toLowerCase().includes('demonstr');
+---
+<a class:list={['project reveal', { 'project--flip': flip }]} href={`/projetos/${p.slug}.html`}>
+  <div class="project-shot">
+    <div class="browser" aria-hidden="true">
+      <div class="browser-bar"><i></i><i></i><i></i><span>{p.urlLabel}</span></div>
+      <Image src={p.cover} alt="" widths={[400, 640, 900, 1200]} sizes="(min-width: 900px) 620px, 92vw"
+        loading={eager ? 'eager' : 'lazy'} quality={78} format="webp" />
+    </div>
+  </div>
+  <div class="project-body">
+    <span class:list={['badge', demo ? 'badge--demo' : 'badge--live']}>{p.status}</span>
+    <div style="display:grid;gap:8px">
+      <p class="mono muted" style="font-size:.8rem">{p.kind}</p>
+      <H class="h2" style="font-size:clamp(1.5rem,1.2rem + 1.2vw,2.1rem)">{p.name}</H>
+    </div>
+    <p class="muted">{p.summary}</p>
+    <ul class="tags" aria-label="Tecnologias">
+      {p.stack.slice(0, 6).map((t) => <li>{t}</li>)}
+    </ul>
+    <span class="link-arrow">Ver estudo de caso <Icon name="ArrowRight" /></span>
+  </div>
+</a>

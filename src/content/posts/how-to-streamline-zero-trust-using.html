@@ -1,0 +1,139 @@
+<div class="alert-warning">
+<p><strong> DADO CRÍTICO:</strong> 88% das organizações admitem ter enfrentado desafios significativos na implementação de Zero Trust devido à falta de interoperabilidade entre ferramentas de segurança (Accenture).</p>
+</div>
+<p>Zero Trust ajuda as organizações a reduzir sua superfície de ataque e responder a ameaças mais rapidamente, mas muitas ainda lutam para implementá-lo porque suas ferramentas de segurança não compartilham sinais de forma confiável. Quando os produtos não conseguem se comunicar, as decisões de acesso em tempo real falham.</p>
+<div class="highlight-box">
+<p> O <strong>Shared Signals Framework (SSF)</strong> visa corrigir isso com uma maneira padronizada de trocar eventos de segurança. No entanto, a adoção é desigual. Por exemplo, o Kolide Device Trust atualmente não suporta SSF.</p>
+</div>
+<p>Scott Bean, Engenheiro Sênior de IAM e Segurança na MongoDB, propôs uma maneira de resolver o problema, dando às equipes uma forma fácil e intuitiva de operacionalizar o SSF em todo o seu ambiente.</p>
+<p>Neste guia, compartilharemos uma visão geral do fluxo de trabalho, além de instruções passo a passo para colocá-lo em funcionamento.</p>
+<h2 id="o-problema-ferramentas-de-iam-nao-suportam-ssf">O Problema - Ferramentas de IAM não suportam SSF</h2>
+<p>Um requisito fundamental do Zero Trust são sinais contínuos e confiáveis sobre a postura do usuário e do dispositivo. Mas muitas ferramentas não suportam SSF para o Continuous Access Evaluation Protocol (CAEP), dificultando o compartilhamento ou ação com base nesses sinais.</p>
+<div class="alert-info">
+<h3> Desafios Comuns:</h3>
+<ol>
+<li><strong>Ferramentas não possuem suporte nativo ao SSF</strong></li>
+<li><strong>Sinais exigem enriquecimento ou correlação</strong></li>
+<li><strong>Gerenciamento de endpoints SSF e tratamento de tokens adicionam sobrecarga</strong></li>
+</ol>
+</div>
+<p>Sem essa interoperabilidade, as organizações lutam para aplicar políticas consistentes — e em casos como o Kolide Device Trust, eventos críticos do dispositivo nunca alcançam sistemas como o Okta.</p>
+<h2 id="a-solucao-um-transmissor-ssf-que-transforma-problemas-do-kol">A Solução - Um Transmissor SSF que Transforma Problemas do Kolide em Eventos CAEP</h2>
+<p>Como o SSF é construído sobre requisições HTTPS, o padrão OpenID funciona com a Ação HTTP do Tines.</p>
+<p>Scott desenvolveu um novo fluxo de trabalho integrando o Kolide Device Trust com o Tines, permitindo que ele envie sinais SSF para o Okta. Se um dispositivo estiver fora de conformidade, o Kolide envia uma mensagem para o fluxo de trabalho via webhook. O Tines enriquece o sinal, garante que possa ser vinculado a um usuário, constrói um Security Event Token (SET) e, em seguida, o envia para o Okta.</p>
+<div class="code-block">
+// Estrutura do Security Event Token (SET)
+{
+  "iss": "https://ssf-transmitter.example.com",
+  "iat": 1639951200,
+  "jti": "urn:uuid:a5f0b8c1-d4e5-f6a7-b8c9-d0e1f2a3b4c5",
+  "aud": "https://example.okta.com",
+  "events": {
+    "https://schemas.openid.net/secevent/caep/event-type/device-compliance-change": {
+      "subject": {
+        "format": "email",
+        "email": "user@example.com"
+      },
+      "device_id": "device-12345",
+      "compliance_status": "non-compliant",
+      "reason": "disk_encryption_disabled"
+    }
+  }
+}
+                    </div>
+<p>Dessa forma, o Tines atua como o tecido conjuntivo que faz o SSF funcionar em todo o ambiente de TI distribuído, mesmo que ferramentas individuais não suportem nativamente o padrão.</p>
+<div class="requirements-list">
+<h3> O que o Tines pode fazer:</h3>
+<ul>
+<li>Receber sinais do Kolide (e ferramentas semelhantes) via webhook quando um dispositivo se torna fora de conformidade</li>
+<li>Enriquecer e correlacionar esses sinais (ex: mapear dispositivo para usuário)</li>
+<li>Gerar e assinar SETs que atendem à especificação SSF</li>
+<li>Entregá-los ao Okta (e outros provedores de identidade) para aplicar Zero Trust</li>
+<li>Hospedar endpoints de metadados SSF necessários usando prefixos de caminho de API, dando aos sistemas consumidores um local compatível com os padrões para buscar chaves e descriptografar tokens</li>
+</ul>
+</div>
+<h3 id="visao-geral-do-fluxo-de-trabalho">Visão Geral do Fluxo de Trabalho</h3>
+<div class="alert-success">
+<p><strong> Benefícios:</strong> Tudo isso torna a aplicação do Zero Trust mais rápida, confiável e muito mais fácil de operacionalizar. As equipes de TI são capacitadas com avaliação de risco contínua e em tempo real dos dispositivos, resposta mais rápida a ameaças e orquestração de políticas mais flexível.</p>
+</div>
+<h4>Ferramentas Necessárias:</h4>
+<div>
+<div>
+<h4>1. Gerar e Armazenar Chaves de Assinatura SET</h4>
+<p>As SETs são JSON Web Tokens assinados. O fluxo cria um par de chaves RSA e o converte para o formato JWK, publicando a chave pública para os receptores SSF validarem as assinaturas SET.</p>
+<div class="code-block">
+# Gerar par de chaves RSA
+openssl genrsa -out private.key 2048
+openssl rsa -in private.key -pubout -out public.key
+                            </div>
+</div>
+<div>
+<h4>2. Expor API do Transmissor SSF</h4>
+<p>Os receptores SSF (como Okta) precisam de endpoints específicos: <code>.well-known/sse-configuration</code> e um endpoint JWK que expõe a chave pública.</p>
+<div class="code-block">
+// Endpoint .well-known/sse-configuration
+{
+  "issuer": "https://ssf-transmitter.example.com",
+  "jwks_uri": "https://ssf-transmitter.example.com/jwks",
+  "delivery_methods_supported": ["https://schemas.openid.net/secevent/risc/delivery-method/push"],
+  "critical_subject_members": ["email"]
+}
+                            </div>
+</div>
+<div>
+<h4>3. Criar, Assinar e Enviar SETs a partir de Eventos do Kolide</h4>
+<p>Recebe eventos de problemas do Kolide via webhook, busca metadados do dispositivo e usuário, constrói um SET para um evento de alteração de conformidade do dispositivo e assina o token com a chave privada.</p>
+<div class="code-block">
+# Webhook do Kolide para o Tines
+POST https://tines-instance.example.com/webhook/kolide
+Content-Type: application/json
+X-Kolide-Signature: {signature}
+{
+  "event": "device.compliance_change",
+  "device_id": "device-12345",
+  "user_email": "user@example.com",
+  "status": "non-compliant",
+  "reason": "os_version_outdated"
+}
+                            </div>
+</div>
+</div>
+<h3 id="credenciais-necessarias">Credenciais Necessárias</h3>
+<div class="requirements-list">
+<ul>
+<li><strong>Tines API Key:</strong> Escopo "Team" com função "Editor"</li>
+<li><strong>Kolide API Key:</strong> Apenas leitura</li>
+<li><strong>Kolide Webhook Signing Secret:</strong> Para validação de webhooks</li>
+<li><strong>Domínio Okta:</strong> exemplo.okta.com, exemplo.oktapreview.com ou domínio personalizado</li>
+</ul>
+</div>
+<h3 id="registrando-o-transmissor-no-okta">Registrando o Transmissor no Okta</h3>
+<p>Uma vez que a API esteja ativa, as equipes podem registrar um novo receptor SSF no Okta em:</p>
+<div class="code-block">
+Security → Device Integrations → Receive shared signals
+                    </div>
+<p>E criar um novo stream usando a URL da API e o novo endpoint <code>.well-known</code>.</p>
+<h2 id="por-que-isso-e-importante-para-zero-trust">Por que Isso é Importante para Zero Trust</h2>
+<p>A implementação bem-sucedida do Zero Trust requer:</p>
+<ol>
+<li><strong>Sinais Contínuos:</strong> Monitoramento constante da postura de segurança</li>
+<li><strong>Decisões em Tempo Real:</strong> Acesso baseado no contexto atual, não em credenciais estáticas</li>
+<li><strong>Orquestração Automática:</strong> Resposta automática a mudanças no nível de risco</li>
+</ol>
+<div class="highlight-box">
+<h3> Caso de Uso Real:</h3>
+<p>Quando um funcionário tenta acessar um recurso crítico usando um dispositivo sem criptografia de disco, o Kolide detecta, envia para o Tines via webhook, que enriquece com informações do usuário, cria um SET e envia para o Okta, que imediatamente revoga o acesso até que o dispositivo seja corrigido.</p>
+</div>
+<h3 id="consideracoes-de-implementacao">Considerações de Implementação</h3>
+<div class="alert-warning">
+<h4> Pontos de Atenção:</h4>
+<ul>
+<li><strong>Gerenciamento de Chaves:</strong> Rotação regular de chaves de assinatura SET</li>
+<li><strong>Logging e Auditoria:</strong> Log completo de todos os eventos SSF</li>
+<li><strong>Resiliência:</strong> Tratamento adequado de falhas de rede</li>
+<li><strong>Conformidade:</strong> Atenção a requisitos regulatórios como GDPR, HIPAA</li>
+</ul>
+</div>
+<div class="veredito">
+<p><strong>VEREDITO:</strong> O Shared Signals Framework representa um avanço crucial na implementação prática do Zero Trust. Ao resolver o problema de interoperabilidade entre ferramentas de segurança através de uma abordagem baseada em padrões abertos, organizações podem finalmente alcançar a visão de acesso contínuo avaliado e adaptativo. A solução apresentada por Scott Bean usando Tines como middleware SSF fornece um caminho prático e escalável para organizações que lutam com a fragmentação de seus ecossistemas de segurança.</p>
+</div>

@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { SERVICES } from '../data/services';
+---
+<Base title="Página não encontrada | Marcelo Fernandes" description="A página procurada não existe ou mudou de endereço." path="/404.html" noindex>
+  <section class="section">
+    <div class="wrap wrap-narrow" style="margin-inline:0;display:grid;gap:20px">
+      <p class="eyebrow"><b>404</b>Página não encontrada</p>
+      <h1 class="h1" style="font-size:clamp(2rem,1.4rem + 3vw,3.2rem)">Esta página não existe ou mudou de endereço.</h1>
+      <p class="lead">Veja se o endereço está certo ou escolha um destes caminhos:</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="/">Ir para o início</a>
+        <a class="btn btn--ghost" href="/contato.html">Falar comigo</a>
+      </div>
+      <ul class="dash-list" style="margin-top:16px">
+        {SERVICES.map((s) => <li><a href={`/${s.slug}.html`}>{s.name}</a></li>)}
+        <li><a href="/projetos/">Projetos</a></li>
+        <li><a href="/blog/">Conteúdo técnico <Icon name="ArrowRight" /></a></li>
+      </ul>
+    </div>
+  </section>
+</Base>

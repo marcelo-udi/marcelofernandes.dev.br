@@ -1,0 +1,150 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Crumbs from '../components/Crumbs.astro';
+import Faq from '../components/Faq.astro';
+import { SERVICES } from '../data/services';
+import { SITE, whatsapp } from '../data/site';
+import { breadcrumbSchema } from '../data/schema';
+
+const opcoes = [...SERVICES.map((s) => ({ value: s.slug, label: s.name })), { value: 'nao-sei', label: 'Não sei ainda' }];
+
+const faq = [
+  { q: 'Quando você responde?', a: 'No horário de atendimento: segunda a sexta, das 8h às 18h, e sábado, das 9h às 12h. Mensagens fora desse horário são respondidas no período seguinte.' },
+  { q: 'O orçamento é cobrado?', a: 'Não. A conversa inicial e a proposta são gratuitas e sem compromisso.' },
+  { q: 'Posso pedir uma videochamada?', a: 'Sim. Depois do primeiro contato, combinamos um horário pelo WhatsApp.' },
+];
+
+const contactPage = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contato e orçamento',
+  url: `${SITE.url}/contato.html`,
+  about: { '@id': `${SITE.url}/#negocio` },
+};
+---
+<Base
+  title="Contato e Orçamento | Marcelo Fernandes — Uberlândia-MG"
+  description="Peça um orçamento gratuito pelo WhatsApp, por e-mail ou pelo formulário: sites, sistemas web, automação, servidores Linux e material gráfico. Uberlândia-MG e todo o Brasil."
+  path="/contato.html"
+  ogImage="/img/og/contato.jpg"
+  schema={[contactPage, breadcrumbSchema([{ href: '/contato.html', label: 'Contato' }])]}
+>
+  <header class="page-head">
+    <div class="wrap page-head-grid">
+      <Crumbs items={[{ label: 'Contato' }]} />
+      <h1 class="h1">Vamos conversar sobre o seu projeto</h1>
+      <p class="lead">O caminho mais rápido é o WhatsApp. Se preferir, descreva o projeto no formulário: ele monta a mensagem para você enviar.</p>
+    </div>
+  </header>
+
+  <section class="section" aria-label="Formas de contato">
+    <div class="wrap split split--wide" style="align-items:start">
+      <div>
+        <h2 class="h2" id="orcamento" style="font-size:1.7rem;margin-bottom:8px">Pedir orçamento</h2>
+        <p class="muted" style="margin-bottom:28px">Campos com * são obrigatórios. Nada é gravado neste site: ao enviar, a mensagem abre no seu WhatsApp para você revisar e mandar.</p>
+
+        <form class="form" data-quote data-whatsapp={SITE.whatsapp} data-email={SITE.email}
+          action={`https://wa.me/${SITE.whatsapp}`} method="get" target="_blank" novalidate>
+          <div class="form-row">
+            <div class="field" data-field="nome">
+              <label for="f-nome">Seu nome *</label>
+              <input class="input" id="f-nome" name="nome" type="text" autocomplete="name" required minlength="2" maxlength="80" aria-describedby="e-nome" />
+              <p class="field-error" id="e-nome" aria-live="polite"></p>
+            </div>
+            <div class="field" data-field="empresa">
+              <label for="f-empresa">Empresa ou atividade <span class="opt">(opcional)</span></label>
+              <input class="input" id="f-empresa" name="empresa" type="text" autocomplete="organization" maxlength="80" />
+            </div>
+          </div>
+
+          <fieldset class="field chips" data-field="servico" aria-describedby="e-servico">
+            <legend>Do que você precisa? *</legend>
+            {opcoes.map((o) => (
+              <label class="chip">
+                <input type="radio" name="servico" value={o.value} data-label={o.label} required />
+                <span>{o.label}</span>
+              </label>
+            ))}
+            <p class="field-error" id="e-servico" aria-live="polite" style="flex-basis:100%"></p>
+          </fieldset>
+
+          <div class="field" data-field="descricao">
+            <label for="f-descricao">O que você precisa resolver? *</label>
+            <p class="hint" id="h-descricao">Conte como funciona hoje e o que você gostaria que mudasse. Não precisa usar termos técnicos.</p>
+            <textarea class="textarea" id="f-descricao" name="descricao" required minlength="15" maxlength="1500" aria-describedby="h-descricao e-descricao"></textarea>
+            <p class="field-error" id="e-descricao" aria-live="polite"></p>
+          </div>
+
+          <div class="form-row">
+            <div class="field" data-field="site">
+              <label for="f-site">Site atual <span class="opt">(se tiver)</span></label>
+              <input class="input" id="f-site" name="site" type="text" inputmode="url" autocomplete="url" placeholder="www.seusite.com.br" maxlength="120" aria-describedby="e-site" />
+              <p class="field-error" id="e-site" aria-live="polite"></p>
+            </div>
+            <div class="field" data-field="contato">
+              <label for="f-contato">E-mail ou outro telefone <span class="opt">(opcional)</span></label>
+              <input class="input" id="f-contato" name="contato" type="text" autocomplete="email" maxlength="120" aria-describedby="e-contato" />
+              <p class="field-error" id="e-contato" aria-live="polite"></p>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="f-prazo">Para quando? <span class="opt">(opcional)</span></label>
+              <select class="select" id="f-prazo" name="prazo">
+                <option value="">Escolha</option>
+                <option>O quanto antes</option>
+                <option>Nas próximas semanas</option>
+                <option>Nos próximos meses</option>
+                <option>Sem pressa, estou pesquisando</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-investimento">Investimento previsto <span class="opt">(opcional)</span></label>
+              <select class="select" id="f-investimento" name="investimento">
+                <option value="">Prefiro conversar antes</option>
+                <option>Até R$ 1.000</option>
+                <option>De R$ 1.000 a R$ 3.000</option>
+                <option>De R$ 3.000 a R$ 8.000</option>
+                <option>Acima de R$ 8.000</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn btn--primary" type="submit"><Icon name="Send" /><span>Montar mensagem no WhatsApp</span></button>
+          </div>
+          <p class="form-legal">Os dados vão só para a conversa com você. Veja a <a href="/privacidade.html">política de privacidade</a>.</p>
+        </form>
+
+        <div class="form-status" id="form-status" tabindex="-1" role="status" aria-live="polite" style="margin-top:20px">
+          <p data-status-title><strong>Mensagem pronta.</strong></p>
+          <p>Se o WhatsApp não abriu, use um dos botões abaixo.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary btn--small" data-wa-link href={whatsapp()} target="_blank" rel="noopener"><Icon name="MessageCircle" />Abrir WhatsApp</a>
+            <a class="btn btn--ghost btn--small" data-mail-link href={`mailto:${SITE.email}`}><Icon name="Mail" />Enviar por e-mail</a>
+            <button class="btn btn--ghost btn--small" type="button" data-copy-msg><Icon name="Copy" /><span>Copiar mensagem</span></button>
+          </div>
+        </div>
+      </div>
+
+      <aside style="display:grid;gap:24px">
+        <div class="aside-box" style="position:static">
+          <h2 class="h3">Contato direto</h2>
+          <ul class="contact-list">
+            <li><a href={whatsapp()} target="_blank" rel="noopener" data-track="whatsapp_contato"><Icon name="MessageCircle" /><span><small>WhatsApp</small><strong>{SITE.phoneDisplay}</strong></span></a></li>
+            <li><a href={`mailto:${SITE.email}`} data-track="email_contato"><Icon name="Mail" /><span><small>E-mail</small><strong>{SITE.email}</strong></span></a></li>
+            <li><a href={`tel:${SITE.phoneE164}`} data-track="telefone_contato"><Icon name="Phone" /><span><small>Telefone</small><strong>{SITE.phoneDisplay.replace(' ', ' ').replace('-', '‑')}</strong></span></a></li>
+            <li><div><Icon name="MapPin" /><span><small>Local</small><strong>Uberlândia-MG · remoto em todo o Brasil</strong></span></div></li>
+            <li><div><Icon name="Clock" /><span><small>Atendimento</small><strong>Seg. a sex., 8h–18h · sáb., 9h–12h</strong></span></div></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="h3" style="margin-bottom:8px">Dúvidas rápidas</h2>
+          <Faq items={faq} />
+        </div>
+      </aside>
+    </div>
+  </section>
+</Base>

@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /node_modules/
-Disallow: /tools/
-
-Sitemap: https://marcelofernandes.dev.br/sitemap.xml

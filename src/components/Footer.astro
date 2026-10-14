@@ -1,0 +1,47 @@
+---
+import { SITE, whatsapp } from '../data/site';
+import { SERVICES } from '../data/services';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="/">
+          <span class="brand-mark" aria-hidden="true">MF</span>
+          <span>Marcelo Fernandes</span>
+        </a>
+        <p>Desenvolvimento web, automação e servidores Linux para pequenas empresas e autônomos. Uberlândia-MG e todo o Brasil.</p>
+      </div>
+      <div>
+        <h2>Serviços</h2>
+        <ul>
+          {SERVICES.map((s) => <li><a href={`/${s.slug}.html`}>{s.name}</a></li>)}
+        </ul>
+      </div>
+      <div>
+        <h2>Site</h2>
+        <ul>
+          <li><a href="/projetos/">Projetos</a></li>
+          <li><a href="/sobre.html">Sobre</a></li>
+          <li><a href="/blog/">Conteúdo técnico</a></li>
+          <li><a href="/contato.html">Contato e orçamento</a></li>
+          <li><a href="/privacidade.html">Privacidade</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contato</h2>
+        <ul>
+          <li><a href={whatsapp()} target="_blank" rel="noopener" data-track="whatsapp_rodape">WhatsApp {SITE.phoneDisplay}</a></li>
+          <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+          <li><a href={SITE.github} target="_blank" rel="noopener">GitHub</a></li>
+          <li>Uberlândia-MG · atendimento remoto em todo o Brasil</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {year} Marcelo Fernandes.</span>
+      <span>Este site usa o Google Analytics para contar visitas. <a href="/privacidade.html">Política de privacidade</a>.</span>
+    </div>
+  </div>
+</footer>

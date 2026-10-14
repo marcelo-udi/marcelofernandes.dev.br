@@ -1,0 +1,52 @@
+---
+import Base from '../../layouts/Base.astro';
+import Crumbs from '../../components/Crumbs.astro';
+import Cta from '../../components/Cta.astro';
+import { POSTS, formatDate } from '../../data/posts';
+import { SITE } from '../../data/site';
+import { breadcrumbSchema } from '../../data/schema';
+
+const blogSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'Conteúdo técnico — Marcelo Fernandes',
+  url: `${SITE.url}/blog/`,
+  author: { '@id': `${SITE.url}/#pessoa` },
+  blogPost: POSTS.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: `${SITE.url}/blog/posts/${p.slug}.html`, datePublished: p.published })),
+};
+---
+<Base
+  title="Conteúdo Técnico: Segurança, IA e Infraestrutura | Marcelo Fernandes"
+  description="Artigos de Marcelo Fernandes sobre segurança da informação, vulnerabilidades, inteligência artificial e infraestrutura, com explicações práticas para empresas e desenvolvedores."
+  path="/blog/"
+  schema={[blogSchema, breadcrumbSchema([{ href: '/blog/', label: 'Conteúdo' }])]}
+>
+  <header class="page-head">
+    <div class="wrap page-head-grid">
+      <Crumbs items={[{ label: 'Conteúdo' }]} />
+      <h1 class="h1">Conteúdo técnico</h1>
+      <p class="lead">Análises e guias sobre segurança, inteligência artificial e infraestrutura. <a href="/blog/rss.xml">Assine pelo RSS</a>.</p>
+    </div>
+  </header>
+
+  <section class="section" aria-label="Artigos">
+    <div class="wrap">
+      <ul class="post-list">
+        {POSTS.map((p) => (
+          <li>
+            <a href={`/blog/posts/${p.slug}.html`}>
+              <span class="post-meta"><time datetime={p.published}>{formatDate(p.published)}</time></span>
+              <div>
+                <h2>{p.title}</h2>
+                <p>{p.description}</p>
+              </div>
+              <span class="post-meta">{p.label}{p.minutes ? ` · ${p.minutes} min` : ''}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <Cta title="Leu algo que se aplica à sua empresa?" text="Se um destes temas preocupa você, posso revisar o seu caso e dizer o que vale a pena fazer." />
+</Base>
