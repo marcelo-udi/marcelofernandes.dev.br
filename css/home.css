@@ -45,16 +45,19 @@ body {
 /* Foto do topo */
 .hero-foto { position: relative; aspect-ratio: 1; }
 .hero-foto::before {
-    content: ""; position: absolute; inset: 9% 6% 0 6%; border-radius: 9999px 9999px 2rem 2rem;
-    background: var(--azul);
+    content: ""; position: absolute; inset: 9% 6% 0 6%; border-radius: 50% 50% 2rem 2rem / 48% 48% 2rem 2rem;
+    background: var(--azul); transform: translate(14px, 14px);
 }
 .hero-foto::after {
-    content: ""; position: absolute; width: 22%; aspect-ratio: 1; top: 4%; right: 2%; border-radius: 9999px;
+    content: ""; position: absolute; z-index: 2; width: 22%; aspect-ratio: 1; top: 4%; right: 2%; border-radius: 9999px;
     background: var(--sol);
 }
-.hero-foto img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; clip-path: inset(9% 6% 0 6% round 9999px 9999px 2rem 2rem); }
+.hero-foto img {
+    position: absolute; z-index: 1; inset: 9% 6% 0 6%; width: 88%; height: 91%; object-fit: cover; object-position: 50% 30%;
+    border-radius: 50% 50% 2rem 2rem / 48% 48% 2rem 2rem; box-shadow: 0 30px 60px -30px rgba(21, 23, 28, .6);
+}
 .selo {
-    position: absolute; z-index: 2; display: flex; align-items: center; gap: .5rem;
+    position: absolute; z-index: 3; display: flex; align-items: center; gap: .5rem;
     background: #fff; color: var(--tinta); border-radius: 9999px; padding: .55rem .95rem;
     font-size: .875rem; font-weight: 600; box-shadow: 0 12px 30px -12px rgba(21, 23, 28, .35);
 }
