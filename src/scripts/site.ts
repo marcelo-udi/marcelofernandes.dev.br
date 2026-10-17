@@ -24,6 +24,112 @@ document.querySelector('[data-theme-btn]')?.addEventListener('click', () => {
   setTimeout(() => root.classList.remove('theme-anim'), 400);
 });
 
+/* ---------- Régua lateral (desktop com mouse) ---------- */
+const TICK = 40;            // px entre traços; número a cada 5 traços (200px)
+const rulerMq = matchMedia('(min-width: 1024px) and (pointer: fine)');
+let rulerOff: (() => void) | null = null;
+
+const digitCols = (n: number) =>
+  Array.from({ length: n }, () => `<span class="ruler-digit-col">${[...'0123456789'].map((d) => `<span>${d}</span>`).join('')}</span>`).join('');
+
+function mountRuler() {
+  const root = document.documentElement;
+  const rail = document.createElement('div');
+  rail.className = 'ruler';
+  rail.setAttribute('aria-hidden', 'true');
+  rail.innerHTML = `<div class="ruler-strip"></div>
+    <div class="ruler-mark"><span class="ruler-readout"><span class="ruler-digits">${digitCols(3)}</span></span></div>`;
+  document.body.appendChild(rail);
+  const strip = rail.querySelector<HTMLElement>('.ruler-strip')!;
+  const mark = rail.querySelector<HTMLElement>('.ruler-mark')!;
+  const cols = [...rail.querySelectorAll<HTMLElement>('.ruler-digit-col')];
+
+  // Índice das seções: rótulo do cabeçalho de cada seção, ligado ao id do título
+  const sections = [...document.querySelectorAll<HTMLElement>('main section')]
+    .map((s) => ({ s, label: s.querySelector('.eyebrow:not(.eyebrow--plain)')?.lastChild?.textContent?.trim(), id: s.querySelector('h2[id]')?.id }))
+    .filter((x): x is { s: HTMLElement; label: string; id: string } => !!x.label && !!x.id);
+  let index: HTMLElement | null = null;
+  let spy: IntersectionObserver | null = null;
+  if (sections.length >= 3) {
+    index = document.createElement('ol');
+    index.className = 'ruler-index';
+    index.setAttribute('aria-label', 'Seções da página');
+    index.innerHTML = sections.map((x) => `<li><a href="#${x.id}">${x.label}</a></li>`).join('');
+    document.body.appendChild(index);
+    const links = [...index.querySelectorAll('a')];
+    spy = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const i = sections.findIndex((x) => x.s === e.target);
+        links.forEach((l, j) => l.setAttribute('aria-current', String(i === j)));
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach((x) => spy!.observe(x.s));
+  }
+
+  let lastPct = -1;
+  const layout = () => {
+    const h = document.documentElement.scrollHeight;
+    strip.style.height = `${h}px`;
+    const labels = Math.ceil(h / (TICK * 5)) + 1;
+    if (strip.childElementCount !== labels) {
+      strip.innerHTML = Array.from({ length: labels }, (_, i) => `<span style="top:${i * TICK * 5}px">${i * 5}</span>`).join('');
+    }
+    update();
+  };
+  const update = () => {
+    const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    const p = Math.min(1, Math.max(0, scrollY / max));
+    strip.style.transform = `translateY(${-scrollY}px)`;
+    mark.style.setProperty('--p', String(p));
+    mark.classList.toggle('is-bottom', p > 0.92);
+    const pct = Math.round(p * 100);
+    if (pct !== lastPct) {
+      lastPct = pct;
+      String(pct).padStart(3, '0').split('').forEach((d, i) => { cols[i].style.transform = `translateY(-${Number(d)}em)`; });
+    }
+  };
+
+  // Clicar ou arrastar na régua rola a página até aquela proporção
+  let dragging = false;
+  const seek = (e: PointerEvent) => {
+    const r = rail.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height));
+    scrollTo({ top: p * (document.documentElement.scrollHeight - innerHeight), behavior: 'instant' as ScrollBehavior });
+  };
+  const down = (e: PointerEvent) => { dragging = true; rail.setPointerCapture(e.pointerId); seek(e); };
+  const move = (e: PointerEvent) => { if (dragging) seek(e); };
+  const up = () => { dragging = false; };
+  rail.addEventListener('pointerdown', down);
+  rail.addEventListener('pointermove', move);
+  rail.addEventListener('pointerup', up);
+  rail.addEventListener('pointercancel', up);
+
+  let frame = 0;
+  const onScrollRuler = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(update); };
+  addEventListener('scroll', onScrollRuler, { passive: true });
+  const ro = new ResizeObserver(layout);
+  ro.observe(document.body);
+  root.dataset.ruler = 'on';
+  layout();
+
+  return () => {
+    removeEventListener('scroll', onScrollRuler);
+    ro.disconnect();
+    spy?.disconnect();
+    rail.remove();
+    index?.remove();
+    delete root.dataset.ruler;
+  };
+}
+
+const syncRuler = () => {
+  if (rulerMq.matches && !rulerOff) rulerOff = mountRuler();
+  else if (!rulerMq.matches && rulerOff) { rulerOff(); rulerOff = null; }
+};
+rulerMq.addEventListener('change', syncRuler);
+syncRuler();
+
 /* ---------- Menu do celular ---------- */
 const menuBtn = document.querySelector<HTMLButtonElement>('[data-menu-btn]');
 const menu = document.getElementById('menu-celular');

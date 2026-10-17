@@ -1,13 +1,10 @@
 ---
 // Monograma "MF": o M e o F dividem a mesma haste; o quadrado azul é o ponto final.
-// Mesmo desenho do favicon (public/img/favicon.svg). As cores seguem o tema.
+// Sem fundo: as letras usam a cor do texto do tema. Mesmo desenho do favicon (public/img/favicon.svg).
 interface Props { class?: string }
 const { class: cls = '' } = Astro.props;
 ---
-<svg class:list={['logo', cls]} viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-  <rect class="logo-bg" width="64" height="64" />
-  <g transform="translate(32 32) scale(1.1) translate(-32 -32)">
-    <path class="logo-fg" d="M10 48V16h7.5l8.5 13.5L34.5 16H54v7.5H42v5h9v7H42V48h-7.5V30.5L28 41h-4l-6.5-10.5V48z" />
-    <rect class="logo-dot" x="47" y="41" width="7" height="7" />
-  </g>
+<svg class:list={['logo', cls]} viewBox="10 16 44 32" aria-hidden="true" focusable="false">
+  <path class="logo-fg" d="M10 48V16h7.5l8.5 13.5L34.5 16H54v7.5H42v5h9v7H42V48h-7.5V30.5L28 41h-4l-6.5-10.5V48z" />
+  <rect class="logo-dot" x="47" y="41" width="7" height="7" />
 </svg>

@@ -296,9 +296,8 @@ ul, ol { margin: 0; padding: 0; }
 }
 .brand > span { display: grid; gap: 4px; white-space: nowrap; }
 .brand small { font: 500 .6rem/1 var(--mono); font-stretch: normal; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); }
-.brand-mark { width: 30px; height: 30px; flex: none; }
-.logo-bg { fill: var(--invert-bg); }
-.logo-fg { fill: var(--invert-fg); }
+.brand-mark { width: 33px; height: 24px; flex: none; }
+.logo-fg { fill: var(--ink-strong); }
 .logo-dot { fill: var(--accent-bright); transition: transform .25s cubic-bezier(.2, .7, .2, 1); }
 .brand:hover .logo-dot { transform: translate(-3px, 0); }
 .brand:hover > span { color: var(--accent); }
@@ -761,7 +760,7 @@ a.card:hover .h3 { color: var(--accent); }
 .footer-grid li { color: var(--muted); }
 .footer-about p { color: var(--muted); font-size: .95rem; margin-top: 16px; max-width: 34ch; }
 .footer-about .brand { padding: 0; border: 0; font-size: 1.1rem; }
-.footer-about .brand-mark { width: 40px; height: 40px; }
+.footer-about .brand-mark { width: 44px; height: 32px; }
 .footer-mark {
   container-type: inline-size; padding-block: clamp(20px, 3vw, 36px) 0; margin-bottom: -0.16em;
   font: 750 1rem/0.9 var(--display); font-stretch: 125%; letter-spacing: -0.035em;
@@ -786,6 +785,63 @@ a.card:hover .h3 { color: var(--accent); }
 .wa-float svg { width: 18px; height: 18px; }
 @media (min-width: 960px) { .wa-float { display: none; } }
 
+/* ---------- Régua lateral (desktop; montada em scripts/site.ts) ----------
+   Substitui a barra de rolagem: os traços andam com a página, o marcador azul
+   mostra a posição (clique ou arraste para rolar) e o índice lista as seções. */
+html[data-ruler='on'] { scrollbar-width: none; --rail: 36px; }
+html[data-ruler='on']::-webkit-scrollbar { display: none; }
+html[data-ruler='on'] body { padding-right: var(--rail); }
+html[data-ruler='on'] .site-header { margin-right: calc(-1 * var(--rail)); }
+.ruler {
+  position: fixed; top: var(--header-h); right: 0; bottom: 0; z-index: 45; width: var(--rail);
+  overflow: hidden; cursor: ns-resize; touch-action: none; user-select: none;
+  background: var(--bg); border-left: 1px solid var(--line);
+}
+.ruler-strip {
+  position: absolute; inset: 0 0 auto 0; will-change: transform;
+  background-image:
+    repeating-linear-gradient(to bottom, var(--ink) 0 1px, transparent 1px 200px),
+    repeating-linear-gradient(to bottom, var(--line-strong) 0 1px, transparent 1px 40px);
+  background-size: 14px 100%, 7px 100%;
+  background-position: right top, right top;
+  background-repeat: no-repeat;
+}
+.ruler-strip span {
+  position: absolute; right: 17px; transform: translateY(-50%);
+  font: 500 .58rem/1 var(--mono); letter-spacing: .04em; color: var(--faint);
+}
+.ruler-mark {
+  position: absolute; left: 0; right: 0; top: 0; height: 0; pointer-events: none;
+  transform: translateY(calc(var(--p, 0) * (100cqh - 1px)));
+}
+.ruler { container-type: size; }
+.ruler-mark::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--accent-bright); }
+.ruler-mark::after {
+  /* setinha apontando para a régua */
+  content: ''; position: absolute; left: 0; top: -3px; border: 4px solid transparent; border-left-color: var(--accent-bright);
+}
+.ruler-readout {
+  position: absolute; right: 0; left: 1px; top: 6px; display: flex; justify-content: center;
+  padding: 3px 0; background: var(--invert-bg); color: var(--invert-fg);
+  font: 600 .6rem/1 var(--mono); letter-spacing: .02em;
+}
+.ruler-mark.is-bottom .ruler-readout { top: auto; bottom: 6px; }
+.ruler-digits { display: inline-flex; height: 1em; overflow: hidden; line-height: 1; }
+.ruler-digit-col { display: flex; flex-direction: column; transition: transform .28s cubic-bezier(.2, .9, .2, 1); }
+.ruler-digit-col > span { display: block; height: 1em; }
+
+.ruler-index {
+  position: fixed; right: calc(var(--rail) + 24px); bottom: 28px; z-index: 44;
+  display: none; list-style: none; text-align: right;
+}
+@media (min-width: 1760px) { html[data-ruler='on'] .ruler-index { display: grid; gap: 2px; } }
+.ruler-index a {
+  font: 650 .8rem/1.2 var(--display); font-stretch: 125%; letter-spacing: -0.01em; text-transform: uppercase;
+  color: var(--faint); text-decoration: none; transition: color .2s;
+}
+.ruler-index a:hover { color: var(--accent); }
+.ruler-index a[aria-current='true'] { color: var(--ink-strong); }
+
 /* ---------- Movimento ---------- */
 @media (prefers-reduced-motion: no-preference) {
   .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s cubic-bezier(.2, .7, .2, 1), transform .6s cubic-bezier(.2, .7, .2, 1); }
@@ -804,7 +860,8 @@ a.card:hover .h3 { color: var(--accent); }
 }
 
 @media print {
-  .site-header, .site-footer, .wa-float, .cta, .marquee { display: none !important; }
+  .site-header, .site-footer, .wa-float, .cta, .marquee, .ruler, .ruler-index { display: none !important; }
+  html[data-ruler='on'] body { padding-right: 0; }
   body { background: #fff; color: #000; }
 }
 
