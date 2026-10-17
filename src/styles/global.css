@@ -356,7 +356,7 @@ ul, ol { margin: 0; padding: 0; }
 
 /* ---------- Hero ---------- */
 .hero { position: relative; border-top: 0; isolation: isolate; }
-.hero > .wrap { padding-block: clamp(28px, 4vw, 48px) clamp(48px, 7vw, 96px); }
+.hero > .wrap { padding-block: clamp(14px, 2vw, 24px) clamp(48px, 7vw, 96px); }
 .hero::before {
   /* grade discreta + linhas de varredura */
   content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
@@ -371,16 +371,18 @@ ul, ol { margin: 0; padding: 0; }
 }
 .hero-top {
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px;
-  margin-inline: calc(-1 * var(--gutter)); padding: 0 var(--gutter) 14px; margin-bottom: clamp(20px, 3vw, 36px);
+  margin-inline: calc(-1 * var(--gutter)); padding: 0 var(--gutter) 12px; margin-bottom: clamp(18px, 2.4vw, 30px);
   border-bottom: 1px solid var(--line); color: var(--muted);
 }
 .hero-top span:last-child { color: var(--faint); }
+@media (max-width: 599px) { .hero-top span:last-child { display: none; } }
 
 /* Nome gigante, letra por letra */
-.wordmark { container-type: inline-size; margin-bottom: clamp(28px, 4vw, 48px); }
+.wordmark { container-type: inline-size; margin-bottom: clamp(22px, 3vw, 40px); }
 .wordmark p {
   margin: 0; font-family: var(--display); font-weight: 750; font-stretch: 125%;
-  font-size: 11.6cqw; line-height: .9; letter-spacing: -0.035em; color: var(--ink-strong);
+  /* limitado pela altura para a chamada caber na primeira tela em notebooks */
+  font-size: 11.6cqw; font-size: min(11.6cqw, 14vh); font-size: min(11.6cqw, 14svh); line-height: .9; letter-spacing: -0.035em; color: var(--ink-strong);
   white-space: nowrap;
 }
 .wordmark p + p { color: transparent; -webkit-text-stroke: 1px var(--line-strong); }
@@ -390,9 +392,9 @@ ul, ol { margin: 0; padding: 0; }
 }
 @keyframes wm-in { to { opacity: 1; transform: none; } }
 
-.hero-grid { display: grid; gap: clamp(36px, 5vw, 64px); align-items: end; }
-@media (min-width: 960px) { .hero-grid { grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); } }
-.hero-copy { display: grid; gap: 22px; }
+.hero-grid { display: grid; gap: clamp(36px, 5vw, 64px); align-items: start; }
+@media (min-width: 960px) { .hero-grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, .6fr); } }
+.hero-copy { display: grid; gap: 20px; }
 .hero h1 { font-size: clamp(1.9rem, 1.2rem + 2.6vw, 3.2rem); line-height: 1.04; letter-spacing: -0.035em; }
 .hero h1 em { color: var(--muted); }
 .hero .lead { max-width: 600px; }
@@ -400,7 +402,7 @@ ul, ol { margin: 0; padding: 0; }
 .hero-proof li { display: flex; gap: 8px; align-items: center; color: var(--faint); font: 500 .6875rem/1.5 var(--mono); letter-spacing: .15em; text-transform: uppercase; }
 .hero-proof svg { width: 14px; height: 14px; color: var(--accent); flex: none; }
 
-.portrait { position: relative; max-width: 400px; justify-self: center; width: 100%; border: 1px solid var(--line); background: var(--bg); }
+.portrait { position: relative; max-width: 360px; justify-self: end; width: 100%; border: 1px solid var(--line); background: var(--bg); }
 .portrait-bar {
   display: flex; justify-content: space-between; gap: 12px; padding: 9px 14px;
   border-bottom: 1px solid var(--line); color: var(--muted);
@@ -409,7 +411,7 @@ ul, ol { margin: 0; padding: 0; }
 .portrait-frame { position: relative; overflow: hidden; background: var(--surface-2); aspect-ratio: 4 / 5; }
 .portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(.15) contrast(1.02); }
 .status-card { display: grid; gap: 4px; padding: 12px 14px; border-top: 1px solid var(--line); font-size: .92rem; }
-.status-card .mono { font-size: .6875rem; color: var(--faint); letter-spacing: .12em; text-transform: uppercase; }
+.status-card .mono { font-size: .66rem; color: var(--faint); letter-spacing: .06em; text-transform: uppercase; }
 .status-dot { display: inline-flex; align-items: center; gap: 10px; font-weight: 560; }
 .status-dot::before {
   content: ''; width: 7px; height: 7px; background: var(--accent-bright);
