@@ -1,5 +1,6 @@
 ---
 import Icon from './Icon.astro';
+import Logo from './Logo.astro';
 import { NAV, whatsapp } from '../data/site';
 
 interface Props { path: string }
@@ -17,8 +18,8 @@ const isCurrent = (href: string) => {
 <header class="site-header" id="topo">
   <div class="header-row">
     <a class="brand" href="/">
-      <span class="brand-mark" aria-hidden="true">MF</span>
-      <span>Marcelo Fernandes<small>Uberlândia · MG</small></span>
+      <Logo class="brand-mark" />
+      <span>Marcelo Fernandes<small>Dev · Uberlândia-MG</small></span>
     </a>
     <nav class="nav" aria-label="Principal">
       <ul>

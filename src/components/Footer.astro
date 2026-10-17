@@ -1,4 +1,5 @@
 ---
+import Logo from './Logo.astro';
 import { SITE, whatsapp } from '../data/site';
 import { SERVICES } from '../data/services';
 const year = new Date().getFullYear();
@@ -8,7 +9,7 @@ const year = new Date().getFullYear();
     <div class="footer-grid">
       <div class="footer-about">
         <a class="brand" href="/">
-          <span class="brand-mark" aria-hidden="true">MF</span>
+          <Logo class="brand-mark" />
           <span>Marcelo Fernandes</span>
         </a>
         <p>Desenvolvimento web, automação e servidores Linux para pequenas empresas e autônomos. Uberlândia-MG e todo o Brasil.</p>
