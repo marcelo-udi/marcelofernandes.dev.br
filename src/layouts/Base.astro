@@ -76,6 +76,8 @@ const csp = [
     // Rede de segurança enquanto o redirecionamento HTTPS não é forçado no Cloudflare/GitHub
     if (location.protocol === 'http:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') location.replace('https:' + location.href.slice(5));
     document.documentElement.classList.add('js');
+    // Tema escolhido no botão do cabeçalho (sem escolha, segue o sistema)
+    try { const t = localStorage.getItem('tema'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}
   </script>
   <meta http-equiv="Content-Security-Policy" content={csp} />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
@@ -84,8 +86,8 @@ const csp = [
   <link rel="canonical" href={canonical} />
   <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
   <meta name="author" content={SITE.name} />
-  <meta name="theme-color" content="#f4f3ee" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0f1114" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f2f1ee" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#121316" media="(prefers-color-scheme: dark)" />
   <meta name="geo.region" content="BR-MG" />
   <meta name="geo.placename" content="Uberlândia" />
 
@@ -110,6 +112,7 @@ const csp = [
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
   <link rel="preload" href="/fonts/geist.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="alternate" type="application/rss+xml" title="Conteúdo — Marcelo Fernandes" href="/blog/rss.xml" />
   <slot name="head" />
   <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />

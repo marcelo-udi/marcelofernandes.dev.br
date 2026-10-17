@@ -1,11 +1,11 @@
 ---
 interface Props { num?: string; label: string; title: string; id?: string; split?: boolean }
 const { num, label, title, id, split = false } = Astro.props;
+// Trecho entre *asteriscos* no título vira ênfase serifada itálica
+const html = title.replace(/\*([^*]+)\*/g, '<em>$1</em>');
 ---
 <div class:list={['section-head', { 'section-head--split': split }]}>
-  <div style="display:grid;gap:16px">
-    <p class="eyebrow">{num && <b>{num}</b>}{label}</p>
-    <h2 class="h2" id={id}>{title}</h2>
-  </div>
+  <p class="eyebrow">{num && <b>{num}</b>}{label}</p>
+  <h2 class="h2" id={id} set:html={html} />
   {Astro.slots.has('default') && <p class="lead"><slot /></p>}
 </div>

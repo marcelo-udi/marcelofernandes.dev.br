@@ -14,6 +14,7 @@ import { faqSchema } from '../data/schema';
 import heroPhoto from '../assets/marcelo-hero.webp';
 import aboutPhoto from '../assets/marcelofernandes.jpg';
 
+const wordmark = ['MARCELO', 'FERNANDES'];
 const principais = SERVICES.filter((s) => s.group === 'principal');
 const complementares = SERVICES.filter((s) => s.group === 'complementar');
 
@@ -49,10 +50,19 @@ const faq = [
 >
   <!-- 1. Hero -->
   <section class="hero" aria-labelledby="hero-titulo">
-    <div class="wrap hero-grid">
+    <div class="wrap">
+    <div class="hero-top hud" aria-hidden="true">
+      <span>Sites · Sistemas · Automação · Servidores</span>
+      <span>Uberlândia-MG · Brasil</span>
+    </div>
+    <div class="wordmark" role="img" aria-label="Marcelo Fernandes">
+      {wordmark.map((line, l) => (
+        <p aria-hidden="true">{[...line].map((ch, i) => <span style={`--i:${l * 7 + i}`}>{ch}</span>)}</p>
+      ))}
+    </div>
+    <div class="hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow eyebrow--plain">Sites · Sistemas · Automação · Servidores — Uberlândia-MG</p>
-        <h1 class="h1" id="hero-titulo">Tecnologia que faz o seu negócio <em>trabalhar menos</em> e atender melhor.</h1>
+        <h1 id="hero-titulo">Tecnologia que faz o seu negócio <em>trabalhar menos</em> e atender melhor.</h1>
         <p class="lead">Sou o Marcelo Fernandes, desenvolvedor. Crio sites que trazem contatos, transformo tarefas manuais em processos automáticos e cuido dos servidores onde tudo roda, para pequenas empresas e profissionais autônomos.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href={whatsapp()} target="_blank" rel="noopener" data-track="whatsapp_hero">
@@ -67,6 +77,7 @@ const faq = [
         </ul>
       </div>
       <div class="portrait">
+        <div class="portrait-bar hud"><span>Retrato</span><span>MF / 2026</span></div>
         <div class="portrait-frame">
           <Image src={heroPhoto} alt="Marcelo Fernandes, desenvolvedor em Uberlândia-MG" widths={[320, 480, 640]}
             sizes="(min-width: 960px) 420px, 88vw" loading="eager" fetchpriority="high" quality={80} />
@@ -77,12 +88,21 @@ const faq = [
         </div>
       </div>
     </div>
+    </div>
   </section>
+
+  <div class="marquee">
+    {[0, 1].map((copy) => (
+      <ul class="marquee-track" aria-hidden={copy === 1 ? 'true' : undefined}>
+        {SERVICES.map((s) => <li class="hud">{s.name}</li>)}
+      </ul>
+    ))}
+  </div>
 
   <!-- 2. Problemas reais -->
   <section class="section section--line" aria-labelledby="problemas">
     <div class="wrap">
-      <SectionHead num="01" label="O que eu resolvo" title="Reconhece alguma destas situações?" id="problemas" split>
+      <SectionHead num="01" label="O que eu resolvo" title="Reconhece alguma destas *situações*?" id="problemas" split>
         A tecnologia certa não é a mais cara nem a mais nova: é a que resolve o problema que custa tempo e dinheiro hoje.
       </SectionHead>
       <div class="pairs reveal">
@@ -100,7 +120,7 @@ const faq = [
   <!-- 3. Serviços -->
   <section class="section" id="servicos" aria-labelledby="servicos-titulo">
     <div class="wrap">
-      <SectionHead num="02" label="Serviços" title="O que posso fazer pelo seu negócio" id="servicos-titulo">
+      <SectionHead num="02" label="Serviços" title="O que posso fazer pelo seu *negócio*" id="servicos-titulo">
         Quatro frentes principais e serviços complementares. Cada página explica o problema, o escopo e os limites.
       </SectionHead>
       <div class="grid grid-4">
@@ -127,7 +147,7 @@ const faq = [
   <!-- 4. Projetos -->
   <section class="section section--line" id="projetos" aria-labelledby="projetos-titulo">
     <div class="wrap">
-      <SectionHead num="03" label="Projetos" title="Trabalhos reais, que você pode abrir e conferir" id="projetos-titulo" split>
+      <SectionHead num="03" label="Projetos" title="Trabalhos reais, que você pode *abrir e conferir*" id="projetos-titulo" split>
         Sem logos de clientes inventados nem números sem fonte. Cada projeto tem estudo de caso com o problema, as decisões técnicas e o link.
       </SectionHead>
       <div class="grid" style="gap:24px">
@@ -140,7 +160,7 @@ const faq = [
   <!-- 5. Diferenciais -->
   <section class="section dark" aria-labelledby="como-trabalho">
     <div class="wrap">
-      <SectionHead num="04" label="Diferenciais" title="Como eu construo" id="como-trabalho" split>
+      <SectionHead num="04" label="Diferenciais" title="Como eu *construo*" id="como-trabalho" split>
         Os mesmos cuidados que uso nos meus próprios projetos em produção valem para o seu.
       </SectionHead>
       <ul class="principles">
@@ -158,7 +178,7 @@ const faq = [
   <!-- 6. Metodologia -->
   <section class="section" aria-labelledby="metodo">
     <div class="wrap">
-      <SectionHead num="05" label="Metodologia" title="Do primeiro contato ao projeto no ar" id="metodo" />
+      <SectionHead num="05" label="Metodologia" title="Do primeiro contato ao projeto *no ar*" id="metodo" />
       <Steps steps={SERVICES[0].steps} />
     </div>
   </section>
@@ -171,7 +191,7 @@ const faq = [
       </div>
       <div class="about-copy reveal">
         <p class="eyebrow"><b>06</b>Sobre</p>
-        <h2 class="h2" id="sobre">Prazer, eu sou o Marcelo.</h2>
+        <h2 class="h2" id="sobre">Prazer, eu sou o <em>Marcelo</em>.</h2>
         <p>Trabalho com tecnologia há mais de 7 anos e atendo pessoalmente cada projeto. Gosto de entender como o negócio funciona antes de propor qualquer ferramenta, porque a melhor solução costuma ser a mais simples que resolve.</p>
         <p>No dia a dia, desenvolvo sites e sistemas, escrevo automações em Python e mantenho servidores Linux, incluindo a infraestrutura dos meus próprios projetos, que ficam no ar 24 horas por dia.</p>
         <p><a class="link-arrow" href="/sobre.html">Conheça a minha trajetória e a forma de trabalhar <Icon name="ArrowRight" /></a></p>
@@ -182,7 +202,7 @@ const faq = [
   <!-- 8. Perguntas -->
   <section class="section section--line" aria-labelledby="duvidas">
     <div class="wrap split">
-      <SectionHead num="07" label="Dúvidas" title="Perguntas frequentes" id="duvidas">
+      <SectionHead num="07" label="Dúvidas" title="Perguntas *frequentes*" id="duvidas">
         Não achou a sua dúvida? <a href={whatsapp('Olá, Marcelo! Tenho uma dúvida antes de pedir orçamento.')} target="_blank" rel="noopener">Pergunte pelo WhatsApp</a>.
       </SectionHead>
       <Faq items={faq} />

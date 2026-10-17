@@ -4,17 +4,18 @@ import { whatsapp } from '../data/site';
 
 interface Props { title?: string; text?: string; message?: string; servico?: string; track?: string }
 const {
-  title = 'Vamos conversar sobre o que você precisa?',
+  title = 'Vamos conversar sobre o que você *precisa*?',
   text = 'Conte o problema pelo WhatsApp ou preencha o formulário. Você recebe uma proposta com escopo, prazo e valor, sem compromisso.',
   message, servico, track = 'whatsapp_cta',
 } = Astro.props;
-const formHref = servico ? `/contato.html?servico=${servico}#orcamento` : '/contato.html#orcamento';
+const titleHtml = title.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+const formHref =servico ? `/contato.html?servico=${servico}#orcamento` : '/contato.html#orcamento';
 ---
 <section class="section" aria-labelledby="cta-titulo">
   <div class="wrap">
     <div class="cta reveal">
-      <div style="position:relative;z-index:1">
-        <h2 class="h2" id="cta-titulo">{title}</h2>
+      <div>
+        <h2 class="h2" id="cta-titulo" set:html={titleHtml} />
         <p>{text}</p>
       </div>
       <div class="btn-row">

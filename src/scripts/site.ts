@@ -13,6 +13,17 @@ const onScroll = () => header?.classList.toggle('is-scrolled', scrollY > 8);
 addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
+/* ---------- Tema claro/escuro ---------- */
+document.querySelector('[data-theme-btn]')?.addEventListener('click', () => {
+  const root = document.documentElement;
+  const current = root.dataset.theme ?? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const next = current === 'dark' ? 'light' : 'dark';
+  root.classList.add('theme-anim');
+  root.dataset.theme = next;
+  try { localStorage.setItem('tema', next); } catch { /* armazenamento bloqueado */ }
+  setTimeout(() => root.classList.remove('theme-anim'), 400);
+});
+
 /* ---------- Menu do celular ---------- */
 const menuBtn = document.querySelector<HTMLButtonElement>('[data-menu-btn]');
 const menu = document.getElementById('menu-celular');
