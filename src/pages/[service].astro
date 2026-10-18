@@ -54,7 +54,7 @@ const serviceSchema = {
   <section class="section" aria-labelledby="problemas">
     <div class="wrap split">
       <div>
-        <SectionHead label="Quando faz sentido" title="Situações que este serviço resolve" id="problemas" />
+        <SectionHead label="Quando faz sentido" title="Você se reconhece aqui?" id="problemas" />
       </div>
       <ul class="dash-list reveal">
         {s.problems.map((p) => <li>{p}</li>)}
@@ -65,7 +65,7 @@ const serviceSchema = {
   <section class="section section--line" aria-labelledby="escopo">
     <div class="wrap split split--wide">
       <div class="reveal">
-        <SectionHead label="Escopo" title="O que está incluído" id="escopo" />
+        <SectionHead label="Escopo" title="O que você recebe" id="escopo" />
         <ul class="check-list">
           {s.includes.map((i) => <li><Icon name="Check" />{i}</li>)}
         </ul>
@@ -97,7 +97,7 @@ const serviceSchema = {
 
   <section class="section section--line" aria-labelledby="como">
     <div class="wrap">
-      <SectionHead label="Como funciona" title="Etapas do trabalho" id="como" />
+      <SectionHead label="Como funciona" title="Como vamos trabalhar" id="como" />
       <Steps steps={s.steps} />
     </div>
   </section>

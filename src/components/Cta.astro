@@ -4,8 +4,8 @@ import { whatsapp } from '../data/site';
 
 interface Props { title?: string; text?: string; message?: string; servico?: string; track?: string }
 const {
-  title = 'Vamos conversar sobre o que você *precisa*?',
-  text = 'Conte o problema pelo WhatsApp ou preencha o formulário. Você recebe uma proposta com escopo, prazo e valor, sem compromisso.',
+  title = 'Me conte o problema. Eu devolvo *um plano e um preço*.',
+  text = 'Mande uma mensagem pelo WhatsApp ou preencha o formulário. Você recebe escopo, prazo e valor por escrito, de graça e sem compromisso.',
   message, servico, track = 'whatsapp_cta',
 } = Astro.props;
 const titleHtml = title.replace(/\*([^*]+)\*/g, '<em>$1</em>');
@@ -22,7 +22,7 @@ const formHref =servico ? `/contato.html?servico=${servico}#orcamento` : '/conta
         <a class="btn btn--primary" href={whatsapp(message)} target="_blank" rel="noopener" data-track={track}>
           <Icon name="MessageCircle" />Chamar no WhatsApp
         </a>
-        <a class="btn btn--ghost" href={formHref}>Preencher formulário</a>
+        <a class="btn btn--ghost" href={formHref}>Prefiro o formulário</a>
       </div>
     </div>
   </div>

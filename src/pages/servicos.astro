@@ -21,13 +21,13 @@ const complementares = SERVICES.filter((s) => s.group === 'complementar');
     <div class="wrap page-head-grid">
       <Crumbs items={[{ label: 'Serviços' }]} />
       <h1 class="h1">Serviços</h1>
-      <p class="lead">Tudo o que faço, organizado pelo problema que resolve. Cada página explica o escopo, como funciona e o que não está incluído.</p>
+      <p class="lead">Tudo o que faço, organizado pelo problema que resolve. Em cada página você vê o que recebe, como funciona e o que não está incluído, antes de pedir qualquer orçamento.</p>
     </div>
   </header>
 
   <section class="section" aria-labelledby="principais">
     <div class="wrap">
-      <SectionHead label="Principais" title="As quatro frentes principais" id="principais" />
+      <SectionHead label="Principais" title="Onde a maioria dos projetos começa" id="principais" />
       <div class="grid grid-2">
         {principais.map((s) => (
           <a class="card reveal" href={`/${s.slug}.html`}>
@@ -46,7 +46,7 @@ const complementares = SERVICES.filter((s) => s.group === 'complementar');
 
   <section class="section section--line" aria-labelledby="complementares">
     <div class="wrap">
-      <SectionHead label="Complementares" title="Serviços complementares" id="complementares" />
+      <SectionHead label="Complementares" title="Para completar o projeto" id="complementares" />
       <div class="grid grid-2">
         {complementares.map((s) => (
           <a class="card reveal" href={`/${s.slug}.html`}>
@@ -61,10 +61,10 @@ const complementares = SERVICES.filter((s) => s.group === 'complementar');
 
   <section class="section section--line" aria-labelledby="etapas">
     <div class="wrap">
-      <SectionHead label="Como funciona" title="O mesmo processo para qualquer serviço" id="etapas" />
+      <SectionHead label="Como funciona" title="O mesmo processo, sem surpresas, para qualquer serviço" id="etapas" />
       <Steps steps={SERVICES[0].steps} />
     </div>
   </section>
 
-  <Cta title="Não sabe qual serviço é o seu caso?" text="Descreva o problema com as suas palavras. Eu digo qual é o caminho mais simples e quanto custa." />
+  <Cta title="Não sabe qual serviço é o seu caso?" text="Descreva o problema com as suas palavras. Eu digo qual é o caminho mais simples e quanto custa, sem compromisso." />
 </Base>

@@ -40,8 +40,8 @@ export const SERVICES: Service[] = [
     title: 'Criação de Sites e Lojas Virtuais em Uberlândia | Marcelo Fernandes',
     description: 'Criação de sites institucionais, landing pages e lojas virtuais rápidos, feitos para o celular e preparados para o Google. Atendimento direto em Uberlândia-MG e todo o Brasil.',
     h1: 'Criação de sites e lojas virtuais',
-    lead: 'Um site rápido, claro e fácil de encontrar, para quem procura o seu serviço entender o que você faz e chamar no WhatsApp.',
-    summary: 'Sites institucionais, landing pages, lojas virtuais e melhorias em sites que já existem.',
+    lead: 'Um site rápido e fácil de encontrar no Google, que explica logo de cara o que você faz e leva o visitante direto para o seu WhatsApp.',
+    summary: 'Sites e lojas que aparecem no Google e levam o visitante ao seu WhatsApp.',
     problems: [
       'Quem procura o seu serviço no Google encontra o concorrente, não você.',
       'O site atual é lento, quebra no celular ou está desatualizado.',
@@ -82,7 +82,7 @@ export const SERVICES: Service[] = [
     description: 'Sistemas web sob medida: painéis administrativos, pedidos, cadastros, pagamentos por PIX e integração entre sistemas por API. Para pequenas empresas em Uberlândia-MG e todo o Brasil.',
     h1: 'Sistemas web e APIs sob medida',
     lead: 'Quando a planilha e o aplicativo pronto não dão mais conta, um sistema feito para o seu processo reúne pedidos, cadastros e equipe num lugar só.',
-    summary: 'Painéis internos, pedidos, cadastros, pagamentos e integração entre sistemas.',
+    summary: 'Pedidos, cadastros e equipe num painel só, feito para o seu processo.',
     problems: [
       'O controle está espalhado em planilhas que ninguém sabe qual é a versão certa.',
       'Um pedido passa por várias pessoas e não dá para saber em que etapa está.',
@@ -120,8 +120,8 @@ export const SERVICES: Service[] = [
     title: 'Automação de Tarefas e Relatórios com Python | Marcelo Fernandes',
     description: 'Automação de tarefas repetitivas com Python: planilhas, relatórios automáticos, tratamento de dados, painéis no Power BI e integração entre sistemas.',
     h1: 'Automação de tarefas e relatórios',
-    lead: 'Tarefas repetitivas viram rotinas que rodam sozinhas: relatórios, planilhas, conferências e integrações sem copiar e colar.',
-    summary: 'Scripts em Python, planilhas, relatórios automáticos e integração entre sistemas.',
+    lead: 'Tarefas repetitivas viram rotinas que rodam sozinhas: relatórios, planilhas e conferências sem copiar e colar, e sem depender de uma pessoa só.',
+    summary: 'Relatórios e planilhas que se montam sozinhos, sem copiar e colar.',
     problems: [
       'Alguém passa horas por semana copiando dados de um sistema para uma planilha.',
       'O relatório do mês depende de uma pessoa e atrasa quando ela falta.',
@@ -159,8 +159,8 @@ export const SERVICES: Service[] = [
     title: 'Manutenção de Servidores Linux, Nginx e Docker | Marcelo Fernandes',
     description: 'Configuração e manutenção de servidores Linux: Nginx, HTTPS, Docker, backups automáticos, monitoramento e diagnóstico de lentidão. Uberlândia-MG e remoto para todo o Brasil.',
     h1: 'Servidores Linux, Nginx e Docker',
-    lead: 'Configuro e mantenho o servidor onde o seu site ou sistema roda, com backup, monitoramento e acesso seguro, para ele ficar no ar e você saber quando algo dá errado.',
-    summary: 'VPS, Nginx, HTTPS, Docker, backups, monitoramento e diagnóstico de problemas.',
+    lead: 'Configuro e mantenho o servidor onde o seu site ou sistema roda, com backup, monitoramento e acesso seguro, para ele continuar no ar e você saber de qualquer problema antes do cliente.',
+    summary: 'Servidor com HTTPS, backup testado e alerta quando algo sai do normal.',
     problems: [
       'O site cai de vez em quando e ninguém sabe dizer por quê.',
       'O servidor nunca foi atualizado e ninguém sabe o que está instalado nele.',
@@ -199,7 +199,7 @@ export const SERVICES: Service[] = [
     description: 'Publicação de sites e sistemas na nuvem: escolha do provedor, AWS EC2, VPS, Cloudflare, domínio, DNS, migração de hospedagem e revisão de custos.',
     h1: 'Nuvem e publicação de aplicações',
     lead: 'Coloco o seu site ou sistema no ar na AWS, numa VPS ou num serviço gerenciado, no tamanho certo para o uso real e sem pagar por estrutura parada.',
-    summary: 'AWS, VPS, Cloudflare, domínio, DNS, migração e revisão de custos.',
+    summary: 'Publique ou troque de hospedagem pagando só pelo que usa.',
     problems: [
       'A conta da hospedagem cresceu e ninguém sabe exatamente pelo que está pagando.',
       'Você precisa trocar de hospedagem sem deixar o site fora do ar.',
@@ -235,7 +235,7 @@ export const SERVICES: Service[] = [
     description: 'Revisão de segurança de servidores e sites: firewall, SSH, HTTPS, cabeçalhos, backups, atualização de dependências, monitoramento de logs e orientação básica sobre LGPD.',
     h1: 'Segurança e manutenção de servidores e sites',
     lead: 'Reviso as falhas que mais causam incidentes em pequenas empresas: servidor exposto, backup que não existe, senha fraca e sistema desatualizado.',
-    summary: 'Revisão de configuração, firewall, backups, logs e atualizações.',
+    summary: 'Revisão das falhas que mais expõem pequenas empresas, com relatório.',
     problems: [
       'O servidor tem portas abertas e acessos que ninguém lembra de ter criado.',
       'O site usa plugins e bibliotecas desatualizados há anos.',
@@ -274,7 +274,7 @@ export const SERVICES: Service[] = [
     description: 'IA aplicada a tarefas reais: integração com APIs de IA, chatbots com as informações do seu negócio, extração de dados de documentos e automação de fluxos com revisão humana.',
     h1: 'Inteligência artificial aplicada ao dia a dia',
     lead: 'Uso modelos de IA, como Claude e ChatGPT, em tarefas concretas: responder dúvidas frequentes, organizar mensagens, resumir documentos e preencher planilhas.',
-    summary: 'Integração com APIs de IA, chatbots e automação de fluxos.',
+    summary: 'IA em tarefas concretas, com revisão humana onde a resposta importa.',
     problems: [
       'A equipe responde as mesmas perguntas de clientes todos os dias.',
       'Informações importantes chegam em PDFs, e-mails e mensagens e precisam ser digitadas à mão.',
@@ -308,7 +308,7 @@ export const SERVICES: Service[] = [
     description: 'Cartões de visita, pastas personalizadas, papel timbrado, envelopes, panfletos e folders com arte criada para o seu negócio e acompanhamento da produção. Uberlândia-MG.',
     h1: 'Material gráfico com a identidade do seu negócio',
     lead: 'Cartões de visita, pastas, papel timbrado e panfletos com a mesma identidade do seu site. Crio a arte e acompanho a produção com acabamento profissional.',
-    summary: 'Cartões de visita, pastas, papel timbrado, panfletos e folders.',
+    summary: 'Cartões, pastas e papelaria com a mesma identidade do seu site.',
     problems: [
       'O cartão de visita não combina com o site nem com as redes sociais.',
       'Você precisa de material impresso para uma reunião ou evento e não sabe quais papéis e acabamentos escolher.',
