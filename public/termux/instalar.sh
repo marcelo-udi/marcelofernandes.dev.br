@@ -16,7 +16,7 @@ pkg install -y dotnet-host dotnet-runtime-10.0 termux-api
 
 echo "==> Baixando o programa..."
 # O "?v=" muda a cada versão: sem ele, o cache do site (Cloudflare) pode entregar o pacote antigo.
-sha256="9094e6a5ae93da0ea933b27037c656d2af2e18c714bb0cf3bc70fa3e104ca0b5"
+sha256="92a2e80008719ae089c57a1d176e5f2fab419c11f89e617757d82105e0b52e38"
 pacote="${TMPDIR:-$PREFIX/tmp}/informacoes-rede-termux.tar.gz"
 curl -fL --progress-bar "$url/informacoes-rede-termux.tar.gz?v=${sha256%"${sha256#????????}"}" -o "$pacote"
 if ! echo "$sha256  $pacote" | sha256sum -c - >/dev/null 2>&1; then
