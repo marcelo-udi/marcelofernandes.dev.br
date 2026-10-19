@@ -11,10 +11,10 @@ if [ "$(uname -m)" != "aarch64" ]; then
     exit 1
 fi
 
-echo "==> Instalando dependências (openssl, termux-api)..."
-pkg install -y openssl termux-api
+echo "==> Instalando o .NET 10 do Termux e o termux-api..."
+pkg install -y dotnet-host dotnet-runtime-10.0 termux-api
 
-echo "==> Baixando o programa com o .NET embutido (~25 MB)..."
+echo "==> Baixando o programa..."
 pacote="${TMPDIR:-$PREFIX/tmp}/informacoes-rede-termux.tar.gz"
 curl -fL --progress-bar "$url/informacoes-rede-termux.tar.gz" -o "$pacote"
 
@@ -23,7 +23,7 @@ rm -rf "$pasta"
 mkdir -p "$pasta"
 tar -xzf "$pacote" -C "$pasta"
 rm -f "$pacote"
-chmod +x "$pasta/InformacoesRede" "$pasta/informacoes-rede.sh"
+chmod +x "$pasta/informacoes-rede.sh"
 
 # Atalho "rede" para abrir de qualquer lugar.
 if ! grep -q "alias rede=" "$HOME/.bashrc" 2>/dev/null; then

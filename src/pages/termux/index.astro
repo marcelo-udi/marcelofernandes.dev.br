@@ -4,7 +4,7 @@ import Crumbs from '../../components/Crumbs.astro';
 import { breadcrumbSchema } from '../../data/schema';
 
 const instalar = 'curl -fsSL https://marcelofernandes.dev.br/termux/instalar.sh | sh';
-const sha256 = '5fd8d444d966168a3f45218ea6e8bf99c8629a566547ecf8e50b9ddd4f669f38';
+const sha256 = '9094e6a5ae93da0ea933b27037c656d2af2e18c714bb0cf3bc70fa3e104ca0b5';
 ---
 <Base
   title="Informações da rede para Termux | Marcelo Fernandes"
@@ -16,7 +16,7 @@ const sha256 = '5fd8d444d966168a3f45218ea6e8bf99c8629a566547ecf8e50b9ddd4f669f38
     <div class="wrap page-head-grid">
       <Crumbs items={[{ label: 'Termux' }]} />
       <h1 class="h1">Informações da rede no Android</h1>
-      <p class="lead">Versão para Termux do meu scanner de rede: mostra quem está conectado no seu Wi-Fi, as portas abertas de cada aparelho e os problemas de segurança. Já vem com o .NET embutido, sem instalar nada além do Termux.</p>
+      <p class="lead">Versão para Termux do meu scanner de rede: mostra quem está conectado no seu Wi-Fi, as portas abertas de cada aparelho e os problemas de segurança. Roda com o .NET 10 do próprio Termux, que o instalador baixa sozinho.</p>
     </div>
   </header>
 
@@ -31,12 +31,11 @@ const sha256 = '5fd8d444d966168a3f45218ea6e8bf99c8629a566547ecf8e50b9ddd4f669f38
       <p>Para ver nome da rede, sinal e canal, instale o app <a href="https://f-droid.org/packages/com.termux.api/" target="_blank" rel="noopener">Termux:API</a> da mesma loja do seu Termux e rode <code>termux-wifi-connectioninfo</code> uma vez para dar a permissão de localização.</p>
 
       <h2 id="manual">Instalação manual</h2>
-      <p>Baixe o pacote <a href="/termux/informacoes-rede-termux.tar.gz">informacoes-rede-termux.tar.gz</a> (Android 64 bits, ~25 MB, com o .NET embutido), extraia numa pasta dentro do Termux (no <code>/sdcard</code> o Android não deixa executar) e rode:</p>
-      <pre><code>pkg install openssl termux-api
+      <p>Baixe o pacote <a href="/termux/informacoes-rede-termux.tar.gz">informacoes-rede-termux.tar.gz</a> (~110 KB; usa o .NET 10 do próprio Termux), extraia numa pasta dentro do Termux e rode:</p>
+      <pre><code>pkg install dotnet-host dotnet-runtime-10.0 termux-api
 mkdir -p ~/informacoes-rede
 tar -xzf informacoes-rede-termux.tar.gz -C ~/informacoes-rede
-chmod +x ~/informacoes-rede/InformacoesRede ~/informacoes-rede/informacoes-rede.sh
-~/informacoes-rede/informacoes-rede.sh</code></pre>
+dotnet ~/informacoes-rede/InformacoesRede.dll</code></pre>
       <p class="muted">SHA-256 do pacote: <code>{sha256}</code></p>
 
       <h2 id="limites">Limitações no Android</h2>
