@@ -1,0 +1,49 @@
+---
+import Base from '../../layouts/Base.astro';
+import Crumbs from '../../components/Crumbs.astro';
+import { breadcrumbSchema } from '../../data/schema';
+
+const instalar = 'curl -fsSL https://marcelofernandes.dev.br/termux/instalar.sh | sh';
+const sha256 = 'd0be3591490f906cd9de1d204304fb1d61c4822361f75a8f15ba617a627db227';
+---
+<Base
+  title="Informações da rede para Termux | Marcelo Fernandes"
+  description="Scanner da rede local para Android pelo Termux: lista os aparelhos conectados, portas abertas e problemas de segurança. Instalação com um comando."
+  path="/termux/"
+  schema={[breadcrumbSchema([{ href: '/termux/', label: 'Termux' }])]}
+>
+  <header class="page-head">
+    <div class="wrap page-head-grid">
+      <Crumbs items={[{ label: 'Termux' }]} />
+      <h1 class="h1">Informações da rede no Android</h1>
+      <p class="lead">Versão para Termux do meu scanner de rede: mostra quem está conectado no seu Wi-Fi, as portas abertas de cada aparelho e os problemas de segurança. Um arquivo só, sem instalar .NET.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap wrap-narrow prose" style="margin-inline:0">
+      <h2 id="instalar">Instalar</h2>
+      <p>Abra o <a href="https://f-droid.org/packages/com.termux/" target="_blank" rel="noopener">Termux</a> e cole:</p>
+      <pre><code>{instalar}</code></pre>
+      <p>Depois é só digitar <code>rede</code> (feche e abra o Termux uma vez para o atalho valer).</p>
+
+      <h2 id="wifi">Dados do Wi-Fi (opcional)</h2>
+      <p>Para ver nome da rede, sinal e canal, instale o app <a href="https://f-droid.org/packages/com.termux.api/" target="_blank" rel="noopener">Termux:API</a> da mesma loja do seu Termux e rode <code>termux-wifi-connectioninfo</code> uma vez para dar a permissão de localização.</p>
+
+      <h2 id="manual">Instalação manual</h2>
+      <p>Baixe <a href="/termux/InformacoesRede">InformacoesRede</a> (Android 64 bits, ~8,5 MB) e <a href="/termux/informacoes-rede.sh">informacoes-rede.sh</a>, coloque os dois numa pasta dentro do Termux (no <code>/sdcard</code> o Android não deixa executar) e rode:</p>
+      <pre><code>pkg install openssl termux-api
+chmod +x InformacoesRede informacoes-rede.sh
+./informacoes-rede.sh</code></pre>
+      <p class="muted">SHA-256 do executável: <code>{sha256}</code></p>
+
+      <h2 id="limites">Limitações no Android</h2>
+      <ul>
+        <li>Sem root, o Android 10+ esconde o MAC dos aparelhos: eles aparecem pelo IP e sem fabricante.</li>
+        <li>Só aparecem os aparelhos que respondem ping.</li>
+        <li>Os comandos <code>upnp</code> e <code>compartilhamentos</code> só funcionam na versão Windows.</li>
+      </ul>
+      <p>Use só na sua rede ou numa rede em que você tenha autorização.</p>
+    </div>
+  </section>
+</Base>
