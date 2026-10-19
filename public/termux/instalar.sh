@@ -15,8 +15,15 @@ echo "==> Instalando o .NET 10 do Termux e o termux-api..."
 pkg install -y dotnet-host dotnet-runtime-10.0 termux-api
 
 echo "==> Baixando o programa..."
+# O "?v=" muda a cada versão: sem ele, o cache do site (Cloudflare) pode entregar o pacote antigo.
+sha256="9094e6a5ae93da0ea933b27037c656d2af2e18c714bb0cf3bc70fa3e104ca0b5"
 pacote="${TMPDIR:-$PREFIX/tmp}/informacoes-rede-termux.tar.gz"
-curl -fL --progress-bar "$url/informacoes-rede-termux.tar.gz" -o "$pacote"
+curl -fL --progress-bar "$url/informacoes-rede-termux.tar.gz?v=${sha256%"${sha256#????????}"}" -o "$pacote"
+if ! echo "$sha256  $pacote" | sha256sum -c - >/dev/null 2>&1; then
+    rm -f "$pacote"
+    echo "O pacote baixado não confere (SHA-256). Espere alguns minutos e rode o instalador de novo." >&2
+    exit 1
+fi
 
 # Os dados (nomes, histórico) ficam em ~/Ferramentas; esta pasta só tem o programa e pode ser trocada.
 rm -rf "$pasta"
