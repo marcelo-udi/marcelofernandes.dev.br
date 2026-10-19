@@ -4,7 +4,7 @@ import Crumbs from '../../components/Crumbs.astro';
 import { breadcrumbSchema } from '../../data/schema';
 
 const instalar = 'curl -fsSL https://marcelofernandes.dev.br/termux/instalar.sh | sh';
-const sha256 = 'd0be3591490f906cd9de1d204304fb1d61c4822361f75a8f15ba617a627db227';
+const sha256 = '5fd8d444d966168a3f45218ea6e8bf99c8629a566547ecf8e50b9ddd4f669f38';
 ---
 <Base
   title="Informações da rede para Termux | Marcelo Fernandes"
@@ -16,7 +16,7 @@ const sha256 = 'd0be3591490f906cd9de1d204304fb1d61c4822361f75a8f15ba617a627db227
     <div class="wrap page-head-grid">
       <Crumbs items={[{ label: 'Termux' }]} />
       <h1 class="h1">Informações da rede no Android</h1>
-      <p class="lead">Versão para Termux do meu scanner de rede: mostra quem está conectado no seu Wi-Fi, as portas abertas de cada aparelho e os problemas de segurança. Um arquivo só, sem instalar .NET.</p>
+      <p class="lead">Versão para Termux do meu scanner de rede: mostra quem está conectado no seu Wi-Fi, as portas abertas de cada aparelho e os problemas de segurança. Já vem com o .NET embutido, sem instalar nada além do Termux.</p>
     </div>
   </header>
 
@@ -31,11 +31,13 @@ const sha256 = 'd0be3591490f906cd9de1d204304fb1d61c4822361f75a8f15ba617a627db227
       <p>Para ver nome da rede, sinal e canal, instale o app <a href="https://f-droid.org/packages/com.termux.api/" target="_blank" rel="noopener">Termux:API</a> da mesma loja do seu Termux e rode <code>termux-wifi-connectioninfo</code> uma vez para dar a permissão de localização.</p>
 
       <h2 id="manual">Instalação manual</h2>
-      <p>Baixe <a href="/termux/InformacoesRede">InformacoesRede</a> (Android 64 bits, ~8,5 MB) e <a href="/termux/informacoes-rede.sh">informacoes-rede.sh</a>, coloque os dois numa pasta dentro do Termux (no <code>/sdcard</code> o Android não deixa executar) e rode:</p>
+      <p>Baixe o pacote <a href="/termux/informacoes-rede-termux.tar.gz">informacoes-rede-termux.tar.gz</a> (Android 64 bits, ~25 MB, com o .NET embutido), extraia numa pasta dentro do Termux (no <code>/sdcard</code> o Android não deixa executar) e rode:</p>
       <pre><code>pkg install openssl termux-api
-chmod +x InformacoesRede informacoes-rede.sh
-./informacoes-rede.sh</code></pre>
-      <p class="muted">SHA-256 do executável: <code>{sha256}</code></p>
+mkdir -p ~/informacoes-rede
+tar -xzf informacoes-rede-termux.tar.gz -C ~/informacoes-rede
+chmod +x ~/informacoes-rede/InformacoesRede ~/informacoes-rede/informacoes-rede.sh
+~/informacoes-rede/informacoes-rede.sh</code></pre>
+      <p class="muted">SHA-256 do pacote: <code>{sha256}</code></p>
 
       <h2 id="limites">Limitações no Android</h2>
       <ul>

@@ -14,10 +14,15 @@ fi
 echo "==> Instalando dependências (openssl, termux-api)..."
 pkg install -y openssl termux-api
 
-echo "==> Baixando o programa (~8,5 MB)..."
+echo "==> Baixando o programa com o .NET embutido (~25 MB)..."
+pacote="${TMPDIR:-$PREFIX/tmp}/informacoes-rede-termux.tar.gz"
+curl -fL --progress-bar "$url/informacoes-rede-termux.tar.gz" -o "$pacote"
+
+# Os dados (nomes, histórico) ficam em ~/Ferramentas; esta pasta só tem o programa e pode ser trocada.
+rm -rf "$pasta"
 mkdir -p "$pasta"
-curl -fL --progress-bar "$url/InformacoesRede" -o "$pasta/InformacoesRede"
-curl -fsSL "$url/informacoes-rede.sh" -o "$pasta/informacoes-rede.sh"
+tar -xzf "$pacote" -C "$pasta"
+rm -f "$pacote"
 chmod +x "$pasta/InformacoesRede" "$pasta/informacoes-rede.sh"
 
 # Atalho "rede" para abrir de qualquer lugar.
