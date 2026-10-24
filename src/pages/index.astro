@@ -22,6 +22,8 @@ const pairs = [
   { p: 'Sua empresa precisa de uma página que explique o que faz e ajude o cliente a entrar em contato.', a: 'Crio um site claro, rápido no celular e preparado para as buscas, com acesso fácil ao WhatsApp.', href: '/site_institucional.html', link: 'Criação de sites e lojas' },
   { p: 'Pedidos e informações estão espalhados em planilhas, mensagens e programas diferentes.', a: 'Desenvolvo um sistema para organizar tudo em um só lugar e mostrar à equipe o andamento de cada pedido.', href: '/software.html', link: 'Software sob medida' },
   { p: 'Você não sabe quem tem acesso ao servidor nem se conseguiria recuperar os dados.', a: 'Reviso acessos, atualizações e cópias de segurança, e entrego um relatório com o que precisa ser corrigido.', href: '/seguranca_cibernetica.html', link: 'Segurança de sites e dados' },
+  { p: 'Sua equipe repete as mesmas respostas ou digita informações de documentos à mão.', a: 'Integro inteligência artificial a tarefas práticas, com revisão humana nas etapas importantes.', href: '/ia.html', link: 'Inteligência artificial (IA)' },
+  { p: 'Seu site ou sistema precisa ir para a nuvem, mas você não sabe qual serviço escolher.', a: 'Planejo a hospedagem, publico ou migro a aplicação e reviso os custos da infraestrutura.', href: '/cloud.html', link: 'Computação em nuvem' },
 ];
 
 const principles = [
@@ -42,8 +44,8 @@ const faq = [
 ];
 ---
 <Base
-  title="Marcelo Fernandes | Criação de Sites, Software e Segurança em Uberlândia"
-  description="Criação de sites, software sob medida e revisão da segurança de sites e dados para pequenas empresas. Atendimento direto em Uberlândia-MG e em todo o Brasil. Peça um orçamento gratuito."
+  title="Marcelo Fernandes | Sites, Software, IA e Nuvem em Uberlândia"
+  description="Crio sites e software, integro inteligência artificial e publico aplicações em nuvem. Também reviso a segurança de sites e dados. Atendimento em Uberlândia e remoto."
   path="/"
   schema={[faqSchema(faq)]}
 >
@@ -51,7 +53,7 @@ const faq = [
   <section class="hero" aria-labelledby="hero-titulo">
     <div class="wrap">
     <div class="hero-top hud" aria-hidden="true">
-      <span>Sites · Software · Segurança</span>
+      <span>Sites · Software · IA · Nuvem · Segurança</span>
       <span>Uberlândia-MG · Brasil</span>
     </div>
     <div class="wordmark" role="img" aria-label="Marcelo Fernandes">
@@ -61,8 +63,8 @@ const faq = [
     </div>
     <div class="hero-grid">
       <div class="hero-copy">
-        <h1 id="hero-titulo">Seu negócio precisa de um site claro, um sistema útil e <em>dados mais seguros</em>.</h1>
-        <p class="lead">Sou Marcelo Fernandes. Crio páginas para apresentar sua empresa, desenvolvo software para organizar o trabalho e reviso a segurança de sites e servidores. Você fala diretamente comigo, do orçamento à entrega.</p>
+        <h1 id="hero-titulo">Sites, software, IA e nuvem para sua empresa, com <em>segurança desde o início</em>.</h1>
+        <p class="lead">Sou Marcelo Fernandes. Crio sites e sistemas, integro inteligência artificial a tarefas práticas, publico aplicações em nuvem e reviso a segurança de sites e dados. Você fala diretamente comigo, do orçamento à entrega.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href={whatsapp()} target="_blank" rel="noopener" data-track="whatsapp_hero">
             <Icon name="MessageCircle" />Quero um orçamento grátis
@@ -102,7 +104,7 @@ const faq = [
   <section class="section section--line" aria-labelledby="problemas">
     <div class="wrap">
       <SectionHead num="01" label="O que eu resolvo" title="Qual destes problemas você quer *resolver*?" id="problemas" split>
-        Veja exemplos de como um site, um software ou uma revisão de segurança podem ajudar sua empresa.
+        Veja como sites, software, inteligência artificial, computação em nuvem e segurança podem ajudar sua empresa.
       </SectionHead>
       <div class="pairs reveal">
         {pairs.map((x) => (
@@ -120,7 +122,7 @@ const faq = [
   <section class="section" id="servicos" aria-labelledby="servicos-titulo">
     <div class="wrap">
       <SectionHead num="02" label="Serviços" title="O que posso fazer *pela sua empresa*" id="servicos-titulo">
-        Meu foco é criar sites, desenvolver software e revisar a segurança de sites e dados. Veja o que cada serviço inclui.
+        Crio sites e software, aplico IA a tarefas do dia a dia, publico aplicações em nuvem e reviso a segurança de sites e dados. Veja o que cada serviço inclui.
       </SectionHead>
       <div class="grid grid-3">
         {principais.map((s) => (
@@ -194,7 +196,7 @@ const faq = [
         <p class="eyebrow"><b>06</b>Sobre</p>
         <h2 class="h2" id="sobre">Prazer, eu sou o <em>Marcelo</em>.</h2>
         <p>Há mais de 7 anos resolvo problemas com tecnologia, e atendo pessoalmente cada projeto. Antes de propor qualquer ferramenta, quero entender como o seu negócio funciona: quase sempre, a melhor solução é a mais simples que resolve.</p>
-        <p>No dia a dia, crio sites e software, reviso a segurança de servidores e cuido da infraestrutura dos meus próprios projetos.</p>
+        <p>No dia a dia, crio sites e software, integro IA a tarefas práticas, publico aplicações em nuvem e cuido da segurança e da infraestrutura dos meus projetos.</p>
         <p><a class="link-arrow" href="/sobre.html">Conheça a minha trajetória e a forma de trabalhar <Icon name="ArrowRight" /></a></p>
       </div>
     </div>
