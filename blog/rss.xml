@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Conteúdo técnico — Marcelo Fernandes</title>
+    <link>https://marcelofernandes.dev.br/blog/</link>
+    <description>Segurança, inteligência artificial e infraestrutura.</description>
+    <language>pt-BR</language>
+    <item>
+      <title>Como simplificar o Zero Trust com o Shared Signals Framework</title>
+      <link>https://marcelofernandes.dev.br/blog/posts/how-to-streamline-zero-trust-using.html</link>
+      <guid isPermaLink="true">https://marcelofernandes.dev.br/blog/posts/how-to-streamline-zero-trust-using.html</guid>
+      <pubDate>Tue, 09 Dec 2025 12:00:00 GMT</pubDate>
+      <description>Como implementar Zero Trust de forma simplificada com o Shared Signals Framework: princípios, fases de implementação e monitoramento contínuo.</description>
+    </item>
+    <item>
+      <title>Índia propõe cobrar OpenAI e Google por treinar IA com conteúdo protegido</title>
+      <link>https://marcelofernandes.dev.br/blog/posts/india-taxa-ia.html</link>
+      <guid isPermaLink="true">https://marcelofernandes.dev.br/blog/posts/india-taxa-ia.html</guid>
+      <pubDate>Tue, 09 Dec 2025 12:00:00 GMT</pubDate>
+      <description>Índia propõe taxar OpenAI e Google pelo treino de IA com conteúdo protegido por direitos autorais. Entenda a proposta e o impacto no mercado de IA.</description>
+    </item>
+    <item>
+      <title>Guia prático para aprender Inteligência Artificial</title>
+      <link>https://marcelofernandes.dev.br/blog/posts/guia-aprendizado-ia.html</link>
+      <guid isPermaLink="true">https://marcelofernandes.dev.br/blog/posts/guia-aprendizado-ia.html</guid>
+      <pubDate>Mon, 08 Dec 2025 12:00:00 GMT</pubDate>
+      <description>Roadmap prático para aprender Inteligência Artificial: fundamentos de matemática e Python, machine learning, deep learning, NLP e visão computacional.</description>
+    </item>
+    <item>
+      <title>React2Shell: falha crítica no React entra no catálogo KEV da CISA após exploração ativa</title>
+      <link>https://marcelofernandes.dev.br/blog/posts/react-shell.html</link>
+      <guid isPermaLink="true">https://marcelofernandes.dev.br/blog/posts/react-shell.html</guid>
+      <pubDate>Sat, 06 Dec 2025 12:00:00 GMT</pubDate>
+      <description>CVE-2025-55182 (CVSS 10.0): falha em React Server Components permite execução remota de código. Veja quem é afetado e as versões corrigidas.</description>
+    </item>
+    <item>
+      <title>Anatomia de ataques em redes corporativas: CVEs, TTPs e análise técnica</title>
+      <link>https://marcelofernandes.dev.br/blog/posts/ataque-em-redes-corporativas.html</link>
+      <guid isPermaLink="true">https://marcelofernandes.dev.br/blog/posts/ataque-em-redes-corporativas.html</guid>
+      <pubDate>Thu, 25 Sep 2025 12:00:00 GMT</pubDate>
+      <description>Análise técnica de 14 CVEs críticos, TTPs de 7 grupos APT ativos e técnicas de evasão avançada, com recomendações de mitigação para redes corporativas.</description>
+    </item>
+  </channel>
+</rss>

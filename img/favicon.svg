@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="8 10 48 44">
+  <style>
+    .fg { fill: #101014; }
+    @media (prefers-color-scheme: dark) { .fg { fill: #f2f1ee; } }
+  </style>
+  <path class="fg" d="M10 48V16h7.5l8.5 13.5L34.5 16H54v7.5H42v5h9v7H42V48h-7.5V30.5L28 41h-4l-6.5-10.5V48z"/>
+  <rect x="47" y="41" width="7" height="7" fill="#2d81ff"/>
+</svg>
