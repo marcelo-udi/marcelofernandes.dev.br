@@ -12,8 +12,8 @@ const principais = SERVICES.filter((s) => s.group === 'principal');
 const complementares = SERVICES.filter((s) => s.group === 'complementar');
 ---
 <Base
-  title="Serviços: Criação de Sites, Software e Segurança | Marcelo Fernandes"
-  description="Criação de sites e lojas virtuais, software sob medida e revisão da segurança de sites e dados. Conheça também os serviços de apoio. Atendimento em Uberlândia-MG e em todo o Brasil."
+  title="Serviços: Sites, Software, IA, Nuvem e Segurança | Marcelo Fernandes"
+  description="Criação de sites, software sob medida, inteligência artificial e computação em nuvem. Também reviso a segurança de sites e dados. Atendimento em Uberlândia e remoto."
   path="/servicos.html"
   schema={[breadcrumbSchema([{ href: '/servicos.html', label: 'Serviços' }])]}
 >
@@ -21,7 +21,7 @@ const complementares = SERVICES.filter((s) => s.group === 'complementar');
     <div class="wrap page-head-grid">
       <Crumbs items={[{ label: 'Serviços' }]} />
       <h1 class="h1">Serviços</h1>
-      <p class="lead">Crio sites, desenvolvo software e reviso a segurança de sites e dados. Escolha o serviço que combina com seu problema e veja o que está incluído antes de pedir um orçamento.</p>
+      <p class="lead">Crio sites e software, integro inteligência artificial a tarefas práticas, publico aplicações em nuvem e reviso a segurança de sites e dados. Veja o que cada serviço inclui.</p>
     </div>
   </header>
 
@@ -46,7 +46,7 @@ const complementares = SERVICES.filter((s) => s.group === 'complementar');
 
   <section class="section section--line" aria-labelledby="complementares">
     <div class="wrap">
-      <SectionHead label="Outros serviços" title="Ajuda para outras necessidades" id="complementares" />
+      <SectionHead label="Outros serviços" title="Inteligência artificial, nuvem e mais" id="complementares" />
       <div class="grid grid-2">
         {complementares.map((s) => (
           <a class="card reveal" href={`/${s.slug}.html`}>
