@@ -9,10 +9,9 @@ const demo = p.status.toLowerCase().includes('demonstr');
 ---
 <a class:list={['project reveal', { 'project--flip': flip }]} href={`/projetos/${p.slug}.html`}>
   <div class="project-shot">
-    <div class="browser" aria-hidden="true">
-      <div class="browser-bar"><i></i><i></i><i></i><span>{p.urlLabel}</span></div>
+    <div class="project-preview" aria-hidden="true">
       <Image src={p.cover} alt="" widths={[400, 640, 900, 1200]} sizes="(min-width: 900px) 620px, 92vw"
-        loading={eager ? 'eager' : 'lazy'} quality={78} format="webp" />
+        loading={eager ? 'eager' : 'lazy'} quality={86} format="webp" />
     </div>
   </div>
   <div class="project-body">
