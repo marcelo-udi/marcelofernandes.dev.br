@@ -24,6 +24,7 @@ const pairs = [
   { p: 'Você não sabe quem tem acesso ao servidor nem se conseguiria recuperar os dados.', a: 'Reviso acessos, atualizações e cópias de segurança, e entrego um relatório com o que precisa ser corrigido.', href: '/seguranca_cibernetica.html', link: 'Segurança de sites e dados' },
   { p: 'Sua equipe repete as mesmas respostas ou digita informações de documentos à mão.', a: 'Integro inteligência artificial a tarefas práticas, com revisão humana nas etapas importantes.', href: '/ia.html', link: 'Inteligência artificial (IA)' },
   { p: 'Seu site ou sistema precisa ir para a nuvem, mas você não sabe qual serviço escolher.', a: 'Planejo a hospedagem, publico ou migro a aplicação e reviso os custos da infraestrutura.', href: '/cloud.html', link: 'Computação em nuvem' },
+  { p: 'A equipe perde tempo juntando planilhas e preparando relatórios manualmente.', a: 'Automatizo tarefas repetitivas e organizo os dados para que o relatório fique pronto com menos trabalho.', href: '/automacao_relatorios.html', link: 'Automação e dados' },
 ];
 
 const principles = [
@@ -134,7 +135,7 @@ const faq = [
           </a>
         ))}
       </div>
-      <div class="grid grid-3" style="margin-top:16px">
+      <div class="grid grid-3 grid--balanced" style="margin-top:16px">
         {complementares.map((s) => (
           <a class="card card--compact reveal" href={`/${s.slug}.html`}>
             <h3 class="h3" style="display:flex;gap:10px;align-items:center"><Icon name={s.icon} />{s.name}</h3>
