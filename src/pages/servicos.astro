@@ -12,8 +12,8 @@ const principais = SERVICES.filter((s) => s.group === 'principal');
 const complementares = SERVICES.filter((s) => s.group === 'complementar');
 ---
 <Base
-  title="Serviços: Sites, Sistemas, Automação e Servidores | Marcelo Fernandes"
-  description="Criação de sites e lojas virtuais, sistemas web e APIs, automação com Python, servidores Linux, nuvem, segurança, IA aplicada e material gráfico. Uberlândia-MG e todo o Brasil."
+  title="Serviços: Criação de Sites, Software e Segurança | Marcelo Fernandes"
+  description="Criação de sites e lojas virtuais, software sob medida e revisão da segurança de sites e dados. Conheça também os serviços de apoio. Atendimento em Uberlândia-MG e em todo o Brasil."
   path="/servicos.html"
   schema={[breadcrumbSchema([{ href: '/servicos.html', label: 'Serviços' }])]}
 >
@@ -21,14 +21,14 @@ const complementares = SERVICES.filter((s) => s.group === 'complementar');
     <div class="wrap page-head-grid">
       <Crumbs items={[{ label: 'Serviços' }]} />
       <h1 class="h1">Serviços</h1>
-      <p class="lead">Tudo o que faço, organizado pelo problema que resolve. Em cada página você vê o que recebe, como funciona e o que não está incluído, antes de pedir qualquer orçamento.</p>
+      <p class="lead">Crio sites, desenvolvo software e reviso a segurança de sites e dados. Escolha o serviço que combina com seu problema e veja o que está incluído antes de pedir um orçamento.</p>
     </div>
   </header>
 
   <section class="section" aria-labelledby="principais">
     <div class="wrap">
-      <SectionHead label="Principais" title="Onde a maioria dos projetos começa" id="principais" />
-      <div class="grid grid-2">
+      <SectionHead label="Principais" title="Sites, software e segurança" id="principais" />
+      <div class="grid grid-3">
         {principais.map((s) => (
           <a class="card reveal" href={`/${s.slug}.html`}>
             <span class="card-icon"><Icon name={s.icon} /></span>
@@ -46,7 +46,7 @@ const complementares = SERVICES.filter((s) => s.group === 'complementar');
 
   <section class="section section--line" aria-labelledby="complementares">
     <div class="wrap">
-      <SectionHead label="Complementares" title="Para completar o projeto" id="complementares" />
+      <SectionHead label="Outros serviços" title="Ajuda para outras necessidades" id="complementares" />
       <div class="grid grid-2">
         {complementares.map((s) => (
           <a class="card reveal" href={`/${s.slug}.html`}>
@@ -61,7 +61,7 @@ const complementares = SERVICES.filter((s) => s.group === 'complementar');
 
   <section class="section section--line" aria-labelledby="etapas">
     <div class="wrap">
-      <SectionHead label="Como funciona" title="O mesmo processo, sem surpresas, para qualquer serviço" id="etapas" />
+      <SectionHead label="Como funciona" title="Da conversa à entrega" id="etapas" />
       <Steps steps={SERVICES[0].steps} />
     </div>
   </section>
