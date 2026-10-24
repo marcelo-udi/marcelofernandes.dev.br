@@ -2,7 +2,7 @@
 export const SITE = {
   url: 'https://marcelofernandes.dev.br',
   name: 'Marcelo Fernandes',
-  role: 'Criação de sites, software e segurança de sites e dados',
+  role: 'Sites, software, inteligência artificial, computação em nuvem e segurança',
   city: 'Uberlândia',
   region: 'MG',
   email: 'contato@marcelofernandes.dev.br',
