@@ -54,10 +54,9 @@ const workSchema = {
       {p.gallery.map((g, i) => (
         <figure class="figure reveal" style="margin:0">
           <div class="project-shot" style="border-radius:16px">
-            <div class="browser">
-              <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>{p.urlLabel}</span></div>
+            <div class="project-preview">
               <Image src={g.img} alt={g.alt} widths={[400, 640, 900, 1200]} sizes="(min-width: 680px) 560px, 92vw"
-                loading={i === 0 ? 'eager' : 'lazy'} quality={80} format="webp"
+                loading={i === 0 ? 'eager' : 'lazy'} quality={86} format="webp"
                 style={g.img.width < 600 ? 'aspect-ratio:auto;object-fit:contain;max-height:620px;width:auto;margin-inline:auto' : undefined} />
             </div>
           </div>
