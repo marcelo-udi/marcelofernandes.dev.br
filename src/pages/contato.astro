@@ -7,7 +7,8 @@ import { SERVICES } from '../data/services';
 import { SITE, whatsapp } from '../data/site';
 import { breadcrumbSchema } from '../data/schema';
 
-const opcoes = [...SERVICES.map((s) => ({ value: s.slug, label: s.name })), { value: 'nao-sei', label: 'Não sei ainda' }];
+const opcoes = [...SERVICES.filter((s) => s.group === 'principal'), ...SERVICES.filter((s) => s.group === 'complementar')].map((s) => ({ value: s.slug, label: s.name }));
+opcoes.push({ value: 'nao-sei', label: 'Não sei ainda' });
 
 const faq = [
   { q: 'Quando você responde?', a: 'No horário de atendimento: segunda a sexta, das 8h às 18h, e sábado, das 9h às 12h. Mensagens fora desse horário são respondidas no período seguinte.' },
@@ -25,7 +26,7 @@ const contactPage = {
 ---
 <Base
   title="Contato e Orçamento | Marcelo Fernandes — Uberlândia-MG"
-  description="Peça um orçamento gratuito pelo WhatsApp, por e-mail ou pelo formulário: sites, sistemas web, automação, servidores Linux e material gráfico. Uberlândia-MG e todo o Brasil."
+  description="Peça um orçamento gratuito para criação de sites, software sob medida ou revisão da segurança de sites e dados. Atendimento em Uberlândia-MG e em todo o Brasil."
   path="/contato.html"
   ogImage="/img/og/contato.jpg"
   schema={[contactPage, breadcrumbSchema([{ href: '/contato.html', label: 'Contato' }])]}
@@ -33,8 +34,8 @@ const contactPage = {
   <header class="page-head">
     <div class="wrap page-head-grid">
       <Crumbs items={[{ label: 'Contato' }]} />
-      <h1 class="h1">Conte o que precisa. O orçamento é por minha conta.</h1>
-      <p class="lead">O caminho mais rápido é o WhatsApp. Se preferir, descreva o projeto no formulário: ele monta a mensagem e você só confere e envia.</p>
+      <h1 class="h1">Conte o que sua empresa precisa</h1>
+      <p class="lead">Precisa de um site, de um software ou de ajuda com a segurança dos dados? Fale comigo pelo WhatsApp ou preencha o formulário. O orçamento é gratuito.</p>
     </div>
   </header>
 
