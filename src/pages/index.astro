@@ -19,10 +19,9 @@ const principais = SERVICES.filter((s) => s.group === 'principal');
 const complementares = SERVICES.filter((s) => s.group === 'complementar');
 
 const pairs = [
-  { p: 'Quem procura o seu serviço no Google acha o concorrente. E liga para ele.', a: 'Um site rápido, feito para o celular e preparado para a busca, com o WhatsApp a um toque em cada página.', href: '/site_institucional.html', link: 'Sites e lojas virtuais' },
-  { p: 'Alguém da equipe passa horas por semana copiando dados entre planilhas.', a: 'Uma rotina em Python faz isso sozinha, no horário certo, e avisa quando algo não bate.', href: '/automacao_relatorios.html', link: 'Automação e dados' },
-  { p: 'Pedidos chegam por WhatsApp, e-mail e telefone. Alguns nunca são atendidos.', a: 'Um sistema web simples: cada pedido registrado, cada etapa visível, a equipe toda no mesmo painel.', href: '/software.html', link: 'Sistemas web e APIs' },
-  { p: 'O site cai e ninguém sabe por quê. Nem se o backup existe.', a: 'Servidor com HTTPS, monitoramento, alerta no celular e backup testado, para você saber do problema antes do cliente.', href: '/manutencao_servidores.html', link: 'Servidores Linux' },
+  { p: 'Sua empresa precisa de uma página que explique o que faz e ajude o cliente a entrar em contato.', a: 'Crio um site claro, rápido no celular e preparado para as buscas, com acesso fácil ao WhatsApp.', href: '/site_institucional.html', link: 'Criação de sites e lojas' },
+  { p: 'Pedidos e informações estão espalhados em planilhas, mensagens e programas diferentes.', a: 'Desenvolvo um sistema para organizar tudo em um só lugar e mostrar à equipe o andamento de cada pedido.', href: '/software.html', link: 'Software sob medida' },
+  { p: 'Você não sabe quem tem acesso ao servidor nem se conseguiria recuperar os dados.', a: 'Reviso acessos, atualizações e cópias de segurança, e entrego um relatório com o que precisa ser corrigido.', href: '/seguranca_cibernetica.html', link: 'Segurança de sites e dados' },
 ];
 
 const principles = [
@@ -43,8 +42,8 @@ const faq = [
 ];
 ---
 <Base
-  title="Marcelo Fernandes | Sites, Sistemas, Automação e Servidores em Uberlândia"
-  description="Sites que trazem clientes pelo Google, sistemas que organizam pedidos, automação com Python e servidores Linux bem cuidados. Desenvolvedor em Uberlândia-MG para pequenas empresas e autônomos. Orçamento grátis."
+  title="Marcelo Fernandes | Criação de Sites, Software e Segurança em Uberlândia"
+  description="Criação de sites, software sob medida e revisão da segurança de sites e dados para pequenas empresas. Atendimento direto em Uberlândia-MG e em todo o Brasil. Peça um orçamento gratuito."
   path="/"
   schema={[faqSchema(faq)]}
 >
@@ -52,7 +51,7 @@ const faq = [
   <section class="hero" aria-labelledby="hero-titulo">
     <div class="wrap">
     <div class="hero-top hud" aria-hidden="true">
-      <span>Sites · Sistemas · Automação · Servidores</span>
+      <span>Sites · Software · Segurança</span>
       <span>Uberlândia-MG · Brasil</span>
     </div>
     <div class="wordmark" role="img" aria-label="Marcelo Fernandes">
@@ -62,8 +61,8 @@ const faq = [
     </div>
     <div class="hero-grid">
       <div class="hero-copy">
-        <h1 id="hero-titulo">Mais clientes te encontrando. Menos horas no <em>trabalho manual</em>.</h1>
-        <p class="lead">Sou o Marcelo Fernandes, desenvolvedor. Crio o site que faz o cliente chamar no seu WhatsApp, automatizo as tarefas que tomam horas da sua equipe e cuido do servidor onde tudo roda. Para pequenas empresas e autônomos, com um único responsável do orçamento à entrega.</p>
+        <h1 id="hero-titulo">Seu negócio precisa de um site claro, um sistema útil e <em>dados mais seguros</em>.</h1>
+        <p class="lead">Sou Marcelo Fernandes. Crio páginas para apresentar sua empresa, desenvolvo software para organizar o trabalho e reviso a segurança de sites e servidores. Você fala diretamente comigo, do orçamento à entrega.</p>
         <div class="btn-row">
           <a class="btn btn--primary" href={whatsapp()} target="_blank" rel="noopener" data-track="whatsapp_hero">
             <Icon name="MessageCircle" />Quero um orçamento grátis
@@ -102,8 +101,8 @@ const faq = [
   <!-- 2. Problemas reais -->
   <section class="section section--line" aria-labelledby="problemas">
     <div class="wrap">
-      <SectionHead num="01" label="O que eu resolvo" title="Reconhece alguma destas *situações*?" id="problemas" split>
-        A tecnologia certa não é a mais cara nem a mais nova. É a que acaba com o problema que está custando tempo e dinheiro hoje.
+      <SectionHead num="01" label="O que eu resolvo" title="Qual destes problemas você quer *resolver*?" id="problemas" split>
+        Veja exemplos de como um site, um software ou uma revisão de segurança podem ajudar sua empresa.
       </SectionHead>
       <div class="pairs reveal">
         {pairs.map((x) => (
@@ -120,10 +119,10 @@ const faq = [
   <!-- 3. Serviços -->
   <section class="section" id="servicos" aria-labelledby="servicos-titulo">
     <div class="wrap">
-      <SectionHead num="02" label="Serviços" title="Escolha pelo problema, *não pela tecnologia*" id="servicos-titulo">
-        Quatro frentes principais e serviços de apoio. Cada página mostra o que está incluído, como funciona e, com franqueza, o que não está.
+      <SectionHead num="02" label="Serviços" title="O que posso fazer *pela sua empresa*" id="servicos-titulo">
+        Meu foco é criar sites, desenvolver software e revisar a segurança de sites e dados. Veja o que cada serviço inclui.
       </SectionHead>
-      <div class="grid grid-4">
+      <div class="grid grid-3">
         {principais.map((s) => (
           <a class="card card--service reveal" href={`/${s.slug}.html`}>
             <span class="card-icon"><Icon name={s.icon} /></span>
@@ -133,7 +132,7 @@ const faq = [
           </a>
         ))}
       </div>
-      <div class="grid grid-4" style="margin-top:16px">
+      <div class="grid grid-3" style="margin-top:16px">
         {complementares.map((s) => (
           <a class="card card--compact reveal" href={`/${s.slug}.html`}>
             <h3 class="h3" style="display:flex;gap:10px;align-items:center"><Icon name={s.icon} />{s.name}</h3>
@@ -148,7 +147,7 @@ const faq = [
   <section class="section section--line" id="projetos" aria-labelledby="projetos-titulo">
     <div class="wrap">
       <SectionHead num="03" label="Projetos" title="Trabalhos reais, que você pode *abrir e conferir*" id="projetos-titulo" split>
-        Nada de logos inventados ou números sem fonte. Cada projeto tem link para você abrir e um estudo de caso com o problema e as decisões técnicas.
+        Cada projeto mostra o problema, a solução e um link para você conhecer o trabalho.
       </SectionHead>
       <div class="grid" style="gap:24px">
         {PROJECTS.map((p, i) => <ProjectCard project={p} flip={i % 2 === 1} />)}
@@ -160,8 +159,8 @@ const faq = [
   <!-- 5. Diferenciais -->
   <section class="section dark" aria-labelledby="como-trabalho">
     <div class="wrap">
-      <SectionHead num="04" label="Diferenciais" title="Seis compromissos em *todo projeto*" id="como-trabalho" split>
-        Os mesmos cuidados que uso nos meus próprios sistemas, que ficam no ar 24 horas por dia.
+      <SectionHead num="04" label="Como trabalho" title="O que você pode esperar de *cada projeto*" id="como-trabalho" split>
+        Explico o que será feito, combino preço e prazo e entrego os acessos a você.
       </SectionHead>
       <ul class="principles">
         {principles.map((x, i) => (
@@ -178,8 +177,8 @@ const faq = [
   <!-- 6. Metodologia -->
   <section class="section" aria-labelledby="metodo">
     <div class="wrap">
-      <SectionHead num="05" label="Metodologia" title="Do primeiro contato ao projeto *no ar*" id="metodo">
-        Quatro etapas, sem surpresa no caminho. Nada vai para o ar sem a sua aprovação.
+      <SectionHead num="05" label="Etapas" title="Do primeiro contato à *entrega*" id="metodo">
+        Você acompanha as etapas e aprova o projeto antes da publicação.
       </SectionHead>
       <Steps steps={SERVICES[0].steps} />
     </div>
@@ -195,7 +194,7 @@ const faq = [
         <p class="eyebrow"><b>06</b>Sobre</p>
         <h2 class="h2" id="sobre">Prazer, eu sou o <em>Marcelo</em>.</h2>
         <p>Há mais de 7 anos resolvo problemas com tecnologia, e atendo pessoalmente cada projeto. Antes de propor qualquer ferramenta, quero entender como o seu negócio funciona: quase sempre, a melhor solução é a mais simples que resolve.</p>
-        <p>No dia a dia, desenvolvo sites e sistemas, escrevo automações em Python e mantenho servidores Linux, incluindo a infraestrutura dos meus próprios projetos, que ficam no ar 24 horas por dia.</p>
+        <p>No dia a dia, crio sites e software, reviso a segurança de servidores e cuido da infraestrutura dos meus próprios projetos.</p>
         <p><a class="link-arrow" href="/sobre.html">Conheça a minha trajetória e a forma de trabalhar <Icon name="ArrowRight" /></a></p>
       </div>
     </div>
