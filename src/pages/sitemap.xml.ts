@@ -5,6 +5,12 @@ import { SERVICES } from '../data/services';
 import { PROJECTS } from '../data/projects';
 import { POSTS } from '../data/posts';
 
+// Páginas cujo conteúdo principal foi revisado em 24/10/2026.
+const revisedPages = new Set([
+  '/', '/servicos.html', '/site_institucional.html', '/software.html',
+  '/seguranca_cibernetica.html', '/ia.html', '/cloud.html', '/sobre.html', '/contato.html',
+]);
+
 export const GET: APIRoute = () => {
   const pages: { path: string; lastmod: string; priority: string }[] = [
     { path: '/', lastmod: SITE.updated, priority: '1.0' },
@@ -20,7 +26,7 @@ export const GET: APIRoute = () => {
   ];
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${pages.map((p) => `  <url><loc>${SITE.url}${p.path}</loc><lastmod>${p.lastmod}</lastmod><priority>${p.priority}</priority></url>`).join('\n')}
+${pages.map((p) => `  <url><loc>${SITE.url}${p.path}</loc><lastmod>${revisedPages.has(p.path) ? '2026-10-24' : p.lastmod}</lastmod><priority>${p.priority}</priority></url>`).join('\n')}
 </urlset>
 `;
   return new Response(body, { headers: { 'Content-Type': 'application/xml; charset=utf-8' } });
