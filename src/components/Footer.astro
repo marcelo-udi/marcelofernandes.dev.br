@@ -12,12 +12,12 @@ const year = new Date().getFullYear();
           <Logo class="brand-mark" />
           <span>Marcelo Fernandes</span>
         </a>
-        <p>Sites, sistemas, automação e servidores Linux para pequenas empresas e autônomos. Atendimento direto, em Uberlândia-MG e em todo o Brasil.</p>
+        <p>Criação de sites, software sob medida e segurança de sites e dados para pequenas empresas. Atendimento direto em Uberlândia-MG e em todo o Brasil.</p>
       </div>
       <div>
         <h2>Serviços</h2>
         <ul>
-          {SERVICES.map((s) => <li><a href={`/${s.slug}.html`}>{s.name}</a></li>)}
+          {[...SERVICES.filter((s) => s.group === 'principal'), ...SERVICES.filter((s) => s.group === 'complementar')].map((s) => <li><a href={`/${s.slug}.html`}>{s.name}</a></li>)}
         </ul>
       </div>
       <div>
