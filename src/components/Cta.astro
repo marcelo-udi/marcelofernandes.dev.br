@@ -4,8 +4,8 @@ import { whatsapp } from '../data/site';
 
 interface Props { title?: string; text?: string; message?: string; servico?: string; track?: string }
 const {
-  title = 'Me conte o problema. Eu devolvo *um plano e um preço*.',
-  text = 'Mande uma mensagem pelo WhatsApp ou preencha o formulário. Você recebe escopo, prazo e valor por escrito, de graça e sem compromisso.',
+  title = 'Conte o que precisa. Eu preparo *uma proposta clara*.',
+  text = 'Fale comigo pelo WhatsApp ou preencha o formulário. Eu explico o que pode ser feito e envio prazo e valor por escrito. O orçamento é gratuito.',
   message, servico, track = 'whatsapp_cta',
 } = Astro.props;
 const titleHtml = title.replace(/\*([^*]+)\*/g, '<em>$1</em>');
